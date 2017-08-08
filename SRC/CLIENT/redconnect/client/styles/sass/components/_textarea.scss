@@ -1,0 +1,57 @@
+//
+// Component: Textarea
+// --------------------------------------------------
+
+//== Default <textarea> styling
+//
+//## 
+
+textarea {
+    width: 100%;
+    min-height: 80px;
+    resize: none!important;
+    color: $input-color;
+    font-size: $font-size-base;
+    font-family: $font-family-base;
+    line-height: $line-height-base;
+    @include _padding($padding-large-vertical $padding-large-horizontal);
+    @include _radius;
+    @include _border-box;
+    border-width: $input-border-width;
+    border-style: $input-border-style;
+    border-color: $input-border-color;
+    
+    &:hover {
+        @include _shadow
+    }
+}
+
+textarea:focus, textarea.focus {
+    border-color: $input-hover-border-color;
+    outline: none;
+}
+
+textarea::-webkit-input-placeholder {
+    color: $grey;
+}
+
+textarea:disabled {
+	background-color: $input-bg-disabled;
+    color: $grey-dark;
+    cursor: $cursor-disabled;
+}
+
+textarea:disabled::-webkit-input-placeholder {
+    color: $grey;
+}
+
+textarea.error {     
+    border-color: $primary;      
+}
+
+textarea.error + span {
+    display: block;
+    font-size: $font-size-base - 1;
+    color: $primary !important;
+    @include _margin(9px 0 0);
+}

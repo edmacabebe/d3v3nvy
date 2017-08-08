@@ -1,0 +1,58 @@
+<options xmlns="http://marklogic.com/appservices/search">
+    <additional-query>
+        <cts:collection-query xmlns:cts="http://marklogic.com/cts">
+            <cts:uri>profile</cts:uri>
+        </cts:collection-query>
+    </additional-query>
+    <default-suggestion-source>
+        <range type="xs:string" facet="true">
+            <element ns="" name="fullName"/>
+        </range>
+    </default-suggestion-source>
+    <values name="names">
+        <range type="xs:string">
+            <field name="header-fullName" />
+            <!--element ns="" name="fullName"/-->
+            <!--element ns="" name="firstName"/>
+            <element ns="" name="middleName"/>
+            <element ns="" name="lastName"/>
+            <element ns="" name="nameInLocalLanguage"/-->
+        </range><!--
+        <range type="xs:string">
+            <element ns="" name="firstName"/>
+        </range>
+        <range type="xs:string">
+            <element ns="" name="middleName"/>
+        </range>
+        <range type="xs:string">
+            <element ns="" name="lastName"/>
+        </range>
+        <range type="xs:string">
+            <element ns="" name="nameInLocalLanguage"/>
+        </range>
+        -->
+    </values>
+    <tuples name="name-scope">
+        <range type="xs:string">
+            <element ns="" name="fullName"/>
+        </range>
+        <range type="xs:string">
+            <element ns="" name="firstName"/>
+        </range>
+        <range type="xs:string">
+            <element ns="" name="middleName"/>
+        </range>
+        <range type="xs:string">
+            <element ns="" name="lastName"/>
+        </range>
+        <range type="xs:string">
+            <element ns="" name="nameInLocalLanguage"/>
+        </range>
+        <range type="xs:string">
+            <path-index>
+                /profiles
+            </path-index>
+        </range>
+    </tuples>
+    <return-similar>true</return-similar>
+</options>

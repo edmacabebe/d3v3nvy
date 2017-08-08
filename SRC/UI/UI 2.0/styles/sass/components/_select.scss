@@ -1,0 +1,249 @@
+//
+// Component: Dropdown
+// --------------------------------------------------
+
+//== Default <select> and '.multi-select' dropdown styling
+//
+//## 
+
+select {
+    background-color: $input-bg!important;
+    border-color: $input-border-color;
+    border-style: $input-border-style;
+    border-width: $input-border-width;
+    font-size: $font-size-base;
+    @include _border-box;
+    @include _radius;
+    @include _padding($padding-large-vertical $padding-large-horizontal);
+    color: $grey;
+    width: 100%;
+    @include _appearance;
+}
+
+select:focus, select.focus {
+    border-color: $input-hover-border-color;
+    outline: none;
+    color: $grey-darker;
+}
+
+select:disabled {
+	background-color: $input-bg-disabled!important;
+    color: $grey-dark;
+    cursor: $cursor-disabled;
+}
+
+select::-ms-expand {
+	display: none;
+}
+
+select:focus {
+	outline: none;
+}
+
+select + i.fa-caret-down, .multi-select + i.fa-caret-down {
+	font-family: $font-family-fa;
+	font-size: $caret-width-base;
+	color: $grey;
+	z-index: 1;
+	@include _margin(0 0 0 -30px);
+    position: absolute;
+    top: 12px;
+    right: 12px;
+}
+
+label + select + i.fa-caret-down, label + .multi-select + i.fa-caret-down {
+    top: 50px;
+}
+
+select:focus + i.fa-caret-down, select.focus + i.fa-caret-down, .multi-select + i.fa-caret-down {
+	color: $dropdown-caret-color;
+}
+
+
+//== Multi Select
+//
+//## 
+
+.multi-select-options {
+    position: absolute;
+    top: $line-height-base;
+    left: 0;
+    width: 100% ;
+    background: $input-bg;
+    border-color: $input-border-color;
+    border-style: $input-border-style;
+    border-width: $input-border-width;
+    @include _radius;
+    @include _border-box;
+    font-weight: $font-weight-bold;
+    /*@include _padding($padding-base-vertical 0);*/
+    z-index: $zindex-multiselect!important;
+    height: 200px;
+    overflow-y: scroll;
+    margin-top: -1px;
+
+    ul {
+        li {
+            display: block;
+            @include _padding($padding-base-vertical $padding-base-horizontal);
+            cursor: pointer;
+
+            &:hover {
+                background-color: $grey-lightest;
+            }
+
+            &:first-child {
+                border-top-right-radius: 5px;
+                border-top-left-radius: 5px;
+            }
+
+            &:last-child {
+                border-bottom-right-radius: 5px;
+                border-bottom-left-radius: 5px;
+            } 
+        }
+    }
+
+    &:hover {
+        display: block;
+    }
+}
+
+label + .multi-select + i.fa-caret-down + .multi-select-options {
+   top: (($padding-large-vertical + $font-size-base) * 2) * $line-height-base;    
+}
+
+/*.multi-select + i.fa-caret-down + .multi-select-options {
+    display: none;
+}
+
+.multi-select:focus + i.fa-caret-down + .multi-select-options {
+    display: block;
+}*/
+
+
+/*MULTISELECT*/
+input.select, .multiselect-container {
+    &:hover {
+        & + i {
+            cursor: pointer;
+        }
+    }
+    & + i {
+        font-size: $font-size-base + 4;
+        color: #cccccc;
+        position: absolute;
+        right: 16px!important;
+        margin-top: $padding-large-vertical;  
+
+        & + ul.selection {
+            width: 100%;
+            position: absolute;
+            background: $white;
+            border: 1px solid #dddddd;
+            z-index: 20000;
+            margin-top: -1px;
+            margin-left: -1px;
+            @include _shadow;
+            border-radius: 5px;
+
+            li {
+                @include _padding($padding-large-vertical $padding-large-horizontal);
+                display: block;
+                font-size: $font-size-base;
+                /*line-height: 20px;*/
+                /*height: 40px;*/
+
+                &:hover {
+                    background: #f3f3f3;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+.multiselect-container {
+    min-height: 31px;
+    border: 1px solid #dddddd;
+    padding-right: 40px;
+    position: relative;
+    z-index: 9997;
+    margin-top: 5px;
+
+    &:hover {
+        @include _shadow;
+    }
+
+    .multiselect {
+        border: none;
+        width: auto!important;
+
+        &:hover {
+            @include _shadow(none !important);
+        }
+    }
+
+    .taggedInput {
+        height: 39px;
+        border: 1px solid #cdcdcd;
+        @include _padding(0 $padding-base-horizontal);
+        font-size: $font-size-base - 1;
+        line-height: 28px;
+        position: relative;
+
+        & + .multiselect {
+            margin-left: -4px;
+            @include _padding(4px);
+        }
+
+        i.remove {
+            display: inline-block;
+            color: red;
+            @include _margin(0 0 0 $padding-base-horizontal);
+            cursor: pointer;
+        }
+    }
+
+    .multiselect, .taggedInput {
+        display: inline-block;
+        vertical-align: middle;
+        @include _margin(4px 0 4px 4px);
+        height: 31px;
+    }
+
+    & + i {
+        top: 0;
+        margin-top: 47px;
+    }
+
+    &.error {
+        border-color: $primary;     
+        color: $grey-darker;
+
+        & + span, & + i + span{
+            display: block;
+            font-size: $font-size-base - 1;
+            color: $primary !important;
+            @include _margin(9px 0 0);
+        }
+
+        span {
+            position: absolute;
+            top: 35px;
+            left: 0;
+            color: red;
+            @include _margin(9px 0 0);
+        }
+    }
+
+    &.disabled {
+        background-color: #f9f9f9;
+        border-color: #dddddd;
+        color: $grey-light;
+        cursor: $cursor-disabled;
+
+        &::-webkit-input-placeholder {
+            color: $grey;
+        }
+    }
+}

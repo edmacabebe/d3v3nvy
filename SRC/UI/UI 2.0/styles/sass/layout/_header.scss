@@ -1,0 +1,268 @@
+//
+// Header
+// --------------------------------------------------
+
+//== Default <header> styling.
+//
+//## 
+
+.header {
+    background: $grey-darkest;
+    @include _padding($padding-large-vertical 0);
+    @include _shadow;
+
+    .row {
+        @include _margin(0);
+
+        .logo {
+            text-align: left;
+
+            img {
+                max-width: 140px;
+                height: auto;
+                @include _margin(20px 0 0 0px)
+            }
+        }
+
+        .navigation {
+            @include _margin(20px 0);
+
+            li {
+                a {
+                    @include _margin(0 20px 0 0);
+                    font-size: $font-size-base;
+                    text-decoration: $link-hover-decoration;
+                    /*font-weight: $font-weight-bold;*/
+                    color:$white;
+                }
+
+                &:first-child {
+                    @include _margin(0 0 0 20px);
+                }
+            }
+                
+            li.active a {
+                border-bottom:1px solid $white;
+            }
+        }
+
+        .user-info {
+            @include _margin(20px 0);
+
+            .user-info, .top-links, .user-avatar, i, span, img {
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            .top-links {
+
+                li {
+                    /*@include _margin(0 10px 0 0);*/
+
+                    i {
+                        color: $grey !important;
+                        font-size: $font-size-base + 5;
+                    
+                        &.fa-wrench {
+                            @include _margin(-2px 0 0);
+                        }
+
+                        &.fa-question-circle {
+                            font-size: $font-size-base + 3;
+                            @include _margin(-5px 0 0);
+                        }
+
+                        &.fa-circle {
+                            position: relative;
+                            top: 7px;
+                            right: 9px;
+                            font-size: $font-size-base + 2;
+                            color: $white !important;
+                        }
+                    }
+
+                    span.count {
+                        position: absolute;
+                        font-size: 9px;
+                        top: 3px;
+                        right: 2px;
+                        color: $grey-darker;
+                    }
+                }
+            }        
+
+            .user-avatar {
+                position: relative;
+
+                .name{
+                    font-weight: $font-weight-bold;
+                    font-size: $font-size-base - 1;
+                    position: inherit;
+                    @include _margin(0 25px 0 0);
+                    color:$white;
+
+                    &:after {
+                        font-family: $font-family-fa;
+                        font-size: $font-size-base;
+                        line-height: 1!important;
+                        position: absolute;
+                        top: 2px;
+                        right: -16px;
+                        cursor: pointer;
+                        content: '\f0d7';
+                    }
+                }
+
+                .manage {
+                    font-size: $font-size-base - 1;
+                    position: inherit;
+                    @include _margin(0 0 0 5px);
+                    color:$white;
+                }
+
+                .image {    
+                    background: $grey;
+                    width: 40px;
+                    height: 40px;
+                    @include _shadow;
+                    @include _radius(40px);
+                }
+
+                .user-options {
+                    position: absolute;
+                    width: 200px;
+                    right: 0;
+
+                    .list-group {
+                        li {
+                            &:hover{
+                                background-color:transparent!important;
+                                color:$blue-light !important;
+                            }
+
+                            a {
+                                font-size: $font-size-base!important;
+                                &:hover {
+                                    color:$blue-light !important;
+                                }
+                                &.active {
+                                    color:$blue-light !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    li {
+        display: inline-block;
+    } 
+}
+
+
+//== Responsiveness
+//
+//## 
+
+@media (max-width: 1100px) { 
+    .header {
+         &:last-child {
+            @include _margin(0 10px 0 0);
+        }
+
+        .user-avatar {
+            .name {
+                display: none;
+            }
+        }    
+    } 
+}  
+
+@media (max-width: 950px) { 
+    .header {
+        .user-avatar {
+            .name {
+                display: none!important;
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .header {
+        text-align: left;
+        position: relative;
+        @include _padding(0);
+        border-top: 40px solid #000;
+
+        .logo {
+            img {
+                max-width: 135px;
+                @include _margin(12px 0 0 -10px!important);
+            }
+        }
+
+        .navigation {
+            @include _margin(10px 0 0!important);
+            border-top: 1px solid $grey-light;
+
+            li {
+                a {
+                    display: inline-block;
+                    @include _padding(12px!important);
+                }
+               
+                &:first-child {
+                    @include _margin(0!important);
+                }
+            }
+        }
+
+        .user-info {
+            position: absolute;
+            top: -130px;
+            right: 0;
+
+            .user-avatar {
+                .image {
+                    width: 30px!important;
+                    height: 30px!important;
+                    @include _radius(30px);
+                    @include _margin(0 0 0 7px);
+                }
+            }    
+        }       
+
+        [class^="col-"] {
+            width: 100%!important;
+            float: none!important;
+            display: block;
+            margin: 0!important;
+        }
+    }
+}
+
+@media (max-width: 500px) { 
+    .header {
+        text-align: center;
+
+        [class^="col-"], .logo {
+            text-align: inherit!important;
+        }
+
+        .user-info {
+            top: -200px;
+            width: 100%;
+
+            .user-avatar {
+                .image {
+                    @include _shadow(none!important);
+                    width: 25px!important;
+                    height: 25px!important;
+                }
+            }    
+        }
+    }
+}

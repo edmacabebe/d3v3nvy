@@ -1,0 +1,25 @@
+<div>
+  <!-- <div class="information-toast alert-box" ng-class="{'showToast': $ctrl.isInformationToast}"> -->
+  <div ng-class="[$ctrl.alertType, {'showToast': $ctrl.isInformationToast}]" class="alert-box">
+    <div class="toast-content">
+      <!--icon-->
+        <div class="toast-icon">
+          <i class="fa fa-info-circle"></i>
+        </div>
+      <!--end of icon-->
+      <!--message-->
+        <div class="toast-message">
+          <div class="message-title">
+            Information
+            <div class="close" ng-click="$ctrl.isInformationToast =! $ctrl.isInformationToast">
+              <i class="fa fa-remove"></i>
+            </div>
+          </div>
+          <div class="message-content">
+            <p>{{$ctrl.message}}</p>
+          </div>
+        </div>
+      <!--end of message--> 
+    </div>
+  </div>
+</div>

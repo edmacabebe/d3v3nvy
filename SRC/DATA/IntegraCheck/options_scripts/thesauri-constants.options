@@ -1,0 +1,14 @@
+import
+
+-input_file_path
+ingestables_at_bootstrap/constants/thesauri/*.xml
+
+#-input_compressed
+
+-output_collections
+constants, thesauri, constants/thesauri
+-output_permissions
+${app-role},read,${app-role},update
+
+-output_uri_replace
+".*/ingestables_at_bootstrap/constants/thesauri/,'/constants/thesauri/'"

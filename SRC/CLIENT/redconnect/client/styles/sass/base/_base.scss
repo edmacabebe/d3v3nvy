@@ -1,0 +1,589 @@
+//
+// Main CSS
+// --------------------------------------------------
+
+@import 'reset';
+@import '../helpers/vars';
+@import '../helpers/mixins';
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic');
+
+//== Main Containers
+//
+//##
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background: $body-bg;
+    font-family: $font-family-base!important;
+    font-size: $font-size-base !important;
+    color: $text-color;
+    line-height: $line-height-base;
+    @include _animate(fade 1s);
+}
+
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+::webkit-scroller-thumb {
+    background: $white;
+}
+
+.page-wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by it's height */
+    @include _margin(0 auto -91px);
+    background: #ffffff;
+    background: -moz-linear-gradient(top,  #d8dbe0 0%, #dadde2 50%, #d8dbe0 100%);
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#dadde2 50%,#d8dbe0 100%);
+    background: linear-gradient(to bottom,  #ffffff 0%,#dadde2 50%,#d8dbe0 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#d8dbe0',GradientType=0 );
+
+    .title {
+        background-color: $white;
+        font-weight: $font-weight-base;
+        @include _padding($padding-base-vertical $padding-large-horizontal);
+        @include _radius;
+        @include _shadow;
+        @include _margin(($margin * .75) 0);
+
+        h1 {
+            font-size: $font-size-h3 - 6!important;
+            font-weight: $font-weight-bold;
+            line-height: 38px;
+        }
+
+        h1, .btn {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .row {
+            @include _margin(0);
+        }
+
+        &:after {
+            @extend .clearfix;
+        }
+    }
+
+    .content {
+        background-color: $white;
+        @include _radius;
+        @include _shadow;
+        @include _margin(0 0 ($margin * .75) 0);
+
+        .title {
+            @include _shadow(none);
+            @include _padding(10px 0 0 0);
+            @include _margin (0px 16px);
+            border-bottom: 2px solid $grey-dark;
+            border-radius: 0px!important;
+        }
+
+        p {
+            line-height: $line-height-computed;
+        }
+    }
+
+    .two-columns {
+        .content {
+            background-color: transparent!important;
+            @include _radius(0);
+            @include _shadow(none);
+
+            .row {
+                @include _margin(0);
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-flexbox;
+                display: flex!important;
+
+                .sidebar {
+                    display: inherit;
+                }
+
+                .sidebar, .main-content {
+                    @include _shadow;
+                }
+            }
+        }
+    }
+}
+
+
+//== Image
+//
+//##
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+//== Headings
+//
+//##
+
+h1 {
+    font-size: $font-size-h1;
+}
+
+h2 {
+    font-size: $font-size-h2;
+}
+
+h3 {
+    font-size: $font-size-h3;
+}
+
+h4 {
+    font-size: $font-size-h4;
+}
+
+h5 {
+    font-size: $font-size-h5;
+}
+
+h6 {
+    font-size: $font-size-h6;
+}
+
+
+//== Alignment
+//
+//##
+
+.align-center {
+    text-align: center;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.pull-right {
+    float: right !important;
+}
+
+.pull-left {
+    float: left !important;
+}
+
+
+//== Links
+//
+//##
+
+@include _link($grey-darkest, '', '');
+
+
+//== Listing
+//
+//##
+
+ul {
+    li {
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+
+//== Form Layout
+//
+//##
+
+.form-group {
+    margin: $form-group-margin 0;
+    position: relative;
+
+    .row {
+        @include _margin(0!important);
+    }
+
+    [class^="col-"] {
+        $margin: $font-size-base - ($line-height-base * 2);
+
+        label {
+           display: inline-block;
+           font-size: $font-size-base;
+           @include _margin($margin 0);
+        }
+    }
+
+    label {
+        font-weight: $font-weight-bold;
+
+        &.required {
+            &:after {
+                content: ' *';
+                color: $primary;
+                font-weight: $font-weight-base!important;
+            }
+        }
+    }
+}
+
+
+//== Search
+//
+//##
+
+.search {
+    .title {
+        font-weight: $font-weight-bold;
+        @include _padding($padding-base-vertical 0);
+    }
+
+    input {
+        @include _padding($panel-gutter);
+
+        & + i {
+            position: absolute;
+            top: $padding-large-vertical + $line-height-base;
+            right: $padding-large-horizontal;
+            font-family: $font-family-fa;
+            font-size: $caret-width-base * 1.5;
+            color: $grey-dark;
+            z-index: 1;
+        }
+    }
+}
+
+.advanced-search {
+    a {
+        display: block;
+        text-decoration: $link-hover-decoration;
+        color: $blue!important;
+    }
+
+    .advanced-search-fields {
+        @include _margin($panel-gutter 0 0);
+
+        .panel-content {
+            @include _padding($panel-gutter!important);
+        }
+    }
+
+    .row {
+        @include _margin(0);
+    }
+}
+
+.result {
+    $margin: $margin / 2;
+
+    .panel {
+        border: none;
+
+        .panel-title {
+            border-bottom: none;
+            @include _padding($panel-gutter);
+            font-size: $font-size-base + 4;
+            font-weight: $font-weight-bold;
+        }
+
+        .panel-content {
+            @include _padding(0 $panel-gutter $panel-gutter);
+        }
+    }
+
+    .row {
+        @include _margin(0!important);
+    }
+
+    .multi-select-options {
+        top: 39px;
+        max-height: 120px;
+        overflow-y: scroll;
+    }
+}
+
+.no-result{
+    text-align: center;
+    position: relative;
+    p {
+        color: $grey;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-base + 6;
+        border: 1px solid $grey;
+        @include _radius;
+        @include _padding(120px 0);
+    }
+}
+
+.no-result-button {
+    text-align:center;
+    position: relative;
+    height: 258px;
+    border: 1px solid $grey;
+    @include _radius;
+    p {
+        margin-top: 65px;
+        color: $grey;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-base + 6;
+    }
+    span {
+        p {
+            color: $grey;
+            margin-top:12px;
+            font-size: $font-size-base;
+            font-weight: $font-weight-base;
+        }
+    }
+}
+
+
+
+//== Modal
+//
+//##
+
+//** Default Styling
+.modal {
+    .row {
+        @include _margin(0!important);
+    }
+
+    .search {
+        input {
+            @include _padding($padding-large-vertical $padding-large-horizontal!important);
+
+              & + i {
+                font-size: $font-size-base + 2!important;
+            }
+        }
+    }
+
+    .advanced-search {
+        .advanced-search-fields {
+            @include _margin($panel-gutter 0 0!important);
+        }
+    }
+
+    .result {
+        .panel-title {
+            border-bottom: none;
+            font-size: $font-size-base + 2;
+            font-weight: $font-weight-bold;
+        }
+    }
+}
+
+//** Merge
+.merge-modal {
+    .panel {
+        .panel-title {
+            border-bottom: none;
+        }
+    }
+
+    .search {
+        .title {
+            font-weight: $font-weight-bold;
+            @include _padding($padding-base-vertical 0);
+        }
+    }
+
+    .advanced-search {
+        @include _margin(0!important);
+
+        a {
+            display: block;
+            text-decoration: $link-hover-decoration;
+            @include _link($blue-light, $blue, $blue);
+        }
+
+        .advanced-search-fields {
+            @include _margin(0);
+        }
+    }
+
+    .result {
+        @include _margin(0!important);
+
+        .panel {
+            border: none;
+
+            .panel-content {
+                @include _padding(0!important);
+            }
+        }
+    }
+}
+
+//** Customize Columns
+.customize-fields-modal {
+    .modal-content {
+        width: $modal-medium!important;
+
+        ul {
+            @include _radius;
+            border-color: $list-group-border-color;
+            border-width: $list-group-border-width;
+            border-style: $list-group-border-stroke;
+
+            li {
+                display: block;
+                @include _padding($padding-large-vertical $padding-large-horizontal);
+                border-bottom-color: $list-group-border-color;
+                border-bottom-width: $list-group-border-width;
+                border-bottom-style: $list-group-border-stroke;
+
+                input {
+                    @include _margin(0 14px 0 0);
+                }
+
+                &.disabled {
+                    color: $grey;
+                }
+
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
+
+        .modal-footer {
+            .row {
+                border-top: none!important;
+            }
+        }
+    }
+}
+
+//** Source Editor
+.source-editor-modal {
+    .data-grid {
+        @include _margin(0);
+
+        td {
+            .source, .date {
+                position: relative;
+            }
+
+            .url {
+                color: $blue!important;
+            }
+        }
+    }
+}
+
+
+//== Data Grid
+//
+//##
+
+table {
+    &.data-grid {
+        td {
+            &:last-child {
+                span {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 25px;
+                    height: 25px;
+                    position: relative;
+
+                    i {
+                        display: inherit;
+                        background-color: transparent;
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        height: inherit;
+                        width: inherit;
+                        cursor: pointer;
+
+                        &.edit {
+                            background-image: url('../../assets/icon/edit.png');
+                        }
+
+                        &.merge {
+                            background-image: url('../../assets/icon/merge.png');
+                        }
+
+                        &.relationship {
+                            background-image: url('../../assets/icon/relationship.png');
+                        }
+
+                        &.fa-chain-broken {
+                            color: $blue-light;
+                            position: relative;
+                            top: 3px;
+                        }
+
+                        &.fa-trash {
+                            color: $primary!important;
+                            font-size: 19px;
+                            position: absolute;
+                            top: 3px;
+                            left: 3px;
+                        }
+                    }
+
+                    a {
+                        text-decoration: $link-hover-decoration;
+                        color: $blue-light;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+//== CSS3 Animations
+//
+//##
+
+@keyframes fadein { from { opacity:0; }
+    to { opacity:1; }
+}
+
+@-moz-keyframes fadein { /* Firefox */
+    from { opacity:0; }
+    to { opacity:1; }
+}
+
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from { opacity:0; }
+    to { opacity:1; }
+}
+
+@-o-keyframes fadein { /* Opera */
+    from { opacity:0; }
+    to { opacity:1; }
+}
+
+
+//== Responsiveness
+//
+//##
+
+@media (max-width: 550px) {
+    .page-wrap {
+        margin-bottom: -70px;
+        background: transparent!important;
+
+        /*.title, .content {
+            @include _shadow(none);
+        }*/
+    }
+}

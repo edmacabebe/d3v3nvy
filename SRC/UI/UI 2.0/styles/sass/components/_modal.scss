@@ -1,0 +1,200 @@
+//
+// Component: Modal
+// --------------------------------------------------
+
+//== Default modal styling
+//
+//## 
+
+.modal {
+	height: 100%;
+	width: 100%;
+	background: rgba(0,0,0, 0.9);
+	z-index: $zindex-modal-background;
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	.modal-dialog {
+		.modal-content {
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			@include _transform(translate(-50%, -50%));
+			@include _radius;
+			width: $modal-medium;
+			min-height: 1px;
+			background: $modal-content-bg;
+
+			.modal-header {
+				@include _padding($modal-inner-padding);
+				font-size: $font-size-base + 2;
+				font-weight: $font-weight-bold;
+				line-height: $modal-title-line-height;
+				background: $grey-lighter;
+				position: relative;
+            	border-top-left-radius: $border-radius-base;
+            	border-top-right-radius: $border-radius-base;
+ 
+
+				.row {
+					margin-top: 0;
+					margin-bottom: 0;
+				}	
+
+				.close {
+					font-family: $font-family-fa;
+					font-size: $font-size-base + 7;
+					line-height: 1!important;
+				    position: absolute;
+				    top: 0;
+				    right: 0;
+				    cursor: pointer;
+				}
+			}
+
+			.modal-body {
+				@include _padding($modal-inner-padding);
+				text-align: left;
+			}
+
+			.modal-footer {
+				.row {
+					@include _padding($modal-inner-padding);
+					border-top: 1px solid $grey;
+				}
+			}
+		}
+
+		.modal-small {
+			width: $modal-small;
+		}
+
+		.modal-medium {
+			width: $modal-medium;
+		}
+
+		.modal-large {
+			width: $modal-large;
+		}
+	}
+}
+
+
+//== Fixed modal styling
+//
+//## 
+
+.modal-fixed {
+	overflow: auto;
+	@include _padding(0 17px 0 0);
+
+	.modal-content {
+		width: #{$screen-large}px!important;
+		position: relative!important;
+		@include _margin(($margin * 2) auto ($margin * 2) #{(($screen-large / 2) * -1)}px);
+		transform: translate(0, 0)!important;
+		@include _transform(translate(0, 0)!important);
+
+		.modal-footer {
+			.row {
+				@include _margin(0!important);
+			}
+		}
+	}
+
+	.modal-small {
+		width: $modal-small!important;
+		@include _margin(($margin * 2) auto ($margin * 2) #{(($modal-small / 2) * -1)}px);
+	}
+
+	.modal-medium {
+		width: $modal-medium!important;
+		@include _margin(($margin * 2) auto ($margin * 2) #{(($modal-medium / 2) * -1)}px);
+	}
+
+	.modal-large {
+		width: $modal-large!important;
+		@include _margin(($margin * 2) auto ($margin * 2) #{(($modal-large / 2) * -1)}px);
+	}
+
+	.modal-small, .modal-medium, .modal-large{
+		@include _transform(translate(50%, 0)!important);
+	}
+}	
+
+
+//== Confirmation modal styling
+//
+//## 
+
+.modal-confirmation {
+	.modal-dialog { 
+		.modal-content {
+			width: $modal-small + 100;
+
+			.modal-header {
+				background: $white;
+
+				.close {
+				    top: 11px;
+				    right: 11px;
+				}
+			}
+
+			.modal-body {
+				text-align: center !important;
+
+				.icon {
+					@include _padding($modal-inner-padding ($modal-inner-padding * 1.5));
+					@include _radius;
+					font-size: $font-size-base * 2;
+					border: 1px solid $blue-light;
+					background: $blue-ligther;
+					display: inline-block;
+					color: $blue-light;
+				}
+
+				p {
+					@include _margin(25px 0);
+					display: block;
+				}
+			}
+
+			.modal-footer {
+				.row {
+					@include _margin(0!important);
+					@include _padding(0!important);
+
+					[class^="col-"] {
+						width: 50%;
+						@include _margin(0);
+
+						.btn {
+							width: 100%;
+							@include _radius(0);
+							@include _padding(($padding-large-vertical * 1.5) ($padding-large-horizontal * 1.5));
+							@include _border-box;
+							border: 0;
+							line-height: 1!important;
+						}
+
+						.btn-cancel {
+							background: #000;
+							color: $white;
+						}
+					}		
+				}
+			}
+		}
+	}
+}
+
+
+//== Responsiveness
+//
+//## 
+
+@media (max-width: 550px) {
+
+}

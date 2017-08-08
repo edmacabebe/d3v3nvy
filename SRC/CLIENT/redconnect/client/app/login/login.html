@@ -1,0 +1,23 @@
+<div class="login-container">
+  <div class="login">
+    <!--<img src="images/assets/logo/Logo.png" />-->
+    <form ng-submit="$ctrl.login()">
+      <h1>RedConnect</h1>
+      <div class="form-group push-top-20">
+        <input type="text" placeholder="Username" ng-class="{'error': showUsernameError}"  ng-model="$ctrl.username">
+        <!--<span ng-show="showUsernameError">This field is required.</span>-->
+      </div>
+      <div class="form-group">
+        <input type="password" placeholder="Password" ng-class="{'error': showPasswordError}" ng-model="$ctrl.password">
+        <!--<span ng-show="showPasswordError">This field is required.</span>-->
+      </div>
+      <div class="alert alert-danger" ng-show="$ctrl.loginService.loginError()" ng-cloak>Username and/or Password Incorrect</div>
+      <button type="submit" class="btn btn-success">LOGIN</button>
+
+      <p ng-click="showForgotPassword = true" class="align-right">
+        <a href="#">Forgot Password?</a>
+      </p>
+    </form>
+  </div>
+
+</div>

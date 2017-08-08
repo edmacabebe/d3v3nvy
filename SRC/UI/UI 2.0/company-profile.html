@@ -1,0 +1,3274 @@
+l<!doctype html>
+<html ng-app="Integracheck">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Company Profile</title>
+<!--stylesheet-->
+<link rel="stylesheet" type="text/css" href="styles/stylesheets/main.css">
+<link rel="stylesheet" href="assets/fonts/fontawesome/font-awesome.min.css">
+<link rel="stylesheet" href="assets/fonts/fontawesome/font-awesome.css">
+<!--end of stylesheet-->
+<!--javascript-->
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/angular.min.js"></script>
+<script>
+	var app = angular.module("Integracheck", []);
+
+	app.directive("datepicker", function () {
+		return {
+			restrict: "A",
+			require: "ngModel",
+			link: function (scope, elem, attrs, ngModelCtrl) {
+
+				var updateModel = function (dateText) {
+					scope.$apply(function () {
+					  ngModelCtrl.$setViewValue(dateText);
+					});
+				};
+				
+				var options = {
+					changeMonth: true,
+					changeYear: true,
+					showOn: "both", 
+					buttonText: "<i class='fa icon-calendar'></i>"
+				};
+			
+				elem.datepicker(options);
+			}
+		}
+	});
+</script>
+<!--end of javascript-->
+</head>
+<body>
+<!--page wrap-->
+	<div class="page-wrap">
+		<!--header-->
+			<header class="header">
+				<div class="container">
+					<div class="row">
+						<!--logo-->
+							<div class="col-2">
+								<div class="logo">
+									<a href="javascript:void(0);">
+										<img src="assets/logo/Logo.png" />
+									</a>
+								</div>			
+							</div>
+						<!--end of logo-->
+						<!--navigation-->
+							<div class="col-5">
+								<div class="navigation">
+									<ul>
+										<li><a href="javascript:void(0);">Home</a></li>
+										<li class="active"><a href="javascript:void(0);">Search</a></li>
+										<li><a href="javascript:void(0);">Manage</a></li>
+										<li><a href="javascript:void(0);">Export</a></li>
+									</ul>
+								</div>
+							</div>
+						<!--end of navigation-->
+						<!--user info-->
+              <div class="col-5 align-right">
+                <div class="user-info">
+                  <!--top links-->
+                    <div class="top-links">
+                      <ul>
+                        <li class="notifications">
+                          <i class="fa fa-bell" aria-hidden="true"></i>
+                          <i class="fa fa-circle" aria-hidden="true">
+                          	<span class="count">26</span>
+                          </i>
+                        </li>
+                      </ul> 
+                    </div>
+                  <!--end of top links--> 
+                  <!--user avatar-->  
+                    <div class="user-avatar">
+                      <span class="name" ng-click="isUserOptions=!isUserOptions">Hi&nbsp;&nbsp;Jonathan Ive</span>
+                      <div class="user-options" ng-show="isUserOptions">
+                        <ul class="list-group" ng-mouseleave="isUserOptions=false">
+                          <li>
+                            <a href="javascript:void(0);">
+                              <i class="fa fa-wrench"></i>Account Settings
+                            </a>
+                          </li>
+                          <li>
+                            <a href="javascript:void(0);">
+                              <i class="fa fa-sign-out"></i>Logout
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <span class="push-left-5">
+                        <img src="assets/icon/line.png">
+                      </span>
+                      <span class="push-left-10">
+                        <img src="assets/icon/manage-gray.png"> 
+                        <span class="manage">MANAGE</span>
+                      </span>
+                    </div>
+                  <!--end of user avatar--> 
+                </div>    
+              </div>
+            <!--end of user info-->
+					</div>
+				</div>
+			</header>
+		<!--end of header-->
+		<!--company profile-->
+			<div class="create-profile two-columns" ng-init="tab=1">
+				<div class="container ">
+					<!--start of title-->
+						<div class="title">
+							<h1>Company Profile</h1>
+						</div>
+					<!--end of title-->	
+					<!--content-->
+						<div class="content">
+							<div class="row">
+								<!--main content-->	
+									<div class="col-12 main-content">
+										<div class="panel">
+											<!--general tab-->
+												<div class="general-tab" ng-show="tab==1">
+													<!--accordion-->
+														<div class="accordion">
+															<!--identifiers-->
+																<h3 class="acc-header" ng-init="isActiveAccordionIdentifiers=true" 
+																					   ng-click="isActiveAccordionIdentifiers=!isActiveAccordionIdentifiers" 
+																					   ng-class="{'open':isActiveAccordionIdentifiers, 'closed': !isActiveAccordionIdentifiers}"
+																>Identifiers</h3>
+																<div class="acc-content" ng-show="isActiveAccordionIdentifiers">
+																	<!--profile ID-->
+																		<div class="form-group">
+																			<div class="row">
+																				<div class="col-10 col-offset-1">
+																					<div class="row">
+																						<div class="col-3">
+																							<label>Profile ID</label>
+																						</div>
+																						<div class="col-9">
+																							<input type="text" disabled value="COM-001">
+																						</div>
+																					</div>	
+																				</div>	
+																			</div>
+																		</div>
+																	<!--end of profile ID-->
+																	<!--type-->
+																		<div class="form-group">
+																			<div class="row">
+																				<div class="col-10 col-offset-1">
+																					<div class="row">
+																						<div class="col-3">
+																							<label>Type</label>
+																						</div>
+																						<div class="col-9">
+																							<input type="text" disabled value="Sample Name">
+																						</div>
+																					</div>	
+																				</div>	
+																			</div>
+																		</div>
+																	<!--end of type-->	
+																	<!--full name-->
+																		<div class="form-group">
+																			<div class="row">
+																				<div class="col-10 col-offset-1">
+																					<div class="row">
+																						<div class="col-3">
+																							<label class="required">Fullname</label>
+																						</div>
+																						<div class="col-9">
+																							<input type="text" ng-class="{'error': showError}" value="Sample Name">
+																							<span ng-show="showError">This field is required.</span>
+																						</div>
+																					</div>	
+																				</div>	
+																			</div>
+																		</div>
+																	<!--end of full name-->
+																	<!--name in local language-->	
+																		<div class="form-group">
+																			<div class="row">
+																				<div class="col-10 col-offset-1">
+																					<div class="row">
+																						<div class="col-3">
+																							<label>Name in Local Language</label>
+																						</div>
+																						<div class="col-9">
+																							<input type="text" value="Sample Name">
+																						</div>
+																					</div>	
+																				</div>	
+																			</div>
+																		</div>
+																	<!--end of name in local language-->		
+																	<!--country-->	
+																		<div class="form-group">
+																			<div class="row">
+																				<div class="col-10 col-offset-1">
+																					<div class="row">
+																						<div class="col-3">
+																							<label class="required">Country</label>
+																						</div>
+																						<div class="col-9">
+																							<input type="text" class="multi-select" ng-model="sampleCountry" placeholder="--Select Country--" ng-click="showCountrySelection=!showCountrySelection" ng-class="{'error' : showError}">
+																							<i class="fa fa-caret-down" aria-hidden="true"></i>
+																							<span ng-show="showError">This field is required.</span>
+																							<div class="multi-select-options" ng-show="showCountrySelection" ng-mouseleave="showCountrySelection=false">
+																								<ul>
+																									<li ng-click="sampleCountry='Sample Country 1'; showCountrySelection=false">Sample Country 1</li>
+																									<li ng-click="sampleCountry='Sample Country 2'; showCountrySelection=false">Sample Country 2</li>
+																									<li ng-click="sampleCountry='Sample Country 3'; showCountrySelection=false">Sample Country 3</li>
+																								</ul>
+																							</div>
+																						</div>
+																					</div>	
+																				</div>	
+																			</div>
+																		</div>
+																	<!--end of country-->
+																	<!--industry-->	
+																		<div class="form-group">
+																			<div class="row">
+																				<div class="col-10 col-offset-1">
+																					<div class="row">
+																						<div class="col-3">
+																							<label class="required">Industry</label>
+																						</div>
+																						<div class="col-9">
+																							<input type="text" class="multi-select" ng-model="sampleIndustry" ng-click="showIndustrySelection =! showIndustrySelection" placeholder="--Select Industry--" ng-class="{'error' : showError}">
+																							<i class="fa fa-caret-down" aria-hidden="true"></i>
+																							<span ng-show="showError">This field is required.</span>
+																							<div class="multi-select-options" ng-show="showIndustrySelection" ng-mouseleave="showIndustrySelection=false">
+																								<ul>
+																									<li ng-click="sampleIndustry = 'Sample Industry 1'; showIndustrySelection = false">Sample Industry 1</li>
+																									<li ng-click="sampleIndustry = 'Sample Industry 2'; showIndustrySelection = false">Sample Industry 2</li>
+																									<li ng-click="sampleIndustry = 'Sample Industry 3'; showIndustrySelection = false">Sample Industry 3</li>
+																								</ul>
+																							</div>
+																						</div>
+																					</div>	
+																				</div>	
+																			</div>
+																		</div>
+																	<!--end of industry-->
+																	<!--trading name-->	
+																		<div class="form-group">
+																			<div class="row">
+																				<div class="col-10 col-offset-1">
+																					<div class="row">
+																						<div class="col-3">
+																							<label>Trading Name</label>
+																						</div>
+																						<div class="col-9">
+																							<input type="text" value="Sample Country 1">
+																						</div>
+																					</div>	
+																				</div>	
+																			</div>
+																		</div>	
+																	<!--end of trading name-->	
+																	<!--risk rating-->
+																		<div class="form-group">
+																			<div class="row">
+																				<div class="col-10 col-offset-1">
+																					<div class="row">
+																						<div class="col-3">
+																							<label>Risk Rating</label>
+																						</div>
+																						<div class="col-9">
+																							<input type="text" disabled>
+																						</div>
+																					</div>	
+																				</div>	
+																			</div>
+																		</div>	
+																	<!--end of risk rating-->	
+																</div>	
+															<!--end of identifiers-->
+															<!--relationships-->
+																<h3 class="acc-header" ng-init="isActiveAccordionRelationships=true"
+																					   ng-click="isActiveAccordionRelationships=!isActiveAccordionRelationships" 
+																					   ng-class="{'open':isActiveAccordionRelationships, 'closed':!isActiveAccordionRelationships}"
+																>Relationships</h3>
+																<div class="acc-content" ng-show="isActiveAccordionRelationships">
+																	<!--blank results-->
+																		<div class="relationships">
+																			<div class="row">
+																				<div class="col-12 align-right">
+																					<button class="btn btn-success btn-relationship" ng-click="showRelationshipModal=!showRelationshipModal">Relationships</button>
+																				</div>
+																			</div>
+																			<!--related individuals-->
+																				<div class="panel">	
+																					<!--panel title-->
+																						<div class="panel-title">
+																							<div class="row">
+																								<div class="col-12">
+																									<label>
+																										Related Individuals
+																									</label>
+																								</div>
+																							</div>
+																						</div>
+																					<!--end of panel title-->
+																					<!--panel content-->
+																						<div class="panel-content">
+																							<!--filter results-->
+																								<div class="filter">
+																									<div class="row">
+																										<div class="col-4 align-left">
+																											<div class="form-group"> 
+																												<input type="text" class="multi-select" ng-model="sortSelection" ng-click="showSortSelection =! showSortSelection" placeholder="--Sort by--" disabled>
+																												<i class="fa fa-caret-down" aria-hidden="true"></i>
+																												<div class="multi-select-options" ng-show="showSortSelection" ng-mouseleave="showSortSelection=false">
+																													<ul>
+																														<li ng-click="sortSelection = 'Country'; showSortSelection = false">Country</li>
+																														<li ng-click="sortSelection = 'Name'; showSortSelection = false">Name</li>
+																														<li ng-click="sortSelection = 'Profile ID'; showSortSelection = false">Profile ID</li>
+																													</ul>
+																												</div>
+																											</div>	
+																										</div>
+																										<div class="col-1"></div>
+																										<div class="col-7 align-right">
+																											<!--search-->
+																												<div class="search">
+																													<div class="form-group"> 
+																														<input type="text" placeholder="Sample Keyword">
+																														<i class="fa fa-search"></i>
+																													</div>	
+																												</div>		
+																											<!--search-->
+																										</div>
+																									</div>
+																								</div>	
+																							<!--end of filter results-->
+																							<!--result data grid-->	
+																								<div class="result">
+																									<table class="data-grid">
+																										<tbody>
+																											<tr>
+																												<th>ID</th>
+																												<th>Full Name</th>
+																												<th>Name in Local Language</th>
+																												<th>Trading Name</th>
+																												<th>Relationship</th>
+																												<th>Period</th>
+																												<th>&nbsp;</th>
+																											</tr>
+																											<tr>
+																												<td data-label="Profile ID">0001</td>
+																												<td data-label="Full Name">Sample Name 1</td>
+																												<td data-label="Name in Local Language">Sample Local Name 1</td>
+																												<td data-label="Trading Name">Sample Name 1</td>
+																												<td data-label="Relationship">Vendor</td>
+																												<td data-label="Period">01/07/2016</td>
+																												<td>
+																													<span> 
+																														<i class="fa fa-chain-broken" aria-hidden="true" ng-click="isUnlinkModal=!isUnlinkModal"></i>
+																													</span>	
+																												</td>
+																											</tr>
+																											<tr>
+																												<td data-label="Profile ID">0002</td>
+																												<td data-label="Full Name">Sample Name 2</td>
+																												<td data-label="Name in Local Language">Sample Local Name 1</td>
+																												<td data-label="Trading Name">Sample Name 2</td>
+																												<td data-label="Relationship">Vendor</td>
+																												<td data-label="Period">01/07/2016</td>
+																												<td>
+																													<span> 
+																														<i class="fa fa-chain-broken" aria-hidden="true" ng-click="isUnlinkModal=!isUnlinkModal"></i>
+																													</span>	
+																												</td>
+																											</tr>
+																											<tr>
+																												<td data-label="Profile ID">0003</td>
+																												<td data-label="Full Name">Sample Name 3</td>
+																												<td data-label="Name in Local Language">Sample Local Name 3</td>
+																												<td data-label="Trading Name">Sample Name 3</td>
+																												<td data-label="Relationship">Vendor</td>
+																												<td data-label="Period">01/07/2016</td>
+																												<td>
+																													<span> 
+																														<i class="fa fa-chain-broken" aria-hidden="true" ng-click="isUnlinkModal=!isUnlinkModal"></i>
+																													</span>	
+																												</td>
+																											</tr>
+																											<tr>
+																												<td data-label="Profile ID">0004</td>
+																												<td data-label="Full Name">Sample Name 4</td>
+																												<td data-label="Name in Local Language">Sample Local Name 4</td>
+																												<td data-label="Trading Name">Sample Name 4</td>
+																												<td data-label="Relationship">Vendor</td>
+																												<td data-label="Period">01/07/2016</td>
+																												<td>
+																													<span> 
+																														<i class="fa fa-chain-broken" aria-hidden="true" ng-click="isUnlinkModal=!isUnlinkModal"></i>
+																													</span>	
+																												</td>
+																											</tr>
+																											<tr>
+																												<td data-label="Profile ID">0005</td>
+																												<td data-label="Full Name">Sample Name 5</td>
+																												<td data-label="Name in Local Language">Sample Local Name 5</td>
+																												<td data-label="Trading Name">Sample Name 5</td>
+																												<td data-label="Relationship">Vendor</td>
+																												<td data-label="Period">01/07/2016</td>
+																												<td>
+																													<span> 
+																														<i class="fa fa-chain-broken" aria-hidden="true" ng-click="isUnlinkModal=!isUnlinkModal"></i>
+																													</span>	
+																												</td>
+																											</tr>
+																										</tbody>
+																									</table>
+																								</div>
+																							<!--end of result data grid-->		
+																							<!--pagination-->
+																								<div class="row">
+																									<div class="col-1">
+																										<input type="text" class="multi-select" value="10" ng-model="itemCount" placeholder="--1" ng-click="showItemCount=!showItemCount">
+																										<i class="fa fa-caret-down" aria-hidden="true"></i>
+																										<div class="multi-select-options" ng-show="showItemCount" ng-mouseleave="showItemCount=false">
+																											<ul>
+																												<li ng-click="itemCount = '1'; showItemCount = false">1</li>
+																												<li ng-click="itemCount = '2'; showItemCount = false">2</li>
+																												<li ng-click="itemCount = '3'; showItemCount = false">3</li>
+																												<li ng-click="itemCount = '4'; showItemCount = false">4</li>
+																												<li ng-click="itemCount = '5'; showItemCount = false">5</li>
+																											</ul>
+																										</div>
+																									</div>
+																									<div class="col-11 align-right">	
+																										<div class="pagination">
+																											<ul>
+																												<li><a href="javascript:void(0);">Prev</a></li>
+																												<li><a href="javascript:void(0);">...</a></li>
+																												<li class="active"><a href="javascript:void(0);">1</a></li>
+																												<li><a href="javascript:void(0);">2</a></li>
+																												<li><a href="javascript:void(0);">3</a></li>
+																												<li><a href="javascript:void(0);">...</a></li>
+																												<li><a href="javascript:void(0);">Next</a></li>
+																											</ul>
+																										</div>
+																									</div>
+																								</div>
+																							<!--end of pagination-->	
+																						</div>
+																					<!--end of panel content-->
+																				</div>
+																			<!--end of related individuals-->
+																			<!--related entities-->
+																				<div class="panel">	
+																					<!--panel title-->
+																						<div class="panel-title">
+																							<div class="row">
+																								<div class="col-12">
+																									<label>
+																										Related Entities
+																									</label>
+																								</div>
+																							</div>
+																						</div>
+																					<!--end of panel title-->
+																					<!--panel content-->
+																						<div class="panel-content">
+																							<!--filter results-->
+																								<div class="filter">
+																									<div class="row">
+																										<div class="col-4 align-left">
+																											<div class="form-group"> 
+																												<input type="text" class="multi-select" ng-model="sortSelection" ng-click="showSortSelection =! showSortSelection" placeholder="--Sort by--" disabled>
+																												<i class="fa fa-caret-down" aria-hidden="true"></i>
+																												<div class="multi-select-options" ng-show="showSortSelection" ng-mouseleave="showSortSelection=false">
+																													<ul>
+																														<li ng-click="sortSelection = 'Country'; showSortSelection = false">Country</li>
+																														<li ng-click="sortSelection = 'Name'; showSortSelection = false">Name</li>
+																														<li ng-click="sortSelection = 'Profile ID'; showSortSelection = false">Profile ID</li>
+																													</ul>
+																												</div>
+																											</div>	
+																										</div>
+																										<div class="col-1"></div>
+																										<div class="col-7 align-right">
+																											<!--search-->
+																												<div class="search">
+																													<div class="form-group"> 
+																														<input type="text" placeholder="Sample Keyword">
+																														<i class="fa fa-search"></i>
+																													</div>	
+																												</div>		
+																											<!--search-->
+																										</div>
+																									</div>
+																								</div>	
+																							<!--end of filter results-->
+																							<!--result data grid-->	
+																								<div class="result">
+																									<table class="data-grid">
+																										<tbody>
+																											<tr>
+																												<th>ID</th>
+																												<th>Full Name</th>
+																												<th>Name in Local Language</th>
+																												<th>Trading Name</th>
+																												<th>Relationship</th>
+																												<th>Period</th>
+																												<th>&nbsp;</th>
+																											</tr>
+																											<tr>
+																												<td data-label="Profile ID">0001</td>
+																												<td data-label="Full Name">Sample Name 1</td>
+																												<td data-label="Name in Local Language">Sample Local Name 1</td>
+																												<td data-label="Trading Name">Sample Name 1</td>
+																												<td data-label="Relationship">Vendor</td>
+																												<td data-label="Period">01/07/2016</td>
+																												<td>
+																													<span> 
+																														<i class="fa fa-chain-broken" aria-hidden="true" ng-click="isUnlinkModal=!isUnlinkModal"></i>
+																													</span>	
+																												</td>
+																											</tr>
+																											<tr>
+																												<td data-label="Profile ID">0002</td>
+																												<td data-label="Full Name">Sample Name 2</td>
+																												<td data-label="Name in Local Language">Sample Local Name 1</td>
+																												<td data-label="Trading Name">Sample Name 2</td>
+																												<td data-label="Relationship">Vendor</td>
+																												<td data-label="Period">01/07/2016</td>
+																												<td>
+																													<span> 
+																														<i class="fa fa-chain-broken" aria-hidden="true" ng-click="isUnlinkModal=!isUnlinkModal"></i>
+																													</span>	
+																												</td>
+																											</tr>
+																											<tr>
+																												<td data-label="Profile ID">0003</td>
+																												<td data-label="Full Name">Sample Name 3</td>
+																												<td data-label="Name in Local Language">Sample Local Name 3</td>
+																												<td data-label="Trading Name">Sample Name 3</td>
+																												<td data-label="Relationship">Vendor</td>
+																												<td data-label="Period">01/07/2016</td>
+																												<td>
+																													<span> 
+																														<i class="fa fa-chain-broken" aria-hidden="true" ng-click="isUnlinkModal=!isUnlinkModal"></i>
+																													</span>	
+																												</td>
+																											</tr>
+																											<tr>
+																												<td data-label="Profile ID">0004</td>
+																												<td data-label="Full Name">Sample Name 4</td>
+																												<td data-label="Name in Local Language">Sample Local Name 4</td>
+																												<td data-label="Trading Name">Sample Name 4</td>
+																												<td data-label="Relationship">Vendor</td>
+																												<td data-label="Period">01/07/2016</td>
+																												<td>
+																													<span> 
+																														<i class="fa fa-chain-broken" aria-hidden="true" ng-click="isUnlinkModal=!isUnlinkModal"></i>
+																													</span>	
+																												</td>
+																											</tr>
+																											<tr>
+																												<td data-label="Profile ID">0005</td>
+																												<td data-label="Full Name">Sample Name 5</td>
+																												<td data-label="Name in Local Language">Sample Local Name 5</td>
+																												<td data-label="Trading Name">Sample Name 5</td>
+																												<td data-label="Relationship">Vendor</td>
+																												<td data-label="Period">01/07/2016</td>
+																												<td>
+																													<span> 
+																														<i class="fa fa-chain-broken" aria-hidden="true" ng-click="isUnlinkModal=!isUnlinkModal"></i>
+																													</span>	
+																												</td>
+																											</tr>
+																										</tbody>
+																									</table>
+																								</div>
+																							<!--end of result data grid-->	
+																							<!--pagination-->
+																								<div class="row">
+																									<div class="col-1">
+																										<input type="text" class="multi-select" value="10" ng-model="itemCount" placeholder="--1" ng-click="showItemCount=!showItemCount">
+																										<i class="fa fa-caret-down" aria-hidden="true"></i>
+																										<div class="multi-select-options" ng-show="showItemCount" ng-mouseleave="showItemCount=false">
+																											<ul>
+																												<li ng-click="itemCount = '1'; showItemCount = false">1</li>
+																												<li ng-click="itemCount = '2'; showItemCount = false">2</li>
+																												<li ng-click="itemCount = '3'; showItemCount = false">3</li>
+																												<li ng-click="itemCount = '4'; showItemCount = false">4</li>
+																												<li ng-click="itemCount = '5'; showItemCount = false">5</li>
+																											</ul>
+																										</div>
+																									</div>
+																									<div class="col-11 align-right">	
+																										<div class="pagination">
+																											<ul>
+																												<li><a href="javascript:void(0);">Prev</a></li>
+																												<li><a href="javascript:void(0);">...</a></li>
+																												<li class="active"><a href="javascript:void(0);">1</a></li>
+																												<li><a href="javascript:void(0);">2</a></li>
+																												<li><a href="javascript:void(0);">3</a></li>
+																												<li><a href="javascript:void(0);">...</a></li>
+																												<li><a href="javascript:void(0);">Next</a></li>
+																											</ul>
+																										</div>
+																									</div>
+																								</div>
+																							<!--end of pagination-->	
+																						</div>
+																					<!--end of panel content-->
+																				</div>
+																			<!--end of related entities-->
+																		</div>
+																	<!--end of blank results-->
+																</div>
+															<!--end of relationships-->
+														</div>
+													<!--end of accodrion-->
+												</div>
+											<!--end of general tab-->
+											<!--integrity tab-->
+												<div class="integrity-tab" ng-show="tab==2">
+													<!--accordion-->
+														<div class="accordion">
+															<!--integrity risk-->
+																<h3 class="acc-header" ng-init="isActiveAccordionIntegrityRisk=true" 
+																					   ng-click="isActiveAccordionIntegrityRisk=!isActiveAccordionIntegrityRisk" 
+																					   ng-class="{'open':isActiveAccordionIntegrityRisk, 'closed': !isActiveAccordionIntegrityRisk}"
+																>Integrity Risks</h3>
+																<div class="acc-content" ng-show="isActiveAccordionIntegrityRisk">
+																	<!--inner accordion-->	
+																		<div class="accordion">
+																			<!--general compliance and governance-->
+																				<h3 class="acc-header" ng-init="isActiveAccordionGeneralCompliance=true" 
+																					   ng-click="isActiveAccordionGeneralCompliance=!isActiveAccordionGeneralCompliance" 
+																					   ng-class="{'open':isActiveAccordionGeneralCompliance, 'closed': !isActiveAccordionGeneralCompliance}"
+																				>General Compliance and Governance</h3>
+																				<div class="acc-content" ng-show="isActiveAccordionGeneralCompliance">
+																					<div class="form-group" ng-init="isSimilarPolicies=true">
+																						<p>Does the company have a code of conduct or similar policies available on its website?</p>
+																						<div class="pull-left-5">
+																							<div class="row">
+																								<div class="col-1">
+																									<input type="radio" checked ng-click="isSimilarPolicies=!isSimilarPolicies"><label>Yes</label>
+																								</div>
+																								<div class="col-1">
+																									<input type="radio"><label>No</label>
+																								</div>
+																							</div>
+																						</div>
+																						<!--show input[type=checkbox] when similar policies is available on the site-->
+																							<div ng-show="isSimilarPolicies">
+																								<div class="form-group">
+																									<div class="row">
+																										<div class="col-11">
+																											<input class="url" type="text" value="http://sample-link-url/some-reason-why?=2ref.com/">
+																										</div>
+																										<div class="col-1">
+																								 			<i class="fa fa-cog" ng-click="isSimilarPoliciesFieldOptionsClicked=!isSimilarPoliciesFieldOptionsClicked">
+																												<!--field options-->
+																													<div class="field-options" 
+																														ng-show="isSimilarPoliciesFieldOptionsClicked" 
+																														ng-mouseleave="isSimilarPoliciesFieldOptionsClicked=false"
+																													>
+																														<ul>
+																															<li>
+																																<a href="javascript:void(0);" ng-click="showSourceEditorModal=!showSourceEditorModal">
+																																Add Source
+																																</a>
+																																<div class="submenu"></div>
+																															</li>
+																															<li><a href="javascript:void(0);">Add Field</a></li>
+																														</ul>
+																													</div>
+																												<!--end of field options-->
+																											</i>
+																										</div>
+																									</div>		
+																								</div>	
+																							</div>
+																						<!--end of input[type=checkbox]-->	
+																					</div>
+																					<div class="form-group">
+																						<p>Does the company refer to corporate governance on its website?</p>
+																						<div class="pull-left-5">
+																							<div class="row">
+																								<div class="col-1">
+																									<input type="radio"><label>Yes</label>
+																								</div>
+																								<div class="col-1">
+																									<input checked type="radio"><label>No</label>
+																								</div>
+																							</div>
+																						</div>
+																					</div>
+																					<div class="form-group" ng-init="isCompanyCompliant=true">
+																						<p>Does the company refer to compliance on its website?</p>
+																						<div class="pull-left-5">
+																							<div class="row">
+																								<div class="col-1">
+																									<input checked type="radio" ng-click="isCompanyCompliant=!isCompanyCompliant"><label>Yes</label>
+																								</div>
+																								<div class="col-1">
+																									<input type="radio"><label>No</label>
+																								</div>
+																							</div>
+																						</div>
+																						<!--show input[type=checkbox] refers to compliance on its site-->
+																							<div ng-show="isCompanyCompliant">
+																								<div class="form-group">
+																									<div class="row">
+																										<div class="col-11">
+																											<input class="url" type="text" ng-click="showFieldSource=true" value="http://sample-link-url/some-reason-why?=2ref.com/">
+																										</div>
+																										<div class="col-1">
+																											<i class="fa fa-cog" ng-click="isCompanyCompliantField1OptionsClicked=true">
+																												<!--field options-->
+																													<div class="field-options" 
+																														ng-show="isCompanyCompliantField1OptionsClicked" 
+																														ng-mouseleave="isCompanyCompliantField1OptionsClicked=false"
+																													>
+																														<ul>
+																															<li>
+																																<a href="javascript:void(0);" 
+																																	ng-class="{'source' : isFieldHasSource}"
+																																	ng-click="isFieldHasSource=!isFieldHasSource"
+																																>Source</a>
+																																<div class="options" 
+																																	ng-show="isFieldHasSource"
+																																	ng-mouseleave="isFieldHasSource=false; showFieldSource=false"
+																																>
+																																	<div class="tab" ng-init="source=1">
+																																		<div class="tab-menu">
+																																			<ul>
+																																				<li ng-click="source=1" ng-class="{'active': source==1}">M</li>
+																																				<li ng-click="source=2" ng-class="{'active': source==2}">CS</li>
+																																				<li ng-click="source=3" ng-class="{'active': source==3}">BR</li>
+																																				<li ng-click="source=4" ng-class="{'active': source==4}">IW</li>
+																																			</ul>
+																																		</div>
+																																		<div class="tab-content">
+																																			<div class="tab-item" ng-show="source==1">
+																																				http://sample-link-url/some-reason-why?=1ref.com/
+																																			</div>
+																																			<div class="tab-item" ng-show="source==2">
+																																				http://sample-link-url/some-reason-why?=2ref.com/
+																																			</div>
+																																			<div class="tab-item" ng-show="source==3">
+																																				http://sample-link-url/some-reason-why?=3ref.com/
+																																			</div>
+																																			<div class="tab-item" ng-show="source==4">
+																																				http://sample-link-url/some-reason-why?=4ref.com/
+																																			</div>
+																																			<div class="form-buttons align-center">
+																																				<button class="btn btn-primary">Manage Sources</button>
+																																			</div>	
+																																		</div>	
+																																	</div>
+																																</div>
+																															</li>
+																															<li><a href="javascript:void(0);">Add Field</a></li>
+																														</ul>
+																													</div>
+																												<!--end of field options-->
+																											</i>
+																										</div>
+																									</div>		
+																								</div>
+																								<div class="form-group">
+																									<div class="row">
+																										<div class="col-11">
+																											<input class="url" type="text" value="http://sample-link-url/some-reason-why?=2ref.com/">
+																										</div>
+																										<div class="col-1">
+																											<i class="fa fa-cog" ng-click="isCompanyCompliantField2OptionsClicked=!isCompanyCompliantField2OptionsClicked">
+																												<!--field options-->
+																													<div class="field-options" ng-show="isCompanyCompliantField2OptionsClicked" 
+																													                           ng-mouseleave="isCompanyCompliantField2OptionsClicked=false"
+																													>
+																														<ul>
+																															<li><a href="javascript:void(0);">Add Another Field</a></li>
+																															<li><a href="javascript:void(0);">Delete </a></li>
+																														</ul>
+																													</div>
+																												<!--end of field options-->
+																											</i>
+																										</div>
+																									</div>		
+																								</div>		
+																							</div>
+																						<!--end of input[type=checkbox]-->	
+																					</div>
+																					<div class="form-group" ng-init="isAppointedComplianceOfficer=true">
+																						<p>Has the company appointed any Chief Compliance Officer?</p>
+																						<div class="pull-left-5">
+																							<div class="row">
+																								<div class="col-1">
+																									<input type="radio" checked ng-click="isAppointedComplianceOfficer=!isAppointedComplianceOfficer"><label>Yes</label>
+																								</div>
+																								<div class="col-1">
+																									<input type="radio"><label>No</label>
+																								</div>
+																							</div>
+																						</div>
+																						<!--show input[type=checkbox] if chief compliance officer was appointed-->
+																							<div ng-show="isAppointedComplianceOfficer">
+																								<div class="form-group">
+																									<div class="row">
+																										<div class="col-5">
+																											<input type="text" value="Sample Full Name">
+																										</div>
+																										<div class="col-6">
+																											<input type="text" value="sampleemail@domain.com">
+																										</div>
+																										<div class="col-1">
+																											<i class="fa fa-cog" ng-click="isAppointedComplianceOfficerField1OptionsClicked=!isAppointedComplianceOfficerField1OptionsClicked">
+																												<!--field options-->
+																													<div class="field-options" ng-show="isAppointedComplianceOfficerField1OptionsClicked" 
+																																			   ng-mouseleave="isAppointedComplianceOfficerField1OptionsClicked=false"
+																												    >
+																														<ul>
+																															<li><a href="javascript:void(0);">Add Another Field</a></li>
+																														</ul>
+																													</div>
+																												<!--end of field options-->
+																											</i>
+																										</div>
+																									</div>		
+																								</div>
+																								<div class="form-group">
+																									<div class="row">
+																										<div class="col-5">
+																											<input type="text" value="Sample Full Name">
+																										</div>
+																										<div class="col-6">
+																											<input type="text" value="sampleemail@domain.com">
+																										</div>
+																										<div class="col-1">
+																											<i class="fa fa-cog" ng-click="isAppointedComplianceOfficerField2OptionsClicked=!isAppointedComplianceOfficerField2OptionsClicked">
+																												<!--field options-->
+																													<div class="field-options" ng-show="isAppointedComplianceOfficerField2OptionsClicked" 
+																																			   ng-mouseleave="isAppointedComplianceOfficerField2OptionsClicked=false"
+																													>
+																														<ul>
+																															<li><a href="javascript:void(0);">Add Another Field</a></li>
+																															<li><a href="javascript:void(0);">Delete </a></li>
+																														</ul>
+																													</div>
+																												<!--end of field options-->
+																											</i>
+																										</div>
+																									</div>		
+																								</div>	
+																							</div>
+																						<!--end of input[type=checkbox]-->	
+																					</div>
+																					<div class="form-group" ng-init="isComplianceAssociations=true">
+																						<p>Does the company belong to any compliance associations or have any compliance ethics/awards?</p>
+																						<div class="pull-left-5">
+																							<div class="row">
+																								<div class="col-1">
+																									<input type="radio" checked ng-click="isComplianceAssociations=!isComplianceAssociations"><label>Yes</label>
+																								</div>
+																								<div class="col-1">
+																									<input type="radio"><label>No</label>
+																								</div>
+																							</div>
+																						</div>
+																						<!--show input[type=checkbox] refers to compliance on its site-->
+																							<div ng-show="isComplianceAssociations">
+																								<div class="form-group">
+																									<div class="row">
+																										<div class="col-11">
+																											<input class="url" type="text" value="http://sample-link-url/some-reason-why?=2ref.com/">
+																										</div>
+																										<div class="col-1">
+																											<i class="fa fa-cog" ng-click="isComplianceAssociationsFieldOptionsClicked=!isComplianceAssociationsFieldOptionsClicked">
+																												<!--field options-->
+																													<div class="field-options" ng-show="isComplianceAssociationsFieldOptionsClicked" 
+																																			   ng-mouseleave="isComplianceAssociationsFieldOptionsClicked=false"
+																													>
+																														<ul>
+																															<li><a href="javascript:void(0);">Add Another Field</a></li>
+																														</ul>
+																													</div>
+																												<!--end of field options-->
+																											</i>
+																										</div>
+																									</div>		
+																								</div>
+																								<div class="form-group">
+																									<div class="row">
+																										<div class="col-11">
+																											<textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at nulla convallis, malesuada leo ac, accumsan ipsum. Aliquam ut diam nec lorem placerat facilisis. Quisque sed arcu finibus, lacinia metus a, pretium lorem. Maecenas hendrerit nibh vel ex euismod ultrices dignissim eu sapien. Phasellus non velit sed odio pulvinar maximus nec a sapien.</textarea>
+																										</div>
+																									</div>		
+																								</div>	
+																							</div>
+																						<!--end of input[type=checkbox]-->	
+																					</div>
+																					<div class="form-group">
+																						<p>Does the company belong to any industry associations?</p>
+																						<div class="pull-left-5">
+																							<div class="row">
+																								<div class="col-1">
+																									<input type="radio"><label>Yes</label>
+																								</div>
+																								<div class="col-1">
+																									<input checked type="radio"><label>No</label>
+																								</div>
+																							</div>
+																						</div>
+																					</div>
+																					<div class="form-group" ng-init="isISOCertified=true">
+																						<p>Does the company have any ISO certifications?</p>
+																						<div class="pull-left-5">
+																							<div class="row">
+																								<div class="col-1">
+																									<input type="radio" checked ng-click="isISOCertified=!isISOCertified"><label>Yes</label>
+																								</div>
+																								<div class="col-1">
+																									<input type="radio"><label>No</label>
+																								</div>
+																							</div>
+																						</div>
+																						<!--show input[type=checkbox] if company is ISO certified-->
+																							<div ng-show="isISOCertified">
+																								<div class="form-group">
+																									<div class="row">
+																										<div class="col-11">
+																											<input class="url" type="text" value="http://sample-link-url/some-reason-why?=2ref.com/">
+																										</div>
+																										<div class="col-1">
+																											<i class="fa fa-cog" ng-click="isISOCertifiedFieldOptionsClicked=!isISOCertifiedFieldOptionsClicked">
+																												<!--field options-->
+																													<div class="field-options" ng-show="isISOCertifiedFieldOptionsClicked" 
+																																			   ng-mouseleave="isISOCertifiedFieldOptionsClicked=false"
+																													>
+																														<ul>
+																															<li><a href="javascript:void(0);">Add Another Field</a></li>
+																														</ul>
+																													</div>
+																												<!--end of field options-->
+																											</i>
+																										</div>
+																									</div>		
+																								</div>
+																								<div class="form-group">
+																									<div class="row">
+																										<div class="col-11">
+																											<textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at nulla convallis, malesuada leo ac, accumsan ipsum. Aliquam ut diam nec lorem placerat facilisis. Quisque sed arcu finibus, lacinia metus a, pretium lorem. Maecenas hendrerit nibh vel ex euismod ultrices dignissim eu sapien. Phasellus non velit sed odio pulvinar maximus nec a sapien.</textarea>
+																										</div>
+																									</div>		
+																								</div>	
+																							</div>
+																						<!--end of input[type=checkbox]-->	
+																					</div>
+																				</div>
+																			<!--end of general compliance and governance-->
+																			<!--corruption and bribery-->
+																				<h3 class="acc-header" ng-init="isActiveAccordionCorruptionBribery=true" 
+																					   ng-click="isActiveAccordionCorruptionBribery=!isActiveAccordionCorruptionBribery" 
+																					   ng-class="{'open':isActiveAccordionCorruptionBribery, 'closed': !isActiveAccordionCorruptionBribery}"
+																				>Corruption and Bribery</h3>
+																				<div class="acc-content" ng-show="isActiveAccordionCorruptionBribery" ng-init="showQuestionnaire=false">
+																					<div class="form-group">
+																						<p>Details</p>
+																						<div class="row">
+																							<div class="col-11 push-top-10">
+																								<textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at nulla convallis, malesuada leo ac, accumsan ipsum. Aliquam ut diam nec lorem placerat facilisis. Quisque sed arcu finibus, lacinia metus a, pretium lorem. Maecenas hendrerit nibh vel ex euismod ultrices dignissim eu sapien. Phasellus non velit sed odio pulvinar maximus nec a sapien.</textarea>
+																							</div>
+																							<div class="col-1">
+																								<i class="fa fa-cog"></i>
+																							</div>
+																						</div>
+																					</div>
+																					<!--questionnaire-->
+																						<div class="toggle-questionnaire" ng-class="{'push-bottom-25': !showQuestionnaire}">
+																							<span ng-click="showQuestionnaire=!showQuestionnaire"
+																								  ng-class="{'show': showQuestionnaire, 'hide': !showQuestionnaire}"	
+																							>
+																								<div ng-if="showQuestionnaire">Hide Questionnaire</div>
+																								<div ng-if="!showQuestionnaire">Show Questionnaire</div>
+																							</span>
+																						</div>
+																						<div class="questionnaire" ng-show="showQuestionnaire">
+																							<div class="form-group" ng-init="isAntiBriberyCompliance=true">
+																								<p>Does the company have an anti-bribery compliance program included on its website?</p>
+																								<div class="pull-left-5">
+																									<div class="row">
+																										<div class="col-1">
+																											<input type="radio" checked ng-click="isAntiBriberyCompliance=!isAntiBriberyCompliance"><label>Yes</label>
+																										</div>
+																										<div class="col-1">
+																											<input type="radio"><label>No</label>
+																										</div>
+																									</div>
+																								</div>
+																								<!--show input[type=checkbox] when anti-bribery compliance program is included-->
+																									<div ng-show="isAntiBriberyCompliance">
+																										<div class="form-group">
+																											<div class="row">
+																												<div class="col-11">
+																													<input class="url" type="text" value="http://sample-link-url/some-reason-why?=2ref.com/">
+																												</div>
+																												<div class="col-1">
+																										 			<i class="fa fa-cog" ng-click="isAntiBriberyComplianceFieldOptionsClicked=!isAntiBriberyComplianceFieldOptionsClicked" ng-mouseleave="isAntiBriberyComplianceFieldOptionsClicked=false">
+																														<!--field options-->
+																															<div class="field-options" ng-show="isAntiBriberyComplianceFieldOptionsClicked">
+																																<ul>
+																																	<li><a href="javascript:void(0);">Add Another Field</a></li>
+																																</ul>
+																															</div>
+																														<!--end of field options-->
+																													</i>
+																												</div>
+																											</div>		
+																										</div>	
+																									</div>
+																								<!--end of input[type=checkbox]-->	
+																							</div>
+																							<div class="form-group" ng-init="isAntiCorruptionPolicy=true">
+																								<p>Does the company bind itself to an anti-corruption policy or procedure on its website?</p>
+																								<div class="pull-left-5">
+																									<div class="row">
+																										<div class="col-1">
+																											<input type="radio" checked ng-click="isAntiCorruptionPolicy=!isAntiCorruptionPolicy"><label>Yes</label>
+																										</div>
+																										<div class="col-1">
+																											<input type="radio"><label>No</label>
+																										</div>
+																									</div>
+																								</div>
+																								<!--show input[type=checkbox] if company is binded to an anti-corruption policy-->
+																									<div ng-show="isAntiCorruptionPolicy">
+																										<div class="form-group">
+																											<div class="row">
+																												<div class="col-11">
+																													<input class="url" type="text" value="http://sample-link-url/some-reason-why?=2ref.com/">
+																												</div>
+																												<div class="col-1">
+																										 			<i class="fa fa-cog" ng-click="isAntiCorruptionPolicyFieldOptionsClicked=!isAntiCorruptionPolicyFieldOptionsClicked" ng-mouseleave="isAntiCorruptionPolicyFieldOptionsClicked=false">
+																														<!--field options-->
+																															<div class="field-options" ng-show="isAntiCorruptionPolicyFieldOptionsClicked">
+																																<ul>
+																																	<li><a href="javascript:void(0);">Add Another Field</a></li>
+																																</ul>
+																															</div>
+																														<!--end of field options-->
+																													</i>
+																												</div>
+																											</div>		
+																										</div>	
+																									</div>
+																								<!--end of input[type=checkbox]-->	
+																							</div>
+																							<div class="form-group" ng-init="isGiftPolicy=true">
+																								<p>Does the company refer to a gift/entertainment/amounts policy on its website?</p>
+																								<div class="pull-left-5">
+																									<div class="row">
+																										<div class="col-1">
+																											<input type="radio" checked ng-click="isGiftPolicy=!isGiftPolicy"><label>Yes</label>
+																										</div>
+																										<div class="col-1">
+																											<input type="radio"><label>No</label>
+																										</div>
+																									</div>
+																								</div>
+																								<!--show input[type=checkbox] when company refers to gift/entertainment/amounts policy-->
+																									<div ng-show="isGiftPolicy">
+																										<div class="form-group">
+																											<div class="row">
+																												<div class="col-11">
+																													<input class="url" type="text" value="http://sample-link-url/some-reason-why?=2ref.com/">
+																												</div>
+																												<div class="col-1">
+																										 			<i class="fa fa-cog" ng-click="isGiftPolicyFieldOptionsClicked=!isGiftPolicyFieldOptionsClicked" ng-mouseleave="isGiftPolicyFieldOptionsClicked=false">
+																														<!--field options-->
+																															<div class="field-options" ng-show="isGiftPolicyFieldOptionsClicked">
+																																<ul>
+																																	<li><a href="javascript:void(0);">Add Another Field</a></li>
+																																</ul>
+																															</div>
+																														<!--end of field options-->
+																													</i>
+																												</div>
+																											</div>		
+																										</div>	
+																									</div>
+																								<!--end of input[type=checkbox]-->	
+																							</div>
+																							<div class="form-group" ng-init="isAntiCorruptionCertified=true">
+																								<p>Does the company have any ISO certifications or similar on anti-corruption certifications?</p>
+																								<div class="pull-left-5">
+																									<div class="row">
+																										<div class="col-1">
+																											<input type="radio" checked ng-click="isAntiCorruptionCertified=!isAntiCorruptionCertified"><label>Yes</label>
+																										</div>
+																										<div class="col-1">
+																											<input type="radio"><label>No</label>
+																										</div>
+																									</div>
+																								</div>
+																								<!--show input[type=checkbox] if company is ISO certified-->
+																									<div ng-show="isAntiCorruptionCertified">
+																										<div class="form-group">
+																											<div class="row">
+																												<div class="col-11">
+																													<input class="url" type="text" value="http://sample-link-url/some-reason-why?=2ref.com/">
+																												</div>
+																												<div class="col-1">
+																													<i class="fa fa-cog" ng-click="isAntiCorruptionCertifiedFieldOptionsClicked=!isAntiCorruptionCertifiedFieldOptionsClicked">
+																														<!--field options-->
+																															<div class="field-options" ng-show="isAntiCorruptionCertifiedFieldOptionsClicked" ng-mouseleave="isAntiCorruptionCertifiedFieldOptionsClicked=false">
+																																<ul>
+																																	<li><a href="javascript:void(0);">Add Another Field</a></li>
+																																</ul>
+																															</div>
+																														<!--end of field options-->
+																													</i>
+																												</div>
+																											</div>		
+																										</div>
+																									</div>
+																								<!--end of input[type=checkbox]-->	
+																							</div>
+																							<div class="form-group" ng-init="isConvicted=false">
+																								<p>Are there any reports from reputable media confirming that the Company/Key Principal/Related Entity was convicted for corruption/bribery issues?</p>
+																								<div class="pull-left-5">
+																									<div class="row">
+																										<div class="col-1">
+																											<input type="radio" ng-click="isConvicted=!isConvicted"><label>Yes</label>
+																										</div>
+																										<div class="col-1">
+																											<input checked type="radio"><label>No</label>
+																										</div>
+																									</div>
+																								</div>
+																								<!--show input[type=checkbox] if company was convicted for corruption/brivery issues-->
+																									<div ng-show="isConvicted">
+																										<div class="form-group">
+																											<div class="row">
+																												<div class="col-11">
+																													<input class="url" type="text" value="http://sample-link-url/some-reason-why?=2ref.com/">
+																												</div>
+																												<div class="col-1">
+																										 			<i class="fa fa-cog" ng-click="isConvictedFieldOptionsClicked=!isConvictedFieldOptionsClicked" ng-mouseleave="isConvictedFieldOptionsClicked=false">
+																														<!--field options-->
+																															<div class="field-options" ng-show="isConvictedFieldOptionsClicked">
+																																<ul>
+																																	<li><a href="javascript:void(0);">Add Another Field</a></li>
+																																</ul>
+																															</div>
+																														<!--end of field options-->
+																													</i>
+																												</div>
+																											</div>		
+																										</div>	
+																									</div>
+																								<!--end of input[type=checkbox]-->	
+																							</div>
+																							<div class="form-group" ng-init="isInvolved=false">
+																								<p>Are there any allegations in reputable media involving the Company/Key Principal having commited corruption bribery?</p>
+																								<div class="pull-left-5">
+																									<div class="row">
+																										<div class="col-1">
+																											<input type="radio" ng-click="isInvolved=!isInvolved"><label>Yes</label>
+																										</div>
+																										<div class="col-1">
+																											<input checked type="radio"><label>No</label>
+																										</div>
+																									</div>
+																								</div>
+																								<!--show input[type=checkbox] if company was convicted for corruption/brivery issues-->
+																									<div ng-show="isInvolved">
+																										<div class="form-group">
+																											<div class="row">
+																												<div class="col-11">
+																													<input class="url" type="text" value="http://sample-link-url/some-reason-why?=2ref.com/">
+																												</div>
+																												<div class="col-1">
+																										 			<i class="fa fa-cog" ng-click="isInvolvedFieldOptionsClicked=!isInvolvedFieldOptionsClicked" ng-mouseleave="isInvolvedFieldOptionsClicked=false">
+																														<!--field options-->
+																															<div class="field-options" ng-show="isInvolvedFieldOptionsClicked">
+																																<ul>
+																																	<li><a href="javascript:void(0);">Add Another Field</a></li>
+																																</ul>
+																															</div>
+																														<!--end of field options-->
+																													</i>
+																												</div>
+																											</div>		
+																										</div>	
+																									</div>
+																								<!--end of input[type=checkbox]-->	
+																							</div>
+																							<div class="form-group">
+																								<p>Are there any unconfirmed allegations of the Company/Key Principal having commited corruption bribery?</p>
+																								<div class="pull-left-5">
+																									<div class="row">
+																										<div class="col-1">
+																											<input type="radio"><label>Yes</label>
+																										</div>
+																										<div class="col-1">
+																											<input checked type="radio"><label>No</label>
+																										</div>
+																									</div>
+																								</div>
+																							</div>
+																						</div>
+																					<!--end of questionnaire-->
+																				</div>
+																			<!--end of corruption and bribery-->
+																			<!--serious crime-->
+																				<h3 class="acc-header" ng-init="isActiveAccordionSeriousCrime=true" 
+																					   ng-click="isActiveAccordionSeriousCrime=!isActiveAccordionSeriousCrime" 
+																					   ng-class="{'open':isActiveAccordionSeriousCrime, 'closed': !isActiveAccordionSeriousCrime}"
+																				>Serious Crime</h3>
+																				<div class="acc-content" ng-show="isActiveAccordionSeriousCrime" ng-init="showSeriousCrimeQuestionnaire=false">
+																					<div class="form-group">
+																						<p>Details</p>
+																						<div class="row">
+																							<div class="col-11 push-top-10">
+																								<textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at nulla convallis, malesuada leo ac, accumsan ipsum. Aliquam ut diam nec lorem placerat facilisis. Quisque sed arcu finibus, lacinia metus a, pretium lorem. Maecenas hendrerit nibh vel ex euismod ultrices dignissim eu sapien. Phasellus non velit sed odio pulvinar maximus nec a sapien.</textarea>
+																							</div>
+																							<div class="col-1 push-top-10">
+																								<i class="fa fa-cog"></i>
+																							</div>
+																						</div>
+																					</div>
+																					<!--questionnaire-->
+																						<div class="toggle-questionnaire" ng-class="{'push-bottom-25': !showSeriousCrimeQuestionnaire}">
+																							<span ng-click="showSeriousCrimeQuestionnaire=!showSeriousCrimeQuestionnaire"
+																								  ng-class="{'show': showSeriousCrimeQuestionnaire, 'hide': !showSeriousCrimeQuestionnaire}"	
+																							>
+																								<div ng-if="showSeriousCrimeQuestionnaire">Hide Questionnaire</div>
+																								<div ng-if="!showSeriousCrimeQuestionnaire">Show Questionnaire</div>
+																							</span>
+																						</div>
+																						<div class="questionnaire" ng-show="showSeriousCrimeQuestionnaire"></div>
+																					<!--end of questionnaire-->
+																				</div>
+																			<!--end of serious crime-->
+																			<!--sanctions and exclusions-->
+																				<h3 class="acc-header" ng-init="isActiveAccordionSanctions=true" 
+																					   ng-click="isActiveAccordionSanctions=!isActiveAccordionSanctions" 
+																					   ng-class="{'open':isActiveAccordionSanctions, 'closed': !isActiveAccordionSanctions}"
+																				>Sanctions and Exclusions</h3>
+																				<div class="acc-content" ng-show="isActiveAccordionSanctions" ng-init="showSanctionsQuestionnaire=false">
+																					<div class="form-group">
+																						<p>Details</p>
+																						<div class="row">
+																							<div class="col-11 push-top-10">
+																								<textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at nulla convallis, malesuada leo ac, accumsan ipsum. Aliquam ut diam nec lorem placerat facilisis. Quisque sed arcu finibus, lacinia metus a, pretium lorem. Maecenas hendrerit nibh vel ex euismod ultrices dignissim eu sapien. Phasellus non velit sed odio pulvinar maximus nec a sapien.</textarea>
+																							</div>
+																							<div class="col-1 push-top-10">
+																								<i class="fa fa-cog"></i>
+																							</div>
+																						</div>
+																					</div>
+																					<!--questionnaire-->
+																						<div class="toggle-questionnaire" ng-class="{'push-bottom-25': !showSanctionsQuestionnaire}">
+																							<span ng-click="showSanctionsQuestionnaire=!showSanctionsQuestionnaire"
+																								  ng-class="{'show': showSanctionsQuestionnaire, 'hide': !showSanctionsQuestionnaire}"	
+																							>
+																								<div ng-if="showSanctionsQuestionnaire">Hide Questionnaire</div>
+																								<div ng-if="!showSanctionsQuestionnaire">Show Questionnaire</div>
+																							</span>
+																						</div>
+																						<div class="questionnaire" ng-show="showSanctionsQuestionnaire"></div>
+																					<!--end of questionnaire-->
+																				</div>
+																			<!--end of sanctions and exclusions-->
+																			<!--fraud, money laundering and financial-->
+																				<h3 class="acc-header" ng-init="isActiveAccordionFraud=true" 
+																					   ng-click="isActiveAccordionFraud=!isActiveAccordionFraud" 
+																					   ng-class="{'open':isActiveAccordionFraud, 'closed': !isActiveAccordionFraud}"
+																				>Fraud, Money Laundering and Financial</h3>
+																				<div class="acc-content" ng-show="isActiveAccordionFraud" ng-init="showFraudQuestionnaire=false">
+																					<div class="form-group">
+																						<p>Details</p>
+																						<div class="row">
+																							<div class="col-11 push-top-10">
+																								<textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at nulla convallis, malesuada leo ac, accumsan ipsum. Aliquam ut diam nec lorem placerat facilisis. Quisque sed arcu finibus, lacinia metus a, pretium lorem. Maecenas hendrerit nibh vel ex euismod ultrices dignissim eu sapien. Phasellus non velit sed odio pulvinar maximus nec a sapien.</textarea>
+																							</div>
+																							<div class="col-1 push-top-10">
+																								<i class="fa fa-cog"></i>
+																							</div>
+																						</div>
+																					</div>
+																					<!--questionnaire-->
+																						<div class="toggle-questionnaire" ng-class="{'push-bottom-25': !showFraudQuestionnaire}">
+																							<span ng-click="showFraudQuestionnaire=!showFraudQuestionnaire"
+																								  ng-class="{'show': showFraudQuestionnaire, 'hide': !showFraudQuestionnaire}"	
+																							>
+																								<div ng-if="showFraudQuestionnaire">Hide Questionnaire</div>
+																								<div ng-if="!showFraudQuestionnaire">Show Questionnaire</div>
+																							</span>
+																						</div>
+																						<div class="questionnaire" ng-show="showFraudQuestionnaire"></div>
+																					<!--end of questionnaire-->
+																				</div>
+																			<!--end of fraud, money laundering and financial-->
+																			<!--export controls-->
+																				<h3 class="acc-header" ng-init="isActiveAccordionExportControl=true" 
+																					   ng-click="isActiveAccordionExportControl=!isActiveAccordionExportControl" 
+																					   ng-class="{'open':isActiveAccordionExportControl, 'closed': !isActiveAccordionExportControl}"
+																				>Export Controls</h3>
+																				<div class="acc-content" ng-show="isActiveAccordionExportControl" ng-init="showExportControlQuestionnaire=false">
+																					<div class="form-group">
+																						<p>Details</p>
+																						<div class="row">
+																							<div class="col-11 push-top-10">
+																								<textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at nulla convallis, malesuada leo ac, accumsan ipsum. Aliquam ut diam nec lorem placerat facilisis. Quisque sed arcu finibus, lacinia metus a, pretium lorem. Maecenas hendrerit nibh vel ex euismod ultrices dignissim eu sapien. Phasellus non velit sed odio pulvinar maximus nec a sapien.</textarea>
+																							</div>
+																							<div class="col-1 push-top-10">
+																								<i class="fa fa-cog"></i>
+																							</div>
+																						</div>
+																					</div>
+																					<!--questionnaire-->
+																						<div class="toggle-questionnaire" ng-class="{'push-bottom-25': !showExportControlQuestionnaire}">
+																							<span ng-click="showExportControlQuestionnaire=!showExportControlQuestionnaire"
+																								  ng-class="{'show': showExportControlQuestionnaire, 'hide': !showExportControlQuestionnaire}"	
+																							>
+																								<div ng-if="showExportControlQuestionnaire">Hide Questionnaire</div>
+																								<div ng-if="!showExportControlQuestionnaire">Show Questionnaire</div>
+																							</span>
+																						</div>
+																						<div class="questionnaire" ng-show="showExportControlQuestionnaire"></div>
+																					<!--end of questionnaire-->
+																				</div>
+																			<!--end of export controls-->
+																			<!--politics-->
+																				<h3 class="acc-header" ng-init="isActiveAccordionPolitics=true" 
+																					   ng-click="isActiveAccordionPolitics=!isActiveAccordionPolitics" 
+																					   ng-class="{'open':isActiveAccordionPolitics, 'closed': !isActiveAccordionPolitics}"
+																				>Politics</h3>
+																				<div class="acc-content" ng-show="isActiveAccordionPolitics" ng-init="showPoliticsQuestionnaire=false">
+																					<div class="form-group">
+																						<p>Details</p>
+																						<div class="row">
+																							<div class="col-11 push-top-10">
+																								<textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at nulla convallis, malesuada leo ac, accumsan ipsum. Aliquam ut diam nec lorem placerat facilisis. Quisque sed arcu finibus, lacinia metus a, pretium lorem. Maecenas hendrerit nibh vel ex euismod ultrices dignissim eu sapien. Phasellus non velit sed odio pulvinar maximus nec a sapien.</textarea>
+																							</div>
+																							<div class="col-1 push-top-10">
+																								<i class="fa fa-cog"></i>
+																							</div>
+																						</div>
+																					</div>
+																					<!--questionnaire-->
+																						<div class="toggle-questionnaire" ng-class="{'push-bottom-25': !showPoliticsQuestionnaire}">
+																							<span ng-click="showPoliticsQuestionnaire=!showPoliticsQuestionnaire"
+																								  ng-class="{'show': showPoliticsQuestionnaire, 'hide': !showPoliticsQuestionnaire}"	
+																							>
+																								<div ng-if="showPoliticsQuestionnaire">Hide Questionnaire</div>
+																								<div ng-if="!showPoliticsQuestionnaire">Show Questionnaire</div>
+																							</span>
+																						</div>
+																						<div class="questionnaire" ng-show="showPoliticsQuestionnaire"></div>
+																					<!--end of questionnaire-->
+																				</div>
+																			<!--end of politics-->
+																			<!--anti-competitive behavior-->
+																				<h3 class="acc-header" ng-init="isActiveAccordionAntiCompetitiveBehavior=true" 
+																					   ng-click="isActiveAccordionAntiCompetitiveBehavior=!isActiveAccordionAntiCompetitiveBehavior" 
+																					   ng-class="{'open':isActiveAccordionAntiCompetitiveBehavior, 'closed': !isActiveAccordionAntiCompetitiveBehavior}"
+																				>Anti Competitive Behavior</h3>
+																				<div class="acc-content" ng-show="isActiveAccordionAntiCompetitiveBehavior" ng-init="showAntiCompetitiveBehaviorQuestionnaire=false">
+																					<div class="form-group">
+																						<p>Details</p>
+																						<div class="row">
+																							<div class="col-11 push-top-10">
+																								<textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at nulla convallis, malesuada leo ac, accumsan ipsum. Aliquam ut diam nec lorem placerat facilisis. Quisque sed arcu finibus, lacinia metus a, pretium lorem. Maecenas hendrerit nibh vel ex euismod ultrices dignissim eu sapien. Phasellus non velit sed odio pulvinar maximus nec a sapien.</textarea>
+																							</div>
+																							<div class="col-1 push-top-10">
+																								<i class="fa fa-cog"></i>
+																							</div>
+																						</div>
+																					</div>
+																					<!--questionnaire-->
+																						<div class="toggle-questionnaire" ng-class="{'push-bottom-25': !showAntiCompetitiveBehaviorQuestionnaire}">
+																							<span ng-click="showAntiCompetitiveBehaviorQuestionnaire=!showAntiCompetitiveBehaviorQuestionnaire"
+																								  ng-class="{'show': showAntiCompetitiveBehaviorQuestionnaire, 'hide': !showAntiCompetitiveBehaviorQuestionnaire}"	
+																							>
+																								<div ng-if="showAntiCompetitiveBehaviorQuestionnaire">Hide Questionnaire</div>
+																								<div ng-if="!showAntiCompetitiveBehaviorQuestionnaire">Show Questionnaire</div>
+																							</span>
+																						</div>
+																						<div class="questionnaire" ng-show="showAntiCompetitiveBehaviorQuestionnaire"></div>
+																					<!--end of questionnaire-->
+																				</div>
+																			<!--end of anti-competitive behavior-->
+																			<!--health and safety-->
+																				<h3 class="acc-header" ng-init="isActiveAccordionHealth=true" 
+																					   ng-click="isActiveAccordionHealth=!isActiveAccordionHealth" 
+																					   ng-class="{'open':isActiveAccordionHealth, 'closed': !isActiveAccordionHealth}"
+																				>Health and Safety</h3>
+																				<div class="acc-content" ng-show="isActiveAccordionHealth" ng-init="showHealthQuestionnaire=false">
+																					<div class="form-group">
+																						<p>Details</p>
+																						<div class="row">
+																							<div class="col-11 push-top-10">
+																								<textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at nulla convallis, malesuada leo ac, accumsan ipsum. Aliquam ut diam nec lorem placerat facilisis. Quisque sed arcu finibus, lacinia metus a, pretium lorem. Maecenas hendrerit nibh vel ex euismod ultrices dignissim eu sapien. Phasellus non velit sed odio pulvinar maximus nec a sapien.</textarea>
+																							</div>
+																							<div class="col-1 push-top-10">
+																								<i class="fa fa-cog"></i>
+																							</div>
+																						</div>
+																					</div>
+																					<!--questionnaire-->
+																						<div class="toggle-questionnaire" ng-class="{'push-bottom-25': !showHealthQuestionnaire}">
+																							<span ng-click="showHealthQuestionnaire=!showHealthQuestionnaire"
+																								  ng-class="{'show': showHealthQuestionnaire, 'hide': !showHealthQuestionnaire}"	
+																							>
+																								<div ng-if="showHealthQuestionnaire">Hide Questionnaire</div>
+																								<div ng-if="!showHealthQuestionnaire">Show Questionnaire</div>
+																							</span>
+																						</div>
+																						<div class="questionnaire" ng-show="showHealthQuestionnaire"></div>
+																					<!--end of questionnaire-->
+																				</div>
+																			<!--end of health and safety-->
+																			<!--diversity-->
+																				<h3 class="acc-header" ng-init="isActiveAccordionDiveristy=true" 
+																					   ng-click="isActiveAccordionDiveristy=!isActiveAccordionDiveristy" 
+																					   ng-class="{'open':isActiveAccordionDiveristy, 'closed': !isActiveAccordionDiveristy}"
+																				>Diversity</h3>
+																				<div class="acc-content" ng-show="isActiveAccordionDiveristy" ng-init="showDiveristyQuestionnaire=false">
+																					<div class="form-group">
+																						<p>Details</p>
+																						<div class="row">
+																							<div class="col-11 push-top-10">
+																								<textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at nulla convallis, malesuada leo ac, accumsan ipsum. Aliquam ut diam nec lorem placerat facilisis. Quisque sed arcu finibus, lacinia metus a, pretium lorem. Maecenas hendrerit nibh vel ex euismod ultrices dignissim eu sapien. Phasellus non velit sed odio pulvinar maximus nec a sapien.</textarea>
+																							</div>
+																							<div class="col-1 push-top-10">
+																								<i class="fa fa-cog"></i>
+																							</div>
+																						</div>
+																					</div>
+																					<!--questionnaire-->
+																						<div class="toggle-questionnaire" ng-class="{'push-bottom-25': !showDiversityQuestionnaire}">
+																							<span ng-click="showDiversityQuestionnaire=!showDiversityQuestionnaire"
+																								  ng-class="{'show': showDiversityQuestionnaire, 'hide': !showDiversityQuestionnaire}"	
+																							>
+																								<div ng-if="showDiversityQuestionnaire">Hide Questionnaire</div>
+																								<div ng-if="!showDiversityQuestionnaire">Show Questionnaire</div>
+																							</span>
+																						</div>
+																						<div class="questionnaire" ng-show="showDiversityQuestionnaire"></div>
+																					<!--end of questionnaire-->
+																				</div>
+																			<!--end of diversity-->
+																			<!--employee rights-->
+																				<h3 class="acc-header" ng-init="isActiveAccordionEmployeeRights=true" 
+																					   ng-click="isActiveAccordionEmployeeRights=!isActiveAccordionEmployeeRights" 
+																					   ng-class="{'open':isActiveAccordionEmployeeRights, 'closed': !isActiveAccordionEmployeeRights}"
+																				>Employee Rights</h3>
+																				<div class="acc-content" ng-show="isActiveAccordionEmployeeRights" ng-init="showEmployeeRightsQuestionnaire=false">
+																					<div class="form-group">
+																						<p>Details</p>
+																						<div class="row">
+																							<div class="col-11 push-top-10">
+																								<textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at nulla convallis, malesuada leo ac, accumsan ipsum. Aliquam ut diam nec lorem placerat facilisis. Quisque sed arcu finibus, lacinia metus a, pretium lorem. Maecenas hendrerit nibh vel ex euismod ultrices dignissim eu sapien. Phasellus non velit sed odio pulvinar maximus nec a sapien.</textarea>
+																							</div>
+																							<div class="col-1 push-top-10">
+																								<i class="fa fa-cog"></i>
+																							</div>
+																						</div>
+																					</div>
+																					<!--questionnaire-->
+																						<div class="toggle-questionnaire" ng-class="{'push-bottom-25': !showEmployeeRightsQuestionnaire}">
+																							<span ng-click="showEmployeeRightsQuestionnaire=!showEmployeeRightsQuestionnaire"
+																								  ng-class="{'show': showEmployeeRightsQuestionnaire, 'hide': !showEmployeeRightsQuestionnaire}"	
+																							>
+																								<div ng-if="showEmployeeRightsQuestionnaire">Hide Questionnaire</div>
+																								<div ng-if="!showEmployeeRightsQuestionnaire">Show Questionnaire</div>
+																							</span>
+																						</div>
+																						<div class="questionnaire" ng-show="showEmployeeRightsQuestionnaire"></div>
+																					<!--end of questionnaire-->
+																				</div>
+																			<!--end of employee rights-->
+																			<!--modern-day slavery-->
+																				<h3 class="acc-header" ng-init="isActiveAccordionModernDaySlavery=true" 
+																					   ng-click="isActiveAccordionModernDaySlavery=!isActiveAccordionModernDaySlavery" 
+																					   ng-class="{'open':isActiveAccordionModernDaySlavery, 'closed': !isActiveAccordionModernDaySlavery}"
+																				>Modern Day Slavery</h3>
+																				<div class="acc-content" ng-show="isActiveAccordionModernDaySlavery" ng-init="showModernDaySlaveryQuestionnaire=false">
+																					<div class="form-group">
+																						<p>Details</p>
+																						<div class="row">
+																							<div class="col-11 push-top-10">
+																								<textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at nulla convallis, malesuada leo ac, accumsan ipsum. Aliquam ut diam nec lorem placerat facilisis. Quisque sed arcu finibus, lacinia metus a, pretium lorem. Maecenas hendrerit nibh vel ex euismod ultrices dignissim eu sapien. Phasellus non velit sed odio pulvinar maximus nec a sapien.</textarea>
+																							</div>
+																							<div class="col-1 push-top-10">
+																								<i class="fa fa-cog"></i>
+																							</div>
+																						</div>
+																					</div>
+																					<!--questionnaire-->
+																						<div class="toggle-questionnaire" ng-class="{'push-bottom-25': !showModernDaySlaveryQuestionnaire}">
+																							<span ng-click="showModernDaySlaveryQuestionnaire=!showModernDaySlaveryQuestionnaire"
+																								  ng-class="{'show': showModernDaySlaveryQuestionnaire, 'hide': !showModernDaySlaveryQuestionnaire}"	
+																							>
+																								<div ng-if="showModernDaySlaveryQuestionnaire">Hide Questionnaire</div>
+																								<div ng-if="!showModernDaySlaveryQuestionnaire">Show Questionnaire</div>
+																							</span>
+																						</div>
+																						<div class="questionnaire" ng-show="showModernDaySlaveryQuestionnaire"></div>
+																					<!--end of questionnaire-->
+																				</div>
+																			<!--end of modern-day slavery-->
+																			<!--materials labeling and handling-->
+																				<h3 class="acc-header" ng-init="isActiveAccordionMaterialLabeling=true" 
+																					   ng-click="isActiveAccordionMaterialLabeling=!isActiveAccordionMaterialLabeling" 
+																					   ng-class="{'open':isActiveAccordionMaterialLabeling, 'closed': !isActiveAccordionMaterialLabeling}"
+																				>Materials Labeling and Handling</h3>
+																				<div class="acc-content" ng-show="isActiveAccordionMaterialLabeling" ng-init="showMaterialLabelingQuestionnaire=false">
+																					<div class="form-group">
+																						<p>Details</p>
+																						<div class="row">
+																							<div class="col-11 push-top-10">
+																								<textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at nulla convallis, malesuada leo ac, accumsan ipsum. Aliquam ut diam nec lorem placerat facilisis. Quisque sed arcu finibus, lacinia metus a, pretium lorem. Maecenas hendrerit nibh vel ex euismod ultrices dignissim eu sapien. Phasellus non velit sed odio pulvinar maximus nec a sapien.</textarea>
+																							</div>
+																							<div class="col-1 push-top-10">
+																								<i class="fa fa-cog"></i>
+																							</div>
+																						</div>
+																					</div>
+																					<!--questionnaire-->
+																						<div class="toggle-questionnaire" ng-class="{'push-bottom-25': !showMaterialLabelingQuestionnaire}">
+																							<span ng-click="showMaterialLabelingQuestionnaire=!showMaterialLabelingQuestionnaire"
+																								  ng-class="{'show': showMaterialLabelingQuestionnaire, 'hide': !showMaterialLabelingQuestionnaire}"	
+																							>
+																								<div ng-if="showMaterialLabelingQuestionnaire">Hide Questionnaire</div>
+																								<div ng-if="!showMaterialLabelingQuestionnaire">Show Questionnaire</div>
+																							</span>
+																						</div>
+																						<div class="questionnaire" ng-show="showMaterialLabelingQuestionnaire"></div>
+																					<!--end of questionnaire-->
+																				</div>
+																			<!--end of materials labeling and handling--->
+																			<!--irresponsible marketing-->
+																				<h3 class="acc-header" ng-init="isActiveAccordionIrresponsibleMarketing=true" 
+																					   ng-click="isActiveAccordionIrresponsibleMarketing=!isActiveAccordionIrresponsibleMarketing" 
+																					   ng-class="{'open':isActiveAccordionIrresponsibleMarketing, 'closed': !isActiveAccordionIrresponsibleMarketing}"
+																				>Irresponsible Marketing</h3>
+																				<div class="acc-content" ng-show="isActiveAccordionIrresponsibleMarketing" ng-init="showIrresponsibleMarketingQuestionnaire=false">
+																					<div class="form-group">
+																						<p>Details</p>
+																						<div class="row">
+																							<div class="col-11 push-top-10">
+																								<textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at nulla convallis, malesuada leo ac, accumsan ipsum. Aliquam ut diam nec lorem placerat facilisis. Quisque sed arcu finibus, lacinia metus a, pretium lorem. Maecenas hendrerit nibh vel ex euismod ultrices dignissim eu sapien. Phasellus non velit sed odio pulvinar maximus nec a sapien.</textarea>
+																							</div>
+																							<div class="col-1 push-top-10">
+																								<i class="fa fa-cog"></i>
+																							</div>
+																						</div>
+																					</div>
+																					<!--questionnaire-->
+																						<div class="toggle-questionnaire" ng-class="{'push-bottom-25': !showIrresponsibleMarketingQuestionnaire}">
+																							<span ng-click="showIrresponsibleMarketingQuestionnaire=!showIrresponsibleMarketingQuestionnaire"
+																								  ng-class="{'show': showIrresponsibleMarketingQuestionnaire, 'hide': !showIrresponsibleMarketingQuestionnaire}"	
+																							>
+																								<div ng-if="showIrresponsibleMarketingQuestionnaire">Hide Questionnaire</div>
+																								<div ng-if="!showIrresponsibleMarketingQuestionnaire">Show Questionnaire</div>
+																							</span>
+																						</div>
+																						<div class="questionnaire" ng-show="showIrresponsibleMarketingQuestionnaire"></div>
+																					<!--end of questionnaire-->
+																				</div>
+																			<!--end of irresponsible marketing-->
+																			<!--information mishandling-->
+																				<h3 class="acc-header" ng-init="isActiveAccordionInformationMishandling=true" 
+																					   ng-click="isActiveAccordionInformationMishandling=!isActiveAccordionInformationMishandling" 
+																					   ng-class="{'open':isActiveAccordionInformationMishandling, 'closed': !isActiveAccordionInformationMishandling}"
+																				>Information Mishandling</h3>
+																				<div class="acc-content" ng-show="isActiveAccordionInformationMishandling" ng-init="showInformationMishandlingQuestionnaire=false">
+																					<div class="form-group">
+																						<p>Details</p>
+																						<div class="row">
+																							<div class="col-11 push-top-10">
+																								<textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at nulla convallis, malesuada leo ac, accumsan ipsum. Aliquam ut diam nec lorem placerat facilisis. Quisque sed arcu finibus, lacinia metus a, pretium lorem. Maecenas hendrerit nibh vel ex euismod ultrices dignissim eu sapien. Phasellus non velit sed odio pulvinar maximus nec a sapien.</textarea>
+																							</div>
+																							<div class="col-1 push-top-10">
+																								<i class="fa fa-cog"></i>
+																							</div>
+																						</div>
+																					</div>
+																					<!--questionnaire-->
+																						<div class="toggle-questionnaire" ng-class="{'push-bottom-25': !showInformationMishandlingQuestionnaire}">
+																							<span ng-click="showInformationMishandlingQuestionnaire=!showInformationMishandlingQuestionnaire"
+																								  ng-class="{'show': showInformationMishandlingQuestionnaire, 'hide': !showInformationMishandlingQuestionnaire}"	
+																							>
+																								<div ng-if="showInformationMishandlingQuestionnaire">Hide Questionnaire</div>
+																								<div ng-if="!showInformationMishandlingQuestionnaire">Show Questionnaire</div>
+																							</span>
+																						</div>
+																						<div class="questionnaire" ng-show="showInformationMishandlingQuestionnaire"></div>
+																					<!--end of questionnaire-->
+																				</div>
+																			<!--end of information mishandling-->
+																			<!--intellectual property infringement-->
+																				<h3 class="acc-header" ng-init="isActiveAccordionIPInfringement=true" 
+																					   ng-click="isActiveAccordionIPInfringement=!isActiveAccordionIPInfringement" 
+																					   ng-class="{'open':isActiveAccordionIPInfringement, 'closed': !isActiveAccordionIPInfringement}"
+																				>Intelllectual Property Infringement</h3>
+																				<div class="acc-content" ng-show="isActiveAccordionIPInfringement" ng-init="showIPInfringementQuestionnaire=false">
+																					<div class="form-group">
+																						<p>Details</p>
+																						<div class="row">
+																							<div class="col-11 push-top-10">
+																								<textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at nulla convallis, malesuada leo ac, accumsan ipsum. Aliquam ut diam nec lorem placerat facilisis. Quisque sed arcu finibus, lacinia metus a, pretium lorem. Maecenas hendrerit nibh vel ex euismod ultrices dignissim eu sapien. Phasellus non velit sed odio pulvinar maximus nec a sapien.</textarea>
+																							</div>
+																							<div class="col-1 push-top-10">
+																								<i class="fa fa-cog"></i>
+																							</div>
+																						</div>
+																					</div>
+																					<!--questionnaire-->
+																						<div class="toggle-questionnaire" ng-class="{'push-bottom-25': !showIPInfringementQuestionnaire}">
+																							<span ng-click="showIPInfringementQuestionnaire=!showIPInfringementQuestionnaire"
+																								  ng-class="{'show': showIPInfringementQuestionnaire, 'hide': !showIPInfringementQuestionnaire}"	
+																							>
+																								<div ng-if="showIPInfringementQuestionnaire">Hide Questionnaire</div>
+																								<div ng-if="!showIPInfringementQuestionnaire">Show Questionnaire</div>
+																							</span>
+																						</div>
+																						<div class="questionnaire" ng-show="showIPInfringementQuestionnaire"></div>
+																					<!--end of questionnaire-->
+																				</div>
+																			<!--end of intellectual property infringement-->
+																			<!--data security breaches-->
+																				<h3 class="acc-header" ng-init="isActiveAccordionDataBreaches=true" 
+																					   ng-click="isActiveAccordionDataBreaches=!isActiveAccordionDataBreaches" 
+																					   ng-class="{'open':isActiveAccordionDataBreaches, 'closed': !isActiveAccordionDataBreaches}"
+																				>Data Security Breaches</h3>
+																				<div class="acc-content" ng-show="isActiveAccordionDataBreaches" ng-init="showDataBreachesQuestionnaire=false">
+																					<div class="form-group">
+																						<p>Details</p>
+																						<div class="row">
+																							<div class="col-11 push-top-10">
+																								<textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at nulla convallis, malesuada leo ac, accumsan ipsum. Aliquam ut diam nec lorem placerat facilisis. Quisque sed arcu finibus, lacinia metus a, pretium lorem. Maecenas hendrerit nibh vel ex euismod ultrices dignissim eu sapien. Phasellus non velit sed odio pulvinar maximus nec a sapien.</textarea>
+																							</div>
+																							<div class="col-1 push-top-10">
+																								<i class="fa fa-cog"></i>
+																							</div>
+																						</div>
+																					</div>
+																					<!--questionnaire-->
+																						<div class="toggle-questionnaire" ng-class="{'push-bottom-25': !showDataBreachesQuestionnaire}">
+																							<span ng-click="showDataBreachesQuestionnaire=!showDataBreachesQuestionnaire"
+																								  ng-class="{'show': showDataBreachesQuestionnaire, 'hide': !showDataBreachesQuestionnaire}"	
+																							>
+																								<div ng-if="showDataBreachesQuestionnaire">Hide Questionnaire</div>
+																								<div ng-if="!showDataBreachesQuestionnaire">Show Questionnaire</div>
+																							</span>
+																						</div>
+																						<div class="questionnaire" ng-show="showDataBreachesQuestionnaire"></div>
+																					<!--end of questionnaire-->
+																				</div>
+																			<!--end of data security breaches-->
+																			<!--business continuity-->
+																				<h3 class="acc-header" ng-init="isActiveAccordionBusinessContinuity=true" 
+																					   ng-click="isActiveAccordionBusinessContinuity=!isActiveAccordionBusinessContinuity" 
+																					   ng-class="{'open':isActiveAccordionBusinessContinuity, 'closed': !isActiveAccordionBusinessContinuity}"
+																				>Business Continuity</h3>
+																				<div class="acc-content" ng-show="isActiveAccordionBusinessContinuity" ng-init="showBusinessContinuityQuestionnaire=false">
+																					<div class="form-group">
+																						<p>Details</p>
+																						<div class="row">
+																							<div class="col-11 push-top-10">
+																								<textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at nulla convallis, malesuada leo ac, accumsan ipsum. Aliquam ut diam nec lorem placerat facilisis. Quisque sed arcu finibus, lacinia metus a, pretium lorem. Maecenas hendrerit nibh vel ex euismod ultrices dignissim eu sapien. Phasellus non velit sed odio pulvinar maximus nec a sapien.</textarea>
+																							</div>
+																							<div class="col-1 push-top-10">
+																								<i class="fa fa-cog"></i>
+																							</div>
+																						</div>
+																					</div>
+																					<!--questionnaire-->
+																						<div class="toggle-questionnaire" ng-class="{'push-bottom-25': !showBusinessContinuityQuestionnaire}">
+																							<span ng-click="showBusinessContinuityQuestionnaire=!showBusinessContinuityQuestionnaire"
+																								  ng-class="{'show': showBusinessContinuityQuestionnaire, 'hide': !showBusinessContinuityQuestionnaire}"	
+																							>
+																								<div ng-if="showBusinessContinuityQuestionnaire">Hide Questionnaire</div>
+																								<div ng-if="!showBusinessContinuityQuestionnaire">Show Questionnaire</div>
+																							</span>
+																						</div>
+																						<div class="questionnaire" ng-show="showBusinessContinuityQuestionnaire"></div>
+																					<!--end of questionnaire-->
+																				</div>
+																			<!--end of business continuity-->
+																			<!--chemical usage-->
+																				<h3 class="acc-header" ng-init="isActiveAccordionChemicalUsage=true" 
+																					   ng-click="isActiveAccordionChemicalUsage=!isActiveAccordionChemicalUsage" 
+																					   ng-class="{'open':isActiveAccordionChemicalUsage, 'closed': !isActiveAccordionChemicalUsage}"
+																				>Chemical Usage</h3>
+																				<div class="acc-content" ng-show="isActiveAccordionChemicalUsage" ng-init="showChemicalUsageQuestionnaire=false">
+																					<div class="form-group">
+																						<p>Details</p>
+																						<div class="row">
+																							<div class="col-11 push-top-10">
+																								<textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at nulla convallis, malesuada leo ac, accumsan ipsum. Aliquam ut diam nec lorem placerat facilisis. Quisque sed arcu finibus, lacinia metus a, pretium lorem. Maecenas hendrerit nibh vel ex euismod ultrices dignissim eu sapien. Phasellus non velit sed odio pulvinar maximus nec a sapien.</textarea>
+																							</div>
+																							<div class="col-1 push-top-10">
+																								<i class="fa fa-cog"></i>
+																							</div>
+																						</div>
+																					</div>
+																					<!--questionnaire-->
+																						<div class="toggle-questionnaire" ng-class="{'push-bottom-25': !showChemicalUsageQuestionnaire}">
+																							<span ng-click="showChemicalUsageQuestionnaire=!showChemicalUsageQuestionnaire"
+																								  ng-class="{'show': showChemicalUsageQuestionnaire, 'hide': !showChemicalUsageQuestionnaire}"	
+																							>
+																								<div ng-if="showChemicalUsageQuestionnaire">Hide Questionnaire</div>
+																								<div ng-if="!showChemicalUsageQuestionnaire">Show Questionnaire</div>
+																							</span>
+																						</div>
+																						<div class="questionnaire" ng-show="showChemicalUsageQuestionnaire"></div>
+																					<!--end of questionnaire-->
+																				</div>
+																			<!--end of chemical usage-->
+																			<!--emissions and waste monitoring-->
+																				<h3 class="acc-header" ng-init="isActiveAccordionWasteMonitoring=true" 
+																					   ng-click="isActiveAccordionWasteMonitoring=!isActiveAccordionWasteMonitoring" 
+																					   ng-class="{'open':isActiveAccordionWasteMonitoring, 'closed': !isActiveAccordionWasteMonitoring}"
+																				>Emissions and Waste Monitoring</h3>
+																				<div class="acc-content" ng-show="isActiveAccordionWasteMonitoring" ng-init="showWasteMonitoringQuestionnaire=false">
+																					<div class="form-group">
+																						<p>Details</p>
+																						<div class="row">
+																							<div class="col-11 push-top-10">
+																								<textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at nulla convallis, malesuada leo ac, accumsan ipsum. Aliquam ut diam nec lorem placerat facilisis. Quisque sed arcu finibus, lacinia metus a, pretium lorem. Maecenas hendrerit nibh vel ex euismod ultrices dignissim eu sapien. Phasellus non velit sed odio pulvinar maximus nec a sapien.</textarea>
+																							</div>
+																							<div class="col-1 push-top-10">
+																								<i class="fa fa-cog"></i>
+																							</div>
+																						</div>
+																					</div>
+																					<!--questionnaire-->
+																						<div class="toggle-questionnaire" ng-class="{'push-bottom-25': !showWasteMonitoringQuestionnaire}">
+																							<span ng-click="showWasteMonitoringQuestionnaire=!showWasteMonitoringQuestionnaire"
+																								  ng-class="{'show': showWasteMonitoringQuestionnaire, 'hide': !showWasteMonitoringQuestionnaire}"	
+																							>
+																								<div ng-if="showWasteMonitoringQuestionnaire">Hide Questionnaire</div>
+																								<div ng-if="!showWasteMonitoringQuestionnaire">Show Questionnaire</div>
+																							</span>
+																						</div>
+																						<div class="questionnaire" ng-show="showWasteMonitoringQuestionnaire"></div>
+																					<!--end of questionnaire-->
+																				</div>
+																			<!--end of emissions and waste monitoring-->
+																			<!--product regulations-->
+																				<h3 class="acc-header" ng-init="isActiveAccordionProductRegulations=true" 
+																					   ng-click="isActiveAccordionProductRegulations=!isActiveAccordionProductRegulations" 
+																					   ng-class="{'open':isActiveAccordionProductRegulations, 'closed': !isActiveAccordionProductRegulations}"
+																				>Product Regulations</h3>
+																				<div class="acc-content" ng-show="isActiveAccordionProductRegulations" ng-init="showProductRegulationsQuestionnaire=false">
+																					<div class="form-group">
+																						<p>Details</p>
+																						<div class="row">
+																							<div class="col-11 push-top-10">
+																								<textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at nulla convallis, malesuada leo ac, accumsan ipsum. Aliquam ut diam nec lorem placerat facilisis. Quisque sed arcu finibus, lacinia metus a, pretium lorem. Maecenas hendrerit nibh vel ex euismod ultrices dignissim eu sapien. Phasellus non velit sed odio pulvinar maximus nec a sapien.</textarea>
+																							</div>
+																							<div class="col-1 push-top-10">
+																								<i class="fa fa-cog"></i>
+																							</div>
+																						</div>
+																					</div>
+																					<!--questionnaire-->
+																						<div class="toggle-questionnaire" ng-class="{'push-bottom-25': !showProductRegulationsQuestionnaire}">
+																							<span ng-click="showProductRegulationsQuestionnaire=!showProductRegulationsQuestionnaire"
+																								  ng-class="{'show': showProductRegulationsQuestionnaire, 'hide': !showProductRegulationsQuestionnaire}"	
+																							>
+																								<div ng-if="showProductRegulationsQuestionnaire">Hide Questionnaire</div>
+																								<div ng-if="!showProductRegulationsQuestionnaire">Show Questionnaire</div>
+																							</span>
+																						</div>
+																						<div class="questionnaire" ng-show="showProductRegulationsQuestionnaire"></div>
+																					<!--end of questionnaire-->
+																				</div>
+																			<!--end of product regulations-->
+																			<!--sustainability-->
+																				<h3 class="acc-header" ng-init="isActiveAccordionSustainability=true" 
+																					   ng-click="isActiveAccordionSustainability=!isActiveAccordionSustainability" 
+																					   ng-class="{'open':isActiveAccordionSustainability, 'closed': !isActiveAccordionSustainability}"
+																				>Sustainability</h3>
+																				<div class="acc-content" ng-show="isActiveAccordionSustainability" ng-init="showSustainabilityQuestionnaire=false">
+																					<div class="form-group">
+																						<p>Details</p>
+																						<div class="row">
+																							<div class="col-11 push-top-10">
+																								<textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at nulla convallis, malesuada leo ac, accumsan ipsum. Aliquam ut diam nec lorem placerat facilisis. Quisque sed arcu finibus, lacinia metus a, pretium lorem. Maecenas hendrerit nibh vel ex euismod ultrices dignissim eu sapien. Phasellus non velit sed odio pulvinar maximus nec a sapien.</textarea>
+																							</div>
+																							<div class="col-1 push-top-10">
+																								<i class="fa fa-cog"></i>
+																							</div>
+																						</div>
+																					</div>
+																					<!--questionnaire-->
+																						<div class="toggle-questionnaire" ng-class="{'push-bottom-25': !showSustainabilityQuestionnaire}">
+																							<span ng-click="showSustainabilityQuestionnaire=!showSustainabilityQuestionnaire"
+																								  ng-class="{'show': showSustainabilityQuestionnaire, 'hide': !showSustainabilityQuestionnaire}"	
+																							>
+																								<div ng-if="showSustainabilityQuestionnaire">Hide Questionnaire</div>
+																								<div ng-if="!showSustainabilityQuestionnaire">Show Questionnaire</div>
+																							</span>
+																						</div>
+																						<div class="questionnaire" ng-show="showSustainabilityQuestionnaire"></div>
+																					<!--end of questionnaire-->
+																				</div>
+																			<!--end of sustainability-->
+																			<!--illegal animal testing-->
+																				<h3 class="acc-header" ng-init="isActiveAccordionAnimalTesting=true" 
+																					   ng-click="isActiveAccordionAnimalTesting=!isActiveAccordionAnimalTesting" 
+																					   ng-class="{'open':isActiveAccordionAnimalTesting, 'closed': !isActiveAccordionAnimalTesting}"
+																				>Illegal Animal Testing</h3>
+																				<div class="acc-content" ng-show="isActiveAccordionAnimalTesting" ng-init="showAnimalTestingQuestionnaire=false">
+																					<div class="form-group">
+																						<p>Details</p>
+																						<div class="row">
+																							<div class="col-11 push-top-10">
+																								<textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at nulla convallis, malesuada leo ac, accumsan ipsum. Aliquam ut diam nec lorem placerat facilisis. Quisque sed arcu finibus, lacinia metus a, pretium lorem. Maecenas hendrerit nibh vel ex euismod ultrices dignissim eu sapien. Phasellus non velit sed odio pulvinar maximus nec a sapien.</textarea>
+																							</div>
+																							<div class="col-1 push-top-10">
+																								<i class="fa fa-cog"></i>
+																							</div>
+																						</div>
+																					</div>
+																					<!--questionnaire-->
+																						<div class="toggle-questionnaire" ng-class="{'push-bottom-25': !showAnimalTestingQuestionnaire}">
+																							<span ng-click="showAnimalTestingQuestionnaire=!showAnimalTestingQuestionnaire"
+																								  ng-class="{'show': showAnimalTestingQuestionnaire, 'hide': !showAnimalTestingQuestionnaire}"	
+																							>
+																								<div ng-if="showAnimalTestingQuestionnaire">Hide Questionnaire</div>
+																								<div ng-if="!showAnimalTestingQuestionnaire">Show Questionnaire</div>
+																							</span>
+																						</div>
+																						<div class="questionnaire" ng-show="showAnimalTestingQuestionnaire"></div>
+																					<!--end of questionnaire-->
+																				</div>
+																			<!--end of illegal animal testing-->
+																			<!--environment stewardship-->
+																				<h3 class="acc-header" ng-init="isActiveAccordionEnvironmentStewardship=true" 
+																					   ng-click="isActiveAccordionEnvironmentStewardship=!isActiveAccordionEnvironmentStewardship" 
+																					   ng-class="{'open':isActiveAccordionEnvironmentStewardship, 'closed': !isActiveAccordionEnvironmentStewardship}"
+																				>Environment Stewardship</h3>
+																				<div class="acc-content" ng-show="isActiveAccordionEnvironmentStewardship" ng-init="showEnvironmentStewardshipQuestionnaire=false">
+																					<div class="form-group">
+																						<p>Details</p>
+																						<div class="row">
+																							<div class="col-11 push-top-10">
+																								<textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at nulla convallis, malesuada leo ac, accumsan ipsum. Aliquam ut diam nec lorem placerat facilisis. Quisque sed arcu finibus, lacinia metus a, pretium lorem. Maecenas hendrerit nibh vel ex euismod ultrices dignissim eu sapien. Phasellus non velit sed odio pulvinar maximus nec a sapien.</textarea>
+																							</div>
+																							<div class="col-1 push-top-10">
+																								<i class="fa fa-cog"></i>
+																							</div>
+																						</div>
+																					</div>
+																					<!--questionnaire-->
+																						<div class="toggle-questionnaire" ng-class="{'push-bottom-25': !showEnvironmentStewardshipQuestionnaire}">
+																							<span ng-click="showEnvironmentStewardshipQuestionnaire=!showEnvironmentStewardshipQuestionnaire"
+																								  ng-class="{'show': showEnvironmentStewardshipQuestionnaire, 'hide': !showEnvironmentStewardshipQuestionnaire}"	
+																							>
+																								<div ng-if="showEnvironmentStewardshipQuestionnaire">Hide Questionnaire</div>
+																								<div ng-if="!showEnvironmentStewardshipQuestionnaire">Show Questionnaire</div>
+																							</span>
+																						</div>
+																						<div class="questionnaire" ng-show="showEnvironmentStewardshipQuestionnaire"></div>
+																					<!--end of questionnaire-->
+																				</div>
+																			<!--end of environment stewardship-->
+																			<!--further points of interest-->
+																				<h3 class="acc-header" ng-init="isActiveAccordionFurtherPOI=true" 
+																					   ng-click="isActiveAccordionFurtherPOI=!isActiveAccordionFurtherPOI" 
+																					   ng-class="{'open':isActiveAccordionFurtherPOI, 'closed': !isActiveAccordionFurtherPOI}"
+																				>Further Points of Interest</h3>
+																				<div class="acc-content" ng-show="isActiveAccordionFurtherPOI" ng-init="showFurtherPOIQuestionnaire=false">
+																					<div class="form-group">
+																						<p>Details</p>
+																						<div class="row">
+																							<div class="col-11 push-top-10">
+																								<textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at nulla convallis, malesuada leo ac, accumsan ipsum. Aliquam ut diam nec lorem placerat facilisis. Quisque sed arcu finibus, lacinia metus a, pretium lorem. Maecenas hendrerit nibh vel ex euismod ultrices dignissim eu sapien. Phasellus non velit sed odio pulvinar maximus nec a sapien.</textarea>
+																							</div>
+																							<div class="col-1 push-top-10">
+																								<i class="fa fa-cog"></i>
+																							</div>
+																						</div>
+																					</div>
+																					<!--questionnaire-->
+																						<div class="toggle-questionnaire" ng-class="{'push-bottom-25': !showFurtherPOIQuestionnaire}">
+																							<span ng-click="showFurtherPOIQuestionnaire=!showFurtherPOIQuestionnaire"
+																								  ng-class="{'show': showFurtherPOIQuestionnaire, 'hide': !showFurtherPOIQuestionnaire}"	
+																							>
+																								<div ng-if="showFurtherPOIQuestionnaire">Hide Questionnaire</div>
+																								<div ng-if="!showFurtherPOIQuestionnaire">Show Questionnaire</div>
+																							</span>
+																						</div>
+																						<div class="questionnaire" ng-show="showFurtherPOIQuestionnaire"></div>
+																					<!--end of questionnaire-->
+																				</div>
+																			<!--end of further points of interest-->
+																		</div>
+																	<!--end of inner accordion-->
+																</div>
+															<!--end of integrity risk-->
+															<!--compliance interviews summary-->
+																<h3 class="acc-header" ng-init="isActiveAccordionInterviewsSummary=false" 
+																					   ng-click="isActiveAccordionInterviewsSummary=!isActiveAccordionInterviewsSummary" 
+																					   ng-class="{'open':isActiveAccordionInterviewsSummary, 'closed': !isActiveAccordionInterviewsSummary}"
+																>Compliance Interviews Summary</h3>
+																<div class="acc-content" ng-show="isActiveAccordionInterviewsSummary"></div>
+															<!--end of compliance interviews summary-->			
+															<!--compliance documents review summary-->
+																<h3 class="acc-header" ng-init="isActiveAccordionReviewsSummary=false" 
+																					   ng-click="isActiveAccordionReviewsSummary=!isActiveAccordionReviewsSummary" 
+																					   ng-class="{'open':isActiveAccordionReviewsSummary, 'closed': !isActiveAccordionReviewsSummary}"
+																>Compliance Documents Review Summary</h3>
+																<div class="acc-content" ng-show="isActiveAccordionReviewsSummary"></div>
+															<!--end of compliance documents review summary-->					
+
+														</div>
+													<!--end of accodrion-->
+												</div>
+											<!--end of integrity tab-->
+											<!--reputation tab-->
+												<div class="reputation-tab" ng-show="tab==3">
+													<!--accordion-->
+														<div class="accordion">
+															<!--reputational enquiries-->
+																<h3 class="acc-header" ng-init="isActiveAccordionReputationalEnquiries=true" 
+																					   ng-click="isActiveAccordionReputationalEnquiries=!isActiveAccordionReputationalEnquiries" 
+																					   ng-class="{'open':isActiveAccordionReputationalEnquiries, 'closed': !isActiveAccordionReputationalEnquiries}"
+																>Reputational Enquiries</h3>
+																<div class="acc-content" ng-show="isActiveAccordionReputationalEnquiries">
+																	<div class="accordion">
+																		<!--industry sources-->
+																			<h3 class="acc-header" ng-init="isActiveIndustrySources=true" 
+																				   ng-click="isActiveIndustrySources=!isActiveIndustrySources" 
+																				   ng-class="{'open':isActiveIndustrySources, 'closed': !isActiveIndustrySources}"
+																			>Industry Sources</h3>
+																			<div class="acc-content" ng-show="isActiveIndustrySources" ng-init="showQuestionnaire=false">
+																				<!--panel invert-->
+																					<div class="panel-invert">	
+																						<div class="acc-content">
+																							<!--field settings-->
+																								<div class="field-settings">
+																									<div class="tooltip-wrapper">
+																							 			<i class="fa fa-cog" ng-click="isIndustrySourcesOption=!isIndustrySourcesOption">
+																											<!--field options-->
+																												<div class="field-options ng-hide" ng-show="isIndustrySourcesOption" ng-mouseleave="isIndustrySourcesOption=false">
+																													<ul>
+																														<li><a href="javascript:void(0);">Add</a></li>
+																														<li><a href="javascript:void(0);">Delete</a></li>
+																													</ul>
+																												</div>
+																											<!--end of field options-->
+																										</i>
+																										<div class="tooltip tooltip-bottom">Option</div>
+																									</div>
+																								</div>	
+																							<!--end of field settings-->
+																							<!--individual name-->
+																								<div class="form-group">
+																									<div class="row">
+																										<div class="col-10 col-offset-1">
+																											<div class="row">
+																												<div class="col-3">
+																													<label>Individual Name</label>
+																												</div>
+																												<div class="col-9">
+																													<input type="text" placeholder="Individual Name">
+																												</div>
+																											</div>	
+																										</div>	
+																									</div>
+																								</div>
+																							<!--end of individual name-->
+																							<!--location-->
+																								<div class="form-group">
+																									<div class="row">
+																										<div class="col-10 col-offset-1">
+																											<div class="row">
+																												<div class="col-3">
+																													<label>Location</label>
+																												</div>
+																												<div class="col-9">
+																													<input type="text" placeholder="Location">
+																												</div>
+																											</div>	
+																										</div>	
+																									</div>
+																								</div>
+																							<!--end of location-->
+																							<!--organisation-->
+																								<div class="form-group">
+																									<div class="row">
+																										<div class="col-10 col-offset-1">
+																											<div class="row">
+																												<div class="col-3">
+																													<label>Organisation</label>
+																												</div>
+																												<div class="col-9">
+																													<input type="text" placeholder="Organisation">
+																												</div>
+																											</div>	
+																										</div>	
+																									</div>
+																								</div>
+																							<!--end of organisation-->
+																							<!--position-->
+																								<div class="form-group">
+																									<div class="row">
+																										<div class="col-10 col-offset-1">
+																											<div class="row">
+																												<div class="col-3">
+																													<label>Position</label>
+																												</div>
+																												<div class="col-9">
+																													<input type="text" placeholder="Position">
+																												</div>
+																											</div>	
+																										</div>	
+																									</div>
+																								</div>
+																							<!--end of position-->
+																							<!--comment-->
+																								<div class="form-group">
+																									<div class="row">
+																										<div class="col-10 col-offset-1">
+																											<div class="row">
+																												<div class="col-3">
+																													<label>Comments</label>
+																												</div>
+																												<div class="col-9">
+																													<textarea></textarea>
+																												</div>
+																											</div>	
+																										</div>	
+																									</div>
+																								</div>
+																							<!--end of comment-->
+																						</div>
+																					</div>
+																				<!--end panel invert-->
+																			</div>
+																		<!--end of end of industry sources-->
+																		<!--governmental sources-->
+																			<h3 class="acc-header" ng-init="isActiveGovernmentalSources=true" 
+																				   ng-click="isActiveGovernmentalSources=!isActiveGovernmentalSources" 
+																				   ng-class="{'open':isActiveGovernmentalSources, 'closed': !isActiveGovernmentalSources}"
+																			>Governmental Sources</h3>
+																			<div class="acc-content" ng-show="isActiveGovernmentalSources">
+																				<!--panel invert-->
+																					<div class="panel-invert">	
+																						<div class="acc-content">
+																							<!--field settings-->
+																								<div class="field-settings">
+																									<div class="tooltip-wrapper">
+																							 			<i class="fa fa-cog" ng-click="isGovernmetalSourcesOption=!isGovernmetalSourcesOption">
+																											<!--field options-->
+																												<div class="field-options ng-hide" ng-show="isGovernmetalSourcesOption" ng-mouseleave="isGovernmetalSourcesOption=false">
+																													<ul>
+																														<li><a href="javascript:void(0);">Add</a></li>
+																														<li><a href="javascript:void(0);">Delete</a></li>
+																													</ul>
+																												</div>
+																											<!--end of field options-->
+																										</i>
+																										<div class="tooltip tooltip-bottom">Option</div>
+																									</div>
+																								</div>	
+																							<!--end of field settings-->
+																							<!--individual name-->
+																								<div class="form-group">
+																									<div class="row">
+																										<div class="col-10 col-offset-1">
+																											<div class="row">
+																												<div class="col-3">
+																													<label>Individual Name</label>
+																												</div>
+																												<div class="col-9">
+																													<input type="text" placeholder="Individual Name">
+																												</div>
+																											</div>	
+																										</div>	
+																									</div>
+																								</div>
+																							<!--end of individual name-->
+																							<!--location-->
+																								<div class="form-group">
+																									<div class="row">
+																										<div class="col-10 col-offset-1">
+																											<div class="row">
+																												<div class="col-3">
+																													<label>Location</label>
+																												</div>
+																												<div class="col-9">
+																													<input type="text" placeholder="Location">
+																												</div>
+																											</div>	
+																										</div>	
+																									</div>
+																								</div>
+																							<!--end of location-->
+																							<!--organisation-->
+																								<div class="form-group">
+																									<div class="row">
+																										<div class="col-10 col-offset-1">
+																											<div class="row">
+																												<div class="col-3">
+																													<label>Organisation</label>
+																												</div>
+																												<div class="col-9">
+																													<input type="text" placeholder="Organisation">
+																												</div>
+																											</div>	
+																										</div>	
+																									</div>
+																								</div>
+																							<!--end of organisation-->
+																							<!--position-->
+																								<div class="form-group">
+																									<div class="row">
+																										<div class="col-10 col-offset-1">
+																											<div class="row">
+																												<div class="col-3">
+																													<label>Position</label>
+																												</div>
+																												<div class="col-9">
+																													<input type="text" placeholder="Position">
+																												</div>
+																											</div>	
+																										</div>	
+																									</div>
+																								</div>
+																							<!--end of position-->
+																							<!--comment-->
+																								<div class="form-group">
+																									<div class="row">
+																										<div class="col-10 col-offset-1">
+																											<div class="row">
+																												<div class="col-3">
+																													<label>Comments</label>
+																												</div>
+																												<div class="col-9">
+																													<textarea></textarea>
+																												</div>
+																											</div>	
+																										</div>	
+																									</div>
+																								</div>
+																							<!--end of comment-->
+																						</div>
+																					</div>
+																				<!--end panel invert-->
+																			</div>
+																		<!--end of end of governmental sources-->
+																	</div>
+																</div>
+															<!--end of reputational enquiries-->
+															<!--start of reference verification-->
+																<h3 class="acc-header" ng-init="isActiveAccordionReferenceVerification=true"
+																					   ng-click="isActiveAccordionReferenceVerification=!isActiveAccordionReferenceVerification" 
+																					   ng-class="{'open':isActiveAccordionReferenceVerification, 'closed':!isActiveAccordionReferenceVerification}"
+																>Reference Verification</h3>
+																<div class="acc-content" ng-show="isActiveAccordionReferenceVerification">
+																	<div class="accordion">
+																		<!--reference checks sources-->
+																			<h3 class="acc-header" ng-init="isActiveReferenceChecks=true" 
+																				   ng-click="isActiveReferenceChecks=!isActiveReferenceChecks" 
+																				   ng-class="{'open':isActiveReferenceChecks, 'closed': !isActiveReferenceChecks}"
+																			>Reference Checks</h3>
+																			<div class="acc-content" ng-show="isActiveReferenceChecks">
+																				<!--panel invert-->
+																					<div class="panel-invert">	
+																						<div class="acc-content">
+																							<!--field settings-->
+																								<div class="field-settings">
+																									<div class="tooltip-wrapper">
+																							 			<i class="fa fa-cog" ng-click="isReferenceCheckOption=!isReferenceCheckOption">
+																											<!--field options-->
+																												<div class="field-options ng-hide" ng-show="isReferenceCheckOption" ng-mouseleave="isReferenceCheckOption=false">
+																													<ul>
+																														<li><a href="javascript:void(0);">Add</a></li>
+																														<li><a href="javascript:void(0);">Delete</a></li>
+																													</ul>
+																												</div>
+																											<!--end of field options-->
+																										</i>
+																										<div class="tooltip tooltip-bottom">Option</div>
+																									</div>
+																								</div>	
+																							<!--end of field settings-->
+																							<!--individual name-->
+																								<div class="form-group">
+																									<div class="row">
+																										<div class="col-10 col-offset-1">
+																											<div class="row">
+																												<div class="col-3">
+																													<label>Individual Name</label>
+																												</div>
+																												<div class="col-9">
+																													<input type="text" placeholder="Individual Name">
+																												</div>
+																											</div>	
+																										</div>	
+																									</div>
+																								</div>
+																							<!--end of individual name-->
+																							<!--location-->
+																								<div class="form-group">
+																									<div class="row">
+																										<div class="col-10 col-offset-1">
+																											<div class="row">
+																												<div class="col-3">
+																													<label>Location</label>
+																												</div>
+																												<div class="col-9">
+																													<input type="text" placeholder="Location">
+																												</div>
+																											</div>	
+																										</div>	
+																									</div>
+																								</div>
+																							<!--end of location-->
+																							<!--organisation-->
+																								<div class="form-group">
+																									<div class="row">
+																										<div class="col-10 col-offset-1">
+																											<div class="row">
+																												<div class="col-3">
+																													<label>Organisation</label>
+																												</div>
+																												<div class="col-9">
+																													<input type="text" placeholder="Organisation">
+																												</div>
+																											</div>	
+																										</div>	
+																									</div>
+																								</div>
+																							<!--end of organisation-->
+																							<!--position-->
+																								<div class="form-group">
+																									<div class="row">
+																										<div class="col-10 col-offset-1">
+																											<div class="row">
+																												<div class="col-3">
+																													<label>Position</label>
+																												</div>
+																												<div class="col-9">
+																													<input type="text" placeholder="Position">
+																												</div>
+																											</div>	
+																										</div>	
+																									</div>
+																								</div>
+																							<!--end of position-->
+																							<!--comment-->
+																								<div class="form-group">
+																									<div class="row">
+																										<div class="col-10 col-offset-1">
+																											<div class="row">
+																												<div class="col-3">
+																													<label>Comments</label>
+																												</div>
+																												<div class="col-9">
+																													<textarea></textarea>
+																												</div>
+																											</div>	
+																										</div>	
+																									</div>
+																								</div>
+																							<!--end of comment-->
+																						</div>
+																					</div>
+																				<!--end panel invert-->
+																			</div>
+																		<!--end of end of reference checks-->
+																	</div>
+																</div>
+															<!--end of reference verification-->
+														</div>
+													<!--end of accodrion-->
+												</div>
+											<!--end of reputation tab-->
+											<!--form buttons-->
+												<div class="form-buttons">
+													<div class="row">
+														<div class="col-12 align-right">
+															<button class="btn btn-success btn-small" ng-click="showError=!showError; isDangerToastr=!isDangerToastr">Save</button>
+														</div>
+													</div>
+												</div>
+											<!--end of form buttons-->
+										</div>	
+									</div>
+								<!--end of main content-->
+							</div>
+						</div>	
+					<!--end of content-->
+				</div>
+			</div>
+		<!--end of create profile-->
+		<div id="push"></div>
+	</div>	
+<!--end of page wrap-->	
+<!--footer-->
+  <footer class="footer">
+    <div class="container-fluid align-center">
+      <a href="javascript:void(0);">
+        <p>Powered by The Red Flag Group</p>
+      </a>
+    </div>
+  </footer>
+<!--end of footer-->
+<!--source editor modal-->
+	<div class="source-editor-modal modal modal-fixed" ng-show="showSourceEditorModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<!--modal header-->
+					<div class="modal-header">
+						<div class="row">
+							<div class="col-12">
+								<span>Source Editor</span>
+								<!--close-->
+									<div class="close" ng-click="showSourceEditorModal=false">
+										<i class="fa fa-times-circle-o"></i>
+									</div>
+								<!--end of close-->	
+							</div>	
+						</div>	
+					</div>
+				<!--end of modal header-->
+				<!--modal body-->
+					<div class="modal-body">
+						<table class="data-grid">
+							<tbody>
+								<tr>
+									<th>&nbsp;</th>
+									<th>In Use</th>
+									<th>Source Type</th>
+									<th>Source Name</th>
+									<th>Hyperlink/Subscription Required</th>
+									<th>Date of Publication/Access</th>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td data-label=""><input type="checkbox"></td>
+									<!--source type-->
+										<td data-label="Source Type">
+											<div class="source" ng-show="!sourceType || editSourceType">
+												<input type="text" class="multi-select" placeholder="--Select Country--" 
+													ng-model="sourceType"
+													ng-click="showSourceType=!showSourceType" 
+													ng-class="{'error' : showError}"
+												>
+												<i class="fa fa-caret-down" aria-hidden="true"></i>
+												<div class="multi-select-options" ng-show="showSourceType" ng-mouseleave="showSourceType=false">
+													<ul>
+														<li ng-click="sourceType='Legal';showSourceType=false;editSourceType=false">Legal</li>
+														<li ng-click="sourceType='Media';showSourceType=false;editSourceType=false">Media</li>
+														<li ng-click="sourceType='Integrawatch';showSourceType=false;editSourceType=false">Integrawatch</li>
+													</ul>
+												</div>
+											</div>
+											<div ng-hide="!sourceType || editSourceType">	
+												<span ng-click="editSourceType=!editSourceType">{{sourceType}}</span>
+											</div>
+										</td>
+									<!--end of source type-->
+									<!--source name-->	
+										<td data-label="Source Name">
+											<div ng-hide="!sourceType">
+												<div ng-show="!sourceName || editSourceName">
+													<input type="text"
+														ng-model="sourceName"
+														ng-focus="editSourceName=true"
+														ng-blur="editSourceName=false"
+														ng-class="{'error' : showError}"
+													>
+												</div>
+												<div ng-hide="!sourceName || editSourceName">	
+													<span ng-click="editSourceName=!editSourceName">{{sourceName}}</span>
+												</div>
+											</div>	
+										</td>
+									<!--end of source name-->
+									<!--hyperlink-->	
+										<td data-label="Hyperlink/Subscription Required">
+											<div ng-hide="!(sourceName && sourceType)">
+												<div ng-show="!hyperLink || editHyperlink">
+													<input type="text" class="url"
+														ng-model="hyperLink"
+														ng-focus="editHyperlink=true"
+														ng-blur="editHyperlink=false"
+														ng-class="{'error' : showError}"
+													>
+												</div>
+												<div ng-hide="!hyperLink || editHyperlink">	
+													<span ng-click="editHyperlink=!editHyperlink" class="url">{{hyperLink}}</span>
+												</div>
+											</div>	
+										</td>
+									<!--hyperlink-->
+									<!--date of publication-->
+										<td data-label="Date of Publication/Access">
+											<div class="date" ng-hide="!(sourceName && sourceType && hyperLink)">
+												<div ng-show="!publicationDate|| editpublicationDate">
+													<input type="text" class="datepicker" ng-model="datePicker" datePicker 
+														ng-model="publicationDate"
+														ng-focus="editpublicationDate=true"
+														ng-blur="editpublicationDate=false"
+														ng-class="{'error' : showError}"
+													>
+													<i class="fa fa-calendar"></i>
+												</div>
+												<div ng-hide="!publicationDate || editpublicationDate">	
+													<span ng-click="editpublicationDate=!editpublicationDate">{{publicationDate}}</span>
+												</div>
+											</div>	
+										</td>
+									<!--end of date of publication-->
+								</tr>
+							</tbody>	
+						</table>
+					</div>	
+				<!--end of modal body-->
+				<!--modal footer-->
+					<div class="modal-footer">
+						<div class="row">
+							<div class="col-6 align-left">
+								<button class="btn btn-default btn-small" ng-click="showSourceEditorModal=false">Cancel</button>
+							</div>	
+							<div class="col-6 align-right">
+								<button class="btn btn-default btn-small">Add</button>
+								<button class="btn btn-primary btn-small">Save</button>
+							</div>
+						</div>
+					</div>
+				<!--end of modal footer-->	
+			</div>
+		</div>		
+	</div>
+<!--end of source editor modal-->
+<!--relationship modal-->
+	<div class="relationship-modal modal modal-fixed" ng-init="isProfileLinked" ng-show="showRelationshipModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<!--modal header-->
+					<div class="modal-header">
+						<div class="row">
+							<div class="col-12">
+								<span>Relationship</span>
+								<!--close-->
+									<div class="close" ng-click="showRelationshipModal=!showRelationshipModal">
+										<i class="fa fa-times-circle-o"></i>
+									</div>
+								<!--end of close-->	
+							</div>	
+						</div>	
+					</div>
+				<!--end of modal header-->
+				<!--modal body-->
+					<div class="modal-body" ng-init="isProfileLinked=false">
+						<!--profile 1-->
+							<div class="panel panel-invert">
+								<!--panel title-->
+									<div class="panel-title">
+										<label>Profile 1</label>
+									</div>
+								<!--end of panel title-->
+								<!--panel content-->
+									<div class="panel-content pull-top-28">
+										<div class="row">
+											<!--left column-->
+												<div class="col-6">
+													<div class="form-group">
+														<div class="row">
+															<div class="col-4">
+																<label>Profile ID</label>
+															</div>
+															<div class="col-8">
+																<input type="text" value="COM-001">
+															</div>
+														</div>
+													</div>	
+													<div class="form-group">
+														<div class="row">
+															<div class="col-4">
+																<label>Fullname</label>
+															</div>
+															<div class="col-8">
+																<input type="text" value="Sample Name">
+															</div>
+														</div>
+													</div>	
+												</div>
+											<!--end of left col-->
+											<!--right col-->
+												<div class="col-6">
+													<div class="form-group">
+														<div class="row">
+															<div class="col-4">
+																<label>Name in Local Language</label>
+															</div>
+															<div class="col-8">
+																<input type="text" value="Sample Name">
+															</div>
+														</div>	
+													</div>
+													<div class="form-group">
+														<div class="row">
+															<div class="col-4">
+																<label>Trading Name / Alias</label>
+															</div>
+															<div class="col-8">
+																<input type="text" value="Sample Trading Name">
+															</div>
+														</div>
+													</div>	
+												</div>
+											<!--end of right col-->	
+										</div>
+									</div>
+								<!--end of panel content-->	
+							</div>
+						<!--end of profile 1-->
+						<!--profile 2 selected-->
+							<div class="panel panel-invert" ng-show="isProfileLinked">
+								<!--panel title-->
+									<div class="panel-title">
+										<label>
+											<span>Profile 2</span>
+											<span class="remove">
+												<i class="fa fa-times" aria="hidden"></i>Remove
+											</span>
+										</label>
+									</div>
+								<!--end of panel title-->
+								<!--panel content-->
+									<div class="panel-content pull-top-28">
+										<div class="row">
+											<!--left col-->
+												<div class="col-6">
+													<div class="form-group">
+														 <div class="row">
+															<div class="col-4">
+																<label>Profile ID</label>
+															</div>
+															<div class="col-8">
+																<input type="text" value="001">
+															</div>
+														</div>	
+													</div>
+													<div class="form-group">
+														<div class="row">
+															<div class="col-4">
+																<label>Fullname</label>
+															</div>
+															<div class="col-8">
+																<input type="text" value="Sample Name 1">
+															</div>
+														</div>	
+													</div>
+													<div class="form-group">
+														<div class="row">
+															<div class="col-4">
+																<label>Name in Local Language</label>
+															</div>
+															<div class="col-8">
+																<input type="text" value="Sample Local Name 1">
+															</div>
+														</div>
+													</div>
+													<div class="form-group"> 
+														<div class="row">
+															<div class="col-4">
+																<label>Trading Name / Alias</label>
+															</div>
+															<div class="col-8">
+																<input type="text" value="Sample Name 1">
+															</div>
+														</div>	
+													</div>
+												</div>
+											<!--end of left col-->	
+											<!--right col-->
+												<div class="col-6">
+													<div class="form-group">
+														<div class="row">
+															<div class="col-4">
+																<label class="required">Relationship to Profile 1</label>
+															</div>
+															<div class="col-8">
+																<input type="text" value="Shareholder">
+															</div>
+														</div>	
+													</div>
+													<div class="form-group pull-top-10">
+														<div class="row">
+															<div class="col-6">
+																<label>From</label>	
+																<input type="text" class="datepicker" ng-model="datePicker" datepicker placeholder="From">
+																<i class="fa fa-calendar"></i>
+															</div>
+															<div class="col-6">
+																<label>To</label>
+																<input type="text" class="datepicker" ng-model="datePicker" datepicker placeholder="To">
+																<i class="fa fa-calendar"></i>
+															</div>
+														</div>	
+													</div>
+												</div>
+											<!--end of right col-->	
+										</div>	
+										<!--search-->
+											<div class="search">
+												<div class="title">Search for Profile 2</div>
+												<div class="form-group"> 
+													<input type="text" value="Sample Keyword">
+													<i class="fa fa-search"></i>
+												</div>	
+											</div>		
+										<!--search-->	
+										<!--advanced search-->
+											<div class="advanced-search">
+												<div class="row">
+													<div class="col-6" ng-class="{'push-top-14': !showMergeModalAdvancedSearchFields}">
+														<a href="javascript:void(0);" ng-click="showRelationshipModalAdvancedSearchFields =! showRelationshipModalAdvancedSearchFields">Advance Search&gt;&gt;</a>
+													</div>
+													<div class="col-6" ng-hide="showRelationshipModalAdvancedSearchFields">
+														<button class="btn btn-primary btn-small pull-right" ng-click="isRelationshipModalSearch =! isRelationshipModalSearch">Search</button>
+													</div>
+												</div>	
+												<!--advanced search fields-->
+													<div class="advanced-search-fields" ng-show="showRelationshipModalAdvancedSearchFields">
+														<div class="panel">
+															<div class="panel-title">
+																Filter
+															</div>
+															<div class="panel-content pull-top-16">
+																<div class="row">
+																<!--left col-->
+																	<div class="col-6 pull-top-24">
+																		<div class="row">
+																			<div class="form-group"> 
+																				<div class="col-6">
+																					<label>Type</label>
+																					<p>
+																						<input type="radio" class="normal">
+																						<label for="checkbox">Company</label>
+																					</p>
+																					<p>
+																						<input type="radio" class="normal">
+																						<label for="checkbox">Individual</label>
+																					</p>
+																				</div>	
+																			</div>
+																			<div class="form-group"> 
+																				<div class="col-6">
+																					<label>Risk Rating</label>
+																					<p>
+																						<input type="radio" class="normal">
+																						<label for="checkbox">Green</label>
+																					</p>
+																					<p>
+																						<input type="radio" class="normal">
+																						<label for="checkbox">Amber</label>
+																					</p>
+																					<p>
+																						<input type="radio" class="normal">
+																						<label for="checkbox">Red</label>
+																					</p>
+																				</div>	
+																			</div>
+																			<div class="form-group"> 
+																				<div class="col-12">
+																					<div class="form-group"> 
+																						<label for="select">Country</label>
+																						<input type="text" class="multi-select" ng-model="sampleCountry"  
+																																ng-click="showCountrySelection=!showCountrySelection" placeholder="--Select Country--">
+																						<i class="fa fa-caret-down" aria-hidden="true"></i>
+																						<span ng-show="showError">This field is required.</span>
+																						<div class="multi-select-options" ng-show="showCountrySelection" 
+																														  ng-mouselave="showCountrySelection=false">
+																							<ul>
+																								<li ng-click="sampleCountry='Sample Country 1'; showCountrySelection=false">Sample Country 1</li>
+																								<li ng-click="sampleCountry='Sample Country 2'; showCountrySelection=false">Sample Country 2</li>
+																								<li ng-click="sampleCountry='Sample Country 3'; showCountrySelection=false">Sample Country 3</li>
+																							</ul>
+																						</div>
+																					</div>	
+																				</div>
+																			</div>
+																			<div class="form-group"> 
+																				<div class="col-12">
+																					<label for="select">Industry</label>
+																					<input type="text" class="multi-select" ng-model="sampleIndustry" 
+																															ng-click="showMergeModalIndustrySelection =! showMergeModalIndustrySelection" placeholder="--Select Industry--"> 
+																					<i class="fa fa-caret-down" aria-hidden="true"></i>
+																					<div class="multi-select-options" ng-show="showMergeModalIndustrySelection" 
+																													  ng-mouseleave="showIndustrySelection=false">
+																						<ul>
+																							<li ng-click="sampleIndustry = 'Sample Industry 1'; showMergeModalIndustrySelection = false">Sample Industry 1</li>
+																							<li ng-click="sampleIndustry = 'Sample Industry 2'; showMergeModalIndustrySelection = false">Sample Industry 2</li>
+																							<li ng-click="sampleIndustry = 'Sample Industry 3'; showMergeModalIndustrySelection = false">Sample Industry 3</li>
+																						</ul>
+																					</div>
+																				</div>
+																			</div>
+																	</div>
+																	</div>
+																<!--end of left col-->
+																<!--right col-->
+																	<div class="col-6">
+																		<div class="form-group"> 
+																			<div class="row">
+																				<p>
+																					<label>Date Created</label>
+																				<p>	
+																				<div class="col-6">
+																					<label>From</label>	
+																					<input type="text" class="datepicker" ng-model="datePicker" datepicker placeholder="From">
+																					<i class="fa fa-calendar"></i>
+																				</div>
+																				<div class="col-6">
+																					<label>To</label>
+																					<input type="text" class="datepicker" ng-model="datePicker" datepicker placeholder="To">
+																					<i class="fa fa-calendar"></i>
+																				</div>
+																			</div>	
+																		</div>
+																		<div class="form-group"> 
+																			<div class="row">
+																				<p>
+																					<label>Date Updated</label>
+																				<p>	
+																				<div class="col-6">
+																					<label>From</label>
+																					<input type="text" class="datepicker" ng-model="datePicker" datepicker placeholder="From">
+																					<i class="fa fa-calendar"></i>
+																				</div>
+																				<div class="col-6">
+																					<label>To</label>
+																					<input type="text" class="datepicker" ng-model="datePicker" datepicker placeholder="To">
+																					<i class="fa fa-calendar"></i>
+																				</div>
+																			</div>	
+																		</div>
+																	</div>
+																<!--end of right col-->	
+																<!--form butons-->
+																	<div class="form-buttons">	
+																		<div class="row">
+																			<div class="col-12 align-right">
+																				<button class="btn btn-default btn-small">Reset</button>	
+																				<button class="btn btn-primary btn-small" ng-click="isRelationshipModalSearch =! isRelationshipModalSearch">Search</button>
+																			</div>
+																		</div>	
+																	</div>
+																<!--end of form butons-->	
+																</div>
+															</div>	
+														</div>
+													</div>
+												<!--end of advanced search fields-->
+											</div>	
+										<!--end of advanced search-->	
+									</div>
+								<!--end of panel content-->	
+							</div>
+						<!--end of profile 2 selected-->	
+						<!--profile 2-->
+							<div class="panel panel-invert" ng-hide="isProfileLinked">
+								<!--panel title-->
+									<div class="panel-title">
+										<label>
+											<span>Profile 2</span>
+											<span class="remove">
+												<i class="fa fa-times" aria="hidden"></i>Remove
+											</span>
+										</label>
+									</div>
+								<!--end of panel title-->
+								<!--panel content-->
+									<div class="panel-content pull-top-28">
+										<div class="row">
+											<!--left col-->
+												<div class="col-6">
+													<div class="form-group">
+														 <div class="row">
+															<div class="col-4">
+																<label>Profile ID</label>
+															</div>
+															<div class="col-8">
+																<input type="text" value="">
+															</div>
+														</div>	
+													</div>
+													<div class="form-group">
+														<div class="row">
+															<div class="col-4">
+																<label>Fullname</label>
+															</div>
+															<div class="col-8">
+																<input type="text" value="">
+															</div>
+														</div>	
+													</div>
+													<div class="form-group">
+														<div class="row">
+															<div class="col-4">
+																<label>Name in Local Language</label>
+															</div>
+															<div class="col-8">
+																<input type="text" value="">
+															</div>
+														</div>
+													</div>
+													<div class="form-group"> 
+														<div class="row">
+															<div class="col-4">
+																<label>Trading Name / Alias</label>
+															</div>
+															<div class="col-8">
+																<input type="text" value="">
+															</div>
+														</div>	
+													</div>
+												</div>
+											<!--end of left col-->	
+											<!--right col-->
+												<div class="col-6">
+													<div class="form-group">
+														<div class="row">
+															<div class="col-4">
+																<label class="required">Relationship to Profile 1</label>
+															</div>
+															<div class="col-8">
+																<input type="text" value="">
+															</div>
+														</div>	
+													</div>
+													<div class="form-group pull-top-10">
+														<div class="row">
+															<div class="col-6">
+																<label>From</label>	
+																<input type="text" class="datepicker" ng-model="datePicker" datepicker placeholder="From">
+																<i class="fa fa-calendar"></i>
+															</div>
+															<div class="col-6">
+																<label>To</label>
+																<input type="text" class="datepicker" ng-model="datePicker" datepicker placeholder="To">
+																<i class="fa fa-calendar"></i>
+															</div>
+														</div>	
+													</div>
+												</div>
+											<!--end of right col-->	
+										</div>	
+										<!--search-->
+											<div class="search">
+												<div class="title">Search for Profile 2</div>
+												<div class="form-group"> 
+													<input type="text" value="Sample Keyword">
+													<i class="fa fa-search"></i>
+												</div>	
+											</div>		
+										<!--search-->	
+										<!--advanced search-->
+											<div class="advanced-search">
+												<div class="row">
+													<div class="col-6" ng-class="{'push-top-14':!showRelationshipModalAdvancedSearchFields}">
+														<a href="javascript:void(0);" ng-click="showRelationshipModalAdvancedSearchFields =! showRelationshipModalAdvancedSearchFields">Advance Search&gt;&gt;</a>
+													</div>
+													<div class="col-6" ng-hide="showRelationshipModalAdvancedSearchFields">
+														<button class="btn btn-primary btn-small pull-right" ng-click="isRelationshipModalSearch=!isRelationshipModalSearch">Search</button>
+													</div>
+												</div>	
+												<!--advanced search fields-->
+													<div class="advanced-search-fields" ng-show="showRelationshipModalAdvancedSearchFields">
+														<div class="panel">
+															<div class="panel-title">
+																Filter
+															</div>
+															<div class="panel-content pull-top-16">
+																<div class="row">
+																<!--left col-->
+																	<div class="col-6 pull-top-24">
+																		<div class="row">
+																			<div class="form-group"> 
+																				<div class="col-6">
+																					<label>Type</label>
+																					<p>
+																						<input type="radio" class="normal">
+																						<label for="checkbox">Company</label>
+																					</p>
+																					<p>
+																						<input type="radio" class="normal">
+																						<label for="checkbox">Individual</label>
+																					</p>
+																				</div>	
+																			</div>
+																			<div class="form-group"> 
+																				<div class="col-6">
+																					<label>Risk Rating</label>
+																					<p>
+																						<input type="radio" class="normal">
+																						<label for="checkbox">Green</label>
+																					</p>
+																					<p>
+																						<input type="radio" class="normal">
+																						<label for="checkbox">Amber</label>
+																					</p>
+																					<p>
+																						<input type="radio" class="normal">
+																						<label for="checkbox">Red</label>
+																					</p>
+																				</div>	
+																			</div>
+																			<div class="form-group"> 
+																				<div class="col-12">
+																					<div class="form-group"> 
+																						<label for="select">Country</label>
+																						<input type="text" class="multi-select" ng-model="sampleCountry" 
+																																ng-click="showCountrySelection=!showCountrySelection" placeholder="--Select Country--" >
+																						<i class="fa fa-caret-down" aria-hidden="true"></i>
+																						<span ng-show="showError">This field is required.</span>
+																						<div class="multi-select-options" ng-show="showCountrySelection" 
+																														  ng-mouselave="showCountrySelection=false">
+																							<ul>
+																								<li ng-click="sampleCountry='Sample Country 1'; showCountrySelection=false">Sample Country 1</li>
+																								<li ng-click="sampleCountry='Sample Country 2'; showCountrySelection=false">Sample Country 2</li>
+																								<li ng-click="sampleCountry='Sample Country 3'; showCountrySelection=false">Sample Country 3</li>
+																							</ul>
+																						</div>
+																					</div>	
+																				</div>
+																			</div>
+																			<div class="form-group"> 
+																				<div class="col-12">
+																					<label for="select">Industry</label>
+																					<input type="text" class="multi-select" ng-model="sampleIndustry" 
+																															ng-click="showMergeModalIndustrySelection =! showMergeModalIndustrySelection" placeholder="--Select Industry--">
+																					<i class="fa fa-caret-down" aria-hidden="true"></i>
+																					<span ng-show="showError">This field is required.</span>
+																					<div class="multi-select-options" ng-show="showMergeModalIndustrySelection"
+																												      ng-mouseleave="showIndustrySelection=false">
+																						<ul>
+																							<li ng-click="sampleIndustry = 'Sample Industry 1'; showMergeModalIndustrySelection = false">Sample Industry 1</li>
+																							<li ng-click="sampleIndustry = 'Sample Industry 2'; showMergeModalIndustrySelection = false">Sample Industry 2</li>
+																							<li ng-click="sampleIndustry = 'Sample Industry 3'; showMergeModalIndustrySelection = false">Sample Industry 3</li>
+																						</ul>
+																					</div>
+																				</div>
+																			</div>
+																	</div>
+																	</div>
+																<!--end of left col-->
+																<!--right col-->
+																	<div class="col-6">
+																		<div class="form-group"> 
+																			<div class="row">
+																				<p>
+																					<label>Date Created</label>
+																				<p>	
+																				<div class="col-6">
+																					<label>From</label>	
+																					<input type="text" class="datepicker" ng-model="datePicker" datepicker placeholder="From">
+																					<i class="fa fa-calendar"></i>
+																				</div>
+																				<div class="col-6">
+																					<label>To</label>
+																					<input type="text" class="datepicker" ng-model="datePicker" datepicker placeholder="To">
+																					<i class="fa fa-calendar"></i>
+																				</div>
+																			</div>	
+																		</div>
+																		<div class="form-group"> 
+																			<div class="row">
+																				<p>
+																					<label>Date Updated</label>
+																				<p>	
+																				<div class="col-6">
+																					<label>From</label>
+																					<input type="text" class="datepicker" ng-model="datePicker" datepicker placeholder="From">
+																					<i class="fa fa-calendar"></i>
+																				</div>
+																				<div class="col-6">
+																					<label>To</label>
+																					<input type="text" class="datepicker" ng-model="datePicker" datepicker placeholder="To">
+																					<i class="fa fa-calendar"></i>
+																				</div>
+																			</div>	
+																		</div>
+																	</div>
+																<!--end of right col-->	
+																<!--form butons-->
+																	<div class="form-buttons">	
+																		<div class="row">
+																			<div class="col-12 align-right">
+																				<button class="btn btn-default btn-small">Reset</button>	
+																				<button class="btn btn-primary btn-small" ng-click="isRelationshipModalSearch =! isRelationshipModalSearch">Search</button>
+																			</div>
+																		</div>	
+																	</div>
+																<!--end of form butons-->	
+																</div>
+															</div>	
+														</div>
+													</div>
+												<!--end of advanced search fields-->
+											</div>	
+										<!--end of advanced search-->	
+									</div>
+								<!--end of panel content-->	
+							</div>
+						<!--end of profile 2-->	
+						<!--results-->
+							<div class="panel" ng-show="isRelationshipModalSearch && !isProfileLinked">	
+								<div class="result">
+									<!--panel title-->
+										<div class="panel-title">
+											<label>
+												Results
+												<span class="count">(500)</span>
+											</label>
+										</div>
+									<!--end of panel title-->
+									<!--panel content-->
+										<div class="panel-content pull-top-28">
+											<table class="data-grid">
+												<tbody>
+													<tr>
+														<th>&nbsp;</th>
+														<th>ID</th>
+														<th>Type</th>
+														<th>Full Name</th>
+														<th>Name in Local Language</th>
+														<th>Trading Name/Alias</th>
+														<th>Country</th>
+														<th>Created</th>
+														<th>Updated</th>
+													</tr>
+													<tr>
+														<td>
+															<input type="checkbox" class="normal" ng-click="isProfileSelected=!isProfileSelected">
+														</td>
+														<td data-label="Profile ID">0001</td>
+														<td data-label="Type">Sample Type 1</td>
+														<td data-label="Full Name">Sample Name 1</td>
+														<td data-label="Name in Local Language">Sample Local Name 1</td>
+														<td data-label="Alias">Sample Name 1</td>
+														<td data-label="Country">Country 1</td>
+														<td data-label="Date Created">00/00/000</td>
+														<td data-label="Date Updated">01/01/1900</td>
+													</tr>
+													<tr>
+														<td>
+															<input type="checkbox" class="normal">
+														</td>
+														<td data-label="Profile ID">0002</td>
+														<td data-label="Type">Sample Type 2</td>
+														<td data-label="Full Name">Sample Name 2</td>
+														<td data-label="Name in Local Language">Sample Local Name 2</td>
+														<td data-label="Alias">Sample Name 2</td>
+														<td data-label="Country">Country 2</td>
+														<td data-label="Date Created">00/00/000</td>
+														<td data-label="Date Updated">01/01/1900</td>
+													</tr>
+													<tr>
+														<td>
+															<input type="checkbox" class="normal">
+														</td>
+														<td data-label="Profile ID">0003</td>
+														<td data-label="Type">Sample Type 3</td>
+														<td data-label="Full Name">Sample Name 3</td>
+														<td data-label="Name in Local Language">Sample Local Name 3</td>
+														<td data-label="Alias">Sample Name 3</td>
+														<td data-label="Country">Country 3</td>
+														<td data-label="Date Created">00/00/000</td>
+														<td data-label="Date Updated">01/01/1900</td>
+													</tr>
+													<tr>
+														<td>
+															<input type="checkbox" class="normal">
+														</td>
+														<td data-label="Profile ID">0004</td>
+														<td data-label="Type">Sample Type 4</td>
+														<td data-label="Full Name">Sample Name 4</td>
+														<td data-label="Name in Local Language">Sample Local Name 4</td>
+														<td data-label="Alias">Sample Name 4</td>
+														<td data-label="Country">Country 4</td>
+														<td data-label="Date Created">00/00/000</td>
+														<td data-label="Date Updated">01/01/1900</td>
+													</tr>
+													<tr>
+														<td>
+															<input type="checkbox" class="normal">
+														</td>
+														<td data-label="Profile ID">0005</td>
+														<td data-label="Type">Sample Type 5</td>
+														<td data-label="Full Name">Sample Name 5</td>
+														<td data-label="Name in Local Language">Sample Local Name 5</td>
+														<td data-label="Alias">Sample Name 5</td>
+														<td data-label="Country">Country 5</td>
+														<td data-label="Date Created">00/00/000</td>
+														<td data-label="Date Updated">01/01/1900</td>
+													</tr>
+												</tbody>
+											</table>
+											<!--pagination-->
+												<div class="row">
+													<div class="col-1">
+														<input type="text" class="multi-select" ng-model="itemCount" ng-click="showRelationshipModalItemCount=!showRelationshipModalItemCount" placeholder="--1">
+														<i class="fa fa-caret-down" aria-hidden="true"></i>
+														<div class="multi-select-options" ng-show="showRelationshipModalItemCount" 
+																						  ng-mouseleave="showRelationshipModalItemCount=false">
+															<ul>
+																<li ng-click="itemCount = '1'; showRelationshipModalItemCount = false">1</li>
+																<li ng-click="itemCount = '2'; showRelationshipModalItemCount = false">2</li>
+																<li ng-click="itemCount = '3'; showRelationshipModalItemCount = false">3</li>
+																<li ng-click="itemCount = '4'; showRelationshipModalItemCount = false">4</li>
+																<li ng-click="itemCount = '5'; showRelationshipModalItemCount = false">5</li>
+															</ul>
+														</div>
+													</div>
+													<div class="col-11 align-right">	
+														<div class="pagination">
+															<ul>
+																<li><a href="javascript:void(0);">Prev</a></li>
+																<li><a href="javascript:void(0);">...</a></li>
+																<li class="active"><a href="javascript:void(0);">1</a></li>
+																<li><a href="javascript:void(0);">2</a></li>
+																<li><a href="javascript:void(0);">3</a></li>
+																<li><a href="javascript:void(0);">...</a></li>
+																<li><a href="javascript:void(0);">Next</a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											<!--end of pagination-->
+										</div>
+									<!--end of panel content-->
+								</div>
+							</div>
+						<!--end of results-->
+					</div>	
+				<!--end of modal body-->
+				<!--modal footer-->
+					<div class="modal-footer" ng-show="isRelationshipModalSearch">
+						<div class="row">
+							<div class="col-6">
+								<button class="btn btn-default btn-small" ng-click="showRelationshipModal=!showRelationshipModal">Cancel</button>
+							</div>	
+							<div class="col-6 align-right">
+								<button class="btn btn-default btn-medium">Add Another Profile</button>
+								<button class="btn btn-success btn-small" ng-hide="isProfileSelected || isProfileLinked" disabled>Select</button>
+								<button class="btn btn-success btn-small" ng-show="isProfileSelected" 
+																		  ng-click="isProfileLinked=!isProfileLinked; isProfileSelected=false;">
+																		  Select</button>
+								<button class="btn btn-success btn-small" ng-show="isProfileLinked" ng-click="isSuccessToastr=!isSuccessToastr">Link</button>
+							</div>
+						</div>
+					</div>
+				<!--end of modal footer-->	
+			</div>
+		</div>		
+	</div>
+<!--end of relationship modal-->
+<!--success alert-->
+	<div class="success-toast alert-box" ng-class="{'showToast': isSuccessToastr}">
+		<div class="toast-content">
+			<!--icon-->
+				<div class="toast-icon">
+					<i class="fa fa-check-circle-o"></i>
+				</div>
+			<!--end of icon-->
+			<!--message-->
+				<div class="toast-message">
+					<div class="message-title">
+						Success
+						<div class="close">
+							<i class="fa fa-remove"></i>
+						</div>
+					</div>
+					<div class="message-content">
+						<p>Nullam odio et lacus tempor euismod eu ut tortor.</p>
+					</div>
+				</div>
+			<!--end of message-->	
+		</div>
+	</div>
+<!--end of success alert-->
+<!--danger alert-->
+	<div class="danger-toast alert-box" ng-class="{'showToast': isDangerToastr}">
+		<div class="toast-content">
+			<!--icon-->
+				<div class="toast-icon">
+					<i class="fa fa-times-circle-o"></i>
+				</div>
+			<!--end of icon-->
+			<!--message-->
+				<div class="toast-message">
+					<div class="message-title">
+						Error
+						<div class="close">
+							<i class="fa fa-remove"></i>
+						</div>
+					</div>
+					<div class="message-content">
+						<p>Nullam odio et lacus tempor euismod eu ut tortor.</p>
+					</div>
+				</div>
+			<!--end of message-->	
+		</div>
+	</div>
+<!--end of danger alert-->
+<!--unlink modal-->
+	<div class="modal modal-confirmation unlink-modal" ng-show="isUnlinkModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<!--modal header-->
+					<div class="modal-header">
+						<!--close-->
+							<div class="close">
+								<i class="fa fa-times-circle-o" ng-click="isUnlinkModal=false"></i>
+							</div>
+						<!--end of close-->	
+					</div>
+				<!--end of modal header-->
+				<!--modal body-->
+					<div class="modal-body">
+						<div class="icon">
+							<i class="fa fa-chain-broken" aria-hidden="true"></i>
+						</div>
+						<p>Are you sure you want to unlink this profile?</p>
+					</div>
+				<!--end of modal body-->
+				<!--modal body-->
+					<div class="modal-footer">
+						<div class="row">
+							<div class="col-6">
+								<button class="btn btn-cancel" ng-click="isUnlinkModal=false">Cancel</button>
+							</div>	
+							<div class="col-6">
+								<button class="btn btn-primary">Unlink</button>
+							</div>
+						</div>
+					</div>
+				<!--end of modal body-->
+			</div>
+		</div>
+	</div>
+<!--end of unlink modal-->
+</body>
+</html>

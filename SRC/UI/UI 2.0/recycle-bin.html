@@ -1,0 +1,435 @@
+<!doctype html>
+<html ng-app="Integracheck">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recycle Bin</title>
+<!--stylesheet-->
+<link rel="stylesheet" type="text/css" href="styles/stylesheets/main.css">
+<link rel="stylesheet" href="assets/fonts/fontawesome/font-awesome.min.css">
+<link rel="stylesheet" href="assets/fonts/fontawesome/font-awesome.css">
+<!--end of stylesheet-->
+<!--javascript-->
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/angular.min.js"></script>
+<script>
+	var app = angular.module("Integracheck", []);
+
+	app.directive("datepicker", function () {
+		return {
+			restrict: "A",
+			require: "ngModel",
+			link: function (scope, elem, attrs, ngModelCtrl) {
+
+				var updateModel = function (dateText) {
+					scope.$apply(function () {
+					  ngModelCtrl.$setViewValue(dateText);
+					});
+				};
+				
+				var options = {
+					changeMonth: true,
+					changeYear: true,
+					showOn: "both", 
+					buttonText: "<i class='fa icon-calendar'></i>"
+				};
+				
+				elem.datepicker(options);
+			}
+		}
+	});
+</script>
+<!--end of javascript-->
+</head>
+<body>
+<!--page wrap-->
+	<div class="page-wrap">
+		<!--header-->
+			<header class="header">
+				<div class="container">
+					<div class="row">
+						<!--logo-->
+							<div class="col-2">
+								<div class="logo">
+									<a href="javascript:void(0);">
+										<img src="assets/logo/icd.jpeg" />
+									</a>
+								</div>			
+							</div>
+						<!--end of logo-->
+						<!--navigation-->
+							<div class="col-5">
+								<div class="navigation">
+									<ul>
+										<li><a href="javascript:void(0);">Home</a></li>
+										<li class="active"><a href="javascript:void(0);">Search</a></li>
+										<li><a href="javascript:void(0);">Manage</a></li>
+										<li><a href="javascript:void(0);">Export</a></li>
+									</ul>
+								</div>
+							</div>
+						<!--end of navigation-->
+						<!--user info-->
+							<div class="col-5 align-right">
+								<div class="user-info">
+									<!--top links-->
+										<div class="top-links">
+											<ul>
+												<li class="notifications">
+													<i class="fa fa-bell-o" aria-hidden="true"></i>
+													<span class="count">26</span>
+												</li>
+												<li class="help">
+													<i class="fa fa-question-circle" aria-hidden="true"></i>
+												</li>
+												<li class="notifications">
+													<i class="fa fa-recycle" aria-hidden="true"></i>
+													<span class="count">100</span>
+												</li>
+											</ul>	
+										</div>
+									<!--end of top links-->	
+									<!--user avatar-->	
+										<div class="user-avatar">
+											<span class="name" ng-click="isUserOptions=!isUserOptions">Jonathan Ive</span>
+											<span class="image"></span>
+											<div class="user-options" ng-show="isUserOptions">
+												<ul class="list-group" ng-mouseleave="isUserOptions=false">
+													<li>
+														<a href="javascript:void(0);">
+															<i class="fa fa-wrench"></i>Account Settings
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0);">
+															<i class="fa fa-sign-out"></i>Logout
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									<!--end of user avatar-->		
+								</div>		
+							</div>
+						<!--end of user info-->
+					</div>
+				</div>
+			</header>
+		<!--end of header-->
+		<!--recycle bin-->
+			<div class="recycle-bin">
+				<div class="container">
+					<!--start of title-->
+						<div class="title">
+							<h1>Recycle Bin</h1>
+						</div>
+					<!--end of title-->	
+					<!--start of content-->
+						<div class="content">
+							<!--advanced search panel-->
+								<div class="panel">
+									<!--panel content-->
+										<div class="panel-content">
+											<!--search-->
+												<div class="search">
+													<div class="form-group"> 
+														<input type="text" value="Sample Keyword">
+														<i class="fa fa-search"></i>
+													</div>	
+												</div>		
+											<!--search-->
+											<!--advanced search-->
+												<div class="advanced-search">
+													<div class="row">
+														<div class="col-6" ng-class="{'push-top-14' : !showAdvancedSearchFields}">
+															<a href="javascript:void(0);" ng-click="showAdvancedSearchFields =! showAdvancedSearchFields">Advance Search&gt;&gt;</a>
+														</div>
+														<div class="col-6" ng-hide="showAdvancedSearchFields">
+															<button class="btn btn-primary btn-small pull-right" ng-click="isSearch =! isSearch">Search</button>
+														</div>
+													</div>	
+													<!--advanced search fields-->
+														<div class="advanced-search-fields" ng-show="showAdvancedSearchFields">
+															<div class="panel panel-invert">
+																<div class="panel-title">
+																	Filter
+																</div>
+																<div class="panel-content pull-top-16">
+																	<div class="row">
+																	<!--left col-->
+																		<div class="col-6 pull-top-24">
+																			<div class="row">
+																				<div class="form-group"> 
+																					<div class="col-6 ">
+																						<label>Type</label>
+																						<p class="pull-left-6">
+																							<input type="radio" class="normal">
+																							<label for="checkbox">Company</label>
+																						</p>
+																						<p class="pull-left-6">
+																							<input type="radio" class="normal">
+																							<label for="checkbox">Individual</label>
+																						</p>
+																					</div>	
+																				</div>
+																				<div class="form-group"> 
+																					<div class="col-6">
+																						<label>Risk Rating</label>
+																						<p class="pull-left-6">
+																							<input type="radio" class="normal">
+																							<label for="checkbox">Green</label>
+																						</p>
+																						<p class="pull-left-6">
+																							<input type="radio" class="normal">
+																							<label for="checkbox">Amber</label>
+																						</p>
+																						<p class="pull-left-6">
+																							<input type="radio" class="normal">
+																							<label for="checkbox">Red</label>
+																						</p>
+																					</div>	
+																				</div>
+																				<div class="form-group"> 
+																					<div class="col-12">
+																						<div class="form-group"> 
+																							<label for="select">Country</label>
+																							<input type="text" class="multi-select" ng-model="sampleCountry" placeholder="--Select Country--" ng-click="showCountrySelection=!showCountrySelection" ng-class="{'error' : showError}">
+																							<i class="fa fa-caret-down" aria-hidden="true"></i>
+																							<span ng-show="showError">This field is required.</span>
+																							<div class="multi-select-options" ng-show="showCountrySelection" ng-mouseleave="showCountrySelection=false">
+																								<ul>
+																									<li ng-click="sampleCountry='Sample Country 1'; showCountrySelection=false">Sample Country 1</li>
+																									<li ng-click="sampleCountry='Sample Country 2'; showCountrySelection=false">Sample Country 2</li>
+																									<li ng-click="sampleCountry='Sample Country 3'; showCountrySelection=false">Sample Country 3</li>
+																								</ul>
+																							</div>
+																						</div>	
+																					</div>
+																				</div>
+																				<div class="form-group"> 
+																					<div class="col-12">
+																						<label for="select">Industry</label>
+																						<input type="text" class="multi-select" ng-model="sampleIndustry" ng-click="showIndustrySelection =! showIndustrySelection" placeholder="--Select Industry--" ng-class="{'error' : showError}">
+																						<i class="fa fa-caret-down" aria-hidden="true"></i>
+																						<span ng-show="showError">This field is required.</span>
+																						<div class="multi-select-options" ng-show="showIndustrySelection" ng-mouseleave="showIndustrySelection=false">
+																							<ul>
+																								<li ng-click="sampleIndustry = 'Sample Industry 1'; showIndustrySelection = false">Sample Industry 1</li>
+																								<li ng-click="sampleIndustry = 'Sample Industry 2'; showIndustrySelection = false">Sample Industry 2</li>
+																								<li ng-click="sampleIndustry = 'Sample Industry 3'; showIndustrySelection = false">Sample Industry 3</li>
+																							</ul>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	<!--end of left col-->	
+																	<!--right col-->
+																		<div class="col-6">
+																			<div class="form-group"> 
+																				<div class="row">
+																					<p>
+																						<label>Date Created</label>
+																					<p>	
+																					<div class="col-6">
+																						<label>From</label>	
+																						<input type="text" class="datepicker" ng-model="datePicker" datepicker placeholder="From">
+																						<i class="fa fa-calendar"></i>
+																					</div>
+																					<div class="col-6">
+																						<label>To</label>
+																						<input type="text" class="datepicker" ng-model="datePicker" datepicker placeholder="To">
+																						<i class="fa fa-calendar"></i>
+																					</div>
+																				</div>	
+																			</div>
+																			<div class="form-group"> 
+																				<div class="row">
+																					<p>
+																						<label>Date Updated</label>
+																					<p>	
+																					<div class="col-6">
+																						<label>From</label>
+																						<input type="text" class="datepicker" ng-model="datePicker" datepicker placeholder="From">
+																						<i class="fa fa-calendar"></i>
+																					</div>
+																					<div class="col-6">
+																						<label>To</label>
+																						<input type="text" class="datepicker" ng-model="datePicker" datepicker placeholder="To">
+																						<i class="fa fa-calendar"></i>
+																					</div>
+																				</div>	
+																			</div>
+																		</div>
+																	<!--end of right col-->	
+																	<!--form butons-->
+																		<div class="form-buttons">	
+																			<div class="row">
+																				<div class="col-12 align-right">
+																					<button class="btn btn-default btn-small">Reset</button>	
+																					<button class="btn btn-primary btn-small" ng-click="isSearch =! isSearch">Search</button>
+																				</div>
+																			</div>	
+																		</div>
+																	<!--end of form butons-->	
+																	</div>
+																</div>	
+															</div>
+														</div>
+													<!--end of advanced search fields-->
+												</div>	
+											<!--end of advanced search-->		
+										</div>	
+									<!--end of panel content-->	
+								</div>
+							<!--end of advanced search panel-->
+						</div>
+					<!--end of content-->
+					<!--content-->
+						<div class="content" ng-show="isSearch">
+							<!--results-->
+								<div class="result">
+									<div class="panel">	
+										<!--panel title-->
+											<div class="panel-title">
+												<label>
+													Results<span class="count">(500)</span>
+												</label>
+											</div>
+										<!--end of panel title-->
+										<!--panel content-->
+											<div class="panel-content pull-top-16">
+												<table class="data-grid">
+													<tbody>
+														<tr>
+															<th>ID</th>
+															<th>Type</th>
+															<th>Full Name</th>
+															<th>Name in Local Language</th>
+															<th>Trading Name/Alias</th>
+															<th>Country</th>
+															<th>Created</th>
+															<th>Updated</th>
+															<th>&nbsp;</th>
+														</tr>
+														<tr>
+															<td data-label="Profile ID">0001</td>
+															<td data-label="Type">Sample Type 1</td>
+															<td data-label="Full Name">Sample Name 1</td>
+															<td data-label="Name in Local Language">Sample Local Name 1</td>
+															<td data-label="Alias">Sample Name 1</td>
+															<td data-label="Country">Country 1</td>
+															<td data-label="Date Created">00/00/000</td>
+															<td data-label="Date Updated">01/01/1900</td>
+															<td data-label="">
+																<span class="retrieve"><a href="javascript:void(0);">Retrieve</a></span>
+															</td>
+														</tr>
+														<tr>
+															<td data-label="Profile ID">0002</td>
+															<td data-label="Type">Sample Type 2</td>
+															<td data-label="Full Name">Sample Name 2</td>
+															<td data-label="Name in Local Language">Sample Local Name 1</td>
+															<td data-label="Alias">Sample Name 2</td>
+															<td data-label="Country">Country 2</td>
+															<td data-label="Date Created">00/00/000</td>
+															<td data-label="Date Updated">01/01/1900</td>
+															<td data-label="">
+																<span class="retrieve"><a href="javascript:void(0);">Retrieve</a></span>
+															</td>
+														</tr>
+														<tr>
+															<td data-label="Profile ID">0003</td>
+															<td data-label="Type">Sample Type 3</td>
+															<td data-label="Full Name">Sample Name 3</td>
+															<td data-label="Name in Local Language">Sample Local Name 3</td>
+															<td data-label="Alias">Sample Name 3</td>
+															<td data-label="Country">Country 3</td>
+															<td data-label="Date Created">00/00/000</td>
+															<td data-label="Date Updated">01/01/1900</td>
+															<td data-label="">
+																<span class="retrieve"><a href="javascript:void(0);">Retrieve</a></span>
+															</td>
+														</tr>
+														<tr>
+															<td data-label="Profile ID">0004</td>
+															<td data-label="Type">Sample Type 4</td>
+															<td data-label="Full Name">Sample Name 4</td>
+															<td data-label="Name in Local Language">Sample Local Name 4</td>
+															<td data-label="Alias">Sample Name 4</td>
+															<td data-label="Country">Country 4</td>
+															<td data-label="Date Created">00/00/000</td>
+															<td data-label="Date Updated">01/01/1900</td>
+															<td data-label="">
+																<span class="retrieve"><a href="javascript:void(0);">Retrieve</a></span>
+															</td>
+														</tr>
+														<tr>
+															<td data-label="Profile ID">0005</td>
+															<td data-label="Type">Sample Type 5</td>
+															<td data-label="Full Name">Sample Name 5</td>
+															<td data-label="Name in Local Language">Sample Local Name 5</td>
+															<td data-label="Alias">Sample Name 5</td>
+															<td data-label="Country">Country 5</td>
+															<td data-label="Date Created">00/00/000</td>
+															<td data-label="Date Updated">01/01/1900</td>
+															<td data-label="">
+																<span class="retrieve"><a href="javascript:void(0);">Retrieve</a></span>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+												<!--pagination-->
+													<div class="row">
+														<div class="col-1">
+															<input type="text" class="multi-select" value="10" ng-model="itemCount" placeholder="--1" ng-click="showItemCount=!showItemCount">
+															<i class="fa fa-caret-down" aria-hidden="true"></i>
+															<div class="multi-select-options" ng-show="showItemCount" ng-mouseleave="showItemCount=false">
+																<ul>
+																	<li ng-click="itemCount = '1'; showItemCount = false">1</li>
+																	<li ng-click="itemCount = '2'; showItemCount = false">2</li>
+																	<li ng-click="itemCount = '3'; showItemCount = false">3</li>
+																	<li ng-click="itemCount = '4'; showItemCount = false">4</li>
+																	<li ng-click="itemCount = '5'; showItemCount = false">5</li>
+																</ul>
+															</div>
+														</div>
+														<div class="col-11 align-right">	
+															<div class="pagination">
+																<ul>
+																	<li><a href="javascript:void(0);">Prev</a></li>
+																	<li><a href="javascript:void(0);">...</a></li>
+																	<li class="active"><a href="javascript:void(0);">1</a></li>
+																	<li><a href="javascript:void(0);">2</a></li>
+																	<li><a href="javascript:void(0);">3</a></li>
+																	<li><a href="javascript:void(0);">...</a></li>
+																	<li><a href="javascript:void(0);">Next</a></li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												<!--end of pagination-->
+											</div>
+										<!--end of panel content-->
+									</div>
+								</div>
+							<!--end of results-->	
+						</div>
+					<!--end of content-->
+				</div>
+			</div>
+		<!--end of ecycle bin-->
+		<div id="push"></div>
+	</div>	
+<!--end of page wrap-->	
+<!--footer-->
+	<footer class="footer">
+		<div class="container-fluid align-center">
+			<a href="javascript:void(0);">
+				<img src="assets/logo/rfg.png" />
+			</a>
+		</div>
+	</footer>
+<!--end of footer-->
+</body>
+</html>

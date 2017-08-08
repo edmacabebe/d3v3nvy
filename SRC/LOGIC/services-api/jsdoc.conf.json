@@ -1,0 +1,15 @@
+{
+  "opts": {
+    "readme": "README.md",
+    "recurse": true,
+    "template": "node_modules/jsdoc-baseline",
+    "encoding": "utf8",
+    "destination": "./client/"
+  },
+  "source": {
+    "include": [ "./node-server/" ]
+  },
+  "templates.baseline": {
+    "tables": { "nestedPropertyTables": false }
+  }
+}

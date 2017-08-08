@@ -1,0 +1,56 @@
+//
+// Component: Pagination
+// --------------------------------------------------
+
+//== Default pagination styling
+//
+//## 
+
+.pagination {
+    ul {
+        @include _margin(0 -2px 0 0);
+
+        li {
+            display: inline-block;
+            border: 1px solid $pagination-border;
+            background-color: $pagination-bg; 
+            @include _margin(0 2px); 
+            @include _padding(($padding-large-vertical - 2) ($padding-large-horizontal - 2));   
+            @include _radius(3px);
+            background: $white;
+            cursor: pointer;
+
+            &:hover, &.active {
+                background-color: $pagination-hover-bg; 
+                border-color: $pagination-hover-border;
+
+                a {
+                    color: $pagination-hover-color;
+                }     
+            }
+
+            a {
+                color: $pagination-color;
+                font-weight: $font-weight-bold!important;
+                text-decoration: $link-hover-decoration;
+                font-size: $font-size-base;
+            }
+        }
+        .indicator {
+             border: 1px solid $grey-lighter;
+             cursor: not-allowed;
+             a {
+                 color:$grey-lighter;
+                 &:hover {
+                     color:$grey-lighter;
+                     cursor: not-allowed;
+                 }
+             }
+
+             &:hover {
+                 background-color: transparent!important;
+                 border: 1px solid $grey-lighter;
+             }
+        }
+    }
+}   

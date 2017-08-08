@@ -1,0 +1,28 @@
+<div class="row pull-top-50">
+        <div class="col-12" ng-if="$ctrl.service.viewResult">
+            <div class="form-group">
+                <label>Results({{$ctrl.service.data.total}})</label>
+            </div>
+            <div class="no-result-button icons push-bottom-50" ng-if="$ctrl.service.data.total <= 0">
+                <span class="info-grey"></span>
+                <p>No Match Found</p>
+              <span>
+                <p>We couldn't find the profile you were looking for.</p>
+                <button class="btn btn-darkblue btn-medium push-top-30">Create New Profile</button>
+              </span>
+            </div>
+            <div class="icd-search-result"> 
+                <ul>
+                    <li ng-repeat="data in $ctrl.service.contentHeader">
+                        <span ng-bind-html="data.fullName" >{{data.fullName}}</span>
+                        <span ng-if="data.profileId">Profile Id: <em ng-bind-html="data.profileId">{{data.profileId}}</em>, Reference Case Number: {{data.referenceCaseNo}}</span>
+                        <span>Type: Company, Country: <em  ng-bind-html="data.country">{{data.country}}</em>, Industry: <em ng-bind-html="data.industry">{{data.industry}}</em></span>
+                        <span ng-if="data.aliasName">Trading Name, Alias or AKA: <em ng-bind-html="data.aliasName">{{data.aliasName}}</em></span>
+                        <span ng-if="data.nameInLocalLanguage">Name in Local Language: <em ng-bind-html="data.nameInLocalLanguage">{{data.nameInLocalLanguage}}</em></span>
+                    </li>
+                </ul>
+            </div>
+            <icd-pagination></icd-pagination>
+
+        </div>
+</diV>

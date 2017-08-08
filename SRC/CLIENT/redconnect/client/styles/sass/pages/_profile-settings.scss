@@ -1,0 +1,44 @@
+.profile-settings {
+  .icons {
+    .gear {
+      position: absolute;
+      top: 14px;
+      right: 90px;
+    }
+  } 
+  .center-line {
+    position: absolute;
+    top: 10px;
+    bottom: 0;
+    left: 57%;
+    width: 124%;
+    border-top: 1px solid $grey-dark;
+    transform: translate(-50%);
+  }
+  table {
+    &.data-grid {
+      @include table-columns(43%, 42%, 7%, 8%);
+    }
+    .switch {
+      margin-left: 18px;
+    }
+  }
+  .report-scope {
+    p {
+      margin-top: 10px;
+      input[type="checkbox"] {
+        margin-right: 20px;
+      }
+    }
+    .right-corner-scope {
+      p {
+        margin-left: 37px;
+      }
+    }
+  }
+  .form-buttons {
+    &.delete-button {
+      border-top: 0px!important;
+    }
+  }
+}

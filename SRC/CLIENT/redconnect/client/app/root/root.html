@@ -1,0 +1,90 @@
+<div class="page-wrap">
+  <!-- <toast></toast> -->
+  <alert-message></alert-message>
+  <header class="header" ng-if="$rootCtrl.currentUser">
+    <div class="container">
+      <div class="row">
+        <!--logo-->
+          <div class="col-2">
+            <div class="logo">
+              <a href="javascript:void(0);">
+                <img src="images/assets/logo/Logo.png" />
+              </a>
+            </div>
+          </div>
+        <!--end of logo-->
+        <!--navigation-->
+          <div class="col-5">
+            <div class="navigation">
+              <ul>
+                <li ng-repeat="nav in $rootCtrl.navList track by $index" ng-class="{active: $rootCtrl.navList[$index].isSelected}" ng-click="$rootCtrl.navTo($index)"><a>{{nav.title}}</a></li>
+              </ul>
+            </div>
+          </div>
+        <!--end of navigation-->
+        <!--user info-->
+          <div class="col-5 align-right">
+            <div class="user-info">
+              <!--top links-->
+                <div class="top-links">
+                  <ul>
+                    <li class="notifications">
+                      <i class="fa fa-bell" aria-hidden="true"></i>
+                      <i class="fa fa-circle" aria-hidden="true">
+                      	<span class="count">26</span>
+                      </i>
+                    </li>
+                  </ul>
+                </div>
+              <!--end of top links-->
+              <!--user avatar-->
+                <div class="user-avatar">
+                  <span class="name" ng-click="isUserOptions=!isUserOptions">Hi&nbsp;&nbsp;Jonathan Ive</span>
+                  <div class="user-options" ng-show="isUserOptions">
+                    <ul class="list-group" ng-mouseleave="isUserOptions=false">
+                      <li>
+                        <a href="javascript:void(0);">
+                          <i class="fa fa-wrench"></i>Account Settings
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" ng-click="$rootCtrl.loginService.logout()">
+                          <i class="fa fa-sign-out"></i>Logout
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <span class="push-left-5">
+                    <img src="images/assets/icon/line.png">
+                  </span>
+                  <span class="push-left-10">
+                    <img src="images/assets/icon/manage-gray.png">
+                    <span class="manage">MANAGE</span>
+                  </span>
+                </div>
+              <!--end of user avatar-->
+            </div>
+          </div>
+        <!--end of user info-->
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="content">
+      <message-board msg="$rootCtrl.messageBoardService.message()"></message-board>
+      <div ng-hide="$rootCtrl.messageBoardService.message()">
+        <ui-view></ui-view>
+      </div>
+    </div>
+  </div>
+  <div id="push"></div>
+</div>
+
+<footer class="footer" ng-if="$rootCtrl.currentUser">
+    <div class="container-fluid align-center">
+      <a href="javascript:void(0);">
+        <p>Powered by The Red Flag Group</p>
+      </a>
+    </div>
+  </footer>

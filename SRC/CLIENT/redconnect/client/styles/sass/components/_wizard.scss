@@ -1,0 +1,120 @@
+.stepwizard-row {
+    display: table-row;
+}
+.stepwizard {
+    display: table;
+    width: 50%;
+    position: relative;
+    z-index: 9;
+    .btn {
+        &:hover {
+            transition: none; 
+        }
+    }
+    .stepwizard-step button[disabled] {
+        opacity: 1 !important;
+        filter: alpha(opacity=100) !important;
+    }
+    .active {
+        background-color: #0f87b8 !important;
+        border-color: #0f87b8 !important;
+        color: white;
+    }
+    .active-line {
+        position: absolute;
+        right: -1px;
+        height: 6px;
+        width: 302px;
+        background-color: #0f87b8;
+        display: block;
+        margin-top: -11px;
+        z-index: 9999 !important;
+    }
+    .step-1 {
+        &:after {
+            top: 2px;
+            bottom: 0;
+            left: 54px;
+            position: absolute;
+            content: " ";
+            width: 290px;
+            height: 14px;
+            background-color: $grey-lightest;
+            border: 1px solid black;
+            border-right: 0;
+            border-left: 0;
+        }
+    }
+    .step-2 {
+        &:after {
+            top: 2px;
+            bottom: 0;
+            left: 54px;
+            position: absolute;
+            content: " ";
+            width: 290px;
+            height: 14px;
+            background-color: $grey-lightest;
+            border: 1px solid black;
+            border-right: 0;
+            border-left: 0;
+        }
+    }
+    .step1-label {
+        position: absolute;
+        top: 50px;
+        margin-left: -70px;
+        color:$grey-light;
+    }
+    .step2-label {
+        position: absolute;
+        top: 50px;
+        margin-left: -40px;
+        color:$grey-light;
+    }
+    .step3-label {
+        position: absolute;
+        top: 50px;
+        margin-left: -50px; 
+        width:160px;
+        color:$grey-light;
+    }
+    .step-label-active {
+        color: $grey-darkest !important;
+    }
+
+    .stepwizard-step {
+        display: table-cell;
+        /*text-align: center;*/
+        position: relative;
+        p {
+            margin-top: 10px;
+        }
+        a {
+            text-decoration: none;
+            margin-right: 300px;
+        }
+    }
+    .btn-circle {
+        /*width: 30px;
+        height: 30px;*/
+        text-align: center;
+        padding: 15px 20px;
+        font-size: 12px;
+        line-height: 1.428571429;
+        border-radius: 100px;
+        background-color: $white;
+        border-color:$white;
+    }
+    .border {
+        height: 61px;
+        width: 61px;
+        border: 1px solid black;
+        border-radius: 100px;
+        position: absolute;
+        top: -22px;
+        left: -7px;
+        background-color: $grey-lightest;
+        z-index: -1;
+    }       
+}

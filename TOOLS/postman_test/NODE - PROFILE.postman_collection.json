@@ -1,0 +1,136 @@
+{
+	"id": "6a7a96cf-d48b-eeac-95b4-ffcd5b322c68",
+	"name": "NODE - PROFILE",
+	"description": "",
+	"order": [
+		"70784fd2-d1f1-c0e2-e29e-ee671e9e7a27",
+		"e5c348de-d1ee-7b07-d9f5-01d1b0b808f3",
+		"0d07ba26-d750-eb67-fd08-81dc3e770468"
+	],
+	"folders": [],
+	"timestamp": 1498180260130,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "0d07ba26-d750-eb67-fd08-81dc3e770468",
+			"headers": "Content-Type: application/json\nAuthorization: Basic YWRtaW46YWRtaW4=\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic YWRtaW46YWRtaW4=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3000/profiles",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1499308621627,
+			"name": "PUT(update) - Profile",
+			"description": "",
+			"collectionId": "6a7a96cf-d48b-eeac-95b4-ffcd5b322c68",
+			"responses": [],
+			"rawModeData": "{\n    \"header\": {\n        \"first\": \"Michael\",\n        \"last\": \"Johnson\",\n        \"profileType\": \"Company\",\n        \"profileId\": 11,\n        \"profileName\": \"CMP-11.json\",\n        \"uri\": \"/profile/CMP-11.json\"\n    }\n}"
+		},
+		{
+			"id": "70784fd2-d1f1-c0e2-e29e-ee671e9e7a27",
+			"headers": "Authorization: Basic YWRtaW46YWRtaW4=\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Basic YWRtaW46YWRtaW4=",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "",
+					"value": "",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3000/profiles?uri=/profile/IND-1.json",
+			"queryParams": [
+				{
+					"key": "uri",
+					"value": "/profile/IND-1.json",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1499308462950,
+			"name": "GET - Profile",
+			"description": "",
+			"collectionId": "6a7a96cf-d48b-eeac-95b4-ffcd5b322c68",
+			"responses": []
+		},
+		{
+			"id": "e5c348de-d1ee-7b07-d9f5-01d1b0b808f3",
+			"headers": "Content-Type: application/json\nAuthorization: Basic YWRtaW46YWRtaW4=\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic YWRtaW46YWRtaW4=",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "",
+					"value": "",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3000/profiles",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1499308553547,
+			"name": "PUT - Profile",
+			"description": "",
+			"collectionId": "6a7a96cf-d48b-eeac-95b4-ffcd5b322c68",
+			"responses": [],
+			"rawModeData": "{\"header\":{\"first\":\"Michael\", \"last\":\"Johnson\", \"profileType\":\"Company\"}}"
+		}
+	]
+}

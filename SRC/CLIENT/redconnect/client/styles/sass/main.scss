@@ -1,0 +1,66 @@
+//
+// Main CSS
+// --------------------------------------------------
+
+//== Base
+//
+//## Default CSS
+
+@import "base/reset";
+@import "base/base";
+
+//== Helpers
+//
+//##
+
+@import "helpers/vars";
+@import "helpers/mixins";
+
+//== Layout
+//
+//##
+
+@import "layout/grid";
+@import "layout/header";
+@import "layout/footer";
+@import "layout/sidebar";
+
+//== Components
+//
+//## CSS override on any UI-component should be done on each page specific stylesheets(ex. pages/ui-kit).
+
+@import "components/accordion";
+@import "components/button";
+@import "components/checkbox";
+@import "components/datepicker";
+@import "components/input";
+@import "components/list-group";
+@import "components/modal";
+@import "components/panel";
+@import "components/pagination";
+@import "components/password";
+@import "components/progress-bar";
+@import "components/radio";
+@import "components/select";
+@import "components/tab";
+@import "components/table";
+@import "components/textarea";
+@import "components/toast";
+@import "components/tooltip";
+@import "components/wizard";
+@import "components/widget";
+@import "components/transferrable-list";
+@import "components/search-field";
+@import "components/icons";
+@import "components/switch";
+
+//== Pages
+//
+//## override the default styling per page
+
+@import "pages/create-profile";
+@import "pages/login";
+@import "pages/search-profile";
+@import "pages/recycle-bin";
+@import "pages/ui-kit";
+@import "pages/profile-settings";

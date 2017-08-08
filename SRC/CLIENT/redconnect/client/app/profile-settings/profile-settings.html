@@ -1,0 +1,431 @@
+<div class="profile-settings">
+  <div class="content">
+    <div class="panel push-top-20">
+      <!--start of title-->
+      <div class="title">
+        <div class="row">
+          <div class="col-6">
+            <h1>OCEANEX</h1>
+          </div>
+          <div class="col-6 align-right icons">
+            <p class="push-top-10"><span class="gear"></span>Profile Settings</p>
+          </div>
+        </div>
+      </div>
+      <!--end of title-->
+      <!--form button-->
+      <div class="form-buttons delete-button">
+        <div class="row">
+          <div class="col-12 align-right">
+            <button class="btn btn-darkblue btn-small">Delete Profile</button>
+          </div>
+        </div>
+      </div>
+      <!--end of form button-->
+      <!--panel-content-->
+      <div class="panel-content center-panel-container pull-top-20">
+        <!--profile-type-->
+        <div class="form-group">
+          <div class="row">
+            <div class="col-3">
+              <label class="required">Profile Type</label>
+            </div>
+            <div class="col-9">
+              <input type="text" class="select" 
+                     placeholder="Company" 
+                     ng-class="{'error': showProfileTypeError}"
+                     ng-model="profileType" 
+                     disabled
+                     ng-click="showSelection =! showSelection">
+                <i class="fa fa-angle-down"></i>
+              <ul class="selection" ng-show="showSelection">
+                <li ng-click="profileType='Company'; showSelection=false; showCompany=true">Company</li>
+                <li ng-click="profileType='Individual'; showSelection=false; showIndividual=true">Individual</li>
+              </ul>  
+              <span ng-show="showProfileTypeError">This field is required.</span>
+            </div>
+          </div>
+        </div>  
+        <!--end of profile-type-->
+        <!--primary subject full name-->
+        <div class="form-group">
+          <div class="row">
+            <div class="col-3">
+              <label class="required">Primary Subject Full Name</label>
+            </div>
+            <div class="col-9">
+              <input type="text" class="select" 
+                     placeholder="China Bank" 
+                     ng-class="{'error': showProfileTypeError}"
+                     ng-model="primarySubjectFullName" 
+                     disabled
+                     ng-click="showSubjectFullNameSelection =! showSubjectFullNameSelection">
+                <i class="fa fa-angle-down"></i>
+              <ul class="selection" ng-show="showSubjectFullNameSelection">
+                <li ng-click="primarySubjectFullName='Company'; showSubjectFullNameSelection=false;">China Bank</li>
+                <li ng-click="primarySubjectFullName='Individual'; showSubjectFullNameSelection=false;">Metrobank</li>
+              </ul>  
+              <span ng-show="showProfileTypeError">This field is required.</span>
+            </div>
+          </div>
+        </div> 
+        <!--end of primary subject full name-->
+        <!--report level-->
+        <div class="form-group">
+          <div class="row">
+            <div class="col-3">
+              <label class="required">Report Level</label>
+            </div>
+            <div class="col-9">
+              <input type="text" class="select" 
+                     placeholder="Select Profile Type" 
+                     ng-class="{'error': showProfileTypeError}"
+                     ng-model="reportLevel" 
+                     ng-click="showReportLevelSelection =! showReportLevelSelection">
+                <i class="fa fa-angle-down"></i>
+              <ul class="selection" ng-show="showReportLevelSelection">
+                <li ng-click="reportLevel='Bronze'; showReportLevelSelection=false">Bronze</li>
+                <li ng-click="reportLevel='Silver'; showReportLevelSelection=false">Silver</li>
+                <li ng-click="reportLevel='Gold'; showReportLevelSelection=false">Gold</li>
+                <li ng-click="reportLevel='Platinum'; showReportLevelSelection=false">Platinum</li>
+                <li ng-click="reportLevel='Diamond'; showReportLevelSelection=false">Diamond</li>
+                <li ng-click="reportLevel='Bespoke/Custom'; showReportLevelSelection=false">Bespoke/Custom</li>
+              </ul>  
+              <span ng-show="showProfileTypeError">This field is required.</span>
+            </div>
+          </div>
+        </div>  
+        <!--end of report level-->
+        <!--report template-->
+        <div class="form-group">
+          <div class="row">
+            <div class="col-3">
+              <label class="required">Report Template</label>
+            </div>
+            <div class="col-9">
+              <input type="text" class="select" 
+                     placeholder="Template" 
+                     ng-class="{'error': showProfileTypeError}"
+                     ng-model="reportTemplate" 
+                     ng-click="showReportTemplateSelection =! showReportTemplateSelection">
+                <i class="fa fa-angle-down"></i>
+              <ul class="selection" ng-show="showReportTemplateSelection">
+                <li ng-click="reportTemplate='Template 1'; showReportTemplateSelection=false">Template 1</li>
+                <li ng-click="reportTemplate='Template 2'; showReportTemplateSelection=false">Template 2</li>
+                <li ng-click="reportTemplate='Template 3'; showReportTemplateSelection=false">Template 3</li>
+              </ul>  
+              <span ng-show="showProfileTypeError">This field is required.</span>
+            </div>
+          </div>
+        </div>  
+        <!--end of report template-->
+        <!--report scope-->
+        <div class="form-group report-scope">
+          <div class="row">
+            <div class="col-3">
+              <label class="required">Report Scope</label>
+            </div>
+            <div class="col-9 push-top-30">
+              <div class="col-6">
+                <p>
+                  <input type="checkbox" class="normal">
+                  <span>IntegraWatch | Compliance Screening</span>
+                </p>
+                <p>
+                  <input type="checkbox" class="normal">
+                  <span>Media Research</span>
+                </p>
+                <p>
+                  <input type="checkbox" class="normal">
+                  <span>Corporate Registry</span>
+                </p>
+                <p>
+                  <input type="checkbox" class="normal">
+                  <span>Relationship Mapping</span>
+                </p>
+                <p>
+                  <input type="checkbox" class="normal">
+                  <span>Financial Information</span>
+                </p>
+                <p>
+                  <input type="checkbox" class="normal">
+                  <span>Litigation Checks</span>
+                </p>
+                <p>
+                  <input type="checkbox" class="normal">
+                  <span>Reputational Intelligence</span>
+                </p>
+              </div>
+              <div class="col-6 right-corner-scope">
+                <p>
+                  <input type="checkbox" class="normal">
+                  <span>IntegraWatch | Compliance Screening</span>
+                </p>
+                <p>
+                  <input type="checkbox" class="normal">
+                  <span>Media Research</span>
+                </p>
+                <p>
+                  <input type="checkbox" class="normal">
+                  <span>Corporate Registry</span>
+                </p>
+                <p>
+                  <input type="checkbox" class="normal">
+                  <span>Relationship Mapping</span>
+                </p>
+                <p>
+                  <input type="checkbox" class="normal">
+                  <span>Financial Information</span>
+                </p>
+                <p>
+                  <input type="checkbox" class="normal">
+                  <span>Litigation Checks</span>
+                </p>
+                <p>
+                  <input type="checkbox" class="normal">
+                  <span>Reputational Intelligence</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>  
+        <!--end of report scope-->
+      </div>
+      <!--end of panel-content-->
+      <!--divider-->
+      <div class="panel-content">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-2">
+              <span>
+                Reference Case Number(s)
+              </span>
+            </div>
+            <div class="col-8">
+              &nbsp;
+              <span class="center-line"></span>
+            </div>
+            <div class="col-2 align-right">
+              <span class="add-button" ng-click="showAddModal =! showAddModal">
+                <i class="fa fa-plus-square-o" aria-hidden="true"></i> Add
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <table class="data-grid">
+              <tr>
+                <th>Reference Case Number</th>
+                <th>Set to Active</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+              </tr>
+              <tr>
+                <td>0213</td>
+                <td>
+                  <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                  </label>
+                </td>
+                <td class="edit" ng-click="showEditModal =! showEditModal"><i class="fa fa-edit"></i>Edit</td>
+                <td class="delete" ng-click="showDeleteModal =! showDeleteModal"><i class="fa fa-trash"></i>Delete</td>
+              </tr>
+              <tr>
+                <td>0214</td>
+                <td>
+                  <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                  </label>
+                </td>
+                <td class="edit"><i class="fa fa-edit"></i>Edit</td>
+                <td class="delete"><i class="fa fa-trash"></i>Delete</td>
+              </tr>
+              <tr>
+                <td>0215</td>
+                <td>
+                  <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider round"></span>
+                  </label>
+                </td>
+                <td class="edit"><i class="fa fa-edit"></i>Edit</td>
+                <td class="delete"><i class="fa fa-trash"></i>Delete</td>
+              </tr>
+            </table>
+          </div>
+        </div>  
+      </div>
+      <!--end of divider-->
+      <!--form buttons-->
+      <div class="form-buttons">
+        <div class="row">
+          <div class="col-6">
+            <button class="btn btn-default btn-small">Back</button>
+          </div>
+          <div class="col-6 align-right">
+            <button class="btn btn-primary btn-small" ng-click="showProfileTypeError =! showProfileTypeError">Next</button> <!--  -->
+          </div>
+        </div>
+      </div>
+      <!--end of form buttons-->
+      <!--add modal-->
+      <div class="modal modal-medium delete-modal" ng-show="showAddModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!--modal header-->
+              <div class="modal-header modal-title">
+                <h6>Add Reference Number</h6>
+                <!--close-->
+                  <div class="close">
+                    <i class="fa fa-times" ng-click="showAddModal=false"></i>
+                  </div>
+                <!--end of close--> 
+              </div>
+            <!--end of modal header-->
+            <!--modal body-->
+              <div class="modal-body">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-6">
+                      <label>
+                        Reference Case Number
+                      </label>
+                    </div>
+                    <div class="col-6">
+                      <input type="text" placeholder="Reference Case Number" ng-class="{'error': showError}">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-6">
+                      <label>
+                        Confirm Reference Case Number
+                      </label>
+                    </div>
+                    <div class="col-6">
+                      <input type="text" placeholder="Confirmation Reference Case Number" ng-class="{'error': showError}">
+                      <span ng-show="showError">Reference Numbers do not match.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <!--end of modal body-->
+            <!--modal body-->
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col-6">
+                    <button class="btn btn-small btn-cancel" ng-click="showAddModal=false">Cancel</button>
+                  </div>  
+                  <div class="col-6 align-right">
+                    <button class="btn btn-small btn-success" ng-click="showError =! showError">Save</button>
+                  </div>
+                </div>
+              </div>
+            <!--end of modal body-->
+          </div>
+        </div>
+      </div>
+      <!--end of add modal-->
+      <!--edit modal-->
+      <div class="modal modal-medium delete-modal" ng-show="showEditModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!--modal header-->
+              <div class="modal-header modal-title">
+                <h6>Edit Reference Number</h6>
+                <!--close-->
+                  <div class="close">
+                    <i class="fa fa-times" ng-click="showEditModal=false"></i>
+                  </div>
+                <!--end of close--> 
+              </div>
+            <!--end of modal header-->
+            <!--modal body-->
+              <div class="modal-body">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-6">
+                      <label>
+                        Reference Case Number
+                      </label>
+                    </div>
+                    <div class="col-6">
+                      <input type="text" placeholder="Reference Case Number" ng-class="{'error': showEditError}">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-6">
+                      <label>
+                        Confirm Reference Case Number
+                      </label>
+                    </div>
+                    <div class="col-6">
+                      <input type="text" placeholder="Confirmation Reference Case Number" ng-class="{'error': showEditError}">
+                      <span ng-show="showEditError">Reference Numbers do not match.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <!--end of modal body-->
+            <!--modal body-->
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col-6">
+                    <button class="btn btn-small btn-cancel" ng-click="showEditModal=false">Cancel</button>
+                  </div>  
+                  <div class="col-6 align-right">
+                    <button class="btn btn-small btn-success" ng-click="showEditError =! showEditError">Save</button>
+                  </div>
+                </div>
+              </div>
+            <!--end of modal body-->
+          </div>
+        </div>
+      </div>
+      <!--end of edit modal-->
+      <!--delete modal-->
+      <div class="modal modal-confirmation delete-modal" ng-show="showDeleteModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!--modal header-->
+              <div class="modal-header">
+                <!--close-->
+                  <div class="close">
+                    <i class="fa fa-times-circle-o" ng-click="showDeleteModal=false"></i>
+                  </div>
+                <!--end of close--> 
+              </div>
+            <!--end of modal header-->
+            <!--modal body-->
+              <div class="modal-body">
+                <div class="icon">
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </div>
+                <p>Are you sure you want to delete this Reference Case Number?</p>
+              </div>
+            <!--end of modal body-->
+            <!--modal body-->
+              <div class="modal-footer">
+                <div class="row">
+                  <div class="col-6">
+                    <button class="btn btn-cancel" ng-click="showDeleteModal=false">Cancel</button>
+                  </div>  
+                  <div class="col-6">
+                    <button class="btn btn-primary">Delete</button>
+                  </div>
+                </div>
+              </div>
+            <!--end of modal body-->
+          </div>
+        </div>
+      </div>
+      <!--end of delete modal-->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,84 @@
+//
+// Component: Input
+// --------------------------------------------------
+
+//== Default input styling
+//
+//## 
+
+input{
+    background: $input-bg;
+    width: 100%;
+    border-color: $input-border-color;
+    border-style: $input-border-style;
+    border-width: $input-border-width;
+    @include _radius;
+    @include _padding($padding-large-vertical);/* $padding-large-horizontal*/
+    @include _border-box;
+    color: $input-color;
+
+    &:hover {
+        @include _shadow
+    }
+}
+
+input:focus, input.focus {
+    border-color: $input-hover-border-color;
+    outline: none;
+}
+
+input::-webkit-input-placeholder {
+    color: $grey;
+}
+
+input:disabled {
+    background-color: $input-bg-disabled;
+    color: $grey-dark;
+    cursor: $cursor-disabled;
+}
+
+input:disabled::-webkit-input-placeholder {
+    color: $grey;
+}
+
+input.error {     
+    border-color: $primary;     
+    color: $grey-darker; 
+
+    &:focus { 
+        color: transparent;
+        outline:none;
+    }
+}
+
+/*input.error::-webkit-input-placeholder {
+  color: $primary;
+}
+input.error::-moz-placeholder {
+  color: $primary;
+}
+input.error:-ms-input-placeholder {
+  color: $primary;
+}
+input.error:-moz-placeholder {
+  color: $primary;
+}*/
+
+input.error + span, input.error + i + ul + span{
+    display: block;
+    font-size: $font-size-base - 1;
+    color: $primary !important;
+    @include _margin(9px 0 0);
+}
+
+.btn-small {
+    width: $btn-small;
+}
+
+.btn-medium {
+    width: $btn-medium;
+}
+
+.btn-large {
+    width: $btn-large;
+}

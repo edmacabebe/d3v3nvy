@@ -1,0 +1,45 @@
+//
+// Component: List Group
+// --------------------------------------------------
+
+//== Default list group styling
+//
+//## 
+
+.list-group {
+    background: $list-group-bg;
+    border-color: $list-group-border-color;
+    border-style: $list-group-border-stroke;
+    border-width: $list-group-border-width;
+    text-align: left;
+    @include _radius;
+
+    li {
+        display: block;
+        @include _padding($padding-large-vertical $padding-large-horizontal);
+        border-bottom: $panel-border-size $panel-border-stroke $panel-border-color!important;
+        
+        a {
+            text-decoration: $link-hover-decoration;
+            font-size: $font-size-base + 2!important;
+            font-weight: $font-weight-bold;
+        }
+
+        i {
+            @include _margin(0 $padding-small-horizontal 0 0);
+        }
+
+        &.active, &:hover {
+            background: $list-group-active-color;
+
+            a {
+                color: $list-group-active-text-color!important;
+            }
+        }
+
+        &:first-child {
+            border-top-left-radius: $border-radius-base;
+            border-top-right-radius: $border-radius-base;
+        }
+    }   
+}

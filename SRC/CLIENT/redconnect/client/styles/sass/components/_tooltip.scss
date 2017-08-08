@@ -1,0 +1,94 @@
+//
+// Component: Tooltip
+// --------------------------------------------------
+
+//== Default tooltip styling
+//
+//## 
+
+.tooltip-wrapper {
+	width: auto!important;
+	display: inline-block;
+	position: relative;
+
+	.tooltip {
+		content: attr(tooltip-data);
+		opacity: 0;
+		text-align: center;
+		pointer-events: none;
+		position: absolute;
+		background: $tooltip-bg;
+		color: $tooltip-color;
+		display: block;
+		white-space: nowrap;
+		@include _padding($padding-base-vertical $padding-base-horizontal);
+		@include _transform(translateY(10px));
+		@include _transition(all .25s ease-out);
+		@include _radius;
+		@include _shadow;
+		margin-left: -50%;
+	    -webkit-transform: translateZ(0); /* webkit flicker fix */
+        -webkit-font-smoothing: antialiased; /* webkit text rendering fix */
+        z-index: $zindex-tooltip;
+
+		&:after {
+			position: absolute;
+			color: $tooltip-bg;
+			font-size: $caret-width-base;
+			font-family: $font-family-fa;
+			line-height: .3;
+		}
+	}
+
+	.tooltip-top {
+		bottom: 100%;
+
+		&:after {
+			content: '\f0d7';
+			top: 100%;
+			left: 50%;
+			@include _margin(0 0 0 -4px);
+		}
+	}
+
+	.tooltip-bottom {
+		top: 100%;
+
+		&:after {
+			content: '\f0d8';
+			bottom: 100%;
+			left: 50%;
+			@include _margin(0 0 0 -4px);
+		}
+	}
+
+	.tooltip-right {
+		top: 0;
+		left: 100%;
+
+		&:after {
+			content: '\f0d9';
+			left: 0;
+			top: 50%;
+			@include _margin(-2px 0 0 -5px);
+		}
+	}
+
+	.tooltip-left {
+		top: 0;
+		left: -200%;
+
+		&:after {
+			content: '\f0da';
+			right: 0;
+			top: 50%;
+			@include _margin(-2px -5px 0 0);
+		}
+	}
+
+	&:hover {
+		.tooltip {
+			opacity: 1;
+  		}
+	}
+}

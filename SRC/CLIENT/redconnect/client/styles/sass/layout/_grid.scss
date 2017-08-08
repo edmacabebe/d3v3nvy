@@ -1,0 +1,146 @@
+//
+// Custom Grid Generation
+// --------------------------------------------------
+
+@import '../helpers/vars';
+
+//== Main Container
+//
+//## Sets the container styles to be used accross all pages.
+
+.container {
+    max-width: $maxwidth;
+    margin: 0 auto;
+}
+
+.container-fluid {
+    width: 100%;
+}
+
+.clearfix {
+    clear: both;
+    display: block;
+    content: '';
+}
+
+.row {
+    margin: $margin 0;
+
+    &:after {
+        @extend .clearfix;
+    }
+
+    [class^="col-"] {
+        display: block;
+        float: left;
+        margin-left: $margin;
+        position: relative;
+
+        &:first-of-type {
+          margin-left: 0!important;
+        }
+    }
+
+    .row {
+        margin: 0!important;
+    }
+}
+
+[class^="col-push"], [class^="col-offset"] {
+    float: left!important;
+}
+
+[class^="col-pull"] {
+    float: right!important;
+}
+
+//** calculate the custom grid width
+@function calculateBlock ($number: 1, $margin: $margin) {
+    $calc : (100% / $columns * $number) - $margin;
+    $margin-divide: $margin / $columns;
+    @return $calc + ($margin-divide * $number);  
+}
+
+//** generate the custom grid based from calculated width
+@for $i from 1 to $columns+1 {
+    $width: calculateBlock($i);
+    .col-#{$i} { 
+        width: $width;
+    }
+}
+
+//** custom grid offset, push and pull
+$rendergrid: offset, push, pull;
+$count: 1;
+@each $render in $rendergrid {
+    @for $i from 1 to $columns+1 {
+        $gap: calculateBlock($i);
+        .col-#{$render}-#{$i} { 
+            @if nth($render, 1) == pull {
+                right: $gap;
+            } @else {
+                left: $gap;
+            }    
+        }
+        $count: $count + 1;
+    }    
+}
+
+//** grid margin
+$rendermargin: push top, pull top, push bottom, pull bottom, push left, pull left, push right, pull right;
+$margincount: 50;
+$interval: 1;
+@each $render, $position in $rendermargin {
+    @for $m from 1 to $margincount + 1 {
+        .#{$render}-#{$position}-#{$m * $interval} {
+            @if nth($render, 1) == push {
+                margin-#{$position}: $interval * $m#{px !important}; 
+            } @else {
+                margin-#{$position}: ($interval * $m * -1)#{px !important};
+            }
+        }
+    }
+}
+
+//== Media Queries
+//
+//##
+
+@media (max-width : 1200px) {
+    .container {
+        max-width: 85%;
+    }
+}
+
+@media (max-width: 800px) { 
+    @for $i from 1 to $columns+1 {
+        $halfWidth : calculateBlock($i, $margin * 1.75);
+        .col-#{$i} { 
+            width: halfWidth!important; 
+        }
+    }
+
+    [class*="col"] {
+        margin-left: $margin * 1.75!important;
+    }
+}
+
+@media (max-width: 550px) {
+    .container {
+        width: 100%!important; 
+        padding: 0 15px;
+
+        [class^="col-"] {
+            width: 100%!important;
+            margin: 0!important;
+            float: none!important;
+            left: 0!important;
+            right: 0!important;
+        }
+    }
+
+    [class*="pull-top"], [class*="pull-bottom"],
+    [class*="push-top"], [class*="push-bottom"] {
+        margin: 0!important;
+    }
+}

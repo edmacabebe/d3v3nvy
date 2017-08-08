@@ -1,0 +1,204 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login</title>
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/angular.min.js"></script>
+<script>
+	var app = angular.module('myApp', []);
+	app.controller("loginCtrl", function($scope){
+
+	$scope.showUsernameError  = false;
+	$scope.showPasswordError  = false;
+	$scope.showAccountLocked = false;
+	$scope.showLoginPage = false;
+	$scope.showForgotPassword = false;
+	$scope.showEmailError = false;
+	$scope.showResetPassword = false;
+	$scope.showResetPassError = false;
+	$scope.showError = showError;
+	$scope.showLogin = showLogin;
+	$scope.showEmail = showEmail;
+	$scope.resetPassword = resetPassword;
+	      
+		function showError(){
+	      	if (!$scope.showUsernameError){ 
+	        	$scope.showUsernameError = true;	       
+	        }
+	        else if(!$scope.showPasswordError){
+	        	$scope.showUsernameError = false;
+	        	$scope.showPasswordError = true;
+	      	} 
+	      	else if($scope.showUsernameError && $scope.showPasswordError){
+		       	$scope.showAccountLocked = true;
+		       	$scope.showLoginPage = false;
+		       	$scope.showResetPassword = false;
+		    }
+	    }
+
+	    function showLogin(){
+	    	if (!$scope.showLoginPage){
+	    		$scope.showLoginPage = true;
+	    		$scope.showAccountLocked = false;
+	    		$scope.showUsernameError = false;
+	        	$scope.showPasswordError = false;
+	        	$scope.showEmailSent = false;
+	        	$scope.showForgotPassword = false;
+	        	$scope.showEmailError = false;
+	        	$scope.showResetPassError = false;
+	    	}
+	    } 
+
+	    function showEmail() {
+	    	if (!$scope.showEmailError) {
+	    		$scope.showEmailError = true;
+	    	}
+	    	else if(!$scope.showEmailSent){
+	    		$scope.showEmailSent = true;
+	    		$scope.showLoginPage = false;
+	    	}
+	    	else if(!$scope.showResetPassword){
+	    		$scope.showResetPassword = true;
+	    		$scope.showLoginPage = false;
+	    	}
+	    }
+
+	    function resetPassword() {
+	    	if (!$scope.showResetPassError) {
+	    		$scope.showResetPassError = true;
+	    	}
+
+	    	else if ($scope.showResetPassError) {
+	    			showLogin()
+	    	}
+	    }
+	})
+ </script>
+<link rel="stylesheet" type="text/css" href="styles/stylesheets/main.css">
+<link rel="stylesheet" href="assets/fonts/fontawesome/font-awesome.min.css">
+<link rel="stylesheet" href="assets/fonts/fontawesome/font-awesome.css">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+</head>
+<body ng-controller="loginCtrl">
+<!--page wrap-->
+	<div class="page-wrap">
+		<div class="container">
+			<!--login-->
+				<div class="login-container" ng-hide="showAccountLocked || showEmailSent">
+					<div class="login">
+						<img src="assets/logo/icd.jpeg">
+						<div class="form-group push-top-20">
+							<input type="text" placeholder="Username" ng-class="{'error': showUsernameError}">
+							<span ng-show="showUsernameError">This field is required.</span>	
+						</div> 
+						<div class="form-group">
+							<input type="text" placeholder="Password" ng-class="{'error': showPasswordError}">
+							<span ng-show="showPasswordError">This field is required.</span>	
+						</div>
+						<button class="btn btn-success btn-large" ng-click="showError()">LOGIN</button>
+						<p ng-click="showForgotPassword = true" class="align-right">
+							<a href="javascript:void(0);">Forgot Password?</a>
+						</p>
+					</div>	
+				</div>
+			<!--end of login-->
+			<!--account locked-->
+				<div class="login-container" ng-show="showAccountLocked">
+					<div class="account-locked">
+						<img src="assets/icon/account-locked.png" class="push-top-10">
+						<div class="form-group push-top-20px">
+							<p>
+								You have exceeded your login attempts. You will be able to try to log in again after 30 minutes or:
+							</p>
+						</div>
+						<div class="form-group">
+							<span>
+								Contact Admin
+							</span>
+						</div>	
+						<button class="btn btn-success btn-large" ng-click="showLogin()">BACK TO LOGIN PAGE</button>
+					</div>
+				</div>
+			<!--end of account locked-->
+			<!--forgot password-->
+				<div class="login-container" ng-show="showForgotPassword &&! showEmailSent">
+					<div class="forgot-password">
+						<img src="assets/logo/icd.jpeg">
+						<p>Enter your registered email address and we will send you an email to reset your password</p>
+						<div class="form-group">
+							<input type="text" value="Email" ng-class="{'error': showEmailError}">
+							<span ng-show="showEmailError">The email you have entered is invalid.</span>
+						</div>
+						<button class="btn btn-success btn-large" ng-click="showEmail()">SUBMIT</button>
+					</div>
+				</div>
+			<!--start of forgotpassword-container-->
+			<!--start of We have sent you an email-->
+				<div class="login-container" ng-show="showEmailSent &&! showResetPassword">
+					<div class="forgot-password">
+						<img src="assets/icon/mail-sent.png">
+						<p>We have sent you an email to reset your password. Please check your mail to get started.</p>
+						<button class="btn btn-success btn-large" ng-click="showResetPassword = true">BACK TO LOGIN PAGE</button>
+					</div>
+				</div>
+			<!--start of We have sent you an email-->
+			<!--start of reset password-->
+				<div class="login-container" ng-show="showResetPassword &&! showLoginPage">
+					<div class="forgot-password">
+						<img src="assets/icon/password-reset.png">
+						<p>Reset your password.</p>
+						<div class="form-group">
+							<input type="text" value="New Password" ng-click="showPassWeak = true">
+							<!--start password strength-->
+								<div class="password-strength">
+									<!--weak password-->
+										<div class="gauge weak" ng-show="showPassWeak &&! showPassFair">
+											<span ng-click="showPassFair = true"></span>
+											<span></span>
+											<span></span>
+											<span></span>
+										</div>		
+									<!--weak password-->	
+									<!--fair password-->
+										<div class="gauge fair"  ng-show="showPassFair &&! showPassGood">
+											<span></span>
+											<span ng-click="showPassGood = true"></span>
+											<span></span>
+											<span></span>
+										</div>		
+									<!--fair password-->
+									<!--good password-->
+										<div class="gauge good"  ng-show="showPassGood &&! showPassStrong">
+											<span></span>
+											<span></span>
+											<span ng-click="showPassStrong = true"></span>
+											<span></span>
+										</div>		
+									<!--good password-->
+									<!--strong password-->
+										<div class="gauge strong"  ng-show="showPassStrong">
+											<span></span>
+											<span></span>
+											<span></span>
+											<span></span>
+										</div>		
+									<!--strong password-->
+								</div>
+							<!--end password strength-->	
+						</div>
+						<div class="form-group">
+							<input type="text" value="Verify New Password" ng-class="{'error': showResetPassError}">
+							<span ng-show="showResetPassError">The password you entered is not the same.</span>
+						</div>	
+						<button class="btn btn-success btn-large" ng-click="resetPassword()">Submit</button>
+					</div>
+				</div>
+			<!--end of reset password-->
+		</div>
+		<div id="push"></div>
+	</div>	
+<!--end of page wrap-->	
+</body>
+</html>

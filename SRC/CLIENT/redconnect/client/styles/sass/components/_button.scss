@@ -1,0 +1,82 @@
+//
+// Component: Button
+// --------------------------------------------------
+
+//== Default <button> styling
+//
+//## 
+
+.btn {
+    @include _padding($padding-large-vertical $padding-large-horizontal);
+    @include _radius;
+    line-height: $line-height-computed;
+    font-weight: $font-weight-bold;
+    border-width: $btn-border-size-base;
+    border-style: $btn-border-stroke-base;
+    text-align: center;
+    cursor: pointer;
+
+     &:hover {
+        transition: all 0.5s ease;
+    }
+}
+
+.add-button {
+    cursor:pointer;
+    color: $green;
+    .fa-plus-square-o {
+        margin-right: 10px;
+    }
+}
+.form-buttons {
+    margin: -1px 16px 0;
+    padding: 1px;
+    border-top: 2px solid #8d969c;
+}
+
+$buttons: default, primary, danger, success, darkblue;
+@each $b in $buttons {
+    .btn-#{$b} {
+        background-color: map-get(map-get($btn-group, 'btn-#{$b}'), 'background-color')!important;
+        border-color: map-get(map-get($btn-group, 'btn-#{$b}'), 'border-color')!important;
+        color: map-get(map-get($btn-group, 'btn-#{$b}'), 'color');
+
+        &:hover {
+            background-color: map-get(map-get($btn-group, 'btn-#{$b}'), 'background-color-hover')!important;
+            border-color: map-get(map-get($btn-group, 'btn-#{$b}'), 'border-color-hover')!important;
+        }
+
+        &[disabled=disabled], &:disabled {
+             opacity: 0.7;
+        }
+    }
+}
+
+button[disabled=disabled], button:disabled {
+    background-color: $grey-dark;
+    border-color: $grey-darker; 
+    cursor: not-allowed;  
+}
+
+.btn-small {
+    width: $btn-small;
+}
+
+.btn-medium {
+    width: $btn-medium;
+}
+
+.btn-large {
+    width: $btn-large;
+}
+
+
+//== Responsiveness
+//
+//## 
+
+@media (max-width: #{$tablet-small}px) {
+    .btn {
+        width: 100% !important;
+    }
+}

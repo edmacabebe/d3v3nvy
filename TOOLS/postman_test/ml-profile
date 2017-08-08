@@ -1,0 +1,134 @@
+{
+	"id": "ca661115-e7f3-be8a-5537-6830bfe27c91",
+	"name": "ML - PROFILE",
+	"description": "",
+	"order": [
+		"b3c16429-bcfb-dabf-548e-b60b862458e2",
+		"ded45a36-6986-9a47-f8db-1bb653fb4365",
+		"0386c87b-27a2-0c30-d0ef-71d31891a2ac"
+	],
+	"folders": [],
+	"timestamp": 1498180085042,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "0386c87b-27a2-0c30-d0ef-71d31891a2ac",
+			"headers": "Authorization: Basic YWRtaW46YWRtaW4=\nContent-Type: application/json\nAccept: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Basic YWRtaW46YWRtaW4=",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:30050/v1/resources/profile",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1499305228093,
+			"name": "PUT(update) - Profile",
+			"description": "",
+			"collectionId": "ca661115-e7f3-be8a-5537-6830bfe27c91",
+			"responses": [],
+			"rawModeData": "{\n    \"header\": {\n        \"first\": \"John\",\n        \"last\": \"Dela Cruz\",\n        \"profileType\": \"Individual\",\n        \"profileName\": \"IND-4.json\",\n        \"profileId\": 4,\n        \"uri\": \"/profile/IND-4.json\"\n    }\n}"
+		},
+		{
+			"id": "b3c16429-bcfb-dabf-548e-b60b862458e2",
+			"headers": "Authorization: Basic YWRtaW46YWRtaW4=\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Basic YWRtaW46YWRtaW4=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:30050/v1/documents?uri=/profile/4.json",
+			"queryParams": [
+				{
+					"key": "uri",
+					"value": "/profile/4.json",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1499222083851,
+			"name": "GET - Profile",
+			"description": "",
+			"collectionId": "ca661115-e7f3-be8a-5537-6830bfe27c91",
+			"responses": []
+		},
+		{
+			"id": "ded45a36-6986-9a47-f8db-1bb653fb4365",
+			"headers": "Authorization: Basic YWRtaW46YWRtaW4=\nContent-Type: application/json\nAccept: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Basic YWRtaW46YWRtaW4=",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:30050/v1/resources/profile",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1499306813697,
+			"name": "PUT - Profile",
+			"description": "",
+			"collectionId": "ca661115-e7f3-be8a-5537-6830bfe27c91",
+			"responses": [],
+			"rawModeData": "{\n    \"header\": {\n        \"first\": \"John\",\n        \"last\": \"Doe\",\n        \"profileType\": \"Company\"\n    }\n}"
+		}
+	]
+}

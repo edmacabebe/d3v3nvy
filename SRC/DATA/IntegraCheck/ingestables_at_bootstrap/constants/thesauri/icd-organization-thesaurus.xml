@@ -1,0 +1,45 @@
+<thesaurus xmlns="http://marklogic.com/xdmp/thesaurus">
+    <entry>
+        <term>psc</term>
+        <part-of-speech>acronym</part-of-speech>
+        <synonym>
+            <term>professional service corporation</term>
+        </synonym>
+    </entry>
+    <entry>
+        <term>llc</term>
+        <part-of-speech>acronym</part-of-speech>
+        <synonym>
+            <term>limited liability company</term>
+        </synonym>
+    </entry>
+    <entry>
+        <term>bldg</term>
+        <part-of-speech>acronym</part-of-speech>
+        <synonym>
+            <term>building</term>
+        </synonym>
+    </entry>
+    <entry>
+        <term>inc</term>
+        <part-of-speech>acronym</part-of-speech>
+        <synonym>
+            <term>incorporated</term>
+        </synonym>
+    </entry>
+    <entry>
+        <term>dept</term>
+        <part-of-speech>acronym</part-of-speech>
+        <synonym>
+            <term>department</term>
+        </synonym>
+    </entry>
+    <entry>
+        <term>corp</term>
+        <part-of-speech>acronym</part-of-speech>
+        <synonym>
+            <term>corporation</term>
+        </synonym>
+    </entry>
+</thesaurus>
+

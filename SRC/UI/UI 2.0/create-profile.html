@@ -1,0 +1,246 @@
+<!doctype html>
+<html ng-app="Integracheck">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Create Profile</title>
+<!--stylesheet-->
+<link rel="stylesheet" type="text/css" href="styles/stylesheets/main.css">
+<link rel="stylesheet" href="assets/fonts/fontawesome/font-awesome.min.css">
+<link rel="stylesheet" href="assets/fonts/fontawesome/font-awesome.css">
+<!--end of stylesheet-->
+<!--javascript-->
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/angular.min.js"></script>
+<script>
+	var app = angular.module("Integracheck", []);
+
+	app.directive("datepicker", function () {
+		return {
+			restrict: "A",
+			require: "ngModel",
+			link: function (scope, elem, attrs, ngModelCtrl) {
+
+				var updateModel = function (dateText) {
+					scope.$apply(function () {
+					  ngModelCtrl.$setViewValue(dateText);
+					});
+				};
+				
+				var options = {
+					changeMonth: true,
+					changeYear: true,
+					showOn: "both", 
+					buttonText: "<i class='fa icon-calendar'></i>"
+				};
+			
+				elem.datepicker(options);
+			}
+		}
+	});
+</script>
+<!--end of javascript-->
+</head>
+<body>
+<!--page wrap-->
+	<div class="page-wrap">
+		<!--header-->
+			<header class="header">
+				<div class="container">
+					<div class="row">
+						<!--logo-->
+							<div class="col-2">
+								<div class="logo">
+									<a href="javascript:void(0);">
+										<img src="assets/logo/icd.jpeg" />
+									</a>
+								</div>			
+							</div>
+						<!--end of logo-->
+						<!--navigation-->
+							<div class="col-5">
+								<div class="navigation">
+									<ul>
+										<li><a href="javascript:void(0);">Home</a></li>
+										<li class="active"><a href="javascript:void(0);">Search</a></li>
+										<li><a href="javascript:void(0);">Manage</a></li>
+										<li><a href="javascript:void(0);">Export</a></li>
+									</ul>
+								</div>
+							</div>
+						<!--end of navigation-->
+						<!--user info-->
+							<div class="col-5 align-right">
+								<div class="user-info">
+									<!--top links-->
+										<div class="top-links">
+											<ul>
+												<li class="notifications">
+													<i class="fa fa-bell-o" aria-hidden="true"></i>
+													<span class="count">26</span>
+												</li>
+												<li class="settings">
+													<i class="fa fa-wrench" aria-hidden="true"></i>
+												</li>
+												<li class="help">
+													<i class="fa fa-question-circle" aria-hidden="true"></i>
+												</li>
+												<li class="notifications">
+													<i class="fa fa-recycle" aria-hidden="true"></i>
+													<span class="count">100</span>
+												</li>
+											</ul>	
+										</div>
+									<!--end of top links-->	
+									<!--user avatar-->	
+										<div class="user-avatar">
+											<span class="name" ng-click="isUserOptions=!isUserOptions">Jonathan Ive</span>
+											<span class="image"></span>
+											<div class="user-options" ng-show="isUserOptions">
+												<ul class="list-group" ng-mouseleave="isUserOptions=false">
+													<li>
+														<a href="javascript:void(0);">
+															<i class="fa fa-wrench"></i>Account Settings
+														</a>
+													</li>
+													<li>
+														<a href="javascript:void(0);">
+															<i class="fa fa-sign-out"></i>Logout
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									<!--end of user avatar-->	
+								</div>		
+							</div>
+						<!--end of user info-->
+					</div>
+				</div>
+			</header>
+		<!--end of header-->
+		<!--create profile-->
+			<div class="create-profile">
+				<div class="container">
+					<!--start of title-->
+						<div class="title">
+							<h1>Create Profile</h1>
+						</div>
+					<!--end of title-->	
+					<!--start of content-->
+						<div class="content">
+							<!--panel-->
+								<div class="panel">
+									<div class="panel-content">
+										<!--inverted panel-->
+											<div class="panel">
+												<!--inverted panel title-->
+													<div class="panel-title">
+														Select Type
+													</div>
+												<!--end of inverted panel title-->	
+												<!--inverted panel content-->
+													<div class="panel-content">
+														<div class="form-group pull-top-8"> 
+															<div class="row">
+																<div class="col-2">
+																	<input type="radio" class="normal" ng-click="isProfileTypeSelected=!isProfileTypeSelected">
+																	<label>Company</label>
+																</div>	
+																<div class="col-2">
+																	<input type="radio" class="normal" ng-click="isProfileTypeSelected=!isProfileTypeSelected">
+																	<label>Individual</label>
+																</div>	
+															</div>
+														</div>
+														<div ng-show="isProfileTypeSelected">
+															<div class="form-group push-top-24"> 
+																<div class="row">
+																	<div class="col-6">
+																		<div class="row">	
+																			<div class="col-3">
+																				<label>Country</label>
+																			</div>
+																			<div class="col-9">
+																				<input type="text" class="multi-select" ng-model="sampleCountry" placeholder="--Select Country--" ng-click="showCountrySelection=!showCountrySelection" ng-class="{'error' : showError}">
+																				<i class="fa fa-caret-down" aria-hidden="true"></i>
+																				<span ng-show="showError">This field is required.</span>
+																				<div class="multi-select-options" ng-show="showCountrySelection" ng-mouseleave="showCountrySelection=false"> 
+																					<ul>
+																						<li ng-click="sampleCountry='Sample Country 1'; showCountrySelection=false">Sample Country 1</li>
+																						<li ng-click="sampleCountry='Sample Country 2'; showCountrySelection=false">Sample Country 2</li>
+																						<li ng-click="sampleCountry='Sample Country 3'; showCountrySelection=false">Sample Country 3</li>
+																					</ul>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-6">
+																		<div class="row">
+																			<div class="col-3">
+																				<label>Industry</label>
+																			</div>
+																			<div class="col-9">
+																				<input type="text" class="multi-select" ng-model="sampleIndustry" ng-click="showIndustrySelection =! showIndustrySelection" placeholder="--Select Industry--" ng-class="{'error' : showError}">
+																				<i class="fa fa-caret-down" aria-hidden="true"></i>
+																				<span ng-show="showError">This field is required.</span>
+																				<div class="multi-select-options" ng-show="showIndustrySelection" ng-mouseleave="showIndustrySelection=false">
+																					<ul>
+																						<li ng-click="sampleIndustry = 'Sample Industry 1'; showIndustrySelection = false">Sample Industry 1</li>
+																						<li ng-click="sampleIndustry = 'Sample Industry 2'; showIndustrySelection = false">Sample Industry 2</li>
+																						<li ng-click="sampleIndustry = 'Sample Industry 3'; showIndustrySelection = false">Sample Industry 3</li>
+																					</ul>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>	
+															<div class="form-group"> 
+																<div class="row">
+																	<div class="col-6">
+																		<div class="row">
+																			<div class="col-3">
+																				<label>Industry</label>
+																			</div>
+																			<div class="col-9">
+																				<input type="text" value="Sample Name">
+																			</div>	
+																		</div>	
+																	</div>	
+																</div>
+															</div>	
+														</div>
+													</div>	
+												<!--end of inverted panel content-->	
+											</div>
+										<!--end of inverted panel-->
+										<!--form butons-->
+										<div class="form-buttons">	
+											<div class="align-right push-top-15">	
+												<button class="btn btn-primary btn-small" ng-click="isSearch =! isSearch">Create</button>
+											</div>
+										</div>
+									<!--end of form butons-->	
+									</div>	
+								</div>
+							<!--end of panel-->	
+						</div>
+					<!--end of content-->
+				</div>
+			</div>
+		<!--end of create profile-->
+		<div id="push"></div>
+	</div>	
+<!--end of page wrap-->	
+<!--footer-->
+	<footer class="footer">
+		<div class="container-fluid align-center">
+			<a href="javascript:void(0);">
+				<img src="assets/logo/rfg.png" />
+			</a>
+		</div>
+	</footer>
+<!--end of footer-->
+</body>
+</html>

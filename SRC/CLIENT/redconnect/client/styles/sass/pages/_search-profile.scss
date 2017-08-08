@@ -1,0 +1,80 @@
+//
+// Page: Search Profile
+// --------------------------------------------------
+
+//== Default search profile styling
+//
+//## 
+
+.search-profile {
+	.label-title {
+		font-weight: 800!important;
+	}
+	.report-scope {
+		p {
+			margin-top: 10px;
+			input[type="checkbox"] {
+				margin-right: 20px;
+			}
+		}
+		.right-corner-scope {
+			p {
+				margin-left: 38px;
+			}
+		}
+	}
+	.panel {
+		border: none;
+
+		.panel-title {
+			border-bottom: none;
+		}
+
+		.panel-content {
+			.search {
+	    		.form-group:first-of-type {
+			        @include _margin(0 0 $form-group-margin 0!important);
+			    }
+	    	}
+		}
+
+		.panel {
+			border-width: $panel-border-size;
+		    border-color: $panel-border-color;
+		    border-style: $panel-border-stroke;
+
+		    .panel-content {
+		    	result {
+		    		.data-grid {
+		    				th {
+							&:last-child {
+								width: 12%!important;
+							}
+						}
+		    		}
+		    	}
+		    }
+		}
+	}
+
+	.result {
+		.panel {
+			border: none;
+		}	
+
+		.data-grid {
+			@include table-columns(8%,12%,14%,16%,16%,12%,10%,10%,14%);
+		}
+	}	
+}
+.icd-search-result {
+		ul {
+			li {
+				display: block;
+				margin-top: 20px;
+				span {
+					display: block;
+				}
+			}
+		}
+}

@@ -1,0 +1,352 @@
+<!doctype html>
+<html ng-app="Integracheck">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Search Profile</title>
+<!--stylesheet-->
+<link rel="stylesheet" type="text/css" href="styles/stylesheets/main.css">
+<link rel="stylesheet" href="assets/fonts/fontawesome/font-awesome.min.css">
+<link rel="stylesheet" href="assets/fonts/fontawesome/font-awesome.css">
+<!--end of stylesheet-->
+<!--javascript-->
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/scripts.js"></script>
+<script>
+  var app = angular.module("Integracheck", []);
+
+  app.directive("datepicker", function () {
+    return {
+      restrict: "A",
+      require: "ngModel",
+      link: function (scope, elem, attrs, ngModelCtrl) {
+
+        var updateModel = function (dateText) {
+          scope.$apply(function () {
+            ngModelCtrl.$setViewValue(dateText);
+          });
+        };
+        
+        var options = {
+          changeMonth: true,
+          changeYear: true,
+          showOn: "both", 
+          buttonText: "<i class='fa icon-calendar'></i>"
+        };
+        
+        elem.datepicker(options);
+      }
+    }
+  });
+
+  app.controller('SearchProfileCtrl', function($scope) {
+    $scope.toggleColumn = false;
+
+    $scope.itemClicked = function ($index) {
+      console.log($index);
+      $scope.selectedIndex = $index;
+
+      if($scope.selectedIndex)
+        return false;
+    }
+  });
+
+  $(function(){
+    $('td').hover(function(){
+      if($(this).children('.tooltip-wrapper').length > 0) { 
+        $(this).css('overflow','visible');
+      }
+    });
+  });
+</script>
+<!--end of javascript-->
+</head>
+<body>
+<!--page wrap-->
+  <div class="page-wrap" ng-controller="SearchProfileCtrl">
+    <!--header-->
+      <header class="header">
+        <div class="container">
+          <div class="row">
+            <!--logo-->
+              <div class="col-2">
+                <div class="logo">
+                  <a href="javascript:void(0);">
+                    <img src="assets/logo/Logo.png" />
+                  </a>
+                </div>      
+              </div>
+            <!--end of logo-->
+            <!--navigation-->
+              <div class="col-5">
+                <div class="navigation">
+                  <ul>
+                    <li><a href="javascript:void(0);">Home</a></li>
+                    <li class="active"><a href="javascript:void(0);">Search</a></li>
+                    <li><a href="javascript:void(0);">Manage</a></li>
+                    <li><a href="javascript:void(0);">Export</a></li>
+                  </ul>
+                </div>
+              </div>
+            <!--end of navigation-->
+            <!--user info-->
+              <div class="col-5 align-right">
+                <div class="user-info">
+                  <!--top links-->
+                    <div class="top-links">
+                      <ul>
+                        <li class="notifications">
+                          <i class="fa fa-bell" aria-hidden="true"></i>
+                          <i class="fa fa-circle" aria-hidden="true">
+                            <span class="count">26</span>
+                          </i>
+                        </li>
+                      </ul> 
+                    </div>
+                  <!--end of top links--> 
+                  <!--user avatar-->  
+                    <div class="user-avatar">
+                      <span class="name" ng-click="isUserOptions=!isUserOptions">Hi&nbsp;&nbsp;Jonathan Ive</span>
+                      <div class="user-options" ng-show="isUserOptions">
+                        <ul class="list-group" ng-mouseleave="isUserOptions=false">
+                          <li>
+                            <a href="javascript:void(0);">
+                              <i class="fa fa-wrench"></i>Account Settings
+                            </a>
+                          </li>
+                          <li>
+                            <a href="javascript:void(0);">
+                              <i class="fa fa-sign-out"></i>Logout
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <span class="push-left-5">
+                        <img src="assets/icon/line.png">
+                      </span>
+                      <span class="push-left-10">
+                        <img src="assets/icon/manage-gray.png"> 
+                        <span class="manage">MANAGE</span>
+                      </span>
+                    </div>
+                  <!--end of user avatar--> 
+                </div>    
+              </div>
+            <!--end of user info-->
+          </div>
+        </div>
+      </header>
+    <!--end of header-->
+    <!--search profile-->
+      <div class="search-profile">
+        <div class="container">
+          <!--start of title-->
+            <div class="title">
+              <h1>Search Profile</h1>
+            </div>
+          <!--end of title--> 
+          <!--content-->
+            <div class="content">
+              <!--results-->
+                <div class="result">
+                  <div class="panel"> 
+                    <!--panel title-->
+                      <div class="panel-title">
+                        <div class="row">
+                          <div class="col-6">
+                            <label class="push-top-9">
+                              Results<span class="count">(500)</span>
+                            </label>
+                          </div>
+                          <div class="col-6 align-right">
+                            <button class="btn btn-default" ng-click="showCustomizeFieldsModal=!showCustomizeFieldsModal">Customize Fields</button>
+                            <button class="btn btn-success">Create New Profile</button>
+                          </div>
+                        </div>
+                      </div>
+                    <!--end of panel title-->
+                    <!--panel content-->
+                      <div class="panel-content pull-top-16">
+                        <table class="data-grid">
+                          <tbody>
+                            <tr>
+                              <th>ID</th>
+                              <th>Type</th>
+                              <th>Full Name</th>
+                              <th>Name in Local Language</th>
+                              <th>Trading Name/Alias</th>
+                              <th>Country</th>
+                              <th>Created</th>
+                              <th>Updated</th>
+                              <th>&nbsp;</th>
+                            </tr>
+                            <tr>
+                              <td data-label="Profile ID">0001</td>
+                              <td data-label="Type">Sample Type 1</td>
+                              <td data-label="Full Name">Sample Name 1</td>
+                              <td data-label="Name in Local Language"  ng-class="{ 'expand': $index == selectedIndex }" ng-click="itemClicked($index)">Sample Local Name 1 expand table column</td>
+                              <td data-label="Alias">Sample Name 1</td>
+                              <td data-label="Country">Country 1</td>
+                              <td data-label="Date Created">00/00/000</td>
+                              <td data-label="Date Updated">01/01/1900</td>
+                              <td data-label="">
+                                <div class="tooltip-wrapper">
+                                  <span><i class="edit" ng-click=""></i></span>
+                                  <div class="tooltip tooltip-bottom">Edit</div>
+                                </div>
+                                <span><i class="merge" ng-click="showMergeModal=!showMergeModal"></i></span>
+                                <span><i class="relationship"></i></span>
+                                <span><i class="fa fa-trash" ng-click="isDeleteModal=!isDeleteModal"></i></span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td data-label="Profile ID">0002</td>
+                              <td data-label="Type">Sample Type 2</td>
+                              <td data-label="Full Name">Sample Name 2</td>
+                              <td data-label="Name in Local Language">Sample Local Name 1</td>
+                              <td data-label="Alias">Sample Name 2</td>
+                              <td data-label="Country">Country 2</td>
+                              <td data-label="Date Created">00/00/000</td>
+                              <td data-label="Date Updated">01/01/1900</td>
+                              <td data-label="">
+                                <span><i class="edit" ng-click=""></i></span>
+                                <span><i class="merge" ng-click="showMergeModal=!showMergeModal"></i></span>
+                                <span><i class="relationship"></i></span>
+                                <span><i class="fa fa-trash" ng-click="isDeleteModal=!isDeleteModal"></i></span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td data-label="Profile ID">0003</td>
+                              <td data-label="Type">Sample Type 3</td>
+                              <td data-label="Full Name">Sample Name 3</td>
+                              <td data-label="Name in Local Language">Sample Local Name 3</td>
+                              <td data-label="Alias">Sample Name 3</td>
+                              <td data-label="Country">Country 3</td>
+                              <td data-label="Date Created">00/00/000</td>
+                              <td data-label="Date Updated">01/01/1900</td>
+                              <td data-label="">
+                                <span><i class="edit" ng-click=""></i></span>
+                                <span><i class="merge" ng-click="showMergeModal=!showMergeModal"></i></span>
+                                <span><i class="relationship"></i></span>
+                                <span><i class="fa fa-trash" ng-click="isDeleteModal=!isDeleteModal"></i></span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td data-label="Profile ID">0004</td>
+                              <td data-label="Type">Sample Type 4</td>
+                              <td data-label="Full Name">Sample Name 4</td>
+                              <td data-label="Name in Local Language">Sample Local Name 4</td>
+                              <td data-label="Alias">Sample Name 4</td>
+                              <td data-label="Country">Country 4</td>
+                              <td data-label="Date Created">00/00/000</td>
+                              <td data-label="Date Updated">01/01/1900</td>
+                              <td data-label="">
+                                <span><i class="edit" ng-click=""></i></span>
+                                <span><i class="merge" ng-click="showMergeModal=!showMergeModal"></i></span>
+                                <span><i class="relationship"></i></span>
+                                <span><i class="fa fa-trash" ng-click="isDeleteModal=!isDeleteModal"></i></span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td data-label="Profile ID">0005</td>
+                              <td data-label="Type">Sample Type 5</td>
+                              <td data-label="Full Name">Sample Name 5</td>
+                              <td data-label="Name in Local Language">Sample Local Name 5</td>
+                              <td data-label="Alias">Sample Name 5</td>
+                              <td data-label="Country">Country 5</td>
+                              <td data-label="Date Created">00/00/000</td>
+                              <td data-label="Date Updated">01/01/1900</td>
+                              <td data-label="">
+                                <span><i class="edit" ng-click=""></i></span>
+                                <span><i class="merge" ng-click="showMergeModal=!showMergeModal"></i></span>
+                                <span><i class="relationship"></i></span>
+                                <span><i class="fa fa-trash" ng-click="isDeleteModal=!isDeleteModal"></i></span>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <!--pagination-->
+                          <div class="row">
+                            <div class="col-1">
+                              <input type="text" class="multi-select" value="10" ng-model="itemCount" placeholder="--1" ng-click="showItemCount=!showItemCount">
+                              <i class="fa fa-caret-down" aria-hidden="true"></i>
+                              <div class="multi-select-options" ng-show="showItemCount" ng-mouseleave="showItemCount=false">
+                                <ul>
+                                  <li ng-click="itemCount = '1'; showItemCount = false">1</li>
+                                  <li ng-click="itemCount = '2'; showItemCount = false">2</li>
+                                  <li ng-click="itemCount = '3'; showItemCount = false">3</li>
+                                  <li ng-click="itemCount = '4'; showItemCount = false">4</li>
+                                  <li ng-click="itemCount = '5'; showItemCount = false">5</li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="col-11 align-right">  
+                              <div class="pagination">
+                                <ul>
+                                  <li><a href="javascript:void(0);">Prev</a></li>
+                                  <li><a href="javascript:void(0);">...</a></li>
+                                  <li class="active"><a href="javascript:void(0);">1</a></li>
+                                  <li><a href="javascript:void(0);">2</a></li>
+                                  <li><a href="javascript:void(0);">3</a></li>
+                                  <li><a href="javascript:void(0);">...</a></li>
+                                  <li><a href="javascript:void(0);">Next</a></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        <!--end of pagination-->
+                      </div>
+                    <!--end of panel content-->
+                  </div>
+                </div>
+              <!--end of results--> 
+            </div>
+            <div class="content" ng-show="isSearch">
+              <!--blank results-->
+                <div class="result">
+                  <div class="panel"> 
+                    <!--panel title-->
+                      <div class="panel-title">
+                        <div class="row">
+                          <div class="col-6">
+                            <label class="push-top-9">
+                              Results
+                            </label>
+                          </div>
+                          <div class="col-6 align-right">
+                            <button class="btn btn-default" ng-click="showCustomizeFieldsModal=!showCustomizeFieldsModal">Customize Fields</button>
+                            <button class="btn btn-success">Create New Profile</button>
+                          </div>
+                        </div>
+                      </div>
+                    <!--end of panel title-->
+                    <!--panel content-->
+                      <div class="panel-content">
+                        <div class="result no-result">
+                          <p>No results found.</p>
+                        </div>
+                      </div>
+                    <!--end of panel content-->
+                  </div>
+                </div>
+              <!--end of blank results-->
+            </div>
+          <!--end of content-->
+        </div>
+      </div>
+    <!--end of search profile-->
+    <div id="push"></div>
+  </div>  
+<!--end of page wrap--> 
+<!--footer-->
+  <footer class="footer">
+    <div class="container-fluid align-center">
+      <a href="javascript:void(0);">
+        <p>Powered by The Red Flag Group</p>
+      </a>
+    </div>
+  </footer>
+<!--end of footer-->
+</body>
+</html>

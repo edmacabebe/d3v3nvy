@@ -1,0 +1,168 @@
+//
+// Mixin
+// --------------------------------------------------
+
+@import 'vars';
+
+//== Animations 
+//
+//##
+
+//** animation
+@mixin _animate($animation) {
+    animation: $animation;
+    -moz-animation: $animation;     
+    -webkit-animation: $animation;  
+    -o-animation: $animation;       
+}
+
+//** transform
+@mixin _transform($transform) {
+    transform: $transform;  
+    -moz-transform: $transform;
+    -webkit-transform: $transform;
+    -ms-transform: $transform;
+    -o-transform: $transform;
+}
+
+@mixin _transition($transition) {
+    -webkit-transition: all .25s ease-out;
+    -moz-transition: all .25s ease-out;
+    -ms-transition: all .25s ease-out;
+    -o-transition: all .25s ease-out;
+    transition: all .25s ease-out;
+}    
+
+
+//== Links 
+//
+//##
+
+@mixin _link($link, $hover, $active) {
+    a {
+        color: $link;
+
+        &:hover {
+            color: $hover;
+        }
+
+        &.active {
+            color: $active;
+        }
+    }   
+}
+
+
+//== Containers 
+//
+//## Set the container styling
+
+//** border-radius
+@mixin _radius($radius: $border-radius-base) {
+    -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
+    border-radius: $radius;
+}
+
+//** box-shadow
+@mixin _shadow($box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1)) {
+    -webkit-box-shadow: $box-shadow;
+    -moz-box-shadow: $box-shadow;
+    box-shadow: $box-shadow; 
+}
+
+//** border-box
+@mixin _border-box {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; 
+}
+
+//** container margin
+@mixin _margin($margin: 15px) {
+    margin: $margin; 
+}
+
+//** container padding
+@mixin _padding($padding: 15px) {
+    padding: $padding; 
+}
+
+
+//== Forms 
+//
+//##
+
+//** remove appearance
+@mixin _appearance($appearance: none) {
+    -webkit-appearance: $appearance;
+    -moz-appearance: $appearance;
+    appearance: $appearance;
+}
+
+
+//== Tables
+//
+//## Set the table width
+
+@mixin th-width($col, $width) {
+    #{$col} {  
+        width: $width;  
+    }
+}
+
+@mixin table-columns($widths...) {
+    table-layout: fixed;
+    width: 100%;
+
+    th, td {
+        overflow: hidden; 
+        text-overflow: ellipsis; 
+        white-space: nowrap;
+    }
+
+    $n: 1;
+    $var: "th:nth-child(" + $n + ")";
+    @each $width in $widths {
+        @include th-width($var, $width);
+        $n: $n + 1;
+        $var: "th:nth-child(" + $n + ")";
+    }
+}
+
+
+//== List
+//
+//## Set the <li> width
+
+@mixin el-width($col, $width) {
+    #{$col} {
+        $width: $width;
+    }
+}
+
+@mixin list-columns($widths...) {
+    width: 100%;
+
+    li {
+        overflow: auto;   
+        display: block;
+        &>div {
+            float: left;
+            &>div {
+                @include _padding($padding-base-vertical $padding-base-horizontal);
+                overflow: hidden; 
+                text-overflow: ellipsis; 
+                white-space: nowrap;
+            }
+        }
+    }
+
+    $n: 1;
+    $var: "li>div:nth-child(" + $n + ")";
+    @each $width in $widths {
+        @include el-width($var, $width);
+        $n: $n + 1;
+        $var: "li>div:nth-child(" + $n + ")";
+    }
+}

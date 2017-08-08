@@ -1,0 +1,34 @@
+//
+// Component: Tab
+// --------------------------------------------------
+
+.tab {
+	/*border-width: $tab-border-size;
+  border-style: $tab-border-stroke;
+  border-color: $tab-border-color;*/
+
+ 	.tab-menu {
+ 		/*border-bottom-style: $tab-border-stroke;
+    border-bottom-color: $tab-border-color;
+ 		border-width: $tab-border-size;*/
+
+    	li {
+    		@include _padding($padding-large-vertical $padding-large-horizontal);
+	    	border-bottom-style: $tab-border-stroke;
+	    	border-bottom-color: $white;
+	    	border-bottom-width: 3px;
+	    	cursor: pointer;	
+
+    		&.active {
+	    		/*border-l-color: $tab-current-item-bg;*/
+          border:1px solid $blue-light;
+          border-radius: 5px;
+          color:$blue-light;
+	    	}
+    	}  	
+ 	}
+
+ 	.tab-content {
+ 		@include _padding($padding-large-vertical $padding-large-horizontal);
+ 	}
+}

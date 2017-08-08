@@ -1,0 +1,56 @@
+//
+// Component: Accordion
+// --------------------------------------------------
+
+//== Default accordion styling.
+//
+//## 
+ 
+.accordion {
+    .acc-header, .acc-content {
+        @include _padding($padding-large-vertical $padding-large-horizontal);
+        border-width: $accordion-border-size;
+        border-style: $accordion-border-stroke;
+        border-color: $accordion-border-color;
+        position: relative;
+    }
+
+    .acc-header + .acc-content,  .acc-content + .acc-header {
+        @include _margin(-1px 0 0 0);
+    }
+
+    .acc-header {
+        font-weight: $font-weight-bold;
+        font-size: $font-size-base;
+        cursor: pointer;
+    }
+
+    .open:after, .closed:after {
+        font-family: $font-family-fa;
+        font-size: $font-size-base;
+        line-height: 1!important;
+        position: absolute;
+        top: $padding-large-vertical + $line-height-base;
+        right: $padding-large-horizontal;
+        cursor: pointer;
+    }
+
+    .open:after {
+        content: '\f078';
+    }
+
+    .closed:after {
+        content: '\f077';
+    }
+
+    .acc-content {
+        border-bottom-width: $accordion-border-size;	
+        border-bottom-style: $accordion-border-stroke;
+        border-bottom-color: $accordion-border-color;
+    }
+
+    .disabled {
+        cursor: $cursor-disabled;
+        background: $grey-lighter;
+    }
+} 

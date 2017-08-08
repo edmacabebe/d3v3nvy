@@ -1,0 +1,609 @@
+//
+// Variables
+// -------------------------------------------------------------------------------
+
+
+//== Screen Resolutions
+//
+//## Predefined screen resolution values for responsive feature.
+
+$mobile-small:  240;
+$mobile-large:  320;
+$tablet-small:  480;
+$tablet-large:  768;
+$screen-small:  1024;
+$screen-large:  1280;
+
+
+//== Grid Settings
+//
+//## Sets the column number and grid spacing.
+
+$columns: 	12 !default;
+$margin: 	2% !default;
+$padding: 	0 !default;
+$maxwidth:  #{$screen-large}px !default;
+
+
+//== Colors
+//
+//## Gray and brand colors to be used accross the application.
+
+$primary: 	     #e52625;
+
+$green-darker:   #017f73;
+$green-dark: 	 #009284;
+$green:			 #159e91; 
+$green-light:    #defbe7;
+$green-lighter:  #7fc8c1;
+
+$blue-darkest:   #193040;
+$blue-darker:    #00667f;
+$blue-dark:      #00729f;
+$blue:        	 #1363a5;
+$blue-light:   	 #0f87b8;
+$blue-ligther:   #7faabd;
+$blue-lightest:  #7fb8cf;
+
+$btn-darkblue:   #34495e;
+$btn-darkborder: #2a455f;
+
+$grey-darkest:   #37393b;
+$grey-darker:  	 #515e67;
+$grey-dark:      #8d969c;
+$grey:         	 #c2c1c0;
+$grey-light:     #bbbbbb;
+$grey-lighter:   #eeeeee;
+$grey-lightest:  #f3f3f3;
+
+$red-darker:	 #b50005;
+$red-dark:	     #c92227;
+$red:		     #cf0f10;
+$red-light:	     #e02728;
+$red-lighter:    #fff0f1;
+
+$orange:         #ff9600;
+
+$red-dark:       #c92227;
+
+$pink:           #e49093;
+
+$white: 	     #ffffff;
+
+
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+
+//** Background color for '<body>'
+$body-bg:                $white !default;
+//** Global textual link color.
+$text-color:             $grey-darkest !default;
+
+//** Global textual link color
+$link-color:             $blue !default;
+//** Link hover color
+$link-hover-color:       $blue !default;
+//** Link active color
+$link-active-color:      $blue !default;
+//** Link hover decoration
+$link-hover-decoration:  none !default;
+
+
+//== Typography
+//
+//## Font, line-height, headings, and more.
+
+$font-family-sans:      'Open Sans', sans-serif;
+$font-family-fa:        FontAwesome;
+$font-family-base:      $font-family-sans !default;
+
+$font-size-base:        13px !default;
+$font-size-small:       ceil(($font-size-base * 0.85)) !default; //~12px
+$font-size-large:       ceil(($font-size-base * 1.25)) !default; //~18px
+
+$font-size-h1:          floor(($font-size-base * 2.6)) !default; //~36px
+$font-size-h2:          floor(($font-size-base * 2.15)) !default; //~30px
+$font-size-h3:          ceil(($font-size-base * 1.7)) !default; //~24px
+$font-size-h4:          ceil(($font-size-base * 1.25)) !default; //~18px
+$font-size-h5:          $font-size-base !default; //~12px
+$font-size-h6:          ceil(($font-size-base * 0.85)) !default; //~12px
+
+$font-weight-base:      normal !default;
+$font-weight-bold:      bold !default;
+
+//** Unit-less 'line-height' for use in components like buttons.
+$line-height-base:      1.428571429 !default; //~20/14
+//** Computed 'line-height' ('font-size' * 'line-height') for use with 'margin', 'padding', etc.
+$line-height-computed:  floor(($font-size-base * $line-height-base)); //~20px
+
+
+//== Components
+//
+//## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
+
+$padding-base-vertical:     6px !default;
+$padding-base-horizontal:   12px !default;
+
+$padding-large-vertical:    10px !default;
+$padding-large-horizontal:  16px !default;
+
+$padding-small-vertical:    5px !default;
+$padding-small-horizontal:  10px !default;
+
+$padding-xs-vertical:       1px !default;
+$padding-xs-horizontal:     5px !default;
+
+$border-radius-base:        4px !default;
+$border-radius-large:       6px !default;
+$border-radius-small:       2px !default;
+
+$line-height-large:         1.3333333 !default; //extra decimals for Win 8.1 Chrome
+$line-height-small:         1.5 !default;
+
+//** Global color for active items (e.g., navs or dropdowns).
+$global-active-color:       $white !default;
+//** Global background color for active items (e.g., navs or dropdowns).
+$global-active-bg:          $primary !default;
+
+//** Width of the `border` for generating carets that indicate dropdowns.
+$caret-width-base:          14px !default;
+//** Carets increase slightly in size for larger components.
+$caret-width-large:         18px !default;
+
+
+//== Tables
+//
+//## Customizes the table component with basic values, each used across all table variations.
+
+//** Padding for <th> and <td>.
+$table-cell-padding:    9px;
+//** Default background color used for all tables
+$table-bg:              transparent !default;
+//** Background color used for table:hover
+$table-bg-hover:        transparent !default;
+$table-bg-active:       $table-bg-hover !default;
+
+//** Border color for table and cell borders
+$table-border-color:    $grey !default;
+//** Border width for table and cell borders
+$table-border-width:    1px !default;
+//** Border style for table and cell borders
+$table-border-style:    solid !default;
+
+
+//== Buttons
+//
+//## For each buttons, define text, border size and background.
+
+//** Default button settings per each class.
+$btn-group: (
+    'btn-default': (
+        background-color: $grey-lighter,
+        border-color: $grey-dark,
+        background-color-hover: $grey,
+        border-color-hover: $grey-dark,
+        color: $grey-darkest
+    ),
+    'btn-primary': (
+        background-color: $blue-light,
+        border-color: $blue,
+        background-color-hover: $blue-darker,
+        border-color-hover: $blue-darkest,
+        color: $white
+    ),
+    'btn-success': (
+        background-color: $green,
+        border-color: $green-dark,
+        background-color-hover: $green-dark,
+        border-color-hover: $green-darker ,
+        color: $white
+    ),
+    'btn-darkblue': (
+        background-color: $btn-darkblue,
+        border-color: $blue-darkest,
+        background-color-hover: $btn-darkborder,
+        border-color-hover: $blue-darkest,
+        color: $white 
+    ),
+    'btn-danger': (
+        background-color: $red-light,
+        border-color: $red,
+        background-color-hover: $red-dark,
+        border-color-hover: $red-darker,
+        color: $white
+    )
+);
+
+//** Default button border styling.
+$btn-border-size-base:      1px !default;
+$btn-border-color-base:     map-get(map-get($btn-group, 'btn-default'), 'border-color') !default;
+$btn-border-stroke-base:    solid !default;
+
+//** Customize button radius independently from global border radius.
+$btn-border-radius-base:    $border-radius-base !default;
+$btn-border-radius-large:   $border-radius-large!default;
+$btn-border-radius-small:   $border-radius-small!default;
+
+//** Default button sizes.
+$btn-small:                 140px !default;
+$btn-medium:                240px !default;
+$btn-large:                 360px !default;
+
+
+//== Input
+//
+//## Define <input> styles.
+
+//** <input> background color
+$input-bg:                          $white !default;
+//** <input disabled> background color.
+$input-bg-disabled:                 $grey-lightest !default;
+
+//** Text color for <input>
+$input-color:                       $grey-darkest !default;
+//** <input> border color
+$input-border-color:                $grey !default;
+//** <input> border color on:hover
+$input-hover-border-color:          $grey !default;
+//** <input> border width
+$input-border-width:                1px !default;
+//** <input> border style
+$input-border-style:                solid !default;                
+
+//** Default input sizes.
+$input-small:                       160px !default;
+$input-medium:                      260px !default;
+$input-large:                       360px !default;
+
+//** This has no effect on <select> in some browsers due to the limited stylability in CSS.
+$input-border-radius:               $border-radius-base !default;
+//** Large '.form-control' border radius.
+$input-border-radius-large:         $border-radius-large !default;
+//** Small '.form-control' border radius
+$input-border-radius-small:         $border-radius-small !default;
+
+//** Border color for inputs on focus.
+$input-border-focus:                $grey-darker !default;
+
+//** Placeholder text color
+$input-color-placeholder:           $grey !default;
+
+//** '.form-group' margin
+$form-group-margin:                 15px !default;
+
+//** Background color for textual input addons.
+$input-group-addon-bg:              $grey-lighter !default;
+//** Border color for textual input addons.
+$input-group-addon-border-color:    $input-border-color !default;
+
+//** Disabled cursor for form controls and buttons.
+$cursor-disabled:                   not-allowed !default;
+
+
+//== Dropdowns
+//
+//## Define <select> styles.
+
+//** Background for the dropdown menu.
+$dropdown-bg:                   $white !default;
+//** Dropdown menu 'border-color'.
+$dropdown-border:               #grey-dark !default;
+//** Dropdown menu 'border-color' **for IE8**.
+$dropdown-fallback-border:      #ccc !default;
+//** Divider color for between dropdown items.
+$dropdown-divider-bg:           #grey !default;
+
+//** Dropdown link text color.
+$dropdown-link-color:           $grey-darker !default;
+//** Hover color for dropdown links.
+$dropdown-link-hover-color:     transparent !default;
+//** Hover background for dropdown links.
+$dropdown-link-hover-bg:        transparent !default;
+
+//** Active dropdown menu item text color.
+$dropdown-link-active-color:    $grey-darker !default;
+//** Active dropdown menu item background color.
+$dropdown-link-active-bg:       transparent !default;
+
+//** Disabled dropdown menu item background color.
+$dropdown-link-disabled-color:  $grey-light !default;
+
+//** Dropdown arrow color.
+$dropdown-caret-color:          $grey-darker !default;
+
+
+//== Accordion
+//
+//## 
+
+//** Default accordion settings per each class
+$accordion: (
+    'collapsed': (
+        color: $grey-darker,
+        bg: $white,
+        content: visible,
+        pointer: caret-down   
+    ),
+    'closed': (
+        color: $grey-darker,
+        bg: $white,
+        content: hidden,
+        pointer: caret-up   
+    ),
+    'disabled': (
+        color: $grey-darker,
+        bg: $grey
+    )
+);
+
+//** Accordion inner padding
+$accordion-gutter:          15px !default;
+
+//** Accordion border color
+$accordion-border-color:    $grey-dark !default;
+//** Accordion border width
+$accordion-border-size:     1px !default;
+//** Accordion border style
+$accordion-border-stroke:   solid !default;
+
+
+//== Tabs
+//
+//## 
+
+//** Tab inner padding
+$tab-gutter:            15px !default;
+//** Accordion border width
+$tab-current-item-bg:   $grey-darker !default;
+
+//** Tab border color
+$tab-border-color:      $grey-dark !default;
+//** Tab border width
+$tab-border-size:       1px !default;
+//** Tab border style
+$tab-border-stroke:     solid !default;
+
+
+//== Pagination
+//
+//## Define pagination styles.
+
+$pagination-color:              $grey-darkest !default;
+$pagination-bg:                 $white !default;
+$pagination-border:             $grey-dark !default;
+
+$pagination-hover-color:        $white !default;
+$pagination-hover-bg:           $grey-dark !default;
+$pagination-hover-border:       $grey-dark !default;
+
+$pagination-active-color:       $white !default;
+$pagination-active-bg:          $grey-dark !default;
+$pagination-active-border:      $grey-dark !default;
+
+
+//== Panel
+//
+//##
+
+//** Panel background color
+$panel-bg:                  $white !default;
+$panel-bg-grey:             $grey-lightest !default;
+
+//** Panel inner padding
+$panel-gutter:              $padding-large-horizontal !default;
+
+//** Panel border color
+$panel-border-color:        $grey !default;
+$panel-border-color-grey:   $grey !default;
+//** Panel border width
+$panel-border-size:         1px !default;
+//** Panel border style
+$panel-border-stroke:       solid !default;
+
+
+//== Progress bar
+//
+//## Define progress bar styles.
+
+//** Progress bar background color
+$progress-bar-bg:               $white !default;
+$current-progress-bg:           $blue-light !default;
+
+//** Progress bar max width
+$progress-bar-max-width:        360px !default;             
+
+//** Progress bar border color
+$progress-bar-border-color:     $grey !default;
+//** Progress bar border width
+$progress-bar-border-size:      1px !default;
+//** Progress bar border style
+$progress-bar-border-stroke:    solid !default;
+
+
+//== Password Stregth Indicator
+//
+//##
+
+//** Password strength fixed width
+$password-strength-indicator-width:     420px !default;
+//** Number of <span> elements
+$password-strength-indicator-columns:   4 !default;
+//** Default spacing between columns
+$password-strength-indicator-gutter:    5px !default;
+
+//** Password strength group settings   
+$password-strength-indicator: (
+    'weak': (
+        color: $primary,
+        gauge: 1
+    ),
+    'fair': (
+        color: $orange,
+        gauge: 2
+    ),
+    'good': (
+        color: #5fb246,
+        gauge: 3
+    ),
+    'strong': (
+        color: #5fb246,
+        gauge: 4
+    )
+);
+
+
+//== Tooltip
+//
+//## Define tooltip styles.
+
+//** Tooltip max width
+$tooltip-max-width:     200px !default;
+//** Tooltip text color
+$tooltip-color:         $grey-darkest !default;
+//** Tooltip background color
+$tooltip-bg:            $white !default;
+$tooltip-opacity:       0.9 !default;
+
+//** Tooltip arrow width
+$tooltip-arrow-width:   5px !default;
+//** Tooltip arrow color
+$tooltip-arrow-color:   $tooltip-bg !default;
+
+
+//== Datepicker
+//
+//## Define datepicker styles.
+
+//** Datepicker border style.
+$datepicker-border-color:        $grey;
+
+//** Datepicker border color
+$datepicker-border-color:        $grey !default;
+//** Datepicker border size
+$datepicker-border-size:         1px !default;
+//** Datepicker border style
+$datepicker-border-stroke:       solid !default;
+
+//** Datepicker header pager styles.
+$datepicker-pager-color:         $grey-darker;    
+$datepicker-hover-pager-color:   $blue;
+
+//** Datepicker days text color.
+$datepicker-current-color:       $grey;
+
+
+//== Alerts
+//
+//## Define toast styles.
+
+//** Toast group settings   
+$alert: (
+    'success': (
+        color: $green,
+        message-bg: $green-light
+    ),
+    'danger': (
+        color: $red,
+        message-bg: $red-lighter
+    ),
+    'information': (
+        color: $blue,
+        message-bg: $blue-lightest
+    )
+);
+
+//** Toast padding
+$alert-padding:             15px !default;
+//** Toast width
+$alert-width:               285px !default;
+//** Toast border radius
+$alert-border-radius:       $border-radius-base !default;
+
+
+//== Modals
+//
+//## Define modal styles
+
+//** Padding applied to the modal body.
+$modal-inner-padding:           15px !default;
+
+//** Padding applied to the modal title.
+$modal-title-padding:           15px !default;
+//** Modal title line-height
+$modal-title-line-height:       $line-height-base !default;
+
+//** Background color of modal content area.
+$modal-content-bg:              #fff !default;
+//** Modal content border color
+$modal-content-border-color:    rgba(0,0,0,.2) !default;
+
+//** Modal backdrop background color
+$modal-backdrop-bg:             #000 !default;
+//** Modal backdrop opacity
+$modal-backdrop-opacity:        .5 !default;
+//** Modal header border color
+$modal-header-border-color:     $grey-dark !default;
+//** Modal footer border color
+$modal-footer-border-color:     $modal-header-border-color !default;
+
+$modal-large:                   900px !default;
+$modal-medium:                  600px !default;
+$modal-small:                   300px !default;
+
+
+//== List group
+//
+//##
+
+//** Background color on '.list-group-item'
+$list-group-bg:                     $white !default;
+//** '.list-group-item' border color
+$list-group-border-color:           $grey !default;
+//** '.list-group-item' border width
+$list-group-border-width:           1px !default;
+//** '.list-group-item' border style
+$list-group-border-stroke:          solid !default;
+//** List group border radius
+$list-group-border-radius:          $border-radius-base !default;
+
+//** Background color of single list items on hover.
+$list-group-hover-bg:               $grey-lightest !default;
+//** Text color of active list items.
+$list-group-active-color:           $grey-lightest !default;
+//** Background color of active list items.
+$list-group-active-bg:              $grey-lightest !default;
+//** Border color of active list elements.
+$list-group-active-border:          $list-group-active-bg !default;
+//** Text color for content within active list items
+$list-group-active-text-color:      $grey-darkest !default;
+
+//** Text color of disabled list items.
+$list-group-disabled-color:         $grey-darkest !default;
+//** Background color of disabled list items.
+$list-group-disabled-bg:            $grey-lightest !default;
+//** Text color for content within disabled list items.
+$list-group-disabled-text-color:    $list-group-disabled-color !default;
+
+$list-group-link-color:             $grey-darkest !default;
+$list-group-link-hover-color:       list-group-active-text-color !default;
+$list-group-link-heading-color:     $grey-darkest !default;  
+
+
+//== Z-index list
+//
+//## Master list of predefined z-index for each component.
+
+$zindex-base:               1000 !default;
+$zindex-footer:             1010 !default;  
+$zindex-navbar:             1020 !default;     
+$zindex-modal-background:   1030 !default;
+$zindex-modal:              1040 !default;
+$zindex-popover:            1050 !default;
+$zindex-field-options:      1060 !default;
+$zindex-tooltip:            1070 !default;
+$zindex-toast:              1080 !default;
+$zindex-dropdown:           1090 !default;
+$zindex-datepicker:         1090 !default;
+$zindex-multiselect:        1090 !default;
+$zindex-highest:            9999 !default;

@@ -1,0 +1,7 @@
+<options xmlns="http://marklogic.com/appservices/search">
+    <default-suggestion-source>
+        <range type="xs:string" facet="true">
+            <element ns="" name="fullName"/>
+        </range>
+    </default-suggestion-source>
+</options>

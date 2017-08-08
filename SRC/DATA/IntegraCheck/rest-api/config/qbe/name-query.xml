@@ -1,0 +1,7 @@
+<q:qbe xmlns:q="http://marklogic.com/appservices/querybyexample">
+    <q:query>
+        <fullName>next</fullName>
+        <firstName>next</firstName>
+        <lastName>next</lastName>
+    </q:query>
+</q:qbe>

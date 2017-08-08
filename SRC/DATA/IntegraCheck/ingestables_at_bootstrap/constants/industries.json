@@ -1,0 +1,379 @@
+{
+  "isActive": true,
+  "versionDate": "",
+  "uri": "/constants/industries.json",
+  "elems": [
+    {
+      "uid": "IND-AHI",
+      "name": "Accident & Health Insurance",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-ACC",
+      "name": "Accounting",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-ADA",
+      "name": "Advertising Agencies",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-AER",
+      "name": "Aerospace",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-AGC",
+      "name": "Agricultural Chemicals",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-AGA",
+      "name": "Agriculture & Agribusiness",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-ADF",
+      "name": "Air Delivery & Freight Services",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-AIT",
+      "name": "Air Transportation",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-ASM",
+      "name": "Asset Management",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-AUT",
+      "name": "Automotive",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-BAN",
+      "name": "Banking",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-BEC",
+      "name": "Beauty & Cosmetics",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-BIO",
+      "name": "Biotechnology",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-BUM",
+      "name": "Building Materials",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-CHP",
+      "name": "Chemical Production",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-COM",
+      "name": "Communications",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-CON",
+      "name": "Conglomerates",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-ONS",
+      "name": "Construction",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-NSU",
+      "name": "Consulting",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-COP",
+      "name": "Consumer Products",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-COS",
+      "name": "Consumer Services",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-DPS",
+      "name": "Defense Products & Services",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-EDU",
+      "name": "Education",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-EHC",
+      "name": "Electronic hardware & component parts & accessories",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-ELE",
+      "name": "Electronics",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-ENE",
+      "name": "Energy",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-ENT",
+      "name": "Entertainment",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-EXT",
+      "name": "Extractives",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-FAB",
+      "name": "Fabrication",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-FAP",
+      "name": "Farm Products",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-FIS",
+      "name": "Financial Services",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-FOB",
+      "name": "Food & Beverage",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-FOP",
+      "name": "Food Production",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-HOS",
+      "name": "Hospitality",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-HUR",
+      "name": "Human Resources",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-IAE",
+      "name": "Import and Export",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-INA",
+      "name": "Industrial Automation",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-INC",
+      "name": "Industrial Chemicals",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-INT",
+      "name": "Information Technology",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-LES",
+      "name": "Legal Services",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-LIS",
+      "name": "Life Sciences",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-MAN",
+      "name": "Manufacturing",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-MAS",
+      "name": "Marketing Services",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-MDS",
+      "name": "Medical Devices & Supplies",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-NCD",
+      "name": "Networking & Communication Devices",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-PHA",
+      "name": "Pharmaceuticals",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-RAT",
+      "name": "Rail Transportation",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-RTM",
+      "name": "Railway & tramway machinery & equipment",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-REE",
+      "name": "Real Estate",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-RET",
+      "name": "Retail",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-SEM",
+      "name": "Semiconductor",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-SPG",
+      "name": "Sporting Goods",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-SPO",
+      "name": "Sports",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-TEC",
+      "name": "Technology",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-TES",
+      "name": "Technology Services",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-TAC",
+      "name": "Textile - Apparel Clothing",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-TAF",
+      "name": "Textile - Apparel Footwear & Accessories",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-TEI",
+      "name": "Textile Industrial",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-TRA",
+      "name": "Transportation",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-UTI",
+      "name": "Utilities",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-WAM",
+      "name": "Waste Management",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    },
+    {
+      "uid": "IND-OTH",
+      "name": "Other",
+      "dateCreated": "5/12/2017",
+      "lastUpdated": ""
+    }
+  ]
+}

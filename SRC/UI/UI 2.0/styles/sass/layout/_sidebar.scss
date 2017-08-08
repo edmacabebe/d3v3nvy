@@ -1,0 +1,109 @@
+//
+// Sidebar
+// --------------------------------------------------
+
+//== Default sidebar styling.
+//
+//## 
+
+.sidebar {
+	.list-group {
+		width: 100%;
+		border: none!important;
+
+		li {
+			position: relative;
+			cursor: pointer;
+
+	        &.active, &:hover {
+	            background: $blue-light;
+
+	            a {
+	                color: $white!important;
+	            }
+
+	            &:after {
+	            	color: $white;
+	            }
+	        }
+
+	        &:after {
+		        font-family: $font-family-fa;
+		        font-size: $font-size-base;
+		        content: '\f054';
+		        line-height: 1!important;
+		        position: absolute;
+		        top: $padding-large-vertical + $line-height-base;
+		        right: $padding-large-horizontal;
+		        cursor: pointer;
+		    }    
+
+		    &:last-child {
+		    	&:after {
+		    		content: '';
+		    	}
+
+		    	&:hover, &:hover li {
+		            background: transparent!important;
+
+		            a {
+		                color: $grey-darkest!important;
+		            }
+
+		            &:after {
+		            	color: $grey-darkest;
+		            }
+		        }
+		    }
+
+		    ol {
+		    	border-color: $list-group-border-color;
+			    border-style: $list-group-border-stroke;
+			    border-width: $list-group-border-width; 
+			    @include _margin(10px 0!important);
+
+	    		li {
+	    			list-style-type: 1!important;
+
+	    			a, label, input {
+	    				display: inline-block;
+	    				vertical-align: middle;
+	    			}
+
+	    			label {
+	    				border: 1px solid $green;
+						width: 17px;
+						text-align: center;
+						line-height: 1;
+						color: $green;
+						font-size: $font-size-base - 4;
+						@include _radius($border-radius-base!important);
+						@include _padding(2px 0);
+						@include _margin(1px 4px 0 2px!important);
+						
+						&.active{
+							background: $green;
+							color: $white;
+						}
+	    			}
+
+	    			a {
+	    				font-size: $font-size-base - 1!important;
+	    				overflow: hidden; 
+				        text-overflow: ellipsis; 
+				        white-space: nowrap;
+				        max-width: 75%;
+	    			}
+
+	    			&:after {
+	    				content: ''!important;
+	    			}
+
+	    			&:last-child {
+	    				border-bottom: none!important;;
+	    			}
+	    		}
+	    	}
+	    } 
+	}
+}

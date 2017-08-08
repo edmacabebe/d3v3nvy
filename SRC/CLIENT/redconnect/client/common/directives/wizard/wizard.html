@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-12">
+        <div class="form-group">
+            <div class="stepwizard col-offset-3 pull-left-50">
+                <div class="stepwizard-row setup-panel">
+                    <div class="stepwizard-step">
+                        <span class="border"></span>
+                        <a href="#step-1" type="button" class="step-1 btn btn-circle" ng-click="stepOneInProgress =! stepOneInProgress; stepOneButton =! stepOneButton" ng-hide="stepOneButton">1</a>
+                        <a href="#step-1" type="button" class="step-1 btn btn-circle" ng-class="{'active': stepOneDone}" ng-click="stepOneDone =! stepOneDone" ng-show="stepOneButton">1</a>
+                        <span class="active-line" style="right:5px !important;" ng-show="stepOneDone"></span>
+                        <span class="active-line" ng-show="stepTwoDone"></span>
+                        <label class="step1-label" ng-class="{'step-label-active': stepOneInProgress}">Search for Existing Profiles</label>
+                    </div>
+                    <div class="stepwizard-step">
+                        <span class="border"></span>
+                        <a href="#step-2" type="button" class="step-2 btn btn-circle" ng-click="stepTwoInProgress =! stepTwoInProgress; stepTwoButton =! stepTwoButton" ng-hide="stepTwoButton">2</a>
+                        <a href="#step-2" type="button" class="step-2 btn btn-circle" ng-class="{'active': stepTwoDone}" ng-click="stepTwoDone =! stepTwoDone" ng-show="stepTwoButton">2</a>
+                        <span class="active-line" style="right:5px !important;" ng-show="stepTwoDone"></span>
+                        <span class="active-line" ng-show="stepThreeDone"></span>
+                        <label class="step2-label" ng-class="{'step-label-active': stepTwoInProgress}">Create New Profile</label>
+                    </div>
+                    <div class="stepwizard-step">
+                        <span class="border"></span>
+                        <a href="#step-3" type="button" class="btn btn-circle" style="margin-right:0px;" ng-class="{'active': stepThreeDone}" ng-click="stepThreeDone =! stepThreeDone">3</a>
+                        <label class="step3-label">Define Research Scope</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

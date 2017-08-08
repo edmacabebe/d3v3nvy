@@ -1,0 +1,14 @@
+<options xmlns="http://marklogic.com/appservices/search">
+    <constraint name="id">
+        <range collation="http://marklogic.com/collation/"
+               type="xs:string" facet="true">
+            <element ns="" name="profileId"/>
+        </range>
+    </constraint>
+    <suggestion-source ref="id">
+        <range collation="http://marklogic.com/collation/"
+               type="xs:string" facet="true">
+            <element ns="" name="fullName"/>
+        </range>
+    </suggestion-source>
+</options>

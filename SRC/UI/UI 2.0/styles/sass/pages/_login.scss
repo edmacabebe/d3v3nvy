@@ -1,0 +1,106 @@
+//
+// Page: Login
+// --------------------------------------------------
+
+//== Login
+//
+//##
+
+.login-container {
+	width: 320px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	@include _margin(0 auto);
+	@include _padding(25px);
+	@include _radius;
+	background-color: $white;
+	font-size: $font-size-base;	
+	text-align: center;
+	transform: translate(-50%, -50%);
+
+	.login {
+		p {
+			color: $blue-darker;
+			@include _margin(10px 0 5px 0);
+		}
+
+		span {
+			text-align: left;
+		}
+	}
+
+	a {
+		text-decoration: $link-hover-decoration;
+		color: $blue;
+	}
+
+	.btn {
+		width: 100% !important;
+		@include _margin(0);
+	}
+
+	img {
+		max-height: 80px;
+		width: auto;
+	}
+
+	.account-locked {
+		span {
+			color: $blue-darker;
+		}
+
+		p {
+			@include _margin(20px 0 -10px 0);
+		}
+
+		.btn {
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+	}
+}
+
+
+//== Forgot Password
+//
+//** 
+
+.forgot-password {
+	p {
+   		margin: 25px auto 30px auto;
+   		line-height: 15px;
+	}
+
+	.btn {
+		margin: 10px auto 10px auto;
+	}
+	
+	span {
+		text-align: left;
+	}
+}
+
+
+//== SavePasword
+//
+//**
+
+.save-password {
+  margin-bottom:-20px;
+	p {
+   		margin: 25px auto 30px auto;
+   		line-height: 15px;
+	}
+}
+
+//== Responsiveness
+//
+//## 
+
+@media (max-width: #{$mobile-large}px) {
+    .login-container {
+       width: 70%!important;
+       margin: 0 auto!important;
+    }
+}

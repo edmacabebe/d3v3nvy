@@ -1,0 +1,9 @@
+<div class="pagination form-group align-right">
+    <ul class="push-top-10" ng-if="$ctrl.total > $ctrl.pageLength">
+        <li ng-class="{indicator: $ctrl.currActive <= 0}" ng-click="$ctrl.previousFn()"><a href="javascript:void(0);">Prev</a></li>
+        <li ng-class="{indicator: $ctrl.pagesArr[0].isVisible == true}" ng-click="$ctrl.leftEllipsis()"><a href="javascript:void(0);">...</a></li>
+        <li ng-repeat="page in $ctrl.pagesArr" ng-class="{active: $ctrl.currActive == $index}" ng-click="$ctrl.pageSelected($index)" ng-show="page.isVisible"><a href="javascript:void(0);">{{page.pageKey}}</a></li>
+        <li ng-class="{indicator: $ctrl.pagesArr[($ctrl.pages - 1)].isVisible == true}" ng-click="$ctrl.rightEllipsis()"><a href="javascript:void(0);">...</a></li>
+        <li ng-class="{indicator: ($ctrl.currActive + 1) >= $ctrl.pages}" ng-click="$ctrl.nextFn()"><a href="javascript:void(0);">Next</a></li>
+    </ul>
+</div>

@@ -1,0 +1,51 @@
+//
+// Footer
+// --------------------------------------------------
+
+//== Default <footer> styling.
+//
+//## 
+
+#push, .footer {
+    height: 90px;
+}
+
+.footer {
+    .container-fluid {
+        background: $white;
+        text-align: center;
+        @include _shadow(0 2px 2px -2px #333);
+        @include _padding(19px 0);
+        position: relative;
+        z-index: $zindex-footer;
+        border-top:1px solid $grey;
+        a {
+            text-decoration:none;
+            p {
+                margin:20px 0;
+            }
+        }
+
+        img {
+            max-height: 50px;
+            margin: 0 auto;
+        }
+    }
+}
+
+//== Responsiveness
+//
+//## 
+
+@media (max-width: 550px) {
+    #push, .footer {
+        height: 70px;
+    }
+
+    .footer {
+        img {
+            max-height: 30px;
+            margin: 0 auto;
+        }
+    }
+}

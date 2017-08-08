@@ -1,0 +1,29 @@
+//
+// Component: Progress bar
+// --------------------------------------------------
+
+//== Default progress bar styling
+//
+//## 
+
+.progress-bar {
+    max-width: $progress-bar-max-width - 2;
+    background: $progress-bar-bg;
+    @include _radius;
+    border-color: $progress-bar-border-color;
+    border-width: $progress-bar-border-size;
+    border-style: $progress-bar-border-stroke;
+
+    span {
+        display: block;
+        background-color: $current-progress-bg;
+        @include _radius;
+        @include _padding(5px 1px 3px 1px);
+        @include _margin(-1px);
+        font-size: $font-size-base - 2;
+        font-weight: $font-weight-base;
+        text-align: center;
+        color: $white; 
+        min-width: 7%;
+    }
+}

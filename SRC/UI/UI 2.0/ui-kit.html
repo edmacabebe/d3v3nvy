@@ -1,0 +1,2218 @@
+<!doctype html>
+<html ng-app="Integracheck">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UI Kit</title>
+<!--stylesheet-->
+<link rel="stylesheet" type="text/css" href="styles/stylesheets/main.css">
+<link rel="stylesheet" href="assets/fonts/fontawesome/font-awesome.min.css">
+<link rel="stylesheet" href="assets/fonts/fontawesome/font-awesome.css">
+<style>
+  .page-wrap {
+    background: #fff!important; /* plain background for ui-kit only */
+  }
+</style>
+<!--end of stylesheet-->
+</head>
+<body>
+<!--page wrap-->
+  <div class="page-wrap" ng-controller="myCtrl">
+    <!--header-->
+      <header class="header">
+        <div class="container">
+          <div class="row">
+            <!--logo-->
+              <div class="col-2">
+                <div class="logo">
+                  <a href="javascript:void(0);">
+                    <img src="assets/logo/Logo.png" />
+                  </a>
+                </div>      
+              </div>
+            <!--end of logo-->
+            <!--navigation-->
+              <div class="col-5">
+                <div class="navigation">
+                  <ul>
+                    <li class="active"><a href="javascript:void(0);">HOME</a></li>
+                    <li><a href="javascript:void(0);">CREATE PROFILE</a></li>
+                  </ul>
+                </div>
+              </div>
+            <!--end of navigation-->
+            <!--user info-->
+              <div class="col-5 align-right">
+                <div class="user-info">
+                  <!--top links-->
+                    <div class="top-links">
+                      <ul>
+                        <li class="notifications">
+                          <i class="fa fa-bell" aria-hidden="true"></i>
+                          <i class="fa fa-circle" aria-hidden="true">
+                          	<span class="count">26</span>
+                          </i>
+                        </li>
+                      </ul> 
+                    </div>
+                  <!--end of top links--> 
+                  <!--user avatar-->  
+                    <div class="user-avatar">
+                      <span class="name" ng-click="isUserOptions=!isUserOptions">Hi&nbsp;&nbsp;Jonathan Ive</span>
+                      <div class="user-options" ng-show="isUserOptions">
+                        <ul class="list-group" ng-mouseleave="isUserOptions=false">
+                          <li>
+                            <a href="javascript:void(0);">
+                              <i class="fa fa-wrench"></i>Account Settings
+                            </a>
+                          </li>
+                          <li>
+                            <a href="javascript:void(0);">
+                              <i class="fa fa-sign-out"></i>Logout
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <span class="push-left-5">
+                        <img src="assets/icon/line.png">
+                      </span>
+                      <span class="push-left-10">
+                        <img src="assets/icon/manage-gray.png"> 
+                        <span class="manage">MANAGE</span>
+                      </span>
+                    </div>
+                  <!--end of user avatar--> 
+                </div>    
+              </div>
+            <!--end of user info-->
+          </div>
+        </div>
+      </header>
+    <!--end of header-->
+    <!--main content-->
+      <div class="icd-ui container">
+        <!--colors-->
+          <div class="ui-kit color-pallete-wrap">
+            <!--title-->
+              <div class="title">
+                <div class="row">
+                  <div class="col-12">
+                    Colors
+                  </div>  
+                </div>      
+              </div>
+            <!--end of title-->
+            <!--content-->
+              <div class="content">
+                <div class="row">
+                  <div class="col-7">
+                    <ul class="color-pallete color-pallete-box">
+                      <li>
+                        <div class="pallete blue-lightest"></div>
+                        <span>#7fb8cf</span>
+                      </li>
+                      <li>
+                        <div class="pallete blue-ligther"></div>
+                        <span>#7faabd</span>
+                      </li>
+                      <li>
+                        <div class="pallete blue-light"></div>
+                        <span>#0f87b8</span>
+                      </li> 
+                      <li>
+                        <div class="pallete blue"></div>
+                        <span>#1363a5</span>
+                      </li>
+                      <li>
+                        <div class="pallete blue-dark"></div>
+                        <span>#00729f</span>
+                      </li>
+                      <li>
+                        <div class="pallete blue-darker"></div>
+                        <span>#00667f</span>
+                      </li> 
+                      <li>
+                        <div class="pallete blue-darkest"></div>
+                        <span>#193040</span>
+                      </li>
+                    </ul>
+                  </div>  
+                  <div class="col-5">
+                    <ul class="color-pallete color-pallete-box">
+                      <li>
+                        <div class="pallete green-lighter"></div>
+                        <span>#7fc8c1</span>
+                      </li>
+                      <li>
+                        <div class="pallete green"></div>
+                        <span>#159e91</span>
+                      </li>
+                      <li>
+                        <div class="pallete green-dark"></div>
+                        <span>#009284</span>
+                      </li> 
+                    </ul>
+                  </div>
+                </div>  
+                <div class="row">
+                  <div class="col-7">
+                    <ul class="color-pallete color-pallete-box">
+                      <li>
+                        <div class="pallete grey-lightest"></div>
+                        <span>#f3f3f3</span>
+                      </li>
+                      <li>
+                        <div class="pallete grey-lighter"></div>
+                        <span>#eeeeee</span>
+                      </li>
+                      <li>
+                        <div class="pallete grey"></div>
+                        <span>#c2c1c0</span>
+                      </li>
+                      <li>
+                        <div class="pallete grey-light"></div>
+                        <span>#bbbbbb</span>
+                      </li> 
+                      <li>
+                        <div class="pallete grey-dark"></div>
+                        <span>#8d969c</span>
+                      </li>
+                      <li>
+                        <div class="pallete grey-darker"></div>
+                        <span>#515e67</span>
+                      </li>
+                      <li>
+                        <div class="pallete grey-darkest"></div>
+                        <span>#37393b</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-5">
+                    <ul class="color-pallete color-pallete-box">
+                      <li>
+                        <div class="pallete pink"></div>
+                        <span>#e49093</span>
+                      </li>
+                      <li>
+                        <div class="pallete primary"></div>
+                        <span>#e02728</span>
+                      </li>
+                      <li>
+                        <div class="pallete red-dark"></div>
+                        <span>#c92227</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            <!--end of content-->
+          </div>
+        <!--end of colors-->
+        <!--icon-->
+          <div class="ui-kit icons">
+            <!--title-->
+              <div class="title">
+                <div class="row">
+                  <div class="col-12">
+                    ICONS
+                  </div>  
+                </div>      
+              </div>
+            <!--end of title-->
+            <!--content-->
+              <div class="content">
+                <div class="row">
+
+                  <div class="col-4">
+                  	<div class="form-group">
+	                    <label>FONTAWESOME ICONS</label>
+	                    <p>http://fontawesome.io/</p>
+	                    <ul>
+	                      <li><i class="fa fa-bell-o"></i></li>
+	                      <li><i class="fa fa-recycle"></i></li>
+	                      <li><i class="fa fa-question-circle"></i></li>
+	                      <li><i class="fa fa-search"></i></li>
+	                      <li><i class="fa fa-calendar"></i></li>
+	                      <li><i class="fa fa-trash"></i></li>
+	                      <li><i class="fa fa-chain-broken"></i></li>
+	                      <li><i class="fa fa-wrench"></i></li>
+	                      <li><i class="fa fa-user"></i></li>
+	                      <li><i class="fa fa-sign-out"></i></li>
+	                      <li><i class="fa fa-retweet"></i></li>
+	                    </ul>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                  	<div class="form-group">
+	                    <label>ILLUSTRATED ICONS</label>
+	                    <p>&nbsp;</p>
+	                    <ul>
+	                      <li><span class="edit"></span></li>
+	                      <li><span class="merge"></span></li>
+	                      <li><span class="relationship"></span></li>
+                        <li><span class="times"></span></li>
+                        <li><span class="link"></span></li>
+                        <li><span class="gear"></span></li>
+	                      <li><span class="source-default"></span></li>
+                        <li><span class="download"></span></li>
+
+	                    </ul>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                  	<div class="form-group">
+	                    <label>MINI ICONS</label>
+	                    <p>&nbsp;</p>
+	                    <ul>
+	                      <li><i class="fa fa-caret-down"></i></li>
+	                      <li><i class="fa fa-circle"></i></li>
+	                      <li><i class="fa fa-angle-right"></i></li>
+	                      <li><i class="fa fa-angle-down"></i></li>
+	                      <li><i class="fa fa-angle-up"></i></li>
+	                    </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="row push-top-20">
+                  <div class="col-2">
+                  	<div class="form-group">
+                    	<label>GRAPHIC ICONS</label>
+                    </div>
+                  </div>
+                  <div class="col-10">
+                    <ul>
+                      <li class="pull-left-50"><span class="account-locked"></span></li>
+                      <li><span class="mail-sent"></span></li>
+                      <li><span class="password-reset"></span></li>
+                      <li><span class="password-saved"></span></li>
+                    </ul>
+                  </div>
+                </div>    
+              </div>
+            <!--end of content-->
+          </div>
+        <!--end of icon-->
+        <!--text-->
+          <div class="ui-kit text-wrap">
+            <!--title-->
+              <div class="title">
+                <div class="row">
+                  <div class="col-12">
+                    Text
+                  </div>  
+                </div>      
+              </div>
+            <!--end of title-->
+            <!--content-->
+              <div class="content">
+                <div class="row">
+                  <div class="col-5 pull-top-25">
+                    <h1>Header H1</h1>
+                    <h2>Header H2</h2>
+                    <h3>Header H3</h3>
+                    <h4>Header H4</h4>
+                    <h5>Header H5</h5>
+                    <h6>Header H6</h6>
+                  </div>
+                  <div class="col-5 col-offset-1">
+                    <label>Label Tag</label>
+                    <label>Paragraph</label>
+                    <p>Mauris tincidunt tortor ut facilisis semper phasellus consequat libero nec laoreet mattis libero nunc ullamcorper metus. Rutrum turpis nisi vel massa mauris dignissim magna arcu. Nullam a odio et lacus tempor euismod eu ut tortor. Nam facilisis ac dolor vulputate rhoncus vivamus non ante venenatis consectetur ligula porta, aliquet elit.</p>
+                  </div>  
+                </div>  
+              </div>
+            <!--end of content-->
+          </div>
+        <!--end of text-->
+        <!--radio and checkbox-->
+          <div class="ui-kit radio-checkbox-wrap">
+            <!--title-->
+              <div class="title">
+                <div class="row">
+                  <div class="col-12">
+                    Radio and Checkbox
+                  </div>  
+                </div>      
+              </div>
+            <!--end of title-->
+            <!--content-->
+              <div class="content">
+                <div class="row">
+                  <table class="data-grid">
+                    <tbody>
+                        <tr>
+                          <th style="text-align:center;">&nbsp;</th>
+                          <th style="text-align:center;">Default</th>
+                          <th style="text-align:center;">Hover</th>
+                          <th style="text-align:center;">Active</th>
+                          <th style="text-align:center;">Active Hover</th>
+                          <th style="text-align:center;">Disabled</th>
+                          <th style="text-align:center;">Active Disabled</th>
+                        </tr>
+                        <tr>
+                          <td>Check box</td>
+                          <td style="text-align:center;">
+                            <!--normal-->
+                              <p>
+                                <input type="checkbox" class="normal">
+                              </p>  
+                            <!--end of normal-->  
+                          </td>
+                          <td style="text-align:center;">
+                            <!--hover-->
+                              <p>
+                                <input type="checkbox" class="hover">
+                              </p>
+                            <!--end of hover--> 
+                          </td>
+                          <td style="text-align:center;">
+                            <!--checked-->
+                              <p>
+                                <input type="checkbox" class="checked" checked>
+                              </p>  
+                            <!--end of checked-->
+                          </td>
+                          <td style="text-align:center;">
+                            <!--checked hover-->
+                              <p>
+                                <input type="checkbox" class="hover-checked">
+                              </p>  
+                            <!--end of checked hover--> 
+                          </td>
+                          <td style="text-align:center;">
+                            <!--disabled-->
+                              <p>
+                                <input type="checkbox" class="disabled" disabled>
+                              </p>
+                            <!--end of disabled-->
+                          </td>
+                          <td style="text-align:center;">
+                            <!--checked disabled-->
+                              <p>
+                                <input type="checkbox" class="disabled-checked" checked disabled>
+                              </p>
+                            <!--end of checked disabled-->
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Radio Button</td>
+                          <td style="text-align:center;">
+                            <!--normal-->
+                              <p>
+                                <input type="radio" class="normal">
+                              </p>  
+                            <!--end of normal-->
+                          </td>
+                          <td style="text-align:center;">
+                            <!--hover-->
+                              <p>
+                                <input type="radio" class="hover">
+                              </p>  
+                            <!--end of hover--> 
+                          </td>
+                          <td style="text-align:center;">
+                            <!--selected-->
+                              <p>
+                                <input type="radio" class="checked" checked>
+                              </p>  
+                            <!--end of selected-->  
+                          </td>
+                          <td style="text-align:center;">
+                            <!--hover selected-->
+                              <p>
+                                <input type="radio" class="hover-selected">
+                              </p>  
+                            <!--end of hover selected-->
+                          </td>
+                          <td style="text-align:center;">
+                            <!--disabled-->
+                              <p>
+                                <input type="radio" class="disabled" disabled>
+                              </p>  
+                            <!--end of disabled-->  
+                          </td>
+                          <td style="text-align:center;">
+                            <!--hover selected disabled-->
+                              <p>
+                                <input type="radio" class="disabled-selected" checked disabled>
+                              </p>  
+                            <!--end of selected disabled--> 
+                          </td>
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>  
+              </div>
+            <!--end of content-->
+          </div>
+        <!--end of radio and checkbox-->
+        <!--buttons-->
+          <div class="ui-kit buttons-wrap pull-top-15">
+            <!--title-->
+              <div class="title">
+                <div class="row">
+                  <div class="col-12">
+                    Buttons
+                  </div>  
+                </div>      
+              </div>
+            <!--end of title-->
+            <!--content-->
+              <div class="content">
+                <div class="row">
+                  <div class="col-12">
+                    <!--header set-->
+                      <div class="button-head">
+                        <table class="data-grid">
+                          <tbody>
+                            <tr>  
+                              <th>&nbsp;</th>
+                              <th>Default</th>
+                              <th>Medium</th>
+                              <th>Long</th>
+                              <th>Disabled</th>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    <!--header set-->
+                    <!--success button set-->
+                      <div class="form-group">
+                        <ul>
+                          <li style="margin-right:70px;">Green</li>
+                          <li ><button class="btn btn-success btn-small">Success</button></li>  
+                          <li><button class="btn btn-success btn-medium">Success</button></li>
+                          <li><button class="btn btn-success btn-large">Success</button></li>
+                          <li><button disabled class="btn btn-success btn-medium">Success</button></li>
+                        <ul>  
+                      </div>
+                    <!--end of success button set-->  
+                    <!--danger button set-->
+                      <div class="form-group">
+                        <ul>
+                          <li style="margin-right:82px;"><p>Red</p></li>
+                          <li><button class="btn btn-danger btn-small">Danger</button></li> 
+                          <li><button class="btn btn-danger btn-medium">Danger</button></li>
+                          <li><button class="btn btn-danger btn-large">Danger</button></li>
+                          <li><button disabled class="btn btn-danger btn-medium">Danger</button></li>
+                        <ul>  
+                      </div>
+                    <!--end of danger button set--> 
+                    <!--primary button set-->
+                      <div class="form-group">
+                        <ul>
+                          <li style="margin-right:82px;">Blue</li>
+                          <li><button class="btn btn-primary btn-small">Primary</button></li> 
+                          <li><button class="btn btn-primary btn-medium">Primary</button></li>
+                          <li><button class="btn btn-primary btn-large">Primary</button></li>
+                          <li><button disabled class="btn btn-primary btn-medium">Primary</button></li>
+                        <ul>  
+                      </div>
+                    <!--end of primary button set-->  
+                    <!--default button set-->
+                      <div class="form-group">
+                        <ul>
+                          <li style="margin-right:82px;">Gray</li>
+                          <li><button class="btn btn-default btn-small">Default</button></li> 
+                          <li><button class="btn btn-default btn-medium">Default</button></li>
+                          <li><button class="btn btn-default btn-large">Default</button></li>
+                          <li><button disabled class="btn btn-default btn-medium">Default</button></li>
+                        <ul>  
+                      </div>
+                    <!--end of default button set-->
+                    <!--default button set-->
+                      <div class="form-group">
+                        <ul>
+                          <li style="margin-right:52px;">Dark Blue</li>
+                          <li><button class="btn btn-darkblue btn-small">Default</button></li> 
+                          <li><button class="btn btn-darkblue btn-medium">Default</button></li>
+                          <li><button class="btn btn-darkblue btn-large">Default</button></li>
+                          <li><button disabled class="btn btn-darkblue btn-medium">Default</button></li>
+                        <ul>  
+                      </div>
+                    <!--end of default button set-->
+                  </div>
+                </div>      
+              </div>
+            <!--end of content-->
+          </div>
+        <!--end of buttons-->
+        <!--input and select-->
+          <div class="ui-kit input">
+            <!--title-->
+              <div class="title">
+                <div class="row">
+                  <div class="col-6">
+                    Input
+                  </div>  
+                  <div class="col-6">
+                  	Select
+                  </div>
+                </div>      
+              </div>
+            <!--end of title-->
+            <!--content-->
+              <div class="content">
+                <div class="row">
+                  <div class="col-6">
+                    <div class="form-group">
+                      <input type="text" placeholder="Normal">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="focus" placeholder="Hover">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" disabled placeholder="Disabled">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" value="Error" class="error"> 
+                      <span>This field is required.</span>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group">
+                       <input type="text" class="select" value="Default">
+                      <!-- <i class="fa fa-angle-down"></i> -->
+                      <ul class="selection" style="display: none;">
+                        <li data-type="Option 1">Option 1</li>
+                        <li data-type="Option 2">Option 2</li>
+                        <li data-type="Option 3">Option 3</li>
+                      </ul>                    
+                    </div>
+                    <div class="form-group">
+                       <input type="text" class="select" value="Hover">
+                      <!-- <i class="fa fa-angle-down"></i> -->
+                      <ul class="selection" style="display: none;">
+                        <li data-type="Option 1">Option 1</li>
+                        <li data-type="Option 2">Option 2</li>
+                        <li data-type="Option 3">Option 3</li>
+                      </ul>                    
+                    </div>
+                    <div class="form-group">
+                       <input type="text" class="select" value="Active">
+                      <!-- <i class="fa fa-angle-down"></i> -->
+                      <ul class="selection" style="display: none;">
+                        <li data-type="Option 1">Option 1</li>
+                        <li data-type="Option 2">Option 2</li>
+                        <li data-type="Option 3">Option 3</li>
+                      </ul>                    
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="error select" value="Error">
+                      <span>This field is required.</span>
+                      <!-- <i class="fa fa-angle-down"></i> -->
+                      <ul class="selection" style="display: none;">
+                        <li data-type="Option 1">Option 1</li>
+                        <li data-type="Option 2">Option 2</li>
+                        <li data-type="Option 3">Option 3</li>
+                      </ul>                    
+                    </div>
+                    <div class="form-group">
+                       <input type="text" class="select" disabled value="Disabled">
+                      <!-- <i class="fa fa-angle-down"></i> -->
+                      <ul class="selection" style="display: none;">
+                        <li data-type="Option 1">Option 1</li>
+                        <li data-type="Option 2">Option 2</li>
+                        <li data-type="Option 3">Option 3</li>
+                      </ul>                    
+                    </div>
+                  </div>
+                </div>  
+              </div>
+            <!--end of content-->
+          </div>
+        <!--end of input and select-->
+        <!--search field and pagination-->
+          <div class="ui-kit search-field">
+            <!--title-->
+              <div class="title">
+                <div class="row">
+                  <div class="col-6">
+                    Search Field
+                  </div>
+                  <div class="col-6">
+                    Pagination
+                  </div>  
+                </div>      
+              </div>
+            <!--end of title-->
+            <!--content-->
+              <div class="content">
+                <div class="row">
+                  <div class="col-6">
+                    <div class="form-group search-field">
+                      <input type="text" name="search" placeholder="Default">
+                      <i class="fa fa-search" aria-hidden="true"></i> 
+                    </div> 
+                    <div class="form-group search-field">
+                      <input type="text" name="search" placeholder="Hover">
+                      <i class="fa fa-search" aria-hidden="true"></i> 
+                    </div> 
+                    <div class="form-group search-field">
+                      <input type="text" name="search" value="Active">
+                      <i class="fa fa-search" aria-hidden="true"></i> 
+                    </div> 
+                    <div class="form-group search-field">
+                      <input type="text" name="search" placeholder="Type Ahead">
+                      <i class="fa fa-search" aria-hidden="true"></i> 
+                    </div>  
+                  </div>
+                  <div class="col-6">
+                    <div class="pagination form-group">
+                      <label>Default</label>
+                      <ul class="push-top-10">
+                        <li class="indicator"><a href="javascript:void(0);">Prev</a></li>
+                        <li class="active"><a href="javascript:void(0);">1</a></li>
+                        <li><a href="javascript:void(0);">2</a></li>
+                        <li><a href="javascript:void(0);">3</a></li>
+                        <li><a href="javascript:void(0);">...</a></li>
+                        <li><a href="javascript:void(0);">Last</a></li>
+                      </ul>
+                    </div>
+                    <div class="pagination form-group push-top-20">
+                      <label>Middle</label>
+                      <ul class="push-top-10">
+                        <li><a href="javascript:void(0);">Prev</a></li>
+                        <li><a href="javascript:void(0);">...</a></li>
+                        <li><a href="javascript:void(0);">22</a></li>
+                        <li class="active"><a href="javascript:void(0);">23</a></li>
+                        <li><a href="javascript:void(0);">24</a></li>
+                        <li><a href="javascript:void(0);">...</a></li>
+                        <li><a href="javascript:void(0);">Last</a></li>
+                      </ul>
+                    </div>
+                    <div class="pagination form-group push-top-20">
+                      <label>Last</label>
+                      <ul class="push-top-10">
+                        <li><a href="javascript:void(0);">Prev</a></li>
+                        <li><a href="javascript:void(0);">...</a></li>
+                        <li class="active"><a href="javascript:void(0);">1</a></li>
+                        <li><a href="javascript:void(0);">2</a></li>
+                        <li><a href="javascript:void(0);">3</a></li>
+                        <li><a href="javascript:void(0);">...</a></li>
+                        <li class="indicator"><a href="javascript:void(0);">Last</a></li>
+                      </ul>
+                    </div>
+                  </div>  
+                </div>
+              </div>
+            <!--end of content-->
+          </div>
+        <!--end of search-field and pagination-->
+        <!--long search field-->
+        	<div class="ui-kit search-field">
+            <!--title-->
+              <div class="title">
+                <div class="row">
+                  <div class="col-12">
+                    Long Search Field
+                  </div>
+                </div>      
+              </div>
+            <!--end of title-->
+            <!--content-->
+              <div class="content">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="form-group search-field">
+                      <input type="text" name="search" placeholder="Default">
+                      <i class="fa fa-search" aria-hidden="true"></i> 
+                      <div class="search-results">
+                        <ul>
+                          <li>Profile 1</li>
+                          <li>Profile 2</li>
+                          <li>Profile 3</li>
+                          <li class="profile-result">Profile</li>
+                          <li>
+                            <span>Citi Bank</span>
+                            <span>Profile ID: CMP-0012,Reference Case Number:02123</span>
+                            <span>Type: CMP-0012,Reference Case Number:02123</span>
+                            <span>Trading Name, Alias or AKA: CMP-0012,Reference Case Number:02123</span>
+                            <span>Name in Local Language: CMP-0012,Reference Case Number:02123</span>
+                          </li>
+                           <li>
+                            <span>Citi Bank</span>
+                            <span>Profile ID: CMP-0012,Reference Case Number:02123</span>
+                            <span>Type: CMP-0012,Reference Case Number:02123</span>
+                            <span>Trading Name, Alias or AKA: CMP-0012,Reference Case Number:02123</span>
+                            <span>Name in Local Language: CMP-0012,Reference Case Number:02123</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div> 
+                    <div class="form-group search-field">
+                      <input type="text" name="search" placeholder="Hover">
+                      <i class="fa fa-search" aria-hidden="true"></i> 
+                    </div> 
+                    <div class="form-group search-field">
+                      <input type="text" name="search" value="Active">
+                      <i class="fa fa-search" aria-hidden="true"></i> 
+                    </div> 
+                    <div class="form-group search-field">
+                      <input type="text" name="search" placeholder="Type Ahead">
+                      <i class="fa fa-search" aria-hidden="true"></i> 
+                    </div>  
+                  </div>
+                </div>
+              </div>
+            <!--end of content-->
+          </div>
+				<!--end of long search field-->
+        <!--filter and datepicker-->
+	        <div class="ui-kit filter">
+	          <!--title-->
+	            <div class="title">
+	              <div class="row">
+	                <div class="col-6">
+	                  Filter
+	                </div>  
+	                <div class="col-6">
+	                  Datepicker
+	                </div> 
+	              </div>      
+	            </div>
+	          <!--end of title-->
+	          <!--content-->
+	            <div class="content">
+	              <div class="row">
+	                <div class="col-2">
+	                  <div class="form-group"> 
+	                    <input type="text" class="multi-select" placeholder="Select" ng-model="SelectionOptions4" ng-click="showSelection4=!showSelection4">
+	                    <i class="fa fa-caret-down"></i>
+	                    <div class="multi-select-options" ng-show="showSelection4">
+	                      <ul>
+	                        <li ng-click="SelectionOptions4 = '1'; showSelection4 = false">Sample Item 1</li>
+	                        <li ng-click="SelectionOptions4 = '2'; showSelection4 = false">Sample Item 2</li>
+	                        <li ng-click="SelectionOptions4 = '3'; showSelection4 = false">Sample Item 3</li>
+	                      </ul>     
+	                    </div>
+	                  </div>
+	                  <div class="form-group"> 
+	                    <input type="text" class="multi-select" placeholder="Select" ng-model="SelectionOptions6" ng-click="showSelection6=!showSelection6">
+	                    <i class="fa fa-caret-down"></i>
+	                    <div class="multi-select-options" ng-show="showSelection6">
+	                      <ul>
+	                        <li ng-click="SelectionOptions6 = '1'; showSelection6 = false">Sample Item 1</li>
+	                        <li ng-click="SelectionOptions6 = '2'; showSelection6 = false">Sample Item 2</li>
+	                        <li ng-click="SelectionOptions6 = '3'; showSelection6 = false">Sample Item 3</li>
+	                      </ul>     
+	                    </div>
+	                  </div>
+	                  <div class="form-group"> 
+	                    <input type="text" class="multi-select" disabled placeholder="Select" ng-model="SelectionOptions5" ng-click="showSelection2=!showSelection5">
+	                    <i class="fa fa-caret-down"></i>
+	                    <div class="multi-select-options" ng-show="showSelection5">
+	                      <ul>
+	                        <li ng-click="SelectionOptions5 = '1'; showSelection5 = false">Sample Item 1</li>
+	                        <li ng-click="SelectionOptions5 = '2'; showSelection5 = false">Sample Item 2</li>
+	                        <li ng-click="SelectionOptions5 = '3'; showSelection5 = false">Sample Item 3</li>
+	                      </ul>     
+	                    </div>
+	                  </div>
+	                </div>
+	                <div class="col-4">
+	                	&nbsp;
+	                </div>
+	                <div class="col-6">
+	                	<div class="form-group"> 
+                    	<div class="row date-picker">
+	                    	<div class="col-2 month">
+	                    		<input type="text" class="multi-select" placeholder="MM" ng-model="MonthOptions" ng-click="showMonthSelection=!showMonthSelection">
+			                    <i class="fa fa-caret-down"></i>
+			                    <div class="multi-select-options" ng-show="showMonthSelection">
+			                      <ul>
+			                        <li ng-click="MonthOptions = '01'; showMonthSelection = false">01</li>
+			                        <li ng-click="MonthOptions = '02'; showMonthSelection = false">02</li>
+			                        <li ng-click="MonthOptions = '03'; showMonthSelection = false">03</li>
+			                        <li ng-click="MonthOptions = '04'; showMonthSelection = false">04</li>
+			                        <li ng-click="MonthOptions = '05'; showMonthSelection = false">05</li>
+			                        <li ng-click="MonthOptions = '06'; showMonthSelection = false">06</li>
+			                        <li ng-click="MonthOptions = '07'; showMonthSelection = false">07</li>
+			                      </ul>     
+			                    </div>
+			                  </div> 
+			                  <div class="col-2 date">
+			                    <input type="text" class="multi-select" placeholder="DD" ng-model="DateOptions1" ng-click="showDateSelection1=!showDateSelection1">
+			                    <i class="fa fa-caret-down"></i>
+			                    <div class="multi-select-options" ng-show="showDateSelection1">
+			                      <ul>
+			                        <li ng-click="DateOptions1 = '01'; showDateSelection1 = false">01</li>
+			                        <li ng-click="DateOptions1 = '02'; showDateSelection1 = false">02</li>
+			                        <li ng-click="DateOptions1 = '03'; showDateSelection1 = false">03</li>
+			                        <li ng-click="DateOptions1 = '04'; showDateSelection1 = false">04</li>
+			                        <li ng-click="DateOptions1 = '05'; showDateSelection1 = false">05</li>
+			                        <li ng-click="DateOptions1 = '06'; showDateSelection1 = false">06</li>
+			                        <li ng-click="DateOptions1 = '07'; showDateSelection1 = false">07</li>
+			                      </ul>     
+			                    </div>
+ 			                  </div> 
+			                  <div class="col-2 year">
+			                    <input type="text" class="multi-select" placeholder="YYYY" ng-model="YearOptions2" ng-click="showYearSelection2=!showYearSelection2">
+			                    <i class="fa fa-caret-down"></i>
+			                    <div class="multi-select-options" ng-show="showYearSelection2">
+			                      <ul>
+			                        <li ng-click="YearOptions2 = '2001'; showYearSelection2 = false">2001</li>
+			                        <li ng-click="YearOptions2 = '2002'; showYearSelection2 = false">2002</li>
+			                        <li ng-click="YearOptions2 = '2003'; showYearSelection2 = false">2003</li>
+			                        <li ng-click="YearOptions2 = '2004'; showYearSelection2 = false">2004</li>
+			                        <li ng-click="YearOptions2 = '2005'; showYearSelection2 = false">2005</li>
+			                        <li ng-click="YearOptions2 = '2006'; showYearSelection2 = false">2006</li>
+			                        <li ng-click="YearOptions2 = '2007'; showYearSelection2 = false">2007</li>
+			                      </ul>     
+			                    </div>
+			                  </div> 
+			                </div> 
+	                  </div>
+                    <div class="form-group" style="z-index:0 !important;"> 
+                    	<div class="row date-picker">
+	                    	<div class="col-2 month">
+	                    		<input type="text" class="multi-select" placeholder="MM" ng-model="MonthOptions" ng-click="showMonthSelection=!showMonthSelection">
+			                    <i class="fa fa-caret-down"></i>
+			                    <div class="multi-select-options" style="position:relative;">
+			                      <ul>
+			                        <li ng-click="MonthOptions = '01'; showMonthSelection = false">01</li>
+			                        <li ng-click="MonthOptions = '02'; showMonthSelection = false">02</li>
+			                        <li ng-click="MonthOptions = '03'; showMonthSelection = false">03</li>
+			                        <li ng-click="MonthOptions = '04'; showMonthSelection = false">04</li>
+			                        <li ng-click="MonthOptions = '05'; showMonthSelection = false">05</li>
+			                        <li ng-click="MonthOptions = '06'; showMonthSelection = false">06</li>
+			                        <li ng-click="MonthOptions = '07'; showMonthSelection = false">07</li>
+			                      </ul>     
+			                    </div>
+			                  </div> 
+			                  <div class="col-2 date">
+			                    <input type="text" class="multi-select" placeholder="DD" ng-model="DateOptions1" ng-click="showDateSelection1=!showDateSelection1">
+			                    <i class="fa fa-caret-down"></i>
+			                    <div class="multi-select-options" style="position:relative;">
+			                      <ul>
+			                        <li ng-click="DateOptions1 = '01'; showDateSelection1 = false">01</li>
+			                        <li ng-click="DateOptions1 = '02'; showDateSelection1 = false">02</li>
+			                        <li ng-click="DateOptions1 = '03'; showDateSelection1 = false">03</li>
+			                        <li ng-click="DateOptions1 = '04'; showDateSelection1 = false">04</li>
+			                        <li ng-click="DateOptions1 = '05'; showDateSelection1 = false">05</li>
+			                        <li ng-click="DateOptions1 = '06'; showDateSelection1 = false">06</li>
+			                        <li ng-click="DateOptions1 = '07'; showDateSelection1 = false">07</li>
+			                      </ul>     
+			                    </div> 
+			                  </div> 
+			                  <div class="col-2 year">
+			                    <input type="text" class="multi-select" placeholder="YYYY" ng-model="YearOptions2" ng-click="showYearSelection2=!showYearSelection2">
+			                    <i class="fa fa-caret-down"></i>
+			                    <div class="multi-select-options" style="position:relative;">
+			                      <ul>
+			                        <li ng-click="YearOptions2 = '2001'; showYearSelection2 = false">2001</li>
+			                        <li ng-click="YearOptions2 = '2002'; showYearSelection2 = false">2002</li>
+			                        <li ng-click="YearOptions2 = '2003'; showYearSelection2 = false">2003</li>
+			                        <li ng-click="YearOptions2 = '2004'; showYearSelection2 = false">2004</li>
+			                        <li ng-click="YearOptions2 = '2005'; showYearSelection2 = false">2005</li>
+			                        <li ng-click="YearOptions2 = '2006'; showYearSelection2 = false">2006</li>
+			                        <li ng-click="YearOptions2 = '2007'; showYearSelection2 = false">2007</li>
+
+			                      </ul>     
+			                    </div>
+			                  </div> 
+			                </div> 
+	                  </div>
+	                  <div class="form-group"> 
+                    	<div class="row date-picker">
+	                    	<div class="col-2 month">
+	                    		<input type="text" class="multi-select error" placeholder="MM" ng-model="MonthOptions4" ng-click="showMonthSelection4=!showMonthSelection4">
+			                    <i class="fa fa-caret-down"></i>
+			                    <div class="multi-select-options" ng-show="showMonthSelection4">
+			                      <ul>
+			                        <li ng-click="MonthOptions4 = '01'; showMonthSelection4 = false">01</li>
+			                        <li ng-click="MonthOptions4 = '02'; showMonthSelection4 = false">02</li>
+			                        <li ng-click="MonthOptions4 = '03'; showMonthSelection4 = false">03</li>
+			                        <li ng-click="MonthOptions4 = '04'; showMonthSelection4 = false">04</li>
+			                        <li ng-click="MonthOptions4 = '05'; showMonthSelection4 = false">05</li>
+			                        <li ng-click="MonthOptions4 = '06'; showMonthSelection4 = false">06</li>
+			                        <li ng-click="MonthOptions4 = '07'; showMonthSelection4 = false">07</li>
+			                      </ul>     
+			                    </div>
+			                  </div> 
+			                  <div class="col-2 date">
+			                    <input type="text" class="multi-select error" placeholder="DD" ng-model="DateOptions5" ng-click="showDateSelection5=!showDateSelection5">
+			                    <i class="fa fa-caret-down"></i>
+			                    <div class="multi-select-options" ng-show="showDateSelection5">
+			                      <ul>
+			                        <li ng-click="DateOptions5 = '01'; showDateSelection5 = false">01</li>
+			                        <li ng-click="DateOptions5 = '02'; showDateSelection5 = false">02</li>
+			                        <li ng-click="DateOptions5 = '03'; showDateSelection5 = false">03</li>
+			                        <li ng-click="DateOptions5 = '04'; showDateSelection5 = false">04</li>
+			                        <li ng-click="DateOptions5 = '05'; showDateSelection5 = false">05</li>
+			                        <li ng-click="DateOptions5 = '06'; showDateSelection5 = false">06</li>
+			                        <li ng-click="DateOptions5 = '07'; showDateSelection5 = false">07</li>
+			                      </ul>     
+			                    </div> 
+			                  </div> 
+			                  <div class="col-2 year">
+			                    <input type="text" class="multi-select error" placeholder="YYYY" ng-model="YearOptions6" ng-click="showYearSelection6=!showYearSelection6">
+			                    <i class="fa fa-caret-down"></i>
+			                    <div class="multi-select-options" ng-show="showYearSelection6">
+			                      <ul>
+			                        <li ng-click="YearOptions6 = '01'; showYearSelection6 = false">01</li>
+			                        <li ng-click="YearOptions6 = '02'; showYearSelection6 = false">02</li>
+			                        <li ng-click="YearOptions6 = '03'; showYearSelection6 = false">03</li>
+			                        <li ng-click="YearOptions6 = '04'; showYearSelection6 = false">04</li>
+			                        <li ng-click="YearOptions6 = '05'; showYearSelection6 = false">05</li>
+			                        <li ng-click="YearOptions6 = '06'; showYearSelection6 = false">06</li>
+			                        <li ng-click="YearOptions6 = '07'; showYearSelection6 = false">07</li>
+			                      </ul>     
+			                    </div>
+			                  </div> 
+			                </div> 
+	                  </div>
+                  </div>
+	              </div>
+	            </div>
+	          <!--end of ontent-->
+	        </div>
+        <!--end of filter and datepicker-->
+        <!--textarea and multiselect-->
+          <div class="ui-kit textarea-wrap pull-top-15">
+            <!--title-->
+              <div class="title">
+                <div class="row">
+                  <div class="col-6">
+                    Textarea
+                  </div>
+                  <div class="col-6">
+                    Multiselect
+                  </div>   
+                </div>      
+              </div>
+            <!--end of title-->
+            <!--content-->
+              <div class="content">
+                <div class="row">
+                  <div class="col-6">
+                    <div class="form-group">
+                      <textarea placeholder="Normal"></textarea>
+                    </div>  
+                    <div class="form-group">  
+                      <textarea placeholder="Hover" class="focus"></textarea>
+                    </div>  
+                    <div class="form-group">
+                      <textarea placeholder="Error" class="error"></textarea>
+                      <span>This field is required.</span>
+                    </div>
+                    <div class="form-group">
+                      <textarea placeholder="Disabled" disabled></textarea>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-group">
+                      <label>Default</label>
+                      <div class="multiselect-container push-top-20" placeholder="Please Select">
+                        <input placeholder="--Select--" type="text" class="multiselect" style="height: 26px;">
+                      </div>
+                      <ul class="selection" style="display: none;">
+                        <li data-type="Option 1">Option 1</li>
+                        <li data-type="Option 2">Option 2</li>
+                        <li data-type="Option 3">Option 3</li>
+                      </ul> 
+                    </div>
+                    <div class="form-group">
+                      <label>Hover</label>
+                      <div class="multiselect-container push-top-20" placeholder="Please Select">
+                        <input placeholder="--Select--" type="text" class="multiselect" style="height: 26px;">
+                      </div>
+                      <ul class="selection" style="display: none;">
+                        <li data-type="Option 1">Option 1</li>
+                        <li data-type="Option 2">Option 2</li>
+                        <li data-type="Option 3">Option 3</li>
+                      </ul> 
+                    </div>
+                    <div class="form-group">
+                      <label>Active</label>
+                      <div class="multiselect-container push-top-20" placeholder="Please Select">
+                        <div class="taggedInput" data-value="Option 1">
+                          Option 1
+                          <i class="fa fa-times remove" aria-hidden="true"></i>
+                        </div>
+                        <input type="text" class="multiselect" style="height: 26px;">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>Error</label>
+                      <div class="multiselect-container push-top-20 error" placeholder="Please Select">
+                        <input type="text" class="multiselect" style="height: 26px;">
+                        <span>This field is required.</span>
+                      </div>
+                      <ul class="selection" style="display: none;">
+                        <li data-type="Option 1">Option 1</li>
+                        <li data-type="Option 2">Option 2</li>
+                        <li data-type="Option 3">Option 3</li>
+                      </ul> 
+                    </div>
+                  </div>
+                </div>  
+              </div>
+            <!--end of content-->
+          </div>
+        <!--end of textarea and multiselect--> 
+        <!--alert and option button-->
+          <div class="ui-kit alert-wrap">
+            <!--title-->
+              <div class="title">
+                <div class="row">
+                  <div class="col-6">
+                    Toasts
+                  </div>  
+                  <div class="col-6">
+                    Option Button
+                  </div> 
+                </div>      
+              </div>
+            <!--end of title-->
+            <!--content-->
+              <div class="content"> 
+                <div class="row">
+                  <div class="col-6">
+                    <button class="success-alert-btn btn btn-success btn-small" ng-click="isSuccessToastr=!isSuccessToastr">Success</button>
+                    <button class="danger-alert-btn btn btn-danger btn-small" ng-click="isDangerToastr=!isDangerToastr">Error</button>
+                    <button class="information-alert-btn btn btn-primary btn-small" ng-click="isInformationToastr=!isInformationToastr">Information</button>
+                  </div>
+                  <div class="col-6">
+                    <!--field settings-->
+                      <div class="form-group">
+                        <div class="field-settings">  
+                          <label class="push-right-20">Default</label>
+                          <div class="tooltip-wrapper">
+                            <i class="fa fa-cog" ng-click="isIndustrySourcesOption=!isIndustrySourcesOption">
+                              <!--field options-->
+                                <div class="field-options" ng-show="isIndustrySourcesOption" ng-mouseleave="isIndustrySourcesOption=false">
+                                  <ul>
+                                    <li><a href="javascript:void(0);">Add</a></li>
+                                    <li><a href="javascript:void(0);">Delete</a></li>
+                                  </ul>
+                                </div>
+                              <!--end of field options-->
+                            </i><!-- 
+                            <div class="tooltip tooltip-bottom">Option</div> -->
+                          </div>
+                        </div>  
+                      </div>
+                    <!--end of field settings-->
+                    <!--field settings-->
+                      <div class="form-group push-top-50">
+                        <div class="field-settings">
+                          <label class="push-right-20">Hover</label>
+                          <div class="tooltip-wrapper">
+                            <i class="fa fa-cog" ng-click="isIndustrySourcesOption1=!isIndustrySourcesOption1">
+                              <!--field options-->
+                                <div class="field-options ng-hide" ng-show="isIndustrySourcesOption1" ng-mouseleave="isIndustrySourcesOption1=false">
+                                  <ul>
+                                    <li><a href="javascript:void(0);">Add</a></li>
+                                    <li><a href="javascript:void(0);">Delete</a></li>
+                                  </ul>
+                                </div>
+                              <!--end of field options-->
+                            </i>
+                            <div class="tooltip tooltip-bottom" ng-hide="isIndustrySourcesOption1">Option</div>
+                          </div>
+                        </div>
+                      </div>  
+                    <!--end of field settings-->
+                    <!--field settings-->
+                      <div class="form-group" style="margin-top:120px;">
+                        <div class="field-settings">
+                          <label class="push-right-20">Active</label>
+                          <i class="fa fa-cog">
+                            <!--field options-->
+                              <div class="field-options">
+                                <ul>
+                                  <li><a href="javascript:void(0);">Add</a></li>
+                                  <li><a href="javascript:void(0);">Delete</a></li>
+                                </ul>
+                              </div>
+                            <!--end of field options-->
+                          </i>
+                        </div>
+                      </div>  
+                    <!--end of field settings-->
+                  </div>
+                </div>  
+              </div>
+            <!--end of content-->
+          </div>
+        <!--end of alert and option button--> 
+        <!--menu dropdown and password strength-->
+          <div class="ui-kit menu-dropdown-wrap header" style="background-color:white; box-shadow:none;margin-top:100px;">
+            <!--title-->
+              <div class="title">
+                <div class="row">
+                  <div class="col-6">
+                    Menu Dropdown
+                  </div> 
+                  <div class="col-6">
+                    Password Strength Meter
+                  </div>  
+                </div>      
+              </div>
+            <!--end of title-->
+            <!--content-->
+              <div class="content">
+                <div class="row">
+                  <div class="col-6">
+                    <!--user info-->
+                      <div class="col-6 align-right form-group">
+                        <div class="user-info">
+                          <!--user avatar-->  
+                            <div class="user-avatar">
+                              <span class="name" style="color:black;">Jonathan Ive</span><!-- ng-click="isUserOptions1=!isUserOptions1"  -->
+                              <div class="user-options"><!-- ng-show="isUserOptions1" -->
+                                <ul class="list-group" ng-mouseleave="isUserOptions1=false">
+                                  <li>
+                                    <a href="javascript:void(0);">
+                                      <i class="fa fa-wrench"></i>Account Settings
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="javascript:void(0);">
+                                      <i class="fa fa-user"></i>User Profile
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="javascript:void(0);">
+                                      <i class="fa fa-sign-out"></i>Logout
+                                    </a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          <!--end of user avatar--> 
+                        </div>    
+                      </div>
+                    <!--end of user info--> 
+                    <!--user info-->
+                      <div class="col-6 align-right pull-right form-group">
+                        <div class="user-info">
+                          <!--user avatar-->  
+                            <div class="user-avatar">
+                              <span class="name" style="color:black;">Jonathan Ive</span><!-- ng-click="isUserOptions=!isUserOptions" -->
+                              <div class="user-options"><!-- ng-show="isUserOptions" -->
+                                <ul class="list-group" ng-mouseleave="isUserOptions=false">
+                                  <li>
+                                    <a href="javascript:void(0);">
+                                      <i class="fa fa-wrench"></i>Account Settings
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="javascript:void(0);" class="active">
+                                      <i class="fa fa-user"></i>User Profile
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="javascript:void(0);">
+                                      <i class="fa fa-sign-out"></i>Logout
+                                    </a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          <!--end of user avatar--> 
+                        </div>    
+                      </div>
+                    <!--end of user info-->
+                  </div>
+                  <div class="col-6">
+                    <div class="password-strength">
+                      <!--weak password-->
+                        <div class="gauge weak">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                        </div>    
+                      <!--weak password-->  
+                      <!--fair password-->
+                        <div class="gauge fair">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                        </div>    
+                      <!--fair password-->
+                      <!--good password-->
+                        <div class="gauge good">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                        </div>    
+                      <!--good password-->
+                      <!--strong password-->
+                        <div class="gauge strong">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                        </div>    
+                      <!--strong password-->
+                    </div>
+                  </div>
+                </div>    
+              </div>
+            <!--end of content-->
+          </div>
+        <!--end of menu dropdown and password strength-->
+        <!--tab-->
+          <div class="ui-kit tab-wrap">
+            <!--title-->
+              <div class="title">
+                <div class="row">
+                  <div class="col-12">
+                    Tab
+                  </div>  
+                </div>      
+              </div>
+            <!--end of title-->
+            <!--content-->
+              <div class="content">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="tab" ng-init="tab=1">
+                      <div class="tab-menu">
+                        <ul>
+                          <li ng-click="tab=1" ng-class="{'active': tab==1}">Tab Menu 1</li>
+                          <li ng-click="tab=2" ng-class="{'active': tab==2}">Tab Menu 2</li>
+                        </ul>
+                      </div>
+                      <div class="tab-content">
+                        <!--<div class="tab-item tab1" ng-class="{'show': isActiveTabMenu1 && !isActiveTabMenu2, 'hide': isActiveTabMenu2 && !isActiveTabMenu1}">-->
+                        <div class="tab-item" ng-show="tab==1">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tincidunt tortor ut facilisis semper. Phasellus consequat, libero nec laoreet mattis, libero nunc ullamcorper metus, ac rutrum turpis nisi vel massa. Mauris dignissim magna arcu. Nullam a odio et lacus tempor euismod eu ut tortor. Ut porta sodales magna, ut blandit leo faucibus in. Nam facilisis ac dolor vulputate rhoncus. Vivamus non ante venenatis, consectetur ligula porta, aliquet elit.
+                        </div>
+                        <div class="tab-item" ng-show="tab==2">
+                          Scaevola tribunus plebis ferret ad plebem vellentne de ea re quaeri velut ego nunc moveor apud imperitos tum illa dicta sunt, aliquid etiam coronae datum. Ita cum ea volunt retinere quae superiori sententiae conveniunt aristonem incidunt.
+                        </div>
+                      </div>  
+                    </div>
+                  </div>  
+                </div>
+              </div>  
+            <!--end of content-->
+          </div>
+        <!--end of tab-->
+        <!--login forms and Lockout Message-->
+        	<div class="ui-kit login-wrap">
+        		<!--title-->
+	        		<div class="title">
+	        			<div class="row">
+	        				<div class="col-6">
+	        					Login Forms
+	        				</div>
+	        				<div class="col-6">
+	        					Lockout Message
+	        				</div>
+	        			</div>
+	        		</div>
+	        	<!--end of title-->
+	        	<!--content-->
+	        		<div class="content">
+	        			<div class="row">
+	        				<div class="col-6">
+					        	<!--login-->
+											<div class="login-container">
+												<div class="login">
+													<img src="assets/logo/icd.jpeg">
+													<div class="form-group push-top-20">
+														<input type="text" placeholder="Username" ng-class="{'error': showUsernameError}">
+														<span ng-show="showUsernameError">This field is required.</span>	
+													</div> 
+													<div class="form-group">
+														<input type="text" placeholder="Password" ng-class="{'error': showPasswordError}">
+														<span ng-show="showPasswordError">This field is required.</span>	
+													</div>
+													<button class="btn btn-success btn-large" ng-click="showError()">LOGIN</button>
+													<p ng-click="showForgotPassword = true" class="align-right">
+														<a href="javascript:void(0);">Forgot Password?</a>
+													</p>
+												</div>	
+											</div>
+										<!--end of login-->
+									</div>
+									<div class="col-6">
+										<!--account locked-->
+											<div class="login-container">
+												<div class="account-locked">
+													<img src="assets/icon/account-locked.png" class="push-top-10">
+													<div class="form-group push-top-20px">
+														<p>
+															You have exceeded your login attempts. You will be able to try to log in again after 30 minutes or :
+														</p>
+													</div>
+													<div class="form-group">
+														<span>
+															Contact Admin
+														</span>
+													</div>	
+													<button class="btn btn-success btn-large" ng-click="showLogin()">BACK TO LOGIN PAGE</button>
+												</div>
+											</div>
+										<!--end of account locked-->
+									</div>
+								</div>	
+							</div>	
+	        	<!--end of content-->
+        	</div>
+        <!--end of login forms and Lockout Message-->
+        <!--forgot password forms and reset password Message-->
+        	<div class="ui-kit login-wrap">
+        		<!--title-->
+	        		<div class="title">
+	        			<div class="row">
+	        				<div class="col-6">
+	        					Forgot Password Forms
+	        				</div>
+	        				<div class="col-6">
+	        					Reset Password Message
+	        				</div>
+	        			</div>
+	        		</div>
+	        	<!--end of title-->
+	        	<!--content-->
+	        		<div class="content">
+	        			<div class="row">
+	        				<div class="col-6">
+					        	<!--forgot password-->
+											<div class="login-container">
+												<div class="forgot-password">
+													<img src="assets/logo/icd.jpeg">
+													<p>Enter your registered email address and we will send you an email to reset your password</p>
+													<div class="form-group">
+														<input type="text" value="Email" ng-class="{'error': showEmailError}">
+														<span ng-show="showEmailError">The email you have entered is invalid.</span>
+													</div>
+													<button class="btn btn-success btn-large" ng-click="showEmail()">SUBMIT</button>
+												</div>
+											</div>
+										<!--end of forgot password-->
+									</div>
+									<div class="col-6">
+										<!--reset password Message-->
+											<div class="login-container">
+												<div class="forgot-password">
+													<img src="assets/icon/mail-sent.png">
+													<p>We have sent you an email to reset your password. Please check your mail to get started.</p>
+													<button class="btn btn-success btn-large" ng-click="showResetPassword = true">BACK TO LOGIN PAGE</button>
+												</div>
+											</div>
+										<!--end of reset password Message-->
+									</div>
+								</div>	
+							</div>	
+	        	<!--end of content-->
+        	</div>
+        <!--end of forgot password forms and reset password Message-->
+        <!--reset password forms and save password Message-->
+        	<div class="ui-kit login-wrap">
+        		<!--title-->
+	        		<div class="title">
+	        			<div class="row">
+	        				<div class="col-6">
+	        					Reset Password Forms
+	        				</div>
+	        				<div class="col-6">
+	        					Save Password Message
+	        				</div>
+	        			</div>
+	        		</div>
+	        	<!--end of title-->
+	        	<!--content-->
+	        		<div class="content">
+	        			<div class="row">
+	        				<div class="col-6">
+					        	<!--reset password-->
+											<div class="login-container">
+												<div class="forgot-password">
+													<img src="assets/icon/password-reset.png">
+													<p>Reset your password.</p>
+													<div class="form-group">
+														<input type="text" value="New Password" ng-click="showPassWeak = true">
+														<!--start password strength-->
+															<div class="password-strength">
+																<!--weak password-->
+																	<div class="gauge weak" ng-show="showPassWeak &&! showPassFair">
+																		<span ng-click="showPassFair = true"></span>
+																		<span></span>
+																		<span></span>
+																		<span></span>
+																	</div>		
+																<!--weak password-->	
+																<!--fair password-->
+																	<div class="gauge fair"  ng-show="showPassFair &&! showPassGood">
+																		<span></span>
+																		<span ng-click="showPassGood = true"></span>
+																		<span></span>
+																		<span></span>
+																	</div>		
+																<!--fair password-->
+																<!--good password-->
+																	<div class="gauge good"  ng-show="showPassGood &&! showPassStrong">
+																		<span></span>
+																		<span></span>
+																		<span ng-click="showPassStrong = true"></span>
+																		<span></span>
+																	</div>		
+																<!--good password-->
+																<!--strong password-->
+																	<div class="gauge strong"  ng-show="showPassStrong">
+																		<span></span>
+																		<span></span>
+																		<span></span>
+																		<span></span>
+																	</div>		
+																<!--strong password-->
+															</div>
+														<!--end password strength-->	
+													</div>
+													<div class="form-group">
+														<input type="text" value="Verify New Password" ng-class="{'error': showResetPassError}">
+														<span ng-show="showResetPassError">The password you entered is not the same.</span>
+													</div>	
+													<button class="btn btn-success btn-large" ng-click="resetPassword()">Submit</button>
+												</div>
+											</div>
+										<!--end of reset password-->
+									</div>
+									<div class="col-6">
+										<!--save password Message-->
+											<div class="login-container">
+												<div class="save-password">
+													<img src="assets/icon/password-saved.png">
+													<p>Your Password has been saved.</p>
+												</div>
+											</div>
+										<!--end of save password Message-->
+									</div>
+								</div>	
+							</div>	
+	        	<!--end of content-->
+        	</div>
+        <!--end of reset password forms and save password Message-->
+        <!--accordion-->
+	        <div class="ui-kit create-profile">
+	        	<!--title-->
+		        	<div class="title">
+		        		<div class="row">
+		        			<div class="col-12">
+		        				Accordion
+		        			</div>
+		        		</div>
+		        	</div>
+		        <!--title-->
+		        <!--content-->	
+		        	<div class="content row">
+		        		<div class="panel" style="border:1px solid #c2c1c0 !important">
+		        			<!--accordion-->
+										<div class="accordion">
+											<!--identifiers-->
+												<h3 class="acc-header" ng-init="isActiveAccordionIdentifiers=true" 
+																	   ng-click="isActiveAccordionIdentifiers=!isActiveAccordionIdentifiers" 
+																	   ng-class="{'open':isActiveAccordionIdentifiers, 'closed': !isActiveAccordionIdentifiers}"
+												>Identifiers</h3>
+												<div class="acc-content" ng-show="isActiveAccordionIdentifiers" style="border:1px solid #c2c1c0 !important">
+													<!--Sample Data-->
+														<div class="form-group">
+															<div class="row">
+																<div class="col-10 col-offset-1">
+																	<div class="row">
+																		<div class="col-12">
+																			<label>Active</label>
+																		</div>
+																	</div>	
+																</div>	
+															</div>
+														</div>
+													<!--End of Sample Data-->
+												</div>	
+											<!--end of identifiers-->
+											<!--relationships-->
+												<h3 class="acc-header" ng-init="isActiveAccordionRelationships=true"
+																	   ng-click="isActiveAccordionRelationships=!isActiveAccordionRelationships" 
+																	   ng-class="{'open':isActiveAccordionRelationships, 'closed':!isActiveAccordionRelationships}"
+												>Relationships</h3>
+												<div class="acc-content" ng-show="isActiveAccordionRelationships">
+													<!--Sample Data-->
+														<div class="form-group">
+															<div class="row">
+																<div class="col-10 col-offset-1">
+																	<div class="row">
+																		<div class="col-12">
+																			<label>Active</label>
+																		</div>
+																	</div>	
+																</div>	
+															</div>
+														</div>
+													<!--End of Sample Data-->
+												</div>
+											<!--end of relationships-->
+										</div>
+									<!--end of accodrion-->
+								</div>	
+		        	</div>
+	        	<!--content-->
+	        </div>	
+        <!--end of accordion-->
+        <!--table-->
+          <div class="ui-kit table-wrap pull-top-15">
+            <!--title-->
+              <div class="title">
+                <div class="row">
+                  <div class="col-12">
+                    Table
+                  </div>  
+                </div>      
+              </div>
+            <!--end of title-->
+            <!--content-->
+              <div class="content">
+                <div class="row">
+                  <div class="col-12">
+                    <table class="data-grid">
+                      <tr>
+                      	<th>Profile ID</th>
+                      	<th>Type</th>
+                        <th>Full Name</th>
+                        <th>Trading Name</th>
+                        <th>Country</th>
+                        <th>Created</th>
+                        <th>Updated</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                      </tr>
+                      <tr>
+                        <td data-label="First Name">Benedict</td>
+                        <td data-label="Last Name">San Jose</td>
+                        <td data-label="Email Address">benedict.sanjose@redflaggroup.com</td>
+                        <td data-label="First Name">Benedict</td>
+                        <td data-label="Last Name">San Jose</td>
+                        <td data-label="Email Address">benedict.sanjose@redflaggroup.com</td>
+                        <td data-label="First Name">Benedict</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td data-label="First Name">Benedict</td>
+                        <td data-label="Last Name">San Jose</td>
+                        <td data-label="Email Address">benedict.sanjose@redflaggroup.com</td>
+                        <td data-label="First Name">Benedict</td>
+                        <td data-label="Last Name">San Jose</td>
+                        <td data-label="Email Address">benedict.sanjose@redflaggroup.com</td>
+                        <td data-label="First Name">Benedict</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>    
+              </div>
+            <!--end of content-->
+          </div>
+        <!--end of table--> 
+        <!--modal-->
+          <div class="ui-kit modal-wrap">
+            <!--title-->
+              <div class="title">
+                <div class="row">
+                  <div class="col-12">
+                    Modals
+                  </div>  
+                </div>      
+              </div>
+            <!--end of title-->
+            <!--content-->
+              <div class="content">
+                <div class="row">
+                  <div class="col-12">  
+                    <button class="unlink-modal-btn btn btn-default btn-small" ng-click="isUnlinkModal=!isUnlinkModal">Unlink</button>
+                    <button class="delete-modal-btn btn btn-default btn-small" ng-click="isDeleteModal=!isDeleteModal">Delete</button>
+                  </div>  
+                </div>  
+              </div>
+            <!--end of content-->
+          </div>
+        <!--end of progress bar--> 
+        <!--wizard-->
+        	<div class="ui-kit">
+             <!--title-->
+              <div class="title">
+                <div class="row">
+                  <div class="col-12">
+                    Wizard
+                  </div>  
+                </div>      
+              </div>
+            <!--end of title-->
+        		<div class="content">
+        			<div class="row push-top-50 push-bottom-50">
+        				<div class="col-12">
+        					<!-- <div class="form-group">
+        						<label>Default</label>
+			        			<div class="stepwizard col-offset-3 pull-left-50">
+										  <div class="stepwizard-row setup-panel">
+										    <div class="stepwizard-step">						    	
+										    	<span class="border"></span>
+										      <a href="#step-1" type="button" class="step-1 btn btn-circle">1</a>
+										      <span class="active-line" ng-show="stepOneActive"></span>
+										    	<label class="step1-label">Search for Existing Profiles</label>
+										    </div>
+										    <div class="stepwizard-step">					    	
+										    	<span class="border"></span>
+										      <a href="#step-2" type="button" class="step-2 btn btn-circle">2</a>
+										      <span class="active-line" ng-show="stepOneActive2"></span>
+										    	<label class="step2-label">Create New Profile</label>
+										    </div>
+										    <div class="stepwizard-step">					    	
+										    	<span class="border"></span>
+										      <a href="#step-3" type="button" class="btn btn-circle" style="margin-right:0px;">3</a>
+										    	<label class="step3-label">Define Research Scope</label>
+										    </div>
+										  </div>
+										</div>
+									</div>
+									<div class="form-group" style="margin-top:100px">
+        						<label>Step 1 in Progress</label>
+			        			<div class="stepwizard col-offset-3 pull-left-50">
+										  <div class="stepwizard-row setup-panel">
+										    <div class="stepwizard-step">						    	
+										    	<span class="border"></span>
+										      <a href="#step-1" type="button" class="step-1 btn btn-circle">1</a>
+										    	<label class="step1-label step-label-active">Search for Existing Profiles</label>
+										    </div>
+										    <div class="stepwizard-step">					    	
+										    	<span class="border"></span>
+										      <a href="#step-2" type="button" class="step-2 btn btn-circle">2</a>
+										    	<label class="step2-label">Create New Profile</label>
+										    </div>
+										    <div class="stepwizard-step">					    	
+										    	<span class="border"></span>
+										      <a href="#step-3" type="button" class="btn btn-circle" style="margin-right:0px;">3</a>
+										    	<label class="step3-label">Define Research Scope</label>
+										    </div>
+										  </div>
+										</div>
+									</div>
+									<div class="form-group" style="margin-top:100px">
+        						<label>Step 1 Completed Step 2 in Progress</label>
+			        			<div class="stepwizard col-offset-3 pull-left-50" style="margin-top:20px">
+										  <div class="stepwizard-row setup-panel">
+										    <div class="stepwizard-step">						    	
+										    	<span class="border"></span>
+										      <a href="#step-1" type="button" class="step-1 btn btn-circle active">1</a>
+										      <span class="active-line"  style="right:5px !important;"></span>
+										    	<label class="step1-label step-label-active">Search for Existing Profiles</label>
+										    </div>
+										    <div class="stepwizard-step">					    	
+										    	<span class="border"></span>
+										      <a href="#step-2" type="button" class="step-2 btn btn-circle">2</a>
+										    	<label class="step2-label step-label-active">Create New Profile</label>
+										    </div>
+										    <div class="stepwizard-step">					    	
+										    	<span class="border"></span>
+										      <a href="#step-3" type="button" class="btn btn-circle" style="margin-right:0px;" >3</a>
+										    	<label class="step3-label">Define Research Scope</label>
+										    </div>
+										  </div>
+										</div>
+									</div>	
+									<div class="form-group" style="margin-top:100px">
+        						<label>Step 2 Completed Step 3 in Progress</label>
+			        			<div class="stepwizard col-offset-3 pull-left-50" style="margin-top:20px">
+										  <div class="stepwizard-row setup-panel">
+										    <div class="stepwizard-step">						    	
+										    	<span class="border"></span>
+										      <a href="#step-1" type="button" class="step-1 btn btn-circle active">1</a>
+										      <span class="active-line"></span>
+										    	<label class="step1-label step-label-active">Search for Existing Profiles</label>
+										    </div>
+										    <div class="stepwizard-step">					    	
+										    	<span class="border"></span>
+										      <a href="#step-2" type="button" class="step-2 btn btn-circle active">2</a>
+										      <span class="active-line"  style="right:5px !important;"></span>
+										    	<label class="step2-label step-label-active">Create New Profile</label>
+										    </div>
+										    <div class="stepwizard-step">					    	
+										    	<span class="border"></span>
+										      <a href="#step-3" type="button" class="btn btn-circle" style="margin-right:0px;">3</a>
+										    	<label class="step3-label step-label-active">Define Research Scope</label>
+										    </div>
+										  </div>
+										</div>
+									</div>
+									<div class="form-group" style="margin-top:100px">
+        						<label>Step 3 Completed</label>
+			        			<div class="stepwizard col-offset-3 pull-left-50" style="margin-top:20px">
+										  <div class="stepwizard-row setup-panel">
+										    <div class="stepwizard-step">						    	
+										    	<span class="border"></span>
+										      <a href="#step-1" type="button" class="step-1 btn btn-circle active">1</a>
+										      <span class="active-line"></span>
+										    	<label class="step1-label step-label-active">Search for Existing Profiles</label>
+										    </div>
+										    <div class="stepwizard-step">					    	
+										    	<span class="border"></span>
+										      <a href="#step-2" type="button" class="step-2 btn btn-circle active">2</a>
+										      <span class="active-line"></span>
+										    	<label class="step2-label step-label-active">Create New Profile</label>
+										    </div>
+										    <div class="stepwizard-step">					    	
+										    	<span class="border"></span>
+										      <a href="#step-3" type="button" class="btn btn-circle active" style="margin-right:0px;">3</a>
+										    	<label class="step3-label step-label-active">Define Research Scope</label>
+										    </div>
+										  </div>
+										</div>
+									</div> -->
+        					<div class="form-group">
+			        			<div class="stepwizard col-offset-3 pull-left-50">
+										  <div class="stepwizard-row setup-panel">
+										    <div class="stepwizard-step">						    	
+										    	<span class="border"></span>
+										      <a href="#step-1" type="button" class="step-1 btn btn-circle" ng-click="stepOneInProgress =! stepOneInProgress; stepOneButton =! stepOneButton" ng-hide="stepOneButton">1</a>
+                          <a href="#step-1" type="button" class="step-1 btn btn-circle" ng-class="{'active': stepOneDone}" ng-click="stepOneDone =! stepOneDone" ng-show="stepOneButton">1</a>
+                          <span class="active-line" style="right:5px !important;" ng-show="stepOneDone"></span>
+										      <span class="active-line" ng-show="stepTwoDone"></span>
+										    	<label class="step1-label" ng-class="{'step-label-active': stepOneInProgress}">Search for Existing Profiles</label>
+										    </div>
+										    <div class="stepwizard-step">					    	
+										    	<span class="border"></span>
+										      <a href="#step-2" type="button" class="step-2 btn btn-circle" ng-click="stepTwoInProgress =! stepTwoInProgress; stepTwoButton =! stepTwoButton" ng-hide="stepTwoButton">2</a>
+                          <a href="#step-2" type="button" class="step-2 btn btn-circle" ng-class="{'active': stepTwoDone}" ng-click="stepTwoDone =! stepTwoDone" ng-show="stepTwoButton">2</a>
+                          <span class="active-line" style="right:5px !important;" ng-show="stepTwoDone"></span>
+										      <span class="active-line" ng-show="stepThreeDone"></span>
+										    	<label class="step2-label" ng-class="{'step-label-active': stepTwoInProgress}">Create New Profile</label>
+										    </div>
+										    <div class="stepwizard-step">					    	
+										    	<span class="border"></span>
+										      <a href="#step-3" type="button" class="btn btn-circle" style="margin-right:0px;" ng-class="{'active': stepThreeDone}" ng-click="stepThreeDone =! stepThreeDone">3</a>
+										    	<label class="step3-label">Define Research Scope</label>
+										    </div>
+										  </div>
+										</div>
+									</div>
+								</div>
+							</div>
+        		</div>
+        	</div>
+        <!--end of wizard-->
+        <!--widget-->
+          <div class="ui-kit widget">
+            <!--title-->
+              <div class="title">
+                <div class="row">
+                  <div class="col-12">
+                    Widget
+                  </div>
+                </div>
+              </div>
+            <!--end of title-->
+            <!--content-->
+              <div class="content">
+                <div class="row">
+                  <div class="col-1">
+                    <div class="widget-container">
+                      <ul class="not-active" ng-class="{'active': showActive}">
+                        <li>
+                          <div class="tooltip-wrapper">
+                            <img src="assets/icon/google-search.png"/>
+                            <span ng-show="showActive">Google Search</span>
+                            <div class="tooltip tooltip-left">Option</div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="tooltip-wrapper">
+                            <img src="assets/icon/LexisNexis.png"/>
+                            <span ng-show="showActive">Lexis Nexis</span>
+                            <div class="tooltip tooltip-left">Option</div>
+                          </div>
+                        </li>
+                        <li>
+                          <img class="integra-logo" src="assets/icon/IntegraWatch-expanded.png" ng-show="showActive"/>
+                          <img src="assets/icon/IntegraWatch-collapsed.png" ng-hide="showActive"/>
+                          <img src="assets/icon/handle-shadow.png" class="handle"/>
+                          <i class="fa fa-angle-double-left" aria-hidden="true" ng-hide="showActive" ng-click="showActive =! showActive"></i>
+                          <i class="fa fa-angle-double-right" aria-hidden="true" ng-show="showActive"  ng-click="showActive =! showActive"></i>
+                        </li>
+                        <li>
+                          <div class="tooltip-wrapper">
+                            <img src="assets/icon/Search-Terms.png"/>
+                            <span ng-show="showActive">Search Terms</span>
+                            <div class="tooltip tooltip-left">Option</div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="tooltip-wrapper">
+                            <img src="assets/icon/Other-Sources.png"/>
+                            <span ng-show="showActive">Other Sources</span>
+                            <div class="tooltip tooltip-left">Option</div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- <div class="col-1">
+                    <div class="widget-container">
+                      <ul>
+                        <li>
+                          <img src="assets/icon/google-search.png"/>
+                          <span>Google Search</span>
+                        </li>
+                        <li>
+                          <img src="assets/icon/LexisNexis.png"/>
+                          <span>Lexis Nexis</span>
+                        </li>
+                        <li><img src="assets/icon/IntegraWatch-expanded.png"/></li>
+                        <li>
+                          <img src="assets/icon/Search-Terms.png"/>
+                          <span>Search Terms</span>
+                        </li>
+                        <li>
+                          <img src="assets/icon/Other-Sources.png"/>
+                          <span>Other Sources</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div> -->
+                </div>
+              </div>
+            <!--end of content-->
+          </div>
+        <!--end of widget-->
+        <!--transferable list-->
+          <div class="ui-kit transferable-list">
+            <!--title-->
+              <div class="title">
+                <div class="row">
+                  <div class="col-12">
+                    Transferable List
+                  </div>
+                </div>
+              </div>
+            <!--end of title-->
+            <!--content-->
+              <div class="content">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="col-5">
+                      <div class="transferable-list-container">
+                        <div class="title">
+                          <label>Custom Search Term</label>
+                        </div>
+                        <div class="row search-button-container">
+                          <div class="col-10">
+                            <div class="form-group search-field">
+                              <input type="text" name="search" placeholder="Enter Search Terms">
+                              <i class="fa fa-search" aria-hidden="true"></i> 
+                            </div> 
+                          </div>
+                          <div class="col-2">
+                            <div class="form-group search-field">
+                              <button class="btn btn-darkblue btn-small">Add</button>
+                            </div> 
+                          </div>
+                        </div>
+                        <div class="transferable-list-content">
+                         <!--  <ul>
+                            <li ng-click="showLi1 =! showLi1" ng-hide="showLi1">Safety and Health</li>
+                            <li ng-click="showLi2 =! showLi2" ng-hide="showLi2">Political Ties</li>
+                            <li ng-click="showLi3 =! showLi3" ng-hide="showLi3">Modern Slavery</li>
+                          </ul> -->
+                          <ul>
+                            <li ng-repeat="list in lists track by $index" ng-click="onClickSelectItem($index)" ng-class="{'selected': selectedList[$index]}">{{list}}</li>
+                            {{selected[$index]}}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-2">
+                      <div class="transferable-trigger-icon">
+                        <i class="fa fa-caret-right" ng-click="transferSelectedItems()"></i>
+                        <i class="fa fa-caret-left" ng-click="transferSelectItems()"></i>
+                      </div>
+                    </div>
+                    <div class="col-5">
+                      <div class="transferable-list-container">
+                        <div class="title">
+                          <label>Selected Search String</label>
+                        </div>
+                        <div class="row search-button-container"></div>
+                        <div class="transferable-list-content">
+                          <ul>
+                            <li ng-repeat="item in transfered track by $index" ng-click="onClickSelectedItem($index)" ng-class="{'selected': selectedList[$index]}">{{ item }}</li>
+                            <!-- <li ng-click="showLi1 =! showLi1" ng-show="showLi1">Safety and Health</li>
+                            <li ng-click="showLi2 =! showLi2" ng-show="showLi2">Political Ties</li>
+                            <li ng-click="showLi3 =! showLi3" ng-show="showLi3">Modern Slavery</li> -->
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <!--end of content-->
+          </div>        
+        <!--end of transferable list-->
+      </div>
+    <!--end of main content-->
+    <div id="push"></div>
+  </div>  
+<!--end of page wrap--> 
+<!--footer-->
+  <footer class="footer">
+    <div class="container-fluid align-center">
+      <a href="javascript:void(0);">
+        <p>Powered by The Red Flag Group</p>
+      </a>
+    </div>
+  </footer>
+<!--end of footer-->
+<!--unlink modal-->
+  <div class="modal modal-confirmation unlink-modal" ng-show="isUnlinkModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!--modal header-->
+          <div class="modal-header">
+            <!--close-->
+              <div class="close">
+                <i class="fa fa-times-circle-o" ng-click="isUnlinkModal=false"></i>
+              </div>
+            <!--end of close--> 
+          </div>
+        <!--end of modal header-->
+        <!--modal body-->
+          <div class="modal-body">
+            <div class="icon">
+              <i class="fa fa-chain-broken" aria-hidden="true"></i>
+            </div>
+            <p>Are you sure you want to unlink this profile?</p>
+          </div>
+        <!--end of modal body-->
+        <!--modal body-->
+          <div class="modal-footer">
+            <div class="row">
+              <div class="col-6">
+                <button class="btn btn-cancel" ng-click="isUnlinkModal=false">Cancel</button>
+              </div>  
+              <div class="col-6">
+                <button class="btn btn-primary">Unlink</button>
+              </div>
+            </div>
+          </div>
+        <!--end of modal body-->
+      </div>
+    </div>
+  </div>
+<!--end of unlink modal-->
+<!--delete modal-->
+  <div class="modal modal-confirmation delete-modal" ng-show="isDeleteModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!--modal header-->
+          <div class="modal-header">
+            <!--close-->
+              <div class="close">
+                <i class="fa fa-times-circle-o" ng-click="isDeleteModal=false"></i>
+              </div>
+            <!--end of close--> 
+          </div>
+        <!--end of modal header-->
+        <!--modal body-->
+          <div class="modal-body">
+            <div class="icon">
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </div>
+            <p>Are you sure you want to delete this profile?</p>
+          </div>
+        <!--end of modal body-->
+        <!--modal body-->
+          <div class="modal-footer">
+            <div class="row">
+              <div class="col-6">
+                <button class="btn btn-cancel" ng-click="isDeleteModal=false">Cancel</button>
+              </div>  
+              <div class="col-6">
+                <button class="btn btn-primary">Delete</button>
+              </div>
+            </div>
+          </div>
+        <!--end of modal body-->
+      </div>
+    </div>
+  </div>
+<!--end of delete modal-->
+<!--success alert-->
+  <div class="success-toast alert-box" ng-class="{'showToast': isSuccessToastr}">
+    <div class="toast-content">
+      <!--icon-->
+        <div class="toast-icon">
+          <i class="fa fa-check-circle-o"></i>
+        </div>
+      <!--end of icon-->
+      <!--message-->
+        <div class="toast-message">
+          <div class="message-title">
+            Success
+            <div class="close" ng-click="isSuccessToastr =! isSuccessToastr">
+              <i class="fa fa-remove"></i>
+            </div>
+          </div>
+          <div class="message-content">
+            <p>Nullam odio et lacus tempor euismod eu ut tortor.</p>
+          </div>
+        </div>
+      <!--end of message--> 
+    </div>
+  </div>
+<!--end of success alert-->
+<!--danger alert-->
+  <div class="danger-toast alert-box" ng-class="{'showToast': isDangerToastr}">
+    <div class="toast-content">
+      <!--icon-->
+        <div class="toast-icon">
+          <i class="fa fa-times-circle-o"></i>
+        </div>
+      <!--end of icon-->
+      <!--message-->
+        <div class="toast-message">
+          <div class="message-title">
+            Error
+            <div class="close" ng-click="isDangerToastr =! isDangerToastr">
+              <i class="fa fa-remove"></i>
+            </div>
+          </div>
+          <div class="message-content">
+            <p>Nullam odio et lacus tempor euismod eu ut tortor.</p>
+          </div>
+        </div>
+      <!--end of message--> 
+    </div>
+  </div>
+<!--end of danger alert-->
+<!--information alert-->
+  <div class="information-toast alert-box" ng-class="{'showToast': isInformationToastr}">
+    <div class="toast-content">
+      <!--icon-->
+        <div class="toast-icon">
+          <i class="fa fa-info-circle"></i>
+        </div>
+      <!--end of icon-->
+      <!--message-->
+        <div class="toast-message">
+          <div class="message-title">
+            Information
+            <div class="close" ng-click="isInformationToastr =! isInformationToastr">
+              <i class="fa fa-remove"></i>
+            </div>
+          </div>
+          <div class="message-content">
+            <p>Nullam odio et lacus tempor euismod eu ut tortor.</p>
+          </div>
+        </div>
+      <!--end of message--> 
+    </div>
+  </div>
+<!--end of information alert-->
+  <!--javascript-->
+  <script src="js/jquery-1.12.4.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script type="text/javascript" src="js/datepicker.js"></script>
+  <script src="js/angular.min.js"></script>
+  <script type="text/javascript" src="js/select.js"></script>
+  <script type="text/javascript" src="js/wizard.js"></script>
+  <script>
+    var app = angular.module("Integracheck", []);
+    app.controller("myCtrl", function($scope) {
+      $scope.lists = [
+        "Safety and Health",
+        "Political Ties",
+        "Modern Slavery",
+      ];
+
+      var toBeTransfered = [];
+      var toBeReTransfered = [];
+      $scope.transfered = [];
+      $scope.selected = "";
+      $scope.select = "";
+      $scope.selectedList = {};
+
+      $scope.onClickSelectItem = function(index){
+        var selected = $scope.lists[index];
+        $scope.selected = selected;
+        if (toBeTransfered.indexOf(selected) === -1) {
+          //$scope.lists.splice(index, 1);
+          $scope.selectedList[index] = true;
+          toBeTransfered.push(selected);
+        }
+      };
+      $scope.transferSelectedItems = function() {
+        for (var i = 0; i < toBeTransfered.length; i++) {
+          for (var o = 0; o < $scope.lists.length; o++) {
+            if (toBeTransfered[i] === $scope.lists[o]) {
+              $scope.lists.splice(o, 1);
+              $scope.transfered.push(toBeTransfered[i]);
+            }
+          }
+        }
+        toBeTransfered = [];
+        $scope.selectedList = [];
+      };
+      $scope.onClickSelectedItem = function(index) {
+        var select = $scope.transfered[index];
+        $scope.select = select;
+        if (toBeReTransfered.indexOf(select) === -1) {
+          //$scope.lists.splice(index, 1);
+          $scope.selectedList[index] = true;
+          toBeReTransfered.push(select);
+        }
+        // alert($scope.transfered[index]);
+      };
+      $scope.transferSelectItems = function() {
+        for (var i = 0; i < toBeReTransfered.length; i++) {
+          for (var o = 0; o < $scope.transfered.length; o++) {
+            if (toBeReTransfered[i] === $scope.transfered[o]) {
+              $scope.transfered.splice(o, 1);
+              $scope.lists.push(toBeReTransfered[i]);
+            }
+          }
+        }
+        $scope.selectedList = [];
+        toBeReTransfered = [];
+      };
+    });
+
+    // app.directive("datepicker", function () {
+    //  return {
+    //    restrict: "A",
+    //    require: "ngModel",
+    //    link: function (scope, elem, attrs, ngModelCtrl) {ll
+
+    //      var updateModel = function (dateText) {
+    //        scope.$apply(function () {
+    //          ngModelCtrl.$setViewValue(dateText);
+    //        });
+    //      };
+          
+    //      var options = {
+    //        changeMonth: true,
+    //        changeYear: true,
+    //        showOn: "both", 
+    //        buttonText: "<i class='fa icon-calendar'></i>"
+    //      };
+          
+    //      elem.datepicker(options);
+    //    }
+    //  }
+    // });
+  </script>
+<!--end of javascript-->
+</body>
+</html>

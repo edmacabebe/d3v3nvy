@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-12">
+    <div class="form-group search-field">
+      <!--<input type="text" name="search" ng-model="$ctrl.searchStr" placeholder="Search" ng-keyup="$ctrl.searchFn($event); $ctrl.suggestFn()">-->
+      <input type="text" name="search" ng-model="$ctrl.searchStr" ng-model-options="{debounce: 500 }" ng-keyup="$ctrl.searchFn($event)" placeholder="Search">
+      <i class="fa fa-search" aria-hidden="true" ng-click="$ctrl.searchFn($event)"></i>
+      <div class="search-results" ng-if="$ctrl.service.viewResult === false">
+        <icd-suggest suggests="$ctrl.suggest"></icd-suggest>
+        <icd-search-result result-list="$ctrl.result"></icd-search-result>
+      </div>
+      <!-- FULL RESULTS START-->
+      <!--<div class="search-results" ng-if="$ctrl.isFullResult === true">
+        <icd-search-table></icd-search-table>
+      </div>-->
+      <!-- FULL RESULTS END-->
+    </div>
+  </div>
+</div>

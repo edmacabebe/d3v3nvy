@@ -1,0 +1,28 @@
+{
+  "browser": true,
+  "bitwise": true,
+  "camelcase": true,
+  "curly": true,
+  "eqeqeq": true,
+  "immed": true,
+  "indent": 2,
+  "newcap": true,
+  "noarg": true,
+  "quotmark": "single",
+  "regexp": true,
+  "undef": true,
+  /*"unused": true,*/
+  "unused": "vars",
+  "strict": true,
+  "trailing": true,
+  "smarttabs": true,
+  "node": true,
+  "globals": {
+    "angular": false, /*TODO: It should check below declation*/
+    "google": false,
+    "$": false,
+    "_": false,
+    "vkbeautify" : false,
+    "X2JS" : false
+  }
+}

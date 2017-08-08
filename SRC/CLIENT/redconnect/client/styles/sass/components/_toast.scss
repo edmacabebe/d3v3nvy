@@ -1,0 +1,143 @@
+//
+// Component: Toast
+// --------------------------------------------------
+
+//== Default toastr styling
+//
+//## 
+
+.alert-box {
+	transition: right 1s ease-in-out;
+	position: fixed;
+	z-index: $zindex-toast;
+	right: -900px;
+	bottom: 20px;
+	width: $alert-width;
+	cursor: pointer;
+	
+	.toast-content {
+		position: relative;
+		font-family: $font-family-base;
+		@include _shadow;
+		@include _radius;
+
+		.toast-icon, .toast-message {
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		.toast-icon {
+			width: 51px;
+			height: 50px;
+			position: relative;
+
+			i {
+				font-size: $font-size-base * 3;
+				font-family: $font-family-fa;
+			    position: absolute;
+			    color: $white;
+			    cursor: pointer;
+			    top: 50%;
+			    left: 50%;
+			    margin-top: -18px;
+				margin-left: -14px;
+			}
+		}
+
+		.toast-message {
+			@include _padding($padding-large-vertical $padding-large-horizontal - 1);
+			width: 232px - ($padding-large-horizontal * 2);
+			border-top-right-radius: $border-radius-base;
+			border-bottom-right-radius: $border-radius-base;
+
+			.message-title {
+				font-weight: $font-weight-bold;
+				font-family: $font-family-base;
+				font-size: $font-size-base + 1;
+				@include _margin(0 0 7px 0);
+
+				.close {
+					position: absolute;
+					z-index: $zindex-toast + 2;
+					right: 9px; 
+					top: 7px;
+					font-size: $font-size-base + 4;
+					
+					.fa-remove {
+						color: $grey-darker!important;
+					}
+				}
+			}
+
+			.message-content {
+				font-size: $font-size-base - 1;
+				font-weight: $font-weight-base;
+			}
+		}		
+	}
+}
+
+$alerts: success, danger, information;
+@each $a in $alerts {
+    .#{$a}-toast {
+    	.toast-content{
+			background: map-get(map-get($alert, '#{$a}'), 'color');
+
+			.toast-message {
+				background: map-get(map-get($alert, '#{$a}'), 'message-bg');
+
+				.message-title {
+					color: map-get(map-get($alert, '#{$a}'), 'color');
+				}
+			}
+		}
+    }
+}
+
+.showToast {
+	animation-name: animateshowToast;
+	animation-duration: 5s;
+	animation-timing-function: ease;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+}
+
+@keyframes animateshowToast {
+   0% {
+      right: -900px;
+   }
+
+   5% {
+      right: 20px;
+   }
+
+   90% {
+      right: 20px;
+   }
+
+   100% {
+   	 right: -900px;
+   }
+}
+
+.hideToast{
+	animation-name: animatehideToast;
+	animation-duration: 1s;
+	animation-timing-function: ease;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+}
+
+@keyframes animatehideToast {
+   0% {
+      right: 20px;
+   }
+
+   25% {
+      right: 35px;
+   }
+
+   100% {
+   	 right: -900px;
+   }
+}

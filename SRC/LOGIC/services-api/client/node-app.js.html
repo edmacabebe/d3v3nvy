@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta name="generator" content="JSDoc 3.5.3">
+  <meta charset="utf-8">
+  <title>Source: node-app.js</title>
+  <link rel="stylesheet" href="https://brick.a.ssl.fastly.net/Karla:400,400i,700,700i" type="text/css">
+  <link rel="stylesheet" href="https://brick.a.ssl.fastly.net/Noto+Serif:400,400i,700,700i" type="text/css">
+  <link rel="stylesheet" href="https://brick.a.ssl.fastly.net/Inconsolata:500" type="text/css">
+  <link href="css/baseline.css" rel="stylesheet">
+</head>
+
+<body onload="prettyPrint()">
+  <nav id="jsdoc-navbar" role="navigation" class="jsdoc-navbar">
+    <div id="jsdoc-navbar-container">
+      <div id="jsdoc-navbar-content">
+        <a href="index.html" class="jsdoc-navbar-package-name">Home</a>
+      </div>
+    </div>
+  </nav>
+  <div id="jsdoc-body-container">
+    <div id="jsdoc-content">
+      <div id="jsdoc-content-container">
+        <div id="jsdoc-banner" role="banner">
+        </div>
+        <div id="jsdoc-main" role="main">
+          <header class="page-header">
+            <h1>Source: node-app.js</h1>
+          </header>
+          <article>
+            <pre class="prettyprint linenums"><code>/**
+ * @class IntegraCheck Database API
+ * @classdesc base search controller class; the prototype for an angular search controller
+ *
+ * Note: this is just a sample documentation build by jsDocs
+ *
+ * &amp;lt;pre class=&quot;prettyprint&quot;&gt;
+ *   (function() {
+ *     &#x27;use strict&#x27;;
+ *
+ *     angular.module(&#x27;app&#x27;).controller(&#x27;SearchCtrl&#x27;, SearchCtrl);
+ *
+ *     SearchCtrl.$inject = [&#x27;$scope&#x27;, &#x27;$location&#x27;, &#x27;MLSearchFactory&#x27;];
+ *
+ *     // inherit from MLSearchController
+ *     var superCtrl = RedConnect.prototype;
+ *     SearchCtrl.prototype = Object.create(superCtrl);
+ *
+ *     function SearchCtrl($scope, $location, searchFactory) {
+ *       var ctrl = this;
+ *       var mlSearch = searchFactory.newContext();
+ *
+ *       MLSearchController.call(ctrl, $scope, $location, mlSearch);
+ *
+ *       // override a superCtrl method
+ *       ctrl.updateSearchResults = function updateSearchResults(data) {
+ *         superCtrl.updateSearchResults.apply(ctrl, arguments);
+ *         console.log(&#x27;updated search results&#x27;);
+ *       }
+ *
+ *       ctrl.init();
+ *     }
+ *   })();
+ * &amp;lt;/pre&gt;
+ *
+ * @param {Object} $scope - child controller&#x27;s scope
+ * @param {Object} $location - angular&#x27;s $location service
+ * @param {MLSearchContext} mlSearch - child controller&#x27;s searchContext
+ *
+ * @prop {Object} $scope - child controller&#x27;s scope
+ * @prop {Object} $location - angular&#x27;s $location service
+ * @prop {MLSearchContext} mlSearch - child controller&#x27;s searchContext
+ * @prop {Boolean} searchPending - signifies whether a search is in progress
+ * @prop {Number} page - the current results page
+ * @prop {String} qtext - the current query text
+ * @prop {Object} response - the search response object
+ */
+
+/*jshint node:true*/
+&#x27;use strict&#x27;;
+
+var fs = require(&#x27;fs&#x27;);
+var express = require(&#x27;express&#x27;);
+var helmet = require(&#x27;helmet&#x27;);
+var expressSession = require(&#x27;express-session&#x27;);
+var app = express();
+var logger = require(&#x27;morgan&#x27;);
+var four0four = require(&#x27;./utils/404&#x27;)();
+var options = require(&#x27;./utils/options&#x27;)();
+var http = require(&#x27;http&#x27;);
+var https = require(&#x27;https&#x27;);
+var passport = require(&#x27;passport&#x27;);
+var authHelper = require(&#x27;./utils/auth-helper&#x27;);
+var port = options.appPort;
+var environment = options.env;
+var cors = require(&#x27;cors&#x27;);
+
+app.use(cors());
+
+authHelper.init();
+
+// Making this middle-tier slightly more secure: https://www.npmjs.com/package/helmet#how-it-works
+/*app.use(helmet({
+  csp: { // enable and configure
+    directives: {
+      defaultSrc: [&#x27;&quot;self&quot;&#x27;]
+    },
+    setAllHeaders: true
+  },
+  dnsPrefetchControl: true, // just enable, with whatever defaults
+  xssFilter: { // enabled by default, but override defaults
+    setOnOldIE: true
+  },
+  noCache: false // make sure it is disabled
+}));*/
+
+app.use(expressSession({
+  name: &#x27;integracheck&#x27;,
+  secret: &#x27;e50cf267-a205-4ed0-a07a-417fddd9b22b&#x27;,
+  saveUninitialized: true,
+  resave: true
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(logger(&#x27;dev&#x27;));
+
+app.use(&#x27;/v1&#x27;, require(&#x27;./proxy&#x27;));
+app.use(&#x27;/api&#x27;, require(&#x27;./routes&#x27;));
+
+console.log(&#x27;About to crank up node&#x27;);
+console.log(&#x27;PORT=&#x27; + port);
+console.log(&#x27;NODE_ENV=&#x27; + environment);
+
+switch (environment) {
+  case &#x27;prod&#x27;:
+  case &#x27;dev&#x27;:
+    console.log(&#x27;** DIST **&#x27;);
+    app.use(express.static(&#x27;./client/&#x27;));
+    // Any invalid calls for templateUrls are under app/* and should return 404
+    app.use(&#x27;/app/*&#x27;, function(req, res, next) {
+      four0four.send404(req, res);
+    });
+    // Any deep link calls should return index.html
+    //app.use(&#x27;/*&#x27;, express.static(&#x27;./client/index.html&#x27;));
+    break;
+  default:
+    console.log(&#x27;** UI **&#x27;);
+    app.use(express.static(&#x27;./client/&#x27;));
+
+    // Any invalid calls for templateUrls are under app/* and should return 404
+    app.use(&#x27;/app/*&#x27;, function(req, res, next) {
+      four0four.send404(req, res);
+    });
+    // Any deep link calls should return index.html
+    app.use(&#x27;/*&#x27;, express.static(&#x27;./client/index.html&#x27;));
+    break;
+}
+
+var server = null;
+if (options.nodeJsCertificate) {
+  // Docs on how to create self signed certificates
+  // https://devcenter.heroku.com/articles/ssl-certificate-self#prerequisites
+  console.log(&#x27;Starting the server in HTTPS&#x27;);
+  console.log(&#x27;Node Certificate &#x27; + options.nodeJsCertificate);
+  console.log(&#x27;Node JS key &#x27; + options.nodeJsPrivateKey);
+  var privateKey = fs.readFileSync(options.nodeJsPrivateKey, &#x27;utf8&#x27;);
+  var certificate = fs.readFileSync(options.nodeJsCertificate, &#x27;utf8&#x27;);
+  var credentials = {
+    key: privateKey,
+    cert: certificate
+  };
+  server = https.createServer(credentials, app);
+} else {
+  console.log(&#x27;Starting the server in HTTP&#x27;);
+  server = http.createServer(app);
+}
+
+server.listen(port, function() {
+  console.log(&#x27;Express server listening on port &#x27; + port);
+  console.log(&#x27;env = &#x27; + app.get(&#x27;env&#x27;) +
+    &#x27;\n__dirname = &#x27; + __dirname +
+    &#x27;\nprocess.cwd = &#x27; + process.cwd());
+});
+
+server.timeout = 0;
+
+module.exports = app;
+</code></pre>
+          </article>
+        </div>
+      </div>
+      <nav id="jsdoc-toc-nav" role="navigation"></nav>
+    </div>
+  </div>
+  <footer id="jsdoc-footer" class="jsdoc-footer">
+    <div id="jsdoc-footer-container">
+      <p>
+        Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc</a> 3.5.3 on July 19, 2017.
+      </p>
+    </div>
+  </footer>
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/jquery.cookie.js"></script>
+  <script src="scripts/tree.jquery.js"></script>
+  <script src="scripts/prettify.js"></script>
+  <script src="scripts/jsdoc-toc.js"></script>
+  <script src="scripts/linenumber.js"></script>
+  <script src="scripts/scrollanchor.js"></script>
+</body>
+
+</html>

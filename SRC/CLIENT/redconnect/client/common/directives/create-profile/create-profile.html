@@ -1,0 +1,456 @@
+<div>
+  <!--start of title-->
+  <div class="title">
+    <h1>Create Profile</h1>
+  </div>
+  <!--end of title-->
+  <!--panel content-->
+  <div class="panel-content center-panel-container" ng-hide="showCompany || showIndividual">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-3">
+          <label class="required">Profile Type</label>
+        </div>
+        <div class="col-9">
+          <input type="text" class="select" 
+                 placeholder="Select Profile Type" 
+                 ng-class="{'error': showProfileTypeError}"
+                 ng-model="profileType" 
+                 ng-click="showSelection =! showSelection">
+            <i class="fa fa-angle-down"></i>
+          <ul class="selection" ng-show="showSelection">
+            <li ng-click="profileType='Company'; showSelection=false; showCompany=true">Company</li>
+            <li ng-click="profileType='Individual'; showSelection=false; showIndividual=true">Individual</li>
+          </ul>  
+          <span ng-show="showProfileTypeError">This field is required.</span>
+        </div>
+      </div>
+    </div>  
+  </div>
+  <!--end of panel content-->
+  <!--panel content for company-->
+  <div class="panel-content center-panel-container" ng-show="showCompany &&! showProfileType"> 
+      <!--profile type-->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-3">
+            <label class="required">Profile Type</label>
+          </div>
+          <div class="col-9">
+            <input type="text" class="select" 
+                   value="Company" 
+                   disabled>
+              <i class="fa fa-angle-down"></i>
+          </div>
+        </div>
+      </div>  
+      <!--end of profile type-->
+      <!--primary subject full name-->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-3">
+            <label class="required">Primary Subject Full Name</label>
+          </div>
+          <div class="col-9">
+            <input type="text" class="focus" 
+                   placeholder="Enter Subject Full Name" ng-class="{'error': showProfileTypeError}">
+            <span ng-show="showProfileTypeError">This field is required.</span>
+          </div>
+        </div>
+      </div> 
+      <!--end of primary subject full name-->
+      <!--country-->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-3">
+            <label class="required">Country</label>
+          </div>
+          <div class="col-9">
+            <input type="text" class="select" 
+                   placeholder="Select Country" 
+                   ng-class="{'error': showProfileTypeError}"
+                   ng-model="profileCountry" 
+                   ng-click="showCountrySelection =! showCountrySelection">
+              <i class="fa fa-angle-down"></i>
+            <ul class="selection" ng-show="showCountrySelection">
+              <li ng-click="profileCountry='Country 1'; showCountrySelection=false">Country 1</li>
+              <li ng-click="profileCountry='Country 2'; showCountrySelection=false">Country 2</li>
+            </ul>  
+            <span ng-show="showProfileTypeError">This field is required.</span>
+          </div>
+        </div>
+      </div>  
+      <!--end of country-->
+      <!--industry-->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-3">
+            <label>Industry</label>
+          </div>
+          <div class="col-9">
+            <input type="text" class="select" 
+                   placeholder="Select Industry"
+                   ng-model="profileIndustry" 
+                   ng-click="showIndustrySelection =! showIndustrySelection">
+              <i class="fa fa-angle-down"></i>
+            <ul class="selection" ng-show="showIndustrySelection">
+              <li ng-click="profileIndustry='Industry 1'; showIndustrySelection=false">Industry 1</li>
+              <li ng-click="profileIndustry='Industry 2'; showIndustrySelection=false">Industry 2</li>
+            </ul>  
+          </div>
+        </div>
+      </div>  
+      <!--end of industry-->
+      <!--name in local language-->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-3">
+            <label>Name in Local Language</label>
+          </div>
+          <div class="col-9">
+            <input type="text" class="focus" placeholder="Enter Name in Local Language of the Subject">
+          </div>
+        </div>
+      </div> 
+      <!--end of name in local language-->
+      <!--reference case number-->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-3">
+            <label>Reference Case Number</label>
+          </div>
+          <div class="col-9">
+            <input type="text" class="focus" 
+                   placeholder="Enter Reference Case Number" 
+                   ng-class="{'error': showProfileTypeError}">
+          </div>
+        </div>
+      </div> 
+      <!--end of reference case number-->
+      <!--confirm reference case number-->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-3">
+            <label>Confirm Reference Case Number</label>
+          </div>
+          <div class="col-9">
+            <input type="text" class="focus" 
+                   placeholder="Re-enter Reference Case Number" 
+                   ng-class="{'error': showProfileTypeError}">
+            <span ng-show="showProfileTypeError">Reference Numbers do not match.</span>
+          </div>
+        </div>
+      </div> 
+      <!--end of confirm reference case number-->
+  </div>
+  <!--end of panel content for company-->
+  <!--epanel content for individual-->
+  <div class="panel-content center-panel-container" ng-show="showIndividual &&! showProfileType">     
+    <!--profile type-->
+    <div class="form-group">
+      <div class="row">
+        <div class="col-3">
+          <label class="required">Profile Type</label>
+        </div>
+        <div class="col-9">
+          <input type="text" class="select" 
+                 value="Individual" 
+                 disabled>
+            <i class="fa fa-angle-down"></i>
+        </div>
+      </div>
+    </div>  
+    <!--end of profile type-->
+    <div class="panel panel-center">
+      <!--first name-->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-3">
+            <label class="required">First Name</label>
+          </div>
+          <div class="col-9">
+            <input type="text" class="focus" 
+                   placeholder="Enter Subject's First Name" ng-class="{'error': showProfileTypeError}">
+            <span ng-show="showProfileTypeError">This field is required.</span>
+          </div>
+        </div>
+      </div> 
+      <!--end of first name-->
+      <!--middle name-->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-3">
+            <label>Middle Name</label>
+          </div>
+          <div class="col-9">
+            <input type="text" class="select" placeholder="Enter Subject's Middle Name">
+          </div>
+        </div>
+      </div>  
+      <!--end of middle name-->
+      <!--last name-->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-3">
+            <label class="required">Last Name</label>
+          </div>
+          <div class="col-9">
+            <input type="text" class="select" placeholder="Enter Subject's Last Name">
+          </div>
+        </div>
+      </div>  
+      <!--end of last name-->
+    </div>
+    <!--country-->
+    <div class="form-group">
+      <div class="row">
+        <div class="col-3">
+          <label class="required">Country</label>
+        </div>
+        <div class="col-9">
+          <input type="text" class="select" 
+                 placeholder="Select Country" 
+                 ng-class="{'error': showProfileTypeError}"
+                 ng-model="profileCountry" 
+                 ng-click="showCountrySelection =! showCountrySelection">
+            <i class="fa fa-angle-down"></i>
+            <ul class="selection" ng-show="showCountrySelection">
+              <li ng-click="profileCountry='Country 1'; showCountrySelection=false">Country 1</li>
+              <li ng-click="profileCountry='Country 2'; showCountrySelection=false">Country 2</li>
+            </ul>  
+          <span ng-show="showProfileTypeError">This field is required.</span>
+        </div>
+      </div>
+    </div>  
+    <!--end of country-->
+    <!--industry-->
+    <div class="form-group">
+      <div class="row">
+        <div class="col-3">
+          <label class="required">Industry</label>
+        </div>
+        <div class="col-9">
+          <input type="text" class="select" 
+                 placeholder="Select Industry" 
+                 ng-class="{'error': showProfileTypeError}"
+                 ng-model="profileIndustry" 
+                 ng-click="showIndustrySelection =! showIndustrySelection">
+            <i class="fa fa-angle-down"></i>
+            <ul class="selection" ng-show="showIndustrySelection">
+              <li ng-click="profileIndustry='Industry 1'; showIndustrySelection=false">Industry 1</li>
+              <li ng-click="profileIndustry='Industry 2'; showIndustrySelection=false">Industry 2</li>
+            </ul>  
+          <span ng-show="showProfileTypeError">This field is required.</span>
+        </div>
+      </div>
+    </div>  
+    <!--end of industry-->
+    <!--name in local language-->
+    <div class="form-group pull-bottom-5">
+      <div class="row">
+        <div class="col-3">
+          <label class="label-title">Name in Local Language</label>
+        </div>
+        <div class="col-9">
+          &nbsp;
+        </div>
+      </div>
+    </div> 
+    <!--end of name in local language-->
+    <div class="panel panel-center">
+      <!--first name-->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-3">
+            <label>First Name</label>
+          </div>
+          <div class="col-9">
+            <input type="text" class="focus" 
+                   placeholder="Enter Subject's First Name" ng-class="{'error': showProfileTypeError}">
+            <span ng-show="showProfileTypeError">This field is required.</span>
+          </div>
+        </div>
+      </div> 
+      <!--end of first name-->
+      <!--middle name-->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-3">
+            <label>Middle Name</label>
+          </div>
+          <div class="col-9">
+            <input type="text" class="select" placeholder="Enter Subject's Middle Name">
+          </div>
+        </div>
+      </div>  
+      <!--end of middle name-->
+      <!--last name-->
+      <div class="form-group">
+        <div class="row">
+          <div class="col-3">
+            <label>Last Name</label>
+          </div>
+          <div class="col-9">
+            <input type="text" class="select" placeholder="Enter Subject's Last Name">
+          </div>
+        </div>
+      </div>  
+      <!--end of last name-->
+    </div>
+    <!--reference case number-->
+    <div class="form-group">
+      <div class="row">
+        <div class="col-3">
+          <label>Reference Case Number</label>
+        </div>
+        <div class="col-9">
+          <input type="text" class="focus" 
+                 placeholder="Enter Reference Case Number" 
+                 ng-class="{'error': showProfileTypeError}">
+        </div>
+      </div>
+    </div> 
+    <!--end of reference case number-->
+    <!--confirm reference case number-->
+    <div class="form-group">
+      <div class="row">
+        <div class="col-3">
+          <label>Confirm Reference Case Number</label>
+        </div>
+        <div class="col-9">
+          <input type="text" class="focus" 
+                 placeholder="Re-enter Reference Case Number" 
+                 ng-class="{'error': showProfileTypeError}">
+          <span ng-show="showProfileTypeError">Reference Numbers do not match.</span>
+        </div>
+      </div>
+    </div> 
+    <!--end of confirm reference case number-->
+  </div>
+  <!--end of panel content for individual-->
+  <!--create profile phase 3-->
+  <div class="panel-content center-panel-container" ng-show="showPhase3">
+    <!--report level-->
+    <div class="form-group">
+      <div class="row">
+        <div class="col-3">
+          <label class="required">Report Level</label>
+        </div>
+        <div class="col-9">
+          <input type="text" class="select" 
+                 placeholder="Select Profile Type" 
+                 ng-class="{'error': showReportLevelError}"
+                 ng-model="reportLevel" 
+                 ng-click="showReportLevelSelection =! showReportLevelSelection">
+            <i class="fa fa-angle-down"></i>
+          <ul class="selection" ng-show="showReportLevelSelection">
+            <li ng-click="reportLevel='Bronze'; showReportLevelSelection=false">Bronze</li>
+            <li ng-click="reportLevel='Silver'; showReportLevelSelection=false">Silver</li>
+            <li ng-click="reportLevel='Gold'; showReportLevelSelection=false">Gold</li>
+            <li ng-click="reportLevel='Platinum'; showReportLevelSelection=false">Platinum</li>
+            <li ng-click="reportLevel='Diamond'; showReportLevelSelection=false">Diamond</li>
+            <li ng-click="reportLevel='Bespoke/Custom'; showReportLevelSelection=false">Bespoke/Custom</li>
+          </ul>  
+          <span ng-show="showReportLevelError">This field is required.</span>
+        </div>
+      </div>
+    </div>  
+    <!--end of report level-->
+    <!--report template-->
+    <div class="form-group">
+      <div class="row">
+        <div class="col-3">
+          <label class="required">Report Template</label>
+        </div>
+        <div class="col-9">
+          <input type="text" class="select" 
+                 placeholder="Template" 
+                 ng-class="{'error': showReportTemplateError}"
+                 ng-model="reportTemplate" 
+                 ng-click="showReportTemplateSelection =! showReportTemplateSelection">
+            <i class="fa fa-angle-down"></i>
+          <ul class="selection" ng-show="showReportTemplateSelection">
+            <li ng-click="reportTemplate='Template 1'; showReportTemplateSelection=false">Template 1</li>
+            <li ng-click="reportTemplate='Template 2'; showReportTemplateSelection=false">Template 2</li>
+            <li ng-click="reportTemplate='Template 3'; showReportTemplateSelection=false">Template 3</li>
+          </ul>  
+          <span ng-show="showReportTemplateError">This field is required.</span>
+        </div>
+      </div>
+    </div>  
+    <!--end of report template-->
+    <!--report scope-->
+    <div class="form-group report-scope">
+      <div class="row">
+        <div class="col-3">
+          <label class="required">Report Scope</label>
+        </div>
+        <div class="col-9 push-top-30">
+          <div class="col-6">
+            <p>
+              <input type="checkbox" class="normal">
+              <span>IntegraWatch | Compliance Screening</span>
+            </p>
+            <p>
+              <input type="checkbox" class="normal">
+              <span>Media Research</span>
+            </p>
+            <p>
+              <input type="checkbox" class="normal">
+              <span>Corporate Registry</span>
+            </p>
+            <p>
+              <input type="checkbox" class="normal">
+              <span>Relationship Mapping</span>
+            </p>
+            <p>
+              <input type="checkbox" class="normal">
+              <span>Financial Information</span>
+            </p>
+            <p>
+              <input type="checkbox" class="normal">
+              <span>Litigation Checks</span>
+            </p>
+            <p>
+              <input type="checkbox" class="normal">
+              <span>Reputational Intelligence</span>
+            </p>
+          </div>
+          <div class="col-6 right-corner-scope">
+            <p>
+              <input type="checkbox" class="normal">
+              <span>IntegraWatch | Compliance Screening</span>
+            </p>
+            <p>
+              <input type="checkbox" class="normal">
+              <span>Media Research</span>
+            </p>
+            <p>
+              <input type="checkbox" class="normal">
+              <span>Corporate Registry</span>
+            </p>
+            <p>
+              <input type="checkbox" class="normal">
+              <span>Relationship Mapping</span>
+            </p>
+            <p>
+              <input type="checkbox" class="normal">
+              <span>Financial Information</span>
+            </p>
+            <p>
+              <input type="checkbox" class="normal">
+              <span>Litigation Checks</span>
+            </p>
+            <p>
+              <input type="checkbox" class="normal">
+              <span>Reputational Intelligence</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>  
+    <!--end of report scope-->
+  </div>
+  <!--create profile phase 3-->   
+</div>
+

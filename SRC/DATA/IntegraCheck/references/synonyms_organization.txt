@@ -1,0 +1,46 @@
+## abbreviations / slang
+#psc => professional service corporation
+#llc => limited liability company
+#bldg => building
+#inc => incorporated
+#dept => department
+#corp => corporation
+#lllp => limited liability limited partnership
+#lca => limited cooperative association
+#llp => limited liability partnership
+#ave => avenue
+#lp => limited partnership
+#pty => proprietary
+#ltd => limited
+#plc => public limited company
+#lc => limited company
+#co => company
+#assn => association
+#assoc => association
+#acad => academy
+#div => division
+#dist => district
+#pc => professional corporation
+#coop => cooperative
+#uninc => unincorporated
+#no => number
+#agt => agent
+#est => established
+#inst => institution
+#inst => institute
+#limitee => limitee
+#govt => government
+#gov => government
+#tech => technology
+#nl => no liability
+#mt => mount
+#agcy => agency
+
+## symbols
+#& => and
+
+### not sure
+#company,coy  --> not sure if coy is a valid abbrevaition
+#account,ac  --> not sure if ac is correct over a/c
+#university,univ --> is univ an acceptable abbrevaition for university?
+#cooperative,co op --> co op will always be parsed to "co" and "op" since there is a whitespace in between

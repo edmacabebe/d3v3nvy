@@ -1,0 +1,62 @@
+.transferable-list {
+  .transferable-list-container {
+    height: 500px;
+    width: 100%;
+    border: 1px solid;
+    border-radius: 5px;
+
+    .title {
+      margin: 10px;
+    }
+    .row {
+      margin: 10px !important;
+      &.search-button-container {
+        border-bottom: 1px solid $grey;
+        .btn {
+          width: 70px;
+          height: 38px;
+        }
+      }
+    }
+    .transferable-list-content {
+      height: 390px;
+      overflow-y: scroll;
+      ul {
+        li {
+          text-indent: 10px;
+          display: block;
+          padding:10px 0;
+          &:hover {
+            background-color:$grey-lightest;
+          }
+        }
+      }
+    }
+
+    .selected {
+      background-color:$grey-lightest;
+    }
+    .not-selected {
+      background-color: transparent;
+    }
+  }
+  .transferable-trigger-icon {
+    text-align: center;
+     i {
+      &.fa-caret-right {
+        position: absolute;
+        top: 220px;
+        font-size:40px;
+        color:$blue-light;
+        cursor:pointer;
+      }
+      &.fa-caret-left {
+        position: relative;
+        top: 260px;
+        font-size:40px;
+        color:$blue-light;
+        cursor:pointer;
+      }
+    }
+  }
+}

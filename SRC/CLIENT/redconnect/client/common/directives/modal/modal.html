@@ -1,0 +1,37 @@
+<div>
+  <div class="modal modal-confirmation unlink-modal" ng-show="isUnlinkModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!--modal header-->
+          <div class="modal-header">
+            <!--close-->
+              <div class="close">
+                <i class="fa fa-times-circle-o" ng-click="isUnlinkModal=false"></i>
+              </div>
+            <!--end of close--> 
+          </div>
+        <!--end of modal header-->
+        <!--modal body-->
+          <div class="modal-body">
+            <div class="icon">
+              <i class="fa fa-chain-broken" aria-hidden="true"></i>
+            </div>
+            <p>Are you sure you want to unlink this profile?</p>
+          </div>
+        <!--end of modal body-->
+        <!--modal body-->
+          <div class="modal-footer">
+            <div class="row">
+              <div class="col-6">
+                <button class="btn btn-cancel" ng-click="isUnlinkModal=false">Cancel</button>
+              </div>  
+              <div class="col-6">
+                <button class="btn btn-primary">Unlink</button>
+              </div>
+            </div>
+          </div>
+        <!--end of modal body-->
+      </div>
+    </div>
+  </div>
+</div>

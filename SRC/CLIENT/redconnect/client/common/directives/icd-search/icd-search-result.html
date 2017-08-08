@@ -1,0 +1,13 @@
+<div>
+    <ul ng-if="$ctrl.service.data.total > 0">
+        <li class="profile-result">Profile(s)&nbsp;&nbsp;&nbsp;{{$ctrl.service.data.total}} Result(s)</li>
+        <li ng-repeat="data in $ctrl.service.contentHeader">
+            <span ng-bind-html="data.fullName">{{data.fullName}}</span>
+            <span ng-if="data.profileId">Profile Id: <em ng-bind-html="data.profileId">{{data.profileId}}</em>, Reference Case Number: {{data.referenceCaseNo}}</span>
+            <span>Type: Company, Country: <em  ng-bind-html="data.country">{{data.country}}</em>, Industry: <em ng-bind-html="data.industry">{{data.industry}}</em></span>
+            <span ng-if="data.aliasName">Trading Name, Alias or AKA: <em ng-bind-html="data.aliasName">{{data.aliasName}}</em></span>
+            <span ng-if="data.nameInLocalLanguage">Name in Local Language: <em ng-bind-html="data.nameInLocalLanguage">{{data.nameInLocalLanguage}}</em></span>
+        </li>
+        <li class="align-center" style="border-top:1px solid;cursor:pointer;" ng-if="$ctrl.service.data.total >= 6" ng-click="$ctrl.seeAll($event)">See all</li>
+    </ul>
+</div>

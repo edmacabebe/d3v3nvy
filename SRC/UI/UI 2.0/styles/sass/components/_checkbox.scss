@@ -1,0 +1,52 @@
+//
+// Component: Checkbox
+// --------------------------------------------------
+
+//== Default checkbox styling
+//
+//## 
+
+input[type="checkbox"] {
+	@include _padding(0);
+	@include _appearance; //~none!default
+	border: none;
+	width: 14px;
+	height: 14px;
+	cursor: pointer;
+	background: no-repeat;
+	background-position: top;
+	background-image: url('../../assets/checkbox/normal.png');
+
+	&:hover, &.hover {
+		background-position: bottom;
+	}
+}
+
+input[type="checkbox"], input[type="checkbox"] + label {
+	display: inline-block;
+	vertical-align: middle;
+	font-weight: $font-weight-base!important;
+}
+
+input[type="checkbox"] + label {
+	@include _margin(2px 0 0!important);
+}
+
+input[type="checkbox"]:checked,  
+input[type="checkbox"].checked {
+	background-image: url('../../assets/checkbox/checked.png');
+}
+
+input[type="checkbox"].disabled, 
+input[type="checkbox"]:disabled {
+	background-image: url('../../assets/checkbox/disabled-normal.png');
+}
+
+input[type="checkbox"].hover-checked {
+	background-image: url('../../assets/checkbox/checked.png');
+	background-position: bottom;
+}
+
+input[type="checkbox"].disabled-checked {
+	background-image: url('../../assets/checkbox/disabled-checked.png');
+}

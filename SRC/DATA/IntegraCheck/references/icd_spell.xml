@@ -1,0 +1,4 @@
+<options xmlns="http://marklogic.com/xdmp/spell">
+    <distance-threshold>200</distance-threshold>
+    <maximum>2</maximum>
+</options>

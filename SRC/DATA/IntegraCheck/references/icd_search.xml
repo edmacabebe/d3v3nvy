@@ -1,0 +1,18 @@
+<options xmlns="http://marklogic.com/appservices/search">
+    <constraint name="elem">
+        <container>
+            <element name="content" ns="http://my/namespace" />
+        </container>
+    </constraint>
+    <constraint name="head">
+        <container>
+            <json-property>header</json-property>
+        </container>
+    </constraint>
+    <!-- Limit all searches to this additional query -->
+    <additional-query>
+        <cts:collection-query xmlns:cts="http://marklogic.com/cts">
+            <cts:uri>profile</cts:uri>
+        </cts:collection-query>
+    </additional-query>
+</options>

@@ -1,0 +1,81 @@
+//
+// Component: Table
+// --------------------------------------------------
+
+//== Default <table> styling
+//
+//## 
+
+table {
+	width: 100%;
+	@include _margin(($margin / 2) 0);
+
+	&.data-grid {
+		border-color: $table-border-color;
+		border-width: $table-border-width;
+		border-style: $table-border-style;
+		background: $table-bg;
+		font-size: $font-size-base;	
+		width: 100%;
+
+		td, th {
+			text-align: left;
+			@include _padding(($table-cell-padding * 1.5) ($table-cell-padding * 2));
+			@include _margin();
+			border-right-color: $white;
+		}
+
+		tr {
+			th {
+				font-weight: $font-weight-bold;
+			}
+
+			td {
+				border-top-color: $table-border-color;
+				border-top-width: $table-border-width;
+				border-top-style: $table-border-style;
+			}
+		}
+	}
+}
+
+
+//== Responsiveness
+//
+//## 
+
+@media (max-width: #{$tablet-small}px) {
+    .data-grid {
+    	border-top: none;
+    	border-bottom: none;
+
+		th {
+			display: none;
+		}
+
+		tr {
+			display: block;
+			border-bottom-color: $table-border-color;
+			border-bottom-width: $table-border-width;
+			border-bottom-style: $table-border-style;
+
+			td {
+				display: block;
+				text-align: right;
+				font-size: $font-size-base - 1;
+				border-top: none!important;;
+				@include _padding(4px);
+
+				&:last-child {
+					border-bottom: 0;
+				}
+
+				&:before {
+					content: attr(data-label);
+					float: left;
+					font-weight: $font-weight-bold;
+				}
+			}
+		}		
+    }
+}
