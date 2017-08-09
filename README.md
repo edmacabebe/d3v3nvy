@@ -1,4 +1,4 @@
-# Project RedConnect and ICD Repository #
+# Project Jupiter and MarkLogic DB #
 
 This README provides the reader, presumed to be a developer, to understand how the project RedConnect is structured.
 There will be configuration steps that needs to be executed in sequence in order to attain a fully functional
