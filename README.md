@@ -76,7 +76,7 @@ development lifecycle.
 ### DEVTEST Environment setup and guidelines ###
 
 * [DEVTEST Environment Configuration and CICD automation](DEV.LOCAL/README.md)
-* Writing tests
+* [My Wiki](https://github.com/edmacabebe/d3v3nvy/wiki/Welcome-to-our-MarkLogic,-AngularJs-Nodejs-on-Openshift-Origin-Kubernetes-Project)
 * Code review
 * Other guidelines
 
