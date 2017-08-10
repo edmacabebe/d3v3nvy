@@ -1,6 +1,6 @@
 # Project Jupiter and MarkLogic DB #
 
-This README provides the reader, presumed to be a developer, to understand how the project RedConnect is structured.
+This README provides the reader, presumed to be a developer, to understand how the project Jupiter is structured.
 There will be configuration steps that needs to be executed in sequence in order to attain a fully functional
 build which is according to a set of requirements expected in each milestone (in our case, a scrum sprint) in the
 development lifecycle.
@@ -15,7 +15,7 @@ development lifecycle.
 
 * Summary of set up
 
-+ Layers of Redconnect
++ Tiers/Layers of Project Jupiter
     * Front-end as presentation layer or client to IntegraCheck DB ( or ICD) API: [AngularJs]()
     * Middle-layer as API/Front to ICD: [NodeJs]()
     * Back-end as DB/Application Server for IntegraCheck: [Marklogic]()
@@ -62,7 +62,7 @@ development lifecycle.
 
 + Database configuration
     
-    RedConnect uses MarkLogic DB & AS. It is an operational and transactional Enterprise NoSQL database designed for large-scale data deployments, migration and integration. It will store, manage and search the database for integrating data from silos. 
+    The project uses MarkLogic DB & AS. It is an operational and transactional Enterprise NoSQL database designed for large-scale data deployments, migration and integration. It will store, manage and search the database for integrating data from silos. 
     
     With Roxy the deployment tool for configuring and deploying application. Using Roxy you can define app servers, databases, forests, groups, tasks, etc.
 
