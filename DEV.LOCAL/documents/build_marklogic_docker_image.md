@@ -8,8 +8,8 @@
 - Once downloaded, move the file to ```$PWD/tmp``` directory and rename it as ```MarkLogic9.rpm```
 
 ## Building the image
-- Download the Dockerfile from this link [Dockerfile](marklogic/Dockerfile) to $PWD.
-- Download the [initialize-ml.sh](marklogic/initialize-ml.sh) to $PWD.
+- Download the Dockerfile from this link [Dockerfile](../platform/marklogic/Dockerfile) to $PWD.
+- Download the [initialize-ml.sh](../platform/marklogic/initialize-ml.sh) to $PWD.
 - Build the docker image  using the command:
 ```
 docker build --rm=true -t marklogic9 .
@@ -21,4 +21,4 @@ docker build --rm=true -t marklogic9 .
 marklogic9                                   latest              60784656367c        41 seconds ago      1.809 GB
 
 ```
-# Congratulations! You have just build the MarkLogic9 Docker Image!
+# Congratulations! You have just built the MarkLogic9 Docker Image!
